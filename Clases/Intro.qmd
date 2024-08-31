@@ -771,39 +771,93 @@ ggplot(df, aes(x = x,
 
 ::::
 
-## Presupuesto
+##  {background-image="imagenese/leaf.jpg"}
 
-:::: {.columns}
+### Frontera de Posibilidades de Producción {.r-fit-text}
 
-::: {.column width="40%"}
-- Probando
-:::
+## Frontera de Posibilidad de Producción
 
-::: {.column width="60%"}
-```{r BC-setup, include=FALSE}
-library("mosaic")
-px<-2.5
-py<-5
-m<-20
-
-ends<-tribble(
-  ~x, ~y,
-  0, (m/py),
-  (m/px), 0
-)
-BC=function(x){(m/py)-(px/py)*x}
-line_colors <- c("BC" = "blue")
+::: fragment
+```{r datagr1, include=FALSE}
+library(econocharts)
+p <- ppf(x = 4:6, # Intersections
+         main = "Frontera de posibilidad de Producción",
+         geom = "text",
+         generic = TRUE, # Generic labels
+         labels = c("A", "B", "C"), # Custom labels
+         xlab = "Motos",
+         ylab = "Autos",
+         acol = 3)      # Color of the area
 ```
 
-```{r BC-plot0, fig.retina=3, fig.align="center", fig.height=12.3}
-ggplot(data.frame(x=c(0,m/px)), aes(x=x))+
-  scale_x_continuous(breaks = NULL)+
-  scale_y_continuous(breaks = NULL)+
-  labs(x = "x",
-       y = "y")+
-  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```{r, ex1, echo=FALSE, fig.height=5}
+p$p + geom_point(data = data.frame(x = 5, y = 5), size = 5) +
+  geom_point(data = data.frame(x = 2, y = 2), size = 5) +
+  annotate("segment", x = 3.1, xend = 4.25, y = 5, yend = 5,
+           arrow = arrow(length = unit(0.5, "lines")), colour = 3, lwd = 1) +
+  annotate("segment", x = 4.25, xend = 4.25, y = 5, yend = 4,
+           arrow = arrow(length = unit(0.5, "lines")), colour = 3, lwd = 1)
 ```
 :::
 
-::::
+## Frontera de Posibilidad de Producción
+
+::: fragment
+Suponga que un **país** cuenta con producción especifica de Automomoviles y Motos.
+:::
+
+::: fragment
+*Opción A*: Producir 20 Autos y 200 Motos
+*Opción B*: Producir 25 Autos y 160 Motos
+:::
+
+::: fragment
+Calcule el costo de oportunidad de un automóvil frente a los (motos):
+:::
+
+::: fragment
+$$\frac{(25-20)}{(160-200)}=\frac{5}{-40}=-0.125$$
+:::
+
+## Frontera de Posibilidad de Producción
+
+::: fragment
+Ahora el costo de oportunidad de los motos frente a los autos:
+:::
+
+:::fragment
+$$\frac{(160-200)}{(25-20)}=\frac{-40}{5}=-8$$
+:::
+
+::: fragment
+> Para producir un automóvil debe renunciar a 8 unidades de computadores
+:::
+
+::: fragment
+Ademas en sentido contrario
+:::
+
+::: fragment
+> Para producir un computador debe renunciar a 0.125 unidades de Autos
+:::
+
+## Gracias! por su atención {.center}
+
+#### Alguna pregunta adicional?
+
+Slides de la clase:
+
+`r fa('link')` [Curso virtual](https://cursos.uninorte.edu.co/d2l/home/109780)
+
+`r fa('github')` [keynes37](https://github.com/keynes37)
+
+## Bibliografía {.center}
+
+`r fa('book')` Mankiw, N. G. (2005). *Principios de microeconomía* /N. Gregory Mankiw (No. 338.5 M55Y.).
+
+`r fa('archive')` Lecture notes Ryan Safner
+
+`r fa('book')` Krugman, P., & Wells, R. (2014). *Microeconomics (for AP)*. New York: Worth Publishers.
+
+`r fa('book')` Mokate, K., & Castro, R. (2018). *Evaluación económica y social de proyectos de inversión*: Segunda edición. Universidad de los Andes.
 
