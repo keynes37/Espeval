@@ -274,7 +274,7 @@ interp1 <- tibble(
              "Precios relativos",
              "Conducta del Estado"),
   Basa =c("Curva de Demanda", "Curva de oferta", "Oferta-Demanda", "Control y regulación"),
-  Determina =c("Teoría de la Utilidad", "Tería de la Producción", "Elasticidad", "Regulación")) %>% 
+  Determina =c("Teoría de la Utilidad", "Teoría de la Producción", "Elasticidad", "Regulación")) %>% 
   kable(
   escape = F,
   col.names = c("Analiza", "Se basa en", "Determina"),
@@ -556,12 +556,12 @@ Si!!, 30 carros antes se gastaban 20 minutos ahora solo 15 min!!
 :::
 ::::
 
-## Incentivos
+## Equilibrio
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">1970: One more lane will fix it.<br>1980: One more lane will fix it.<br>1990: One more lane will fix it.<br>2000: One more lane will fix it.<br>2010: One more lane will fix it.<br>2020: ?<a href="https://t.co/NjS1IPORG2">pic.twitter.com/NjS1IPORG2</a><br>via <a href="https://twitter.com/avelezig?ref_src=twsrc%5Etfw">@avelezig</a></p>&mdash; Urban Planning &amp; Mobility 🚲🚶
 ♂️🚆 (@urbanthoughts11) <a href="https://twitter.com/urbanthoughts11/status/1191295205187686400?ref_src=twsrc%5Etfw">November 4, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 
-## Incentivos
+## Equilibrio
 
 ::: fragment
 > **Estática comparativa**: examinar los cambios en los equilibrios provocados por un cambio externo (en los incentivos, las restricciones, etc.).
@@ -576,7 +576,7 @@ flowchart LR
 ```
 :::
 
-## incentivos
+## Equilibrio
 
 - Las [personas]{.alert} aprenden todo el *tiempo* e inclusive [cambian]{.blut} su comportamiento. Siempre buscan o "tienden" a buscar la opción de mayor valor
 
@@ -623,26 +623,187 @@ Todo estará en un optimo $\Leftrightarrow$ el sistema esta en **equilibrio**
 
 ## Repaso Matemático
 
+::: fragment
+`r fa("angle-double-right", fill="blue")` **Considere la siguiente expresión**:
+:::
 
-- `r fa("angle-double-right", fill="blue")` **Considere la siguiente expresión**:
+::: fragment
+<font size="+5">$$2+2=4$$</font>
+:::
 
-- <font size="+5">$$2+2=4$$</font>
+::: fragment
+<span style="font-size:larger;">Cualquiera puede hacerlo...</span>
+:::
 
-- <span style="font-size:larger;">Cualquiera puede hacerlo...</span>
+::: fragment
+`r fa("angle-double-right", fill="blue")` **Ahora mire a continuación**:
+:::
 
-- `r fa("angle-double-right", fill="blue")` **Ahora mire a continuación**:
+::: fragment
+<font size="+5">$$2+2=\sqrt{16}$$</font>
+:::
 
-- <font size="+5">$$2+2=\sqrt{16}$$</font>
-
-- <span style="font-size:larger;"> No todos pueden hacerlo...</span>
-
+::: fragment
+<span style="font-size:larger;"> No todos pueden hacerlo...</span>
+:::
 
 ## Repaso Matemático
 
-- `r fa("angle-double-right", fill="blue")` **Nuevamente mire a continuación**:
+::: fragment
+`r fa("angle-double-right", fill="blue")` **Nuevamente mire a continuación**:
 
-- <font size="+5">$$3!-\left[1+\sum \limits_{p=1}^{\infty}\frac{1}{2^{p}}\right]=\sqrt{16}$$</font>
+<font size="+5">$$3!-\left[1+\sum \limits_{p=1}^{\infty}\frac{1}{2^{p}}\right]=\sqrt{16}$$</font>
+:::
 
-- <span style="font-size:larger;"> Ahora si que pocos podrán hacerlo...</span>
+::: fragment
+<span style="font-size:larger;"> Ahora si que pocos podrán hacerlo...</span>
+:::
+- `r fa("angellist")` Conociendo de lo anterior ya usted tiene varias formas de obtener una [respuesta]{.alert}.
 
-- `r fa("angellist")` Conociendo de lo anterior ya usted tiene varias formas de obtener una .black[respuesta].
+## Repaso Matemático
+
+- Que tan bueno deriva(?)
+- Muchas cosas se miden con cambios, por ello se hace uso de las derivadas.
+- Mire a continuación la siguiente expresión:
+
+::: fragment
+
+$$f(x)=2x^2-3x-y$$
+:::
+
+- Derive con respecto a (x), es decir halle $f'(x)$
+
+- La respuesta es $f'(x)=4x+3$
+
+- Los economistas a veces la igualan a cero (0). Con eso podrá obtener el máximo o el mínimo de una función.
+
+## Repaso Matemático
+
+- Piense por un momento en lo siguiente: 
+
+:::fragment
+Está planeando un viaje a Bogotá. Para llegar, puede coger un bus o volar. El Bus de Barranquilla a Bogotá tarda 14 horas y cuesta 130 mil pesos. Un vuelo de Barranquilla a Bogotá tarda 1 hora y cuesta 970 mil pesos el billete. Decide coger el Bus. ¿Cuánto valoras tu tiempo?
+:::
+
+::: fragment
+Su elección de ir en bus $\Rightarrow$ es menos costosa que ir en avión
+$$14\;\text{horas}+130000\leq1\; \text{hora} + 970000$$
+:::
+
+::: fragment
+Vamos a restar 130 mil de cada lado
+$$14\;\text{horas}\leq1\; \text{hora} + 840000$$
+:::
+
+## Repaso Matemático
+
+::: fragment
+Despejamos las horas (uso de términos cómunes) 
+$$14\;\text{horas}- 1\text{hora}\leq\;840000$$
+:::
+
+::: fragment
+Solo queda restar y dividir
+$$13\;\text{horas}\leq\;840000$$
+:::
+
+::: fragment
+> Note que $1\; \text{hora}\leq 64615$ 
+:::
+
+##  {background-image="imagenese/leaf.jpg"}
+
+### Presupuesto {.r-fit-text}
+
+
+
+## Presupuesto
+
+:::: {.columns}
+
+::: {.column width="60%"}
+- Piense que usted desea dos bienes
+- Estos son $\{X, Y\}$
+- Las cantidades son 2 y 3 respectivamente
+:::
+
+::: {.column width="40%"}
+::: fragment
+```{r, echo=F, message = F, warning = F, fig.height=12.3, fig.align="center"}
+df <- tribble(
+  ~x, ~y,
+  2, 3
+)
+
+ggplot(df, aes(x = x,
+               y = y))+
+  geom_point(size =3)+
+  geom_text(aes(x=2,y=3.5), label="(2,3)", size=7)+
+  geom_segment(x=0, xend=2, y=3, yend=3, linetype="dotted", size =1)+
+  geom_segment(x=2, xend=2, y=0, yend=3, linetype="dotted", size =1)+
+  scale_x_continuous(breaks = seq(0,10,1), 
+                     limits = c(0,10),
+                     expand = c(0,0))+
+  scale_y_continuous(breaks = seq(0,10,1), 
+                     limits = c(0,10),
+                     expand=c(0,0))+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+:::
+
+:::
+
+::::
+
+## Presupuesto
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- Si tiene 100 y desea gastarlo en $\{X,Y\}$, cuantas unidades serian?
+- Solo aquellos que sean *asequibles*
+- El presupuesto es una línea que se representa como $m$
+:::
+
+::: {.column width="50%"}
+![](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGEyZ2sxdXlzbjJsbHkxb3JhcHhkMGo1YXR6dHl2YTJvMzN3cHJ5cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YpTqcPJyW5Mrb4mJJp/giphy.gif)
+:::
+
+::::
+
+## Presupuesto
+
+:::: {.columns}
+
+::: {.column width="40%"}
+- Probando
+:::
+
+::: {.column width="60%"}
+```{r BC-setup, include=FALSE}
+library("mosaic")
+px<-2.5
+py<-5
+m<-20
+
+ends<-tribble(
+  ~x, ~y,
+  0, (m/py),
+  (m/px), 0
+)
+BC=function(x){(m/py)-(px/py)*x}
+line_colors <- c("BC" = "blue")
+```
+
+```{r BC-plot0, fig.retina=3, fig.align="center", fig.height=12.3}
+ggplot(data.frame(x=c(0,m/px)), aes(x=x))+
+  scale_x_continuous(breaks = NULL)+
+  scale_y_continuous(breaks = NULL)+
+  labs(x = "x",
+       y = "y")+
+  theme_classic(base_family = "Fira Sans Condensed", base_size=20)
+```
+:::
+
+::::
+
