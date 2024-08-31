@@ -1,4 +1,4 @@
-# Espeval
+# Espeval 1.0
 This is a course on economic theory for project evaluation.
 
 
