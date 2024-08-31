@@ -60,16 +60,14 @@ theme_market <- theme_bw() + theme(
 theme_set(theme_ipsum_rc())
 ```
 
-## {background-color="black" background-image="https://media.giphy.com/media/8FVcs24aSuQBpHPg4n/giphy.gif" background-size="1000px"}
+##  {background-color="black" background-image="https://media.giphy.com/media/8FVcs24aSuQBpHPg4n/giphy.gif" background-size="1000px"}
 
 ## Presentación
 
-- Como vamos?
-- Vamos a tratar de aprender algo
-- Pregunte por lo que no entienda
-- Formato de la clase (participación, comentarios y retarnos)
-
-
+-   Como vamos?
+-   Vamos a tratar de aprender algo
+-   Pregunte por lo que no entienda
+-   Formato de la clase (participación, comentarios y retarnos)
 
 ## Quién soy?
 
@@ -87,13 +85,13 @@ theme_set(theme_ipsum_rc())
 ::: fragment
 Un cuadro que requiere de [atención]{.fg style="--col: #FF0000"} 🧐
 
-| Requerimientos       | Fechas                 | Ponderador     |
-|----------------------|------------------------|----------------|
-| Participación        | Durante todo el curso  | 10%            |
-| Entregables (3) | A solicitud               | 20% (cada entrega)|
-| Test                  | entre semanas         | 30%            |
+| Requerimientos  | Fechas                | Ponderador         |
+|-----------------|-----------------------|--------------------|
+| Participación   | Durante todo el curso | 10%                |
+| Entregables (3) | A solicitud           | 20% (cada entrega) |
+| Test            | entre semanas         | 30%                |
 
-♠ Las [notas]{.fg style="--col: #FF8000"}  de los test son individuales. Los entregables si pueden ser en grupo
+♠ Las [notas]{.fg style="--col: #FF8000"} de los test son individuales. Los entregables si pueden ser en grupo
 :::
 
 ## Esquema del Curso
@@ -105,7 +103,7 @@ Un cuadro que requiere de [atención]{.fg style="--col: #FF0000"} 🧐
 ## Fuentes de información
 
 ::: fragment
-![](imagenese/fuentes.png){width=50%}
+![](imagenese/fuentes.png){width="50%"}
 :::
 
 ##  {background-image="imagenese/home.jpg"}
@@ -133,7 +131,7 @@ La economía analiza las decisiones de la sociedad y cómo esas decisiones del p
 ::: callout-important
 ## Ejercicio
 
-Hace unos 30 años, una cesta de bienes tales como (huevos, leche, pollo y mantequilla) costaban unos $500. Hoy, esa misma cesta puede costar unos 290.000 mil pesos COP.
+Hace unos 30 años, una cesta de bienes tales como (huevos, leche, pollo y mantequilla) costaban unos \$500. Hoy, esa misma cesta puede costar unos 290.000 mil pesos COP.
 :::
 :::
 
@@ -142,6 +140,7 @@ Hace unos 30 años, una cesta de bienes tales como (huevos, leche, pollo y mante
 :::
 
 ## Conceptos básicos
+
 ```{r}
 #| label: fig-inflaction
 #| warning: false
@@ -184,17 +183,17 @@ girafe(code = print (p3))
 
 ## Conceptos básicos
 
-- `r fa("donate", fill="red")` El principal [problema]{.alert} en economía es que hay que reconocer que todo es **escaso**.
+-   `r fa("donate", fill="red")` El principal [problema]{.alert} en economía es que hay que reconocer que todo es **escaso**.
 
-- El agua, los bosques, el cobre, los osos pandas, el aire limpio.
+-   El agua, los bosques, el cobre, los osos pandas, el aire limpio.
 
-- El tiempo, la calidad de de vida (*medido en esperanza*), la concentración.
+-   El tiempo, la calidad de de vida (*medido en esperanza*), la concentración.
 
 ::: fragment
 > No existen los suficientes bienes para satisfacer las necesidades ilimitadas de los individuos. (Escasez)
 :::
 
-- Sin embargo... por lo pronto nos las arreglamos
+-   Sin embargo... por lo pronto nos las arreglamos
 
 ## Conceptos básicos
 
@@ -202,12 +201,12 @@ girafe(code = print (p3))
 ![](imagenese/gapminder.gif)
 :::
 
-
 # Descripción
 
 ::: fragment
 ::: callout-note
 ## Descripción del curso
+
 Este curso proporciona los principios de economía para tener presente en la evaluación de proyectos, centrado exclusivamente en los conceptos de la economía en general utilizando elementos básicos de **cálculo diferencial** 😢 y de alguna manera de la [estadística]{.oranger} 😬
 :::
 :::
@@ -224,43 +223,34 @@ Este curso proporciona los principios de economía para tener presente en la eva
 
 ::: fragment
 > Estudia el proceso de **producción** y *distribución* de los bienes y servicios elaborados en la sociedad, desde los puntos de vista micro y macroeconómico.
-
 :::
 
 ::: fragment
-:::: {.columns}
+::: columns
+::: {.column width="50%"}
+-   Desde la [microeconomía]{.blut} se estudia la conducta de los agentes económicos **individuales**, los mercados y sus interrelaciones, a través del análisis de las variables que afectan los [precios “relativos”]{.bg style="--col: #FFFF00"} de los bienes y servicios.
+:::
 
 ::: {.column width="50%"}
-- Desde la [microeconomía]{.blut} se estudia la conducta de los agentes económicos **individuales**, los mercados y sus interrelaciones, a través del análisis de las variables que afectan los [precios “relativos”]{.bg style="--col: #FFFF00"} de los bienes y servicios. 
+Desde la [macroeconomía]{.oranger} se estudia el funcionamiento de la economía con base al [nivel general de precios]{#FF8000 .fg style="\"--col:"}.
 :::
-
-::: {.column width="50%"}
-Desde la [macroeconomía]{.oranger} se estudia  el funcionamiento de la economía con base al [nivel general de precios]{.fg style="--col: #FF8000}.
-
 :::
-
-::::
-
 :::
-
-
 
 ## Teoría Económica
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="60%"}
-- ¿Qué es una "economía"?
-- ¿De dónde surgen los agregados ("PIB", "desempleo" e "inflación")?
-- [Microeconomía]{.alert}: Opciones y consecuencias
-- [Macroeconomía]{.blut}: Interacción sistémica de los tomadores de decisiones y comportamiento emergente
+-   ¿Qué es una "economía"?
+-   ¿De dónde surgen los agregados ("PIB", "desempleo" e "inflación")?
+-   [Microeconomía]{.alert}: Opciones y consecuencias
+-   [Macroeconomía]{.blut}: Interacción sistémica de los tomadores de decisiones y comportamiento emergente
 :::
 
 ::: {.column width="40%"}
 ![](imagenese/Nube.png)
 :::
-
-::::
+:::
 
 ## Teoría Económica
 
@@ -284,22 +274,22 @@ interp1 <- tibble(
   column_spec(3, color = "red", italic = T)
 interp1
 ```
-
 :::
 
 ## Teoría Económica
 
 ### Economistas parece que hablan un idioma raro...
 
-- Términos que "conoce" de la vida cotidiana tienen [significados]{.bg style="--col: #00FFFF"} muy diferentes para los **economistas**
+-   Términos que "conoce" de la vida cotidiana tienen [significados]{.bg style="--col: #00FFFF"} muy diferentes para los **economistas**
 
-- Costo, eficiencia, bienestar, competencia, marginal, equilibrio, ganancia, bien público, discriminación, elasticidad
+-   Costo, eficiencia, bienestar, competencia, marginal, equilibrio, ganancia, bien público, discriminación, elasticidad
 
-- Usar los significados "ordinarios" de estas palabras puede llevar a [conclusiones económicas]{.fg style="--col: #314f4f"} incorrectas!
+-   Usar los significados "ordinarios" de estas palabras puede llevar a [conclusiones económicas]{.fg style="--col: #314f4f"} incorrectas!
 
 ::: fragment
 ::: callout-tip
 ## idea
+
 ¡Necesita "aprender" los significados económicos de estas palabras!
 :::
 :::
@@ -309,19 +299,15 @@ interp1
 ### Jerga económica
 
 ::: fragment
-
-:::: {.columns}
-
+::: columns
 ::: {.column width="50%"}
->Tasa marginal de sustitución, costo marginal, excedente del consumidor, eficiencia asignativa, externalidad
+> Tasa marginal de sustitución, costo marginal, excedente del consumidor, eficiencia asignativa, externalidad
 :::
 
 ::: {.column width="50%"}
 ![](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdW9tb3lrcWJ4OTl5cTR0azVlMDM4aGhhZmUyY3Y0Z2h5bnd4NnYyaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7kn27lnYSAE9O/giphy.gif)
 :::
-
-::::
-
+:::
 :::
 
 ##  {background-image="imagenese/home.jpg"}
@@ -331,7 +317,7 @@ interp1
 ## Incentivos
 
 ::: fragment
-![](imagenese/comic1.png){width=100%}
+![](imagenese/comic1.png){width="100%"}
 :::
 
 ## Incentivos
@@ -341,38 +327,36 @@ interp1
 ::: fragment
 ::: callout-note
 ## Incentivo
+
 Es un estímulo o recompensa que se ofrece para **motivar** a una persona o grupo a realizar una acción específica o comportarse de cierta manera. Los incentivos pueden ser [positivos]{.alert}, como bonificaciones o premios, o negativos, como multas o sanciones, y son utilizados para alinear los intereses individuales con los objetivos organizacionales o sociales.
 :::
 :::
 
-
-- La gente responde a los [incentivos]{.under}:
+-   La gente responde a los [incentivos]{.under}:
 
 ::: fragment
 > Dinero, castigo, impuestos y subsidios, riesgo de lesiones, reputación, ganancias, género, esfuerzo, moral
 :::
 
-- Los entornos se ajustan hasta que están en **equilibrio**
+-   Los entornos se ajustan hasta que están en **equilibrio**
 
 ## Incentivos
 
-- La gente ajusta sus elecciones hasta que sean [óptimas]{.fg style="--col: #314f4f"}, dadas las acciones de los demás.
+-   La gente ajusta sus elecciones hasta que sean [óptimas]{.fg style="--col: #314f4f"}, dadas las acciones de los demás.
 
-- Suponga por ejemplo:
+-   Suponga por ejemplo:
 
 ::: fragment
-[El gobierno nacional ofrece un *subsidio* de $3500 por cada cola de ratón que entreguen las personas]{.fg style="--col: #e64173"}. ¿Qué creen que ocurrirá?
+[El gobierno nacional ofrece un *subsidio* de \$3500 por cada cola de ratón que entreguen las personas]{.fg style="--col: #e64173"}. ¿Qué creen que ocurrirá?
 :::
 
 ::: fragment
-![](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExazNhdnhkMXN0emZjZjF2eWsyZmZhYmEyNGt1Njdiamg1anAwMWoxeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3orifd1gtUpWraAKBO/giphy.gif){width=30%}
+![](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExazNhdnhkMXN0emZjZjF2eWsyZmZhYmEyNGt1Njdiamg1anAwMWoxeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3orifd1gtUpWraAKBO/giphy.gif){width="30%"}
 :::
-
 
 ## Incentivos
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="50%"}
 ::: fragment
 ![](imagenese/transit.png)
@@ -381,26 +365,23 @@ Es un estímulo o recompensa que se ofrece para **motivar** a una persona o grup
 ::: fragment
 [¡Consecuencias no intencionadas!]{.fg style="--col: #FF0000"}
 :::
-
 :::
 
 ::: {.column width="50%"}
-- La gente responde a (cambios en) los **incentivos**.
-- La gente tiene metas/objetivos que busca alcanzar.
-- Hacer que una [alternativa]{.oranger} sea más costosa no significa que la gente [deje]{.under} de perseguir/conseguir sus metas.
-- La gente [buscará métodos alternativos]{.blut} (menos preferidos) para alcanzar sus metas.
+-   La gente responde a (cambios en) los **incentivos**.
+-   La gente tiene metas/objetivos que busca alcanzar.
+-   Hacer que una [alternativa]{.oranger} sea más costosa no significa que la gente [deje]{.under} de perseguir/conseguir sus metas.
+-   La gente [buscará métodos alternativos]{.blut} (menos preferidos) para alcanzar sus metas.
 :::
-
-::::
+:::
 
 ## Incentivos
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="50%"}
-- La cultura del atajo siempre va estar presente, inclusive en los proyectos que deba designar o realizar.
-- La/s personas/gente buscaran la manera de bloquear o saltar
-- Siempre inclusive hay que tratar de resolver con creativos nudges
+-   La cultura del atajo siempre va estar presente, inclusive en los proyectos que deba designar o realizar.
+-   La/s personas/gente buscaran la manera de bloquear o saltar
+-   Siempre inclusive hay que tratar de resolver con creativos nudges
 :::
 
 ::: {.column width="50%"}
@@ -408,13 +389,14 @@ Es un estímulo o recompensa que se ofrece para **motivar** a una persona o grup
 ![](imagenese/Atajo.png)
 :::
 :::
-
-::::
+:::
 
 ## incentivos
 
 ::: fragment
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0i4vQVP_B6U?si=wOhEGZxqslBU0j5C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0i4vQVP_B6U?si=wOhEGZxqslBU0j5C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
 :::
 
 ##  {background-image="imagenese/home.jpg"}
@@ -423,11 +405,9 @@ Es un estímulo o recompensa que se ofrece para **motivar** a una persona o grup
 
 ## Equilibrio
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="65%"}
 ![](imagenese/d1.png)
-
 :::
 
 ::: {.column width="35%"}
@@ -438,14 +418,12 @@ Es un estímulo o recompensa que se ofrece para **motivar** a una persona o grup
 `r fa("bell", fill="red")` Tiempo en *carril compartido* : 15 min + 1 min/carro
 
 `r fa("bell", fill="red")` **Doble calzada** 20 minutos (siempre)
-
 :::
-::::
+:::
 
 ## Equilibrio
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="65%"}
 ![](imagenese/d1.png)
 :::
@@ -460,14 +438,12 @@ Es un estímulo o recompensa que se ofrece para **motivar** a una persona o grup
 `r fa("bell", fill="red")` **Doble calzada** 20 minutos (siempre)
 
 `r fa("bell", fill="blue")` [Optimización]{.fg style="--col: #e64173"}: Van a *escoger* el camino que minimiza [el tiempo]{.under}
-
 :::
-::::
+:::
 
 ## Equilibrio
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="65%"}
 ![](imagenese/d2.png)
 :::
@@ -482,14 +458,12 @@ Es un estímulo o recompensa que se ofrece para **motivar** a una persona o grup
 `r fa("bell", fill="red")` **Doble calzada** 20 minutos (siempre)
 
 `r fa("bell", fill="blue")` [Escena 1]{.fg style="--col: #e64173"}: Menos de **30 carros** en carril
-
 :::
-::::
+:::
 
 ## Equilibrio
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="65%"}
 ![](imagenese/d3.png)
 :::
@@ -504,14 +478,12 @@ Es un estímulo o recompensa que se ofrece para **motivar** a una persona o grup
 `r fa("bell", fill="red")` **Doble calzada** 20 minutos (siempre)
 
 `r fa("bell", fill="blue")` [Escena 2]{.fg style="--col: #e64173"}: Mas de **30 carros** en carril
-
 :::
-::::
+:::
 
 ## Equilibrio
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="65%"}
 ![](imagenese/d4.png)
 :::
@@ -526,14 +498,12 @@ Es un estímulo o recompensa que se ofrece para **motivar** a una persona o grup
 `r fa("bell", fill="red")` **Doble calzada** 20 minutos (siempre)
 
 `r fa("bell", fill="blue")` [Equilibrio]{.fg style="--col: #e64173"}: Cuantos Carros debe haber en cada vía(?), Por?
-
 :::
-::::
+:::
 
 ## Equilibrio
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="65%"}
 ![](imagenese/d5.png)
 :::
@@ -549,18 +519,29 @@ Es un estímulo o recompensa que se ofrece para **motivar** a una persona o grup
 [Esto reduce el tiempo de viaje?]{.bg style="--col: #00FFFF"}
 :::
 
-:::fragment
+::: fragment
 Si!!, 30 carros antes se gastaban 20 minutos ahora solo 15 min!!
 :::
-
 :::
-::::
+:::
 
 ## Equilibrio
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">1970: One more lane will fix it.<br>1980: One more lane will fix it.<br>1990: One more lane will fix it.<br>2000: One more lane will fix it.<br>2010: One more lane will fix it.<br>2020: ?<a href="https://t.co/NjS1IPORG2">pic.twitter.com/NjS1IPORG2</a><br>via <a href="https://twitter.com/avelezig?ref_src=twsrc%5Etfw">@avelezig</a></p>&mdash; Urban Planning &amp; Mobility 🚲🚶
-♂️🚆 (@urbanthoughts11) <a href="https://twitter.com/urbanthoughts11/status/1191295205187686400?ref_src=twsrc%5Etfw">November 4, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+<blockquote class="twitter-tweet">
 
+<p lang="en" dir="ltr">
+
+1970: One more lane will fix it.<br>1980: One more lane will fix it.<br>1990: One more lane will fix it.<br>2000: One more lane will fix it.<br>2010: One more lane will fix it.<br>2020: ?<a href="https://t.co/NjS1IPORG2">pic.twitter.com/NjS1IPORG2</a><br>via <a href="https://twitter.com/avelezig?ref_src=twsrc%5Etfw">@avelezig</a>
+
+</p>
+
+— Urban Planning & Mobility 🚲🚶 ♂️🚆 (@urbanthoughts11) <a href="https://twitter.com/urbanthoughts11/status/1191295205187686400?ref_src=twsrc%5Etfw">November 4, 2019</a>
+
+</blockquote>
+
+```{=html}
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+```
 ## Equilibrio
 
 ::: fragment
@@ -578,17 +559,17 @@ flowchart LR
 
 ## Equilibrio
 
-- Las [personas]{.alert} aprenden todo el *tiempo* e inclusive [cambian]{.blut} su comportamiento. Siempre buscan o "tienden" a buscar la opción de mayor valor
+-   Las [personas]{.alert} aprenden todo el *tiempo* e inclusive [cambian]{.blut} su comportamiento. Siempre buscan o "tienden" a buscar la opción de mayor valor
 
-- Si no hay mejores [alternativas]{.blut}, entonces podemos decir que esa persona se encuentra en un [**optimo**]{.fg style="--col: #e64173"}
+-   Si no hay mejores [alternativas]{.blut}, entonces podemos decir que esa persona se encuentra en un [**optimo**]{.fg style="--col: #e64173"}
 
 ::: fragment
 ::: callout-tip
 ## Pendiente!
+
 Todo estará en un optimo $\Leftrightarrow$ el sistema esta en **equilibrio**
 :::
 :::
-
 
 ## [Todo esto es raro...]{style="font-size: 80px; font-family: Brusher;"} {.center}
 
@@ -606,20 +587,19 @@ Todo estará en un optimo $\Leftrightarrow$ el sistema esta en **equilibrio**
 
 ## Repaso Matemático
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="50%"}
 ![](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMW5idnRybXBtbnk5dmM5eG1qaWIybjF3bHVtMWFoMHYyYnI2bHYyYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cgOse52aBT0vs7oL53/giphy.gif)
 :::
 
 ::: {.column width="50%"}
-- Los economistas suelen «hablar» en modelos que explican y predicen el [comportamiento humano]{.oranger}
+-   Los economistas suelen «hablar» en modelos que explican y predicen el [comportamiento humano]{.oranger}
 
-- El lenguaje puro de los modelos son las [matemáticas]{.under}
+-   El lenguaje puro de los modelos son las [matemáticas]{.under}
 
-- Cosas que son universalmente ciertas, deducibles a partir de axiomas, pueden detectar errores fácilmente a menudo ecuaciones y gráficos esto es lo que más asusta a muchas personas que quieren aprender de economía
+-   Cosas que son universalmente ciertas, deducibles a partir de axiomas, pueden detectar errores fácilmente a menudo ecuaciones y gráficos esto es lo que más asusta a muchas personas que quieren aprender de economía
 :::
-::::
+:::
 
 ## Repaso Matemático
 
@@ -632,7 +612,7 @@ Todo estará en un optimo $\Leftrightarrow$ el sistema esta en **equilibrio**
 :::
 
 ::: fragment
-<span style="font-size:larger;">Cualquiera puede hacerlo...</span>
+[Cualquiera puede hacerlo...]{style="font-size:larger;"}
 :::
 
 ::: fragment
@@ -644,7 +624,7 @@ Todo estará en un optimo $\Leftrightarrow$ el sistema esta en **equilibrio**
 :::
 
 ::: fragment
-<span style="font-size:larger;"> No todos pueden hacerlo...</span>
+[ No todos pueden hacerlo...]{style="font-size:larger;"}
 :::
 
 ## Repaso Matemático
@@ -656,75 +636,68 @@ Todo estará en un optimo $\Leftrightarrow$ el sistema esta en **equilibrio**
 :::
 
 ::: fragment
-<span style="font-size:larger;"> Ahora si que pocos podrán hacerlo...</span>
+[ Ahora si que pocos podrán hacerlo...]{style="font-size:larger;"}
 :::
-- `r fa("angellist")` Conociendo de lo anterior ya usted tiene varias formas de obtener una [respuesta]{.alert}.
+
+-   `r fa("angellist")` Conociendo de lo anterior ya usted tiene varias formas de obtener una [respuesta]{.alert}.
 
 ## Repaso Matemático
 
-- Que tan bueno deriva(?)
-- Muchas cosas se miden con cambios, por ello se hace uso de las derivadas.
-- Mire a continuación la siguiente expresión:
+-   Que tan bueno deriva(?)
+-   Muchas cosas se miden con cambios, por ello se hace uso de las derivadas.
+-   Mire a continuación la siguiente expresión:
 
 ::: fragment
-
 $$f(x)=2x^2-3x-y$$
 :::
 
-- Derive con respecto a (x), es decir halle $f'(x)$
+-   Derive con respecto a (x), es decir halle $f'(x)$
 
-- La respuesta es $f'(x)=4x+3$
+-   La respuesta es $f'(x)=4x+3$
 
-- Los economistas a veces la igualan a cero (0). Con eso podrá obtener el máximo o el mínimo de una función.
+-   Los economistas a veces la igualan a cero (0). Con eso podrá obtener el máximo o el mínimo de una función.
 
 ## Repaso Matemático
 
-- Piense por un momento en lo siguiente: 
+-   Piense por un momento en lo siguiente:
 
-:::fragment
+::: fragment
 Está planeando un viaje a Bogotá. Para llegar, puede coger un bus o volar. El Bus de Barranquilla a Bogotá tarda 14 horas y cuesta 130 mil pesos. Un vuelo de Barranquilla a Bogotá tarda 1 hora y cuesta 970 mil pesos el billete. Decide coger el Bus. ¿Cuánto valoras tu tiempo?
 :::
 
 ::: fragment
-Su elección de ir en bus $\Rightarrow$ es menos costosa que ir en avión
-$$14\;\text{horas}+130000\leq1\; \text{hora} + 970000$$
+Su elección de ir en bus $\Rightarrow$ es menos costosa que ir en avión $$14\;\text{horas}+130000\leq1\; \text{hora} + 970000$$
 :::
 
 ::: fragment
-Vamos a restar 130 mil de cada lado
-$$14\;\text{horas}\leq1\; \text{hora} + 840000$$
+Vamos a restar 130 mil de cada lado $$14\;\text{horas}\leq1\; \text{hora} + 840000$$
 :::
 
 ## Repaso Matemático
 
 ::: fragment
-Despejamos las horas (uso de términos cómunes) 
-$$14\;\text{horas}- 1\text{hora}\leq\;840000$$
+Despejamos las horas (uso de términos cómunes) $$14\;\text{horas}- 1\text{hora}\leq\;840000$$
 :::
 
 ::: fragment
-Solo queda restar y dividir
-$$13\;\text{horas}\leq\;840000$$
+Solo queda restar y dividir $$13\;\text{horas}\leq\;840000$$
 :::
 
 ::: fragment
-> Note que $1\; \text{hora}\leq 64615$ 
+> Note que $1\; \text{hora}\leq 64615$
 :::
 
 ##  {background-image="imagenese/leaf.jpg"}
 
 ### Presupuesto {.r-fit-text}
 
-
-
 ## Presupuesto
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="60%"}
-- Piense que usted desea dos bienes
-- Estos son $\{X, Y\}$
-- Las cantidades son 2 y 3 respectivamente
+-   Piense que usted desea dos bienes
+-   Estos son $\{X, Y\}$
+-   Las cantidades son 2 y 3 respectivamente
 :::
 
 ::: {.column width="40%"}
@@ -750,26 +723,22 @@ ggplot(df, aes(x = x,
   theme_classic(base_family = "Fira Sans Condensed", base_size=20)
 ```
 :::
-
 :::
-
-::::
+:::
 
 ## Presupuesto
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="50%"}
-- Si tiene 100 y desea gastarlo en $\{X,Y\}$, cuantas unidades serian?
-- Solo aquellos que sean *asequibles*
-- El presupuesto es una línea que se representa como $m$
+-   Si tiene 100 y desea gastarlo en $\{X,Y\}$, cuantas unidades serian?
+-   Solo aquellos que sean *asequibles*
+-   El presupuesto es una línea que se representa como $m$
 :::
 
 ::: {.column width="50%"}
 ![](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGEyZ2sxdXlzbjJsbHkxb3JhcHhkMGo1YXR6dHl2YTJvMzN3cHJ5cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YpTqcPJyW5Mrb4mJJp/giphy.gif)
 :::
-
-::::
+:::
 
 ##  {background-image="imagenese/leaf.jpg"}
 
@@ -807,8 +776,7 @@ Suponga que un **país** cuenta con producción especifica de Automomoviles y Mo
 :::
 
 ::: fragment
-*Opción A*: Producir 20 Autos y 200 Motos
-*Opción B*: Producir 25 Autos y 160 Motos
+*Opción A*: Producir 20 Autos y 200 Motos *Opción B*: Producir 25 Autos y 160 Motos
 :::
 
 ::: fragment
@@ -825,12 +793,12 @@ $$\frac{(25-20)}{(160-200)}=\frac{5}{-40}=-0.125$$
 Ahora el costo de oportunidad de los motos frente a los autos:
 :::
 
-:::fragment
+::: fragment
 $$\frac{(160-200)}{(25-20)}=\frac{-40}{5}=-8$$
 :::
 
 ::: fragment
-> Para producir un automóvil debe renunciar a 8 unidades de computadores
+> Para producir un automóvil debe renunciar a 8 unidades de motos
 :::
 
 ::: fragment
@@ -838,7 +806,7 @@ Ademas en sentido contrario
 :::
 
 ::: fragment
-> Para producir un computador debe renunciar a 0.125 unidades de Autos
+> Para producir una moto debe renunciar a 0.125 unidades de Autos
 :::
 
 ## Gracias! por su atención {.center}
@@ -860,4 +828,3 @@ Slides de la clase:
 `r fa('book')` Krugman, P., & Wells, R. (2014). *Microeconomics (for AP)*. New York: Worth Publishers.
 
 `r fa('book')` Mokate, K., & Castro, R. (2018). *Evaluación económica y social de proyectos de inversión*: Segunda edición. Universidad de los Andes.
-
