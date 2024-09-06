@@ -6,7 +6,7 @@ author:
     orcid: 0000-0003-0683-3727
     email: cayanes@uninorte.edu.co
     affiliations: Universidad del Norte
-format: 
+format:
   revealjs:
     multiplex: true
     footer: "[Universidad del Norte](https://www.uninorte.edu.co/)"
@@ -624,7 +624,7 @@ Todo estará en un optimo $\Leftrightarrow$ el sistema esta en **equilibrio**
 :::
 
 ::: fragment
-[ No todos pueden hacerlo...]{style="font-size:larger;"}
+[No todos pueden hacerlo...]{style="font-size:larger;"}
 :::
 
 ## Repaso Matemático
@@ -636,7 +636,7 @@ Todo estará en un optimo $\Leftrightarrow$ el sistema esta en **equilibrio**
 :::
 
 ::: fragment
-[ Ahora si que pocos podrán hacerlo...]{style="font-size:larger;"}
+[Ahora si que pocos podrán hacerlo...]{style="font-size:larger;"}
 :::
 
 -   `r fa("angellist")` Conociendo de lo anterior ya usted tiene varias formas de obtener una [respuesta]{.alert}.
