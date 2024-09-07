@@ -1643,7 +1643,7 @@ $$\epsilon_d = \dfrac{\text{% cambio en cantidad de demanda}}{\text{% cambio en 
 [Interpretación:]{.alert} «Un aumento de un uno por ciento el precio conduce a un aumento de $\epsilon_d$ por ciento en la cantidad demandada».
 :::
 
-- $\epsilon_d < -1$ ==> la demanda es [elastica]{.alert} o [sensible]{alert} a cambios en el precio.
+- $\epsilon_d < -1$ ==> la demanda es [elastica]{.alert} o [sensible]{.alert} a cambios en el precio.
 
 - $-1 <\epsilon_d \leq 0$ ==> la demanda es [inelastica]{.blut} o [insensible]{.blut} a cambios en el precio.
 
@@ -1661,7 +1661,7 @@ data.frame(
   v3 = c(rep("Inelastico", 5), rep("Elastico", 5))
 ) %>% kable(
   escape = F,
-  col.names = c("Good/Service", "Elasticidad de la Demanda", "Elastica o Inelastica?"),
+  col.names = c("Bien/Servicio", "Elasticidad de la Demanda", "Elastica o Inelastica?"),
   align = c("l", "c", "c")
 ) %>%
 row_spec(1:7, color = met_slate) %>%
