@@ -1625,13 +1625,55 @@ $$Var\;\%=\frac{\left ( 15-20 \right )}{20}*100= -25\%$$
 :::
 
 ::: fragment
-La elasticidad viene a ser: $e_d=\dfrac{-25\%}{13\%}=1.92$, que significa que el cambio ha sido elastico
+La elasticidad viene a ser: $e_d=\dfrac{-25\%}{13\%}=-1.92$, que significa que el cambio ha sido elástico.
 :::
 
 ## Elasticidad
 
 ::: fragment
-Algunos ejemplos por consumo de elasticidad tenemos:
+> La medida de respuesta a la sensibilidad de los precios
+:::
+
+::: fragment
+$$\epsilon_d = \dfrac{\text{% cambio en cantidad de demanda}}{\text{% cambio en los precios}} \leq 0$$
+:::
+
+
+::: fragment
+[Interpretación:]{.alert} «Un aumento de un uno por ciento el precio conduce a un aumento de $\epsilon_d$ por ciento en la cantidad demandada».
+:::
+
+- $\epsilon_d < -1$ ==> la demanda es [elastica]{.alert} o [sensible]{alert} a cambios en el precio.
+
+- $-1 <\epsilon_d \leq 0$ ==> la demanda es [inelastica]{.blut} o [insensible]{.blut} a cambios en el precio.
+
+## Elasticidad
+
+::: fragment
+Ejemplos de sensibilidad de consumo vamos a tener:
+:::
+
+::: fragment
+```{R, echo = F, escape = F}
+data.frame(
+  v1 = c("Viajes de Negocio", "Cuidado Médico", "Café", "Cigarrillos", "Cine", "Colegio Privado", "Restaurante", "Viajes de Ocio", "Vegetales", "Carros Honda"),
+  v2 = c(-0.1, -0.17, -0.25, -0.45, -0.9, -1.1, -1.6, -2.4, -3.7, -4),
+  v3 = c(rep("Inelastico", 5), rep("Elastico", 5))
+) %>% kable(
+  escape = F,
+  col.names = c("Good/Service", "Elasticidad de la Demanda", "Elastica o Inelastica?"),
+  align = c("l", "c", "c")
+) %>%
+row_spec(1:7, color = met_slate) %>%
+row_spec(1:7, extra_css = "line-height: 110%;") %>% 
+column_spec(1, italic = T, color = met_slate)
+```
+:::
+
+## Elasticidad
+
+::: fragment
+Algunos ejemplos por consumo de elasticidad-ingreso tenemos:
 :::
 
 :::fragment
@@ -1648,7 +1690,6 @@ data.frame(
 row_spec(1:10, color = met_slate) %>%
 row_spec(1:10, extra_css = "line-height: 110%;") %>% 
 column_spec(1, italic = T, color = met_slate)
-```
 ```
 
 :::
