@@ -323,6 +323,8 @@
   <script src="clase01_files/libs/quarto-diagram/mermaid.min.js"></script>
   <script src="clase01_files/libs/quarto-diagram/mermaid-init.js"></script>
   <link href="clase01_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
+  <script src="clase01_files/libs/kePrint/kePrint.js"></script>
+  <link href="clase01_files/libs/lightable/lightable.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -646,10 +648,10 @@ B
 <li class="fragment">Enfrentamientos:
 <ul>
 <li class="fragment">A vs B: A gana (65% vs 35%)</li>
-<li class="fragment">A vs C: A gana (65% vs 35%)</li>
+<li class="fragment">A vs C: C gana (60% vs 40%)</li>
 <li class="fragment">B vs C: B gana (75% vs 25%)</li>
 </ul></li>
-<li class="fragment"><strong>Resultado</strong>: A es el ganador de Condorcet porque vence a B y a C.</li>
+<li class="fragment"><strong>Resultado</strong>: Tendriamos <span class="under">un empate</span></li>
 </ul>
 </div>
 </div>
@@ -681,9 +683,9 @@ B
 <ul>
 <li class="fragment"><strong>Ronda 2</strong>:
 <ul>
-<li class="fragment">Los votos de C se redistribuyen: B gana con el 60% de los votos.</li>
+<li class="fragment">Los votos de C se redistribuyen: A gana con el 75% de los votos.</li>
 </ul></li>
-<li class="fragment"><strong>Resultado</strong>: B es el ganador tras la eliminación de C.</li>
+<li class="fragment"><strong>Resultado</strong>: A es el ganador tras la eliminación de C.</li>
 </ul>
 </div>
 </div>
@@ -703,7 +705,7 @@ B
 </ul></li>
 <li class="fragment"><strong>Segunda vuelta</strong>:
 <ul>
-<li class="fragment">A vs B: A gana con 55% frente a B (45%).</li>
+<li class="fragment">A vs B: A gana con 65% frente a B (35%).</li>
 </ul></li>
 <li class="fragment"><strong>Resultado</strong>: A gana la elección en la segunda vuelta.</li>
 </ul></li>
@@ -743,7 +745,7 @@ B
 <ul>
 <li class="fragment">A: 80 + 25 = 105 puntos</li>
 <li class="fragment">B: 40 + 70 = 110 puntos</li>
-<li class="fragment">C: 50 + 25 = 75 puntos</li>
+<li class="fragment">C: 50 + 35 = 85 puntos</li>
 <li class="fragment"><strong>Ganador</strong>: B es el ganador según el conteo de Borda.</li>
 </ul></li>
 </ul>
@@ -753,7 +755,7 @@ B
 <section id="preferencias-ejercicio" class="slide level2">
 <h2>Preferencias: Ejercicio</h2>
 <div class="fragment">
-<p>Imagine que una municipio debe decidir entre cuatro proyectos de <span class="blut">infraestructura pública</span>, y las partes interesadas (ciudadanos, funcionarios, etc.) han votado según sus <span class="alert">preferencias</span>.</p>
+<p>Imagine que un municipio debe decidir entre cuatro proyectos de <span class="blut">infraestructura pública</span>, y las partes interesadas (ciudadanos, funcionarios, etc.) han votado según sus <span class="alert">preferencias</span>.</p>
 </div>
 <div class="fragment">
 <p>Los proyectos son: Proyecto A: <span class="alert">Construcción de un parque comunitario</span>. Proyecto B: <span class="oranger">Expansión de la red de transporte público</span>. Proyecto C: <span class="slater">Renovación de la infraestructura escolar</span>. Proyecto D: <span class="oranger">Desarrollo de un centro de salud</span>.</p>
@@ -1477,8 +1479,6 @@ B
 <li class="fragment"><p>Ahora pasa que el precio sube a <code>$20</code>. Usted ahora solo podrá consumir 5 unidades de <span class="math inline">\((x)\)</span>.</p></li>
 <li class="fragment"><p>Eso se denomina <span class="under">Efecto ingreso</span></p></li>
 <li class="fragment"><p>El cambio de poder de compra puede aumentar/disminuir su consumo sin afectar su ingreso</p></li>
-<li class="fragment"><p>El <span class="under">tamaño</span> del efecto depende en donde se gasta usted su ingreso (Casa/Carro/Apto)</p></li>
-<li class="fragment"><p>Si solo consume bienes como (lapicero/leche/souvenirs) no habrá mucha diferencia.</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <p><img data-src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTA1azRnaHBtMXR4ZWQxY25yNWU3NzdhN3JlNGUyNzBjamY3YnlnaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PjaTjG8ct5cNOtjjZg/giphy.gif"></p>
@@ -1514,7 +1514,7 @@ B
 <h2>Efectos</h2>
 <div class="columns">
 <div class="column" style="width:30%;">
-<p>Afecta y genera un nuevo consumo de <span class="math inline">\((X)\)</span> y tiene mas “poder”</p>
+<p>Afecta y genera un nuevo consumo de <span class="math inline">\((X)\)</span> y tiene mas “poder” de compra.</p>
 </div><div class="column" style="width:70%;">
 <p><img data-src="imagenese/c1vc2.png"></p>
 </div>
@@ -1528,6 +1528,249 @@ B
 </div><div class="column" style="width:70%;">
 <p><img data-src="imagenese/c1vc3.png"></p>
 </div>
+</div>
+</section>
+<section id="efectos-8" class="slide level2">
+<h2>Efectos</h2>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Variacion Compensada</strong></p>
+</div>
+<div class="callout-content">
+<p>¿Cuánto tendría que darle o quitarle al consumidor <em>después</em> del cambio de precios para que vuelva al nivel de satisfacción que tenía <em>antes</em> del cambio?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Se calcula con respecto a la <span class="alert">utilidad final</span>, es decir, se mide en términos de cuánto se necesitaría para devolver al consumidor a su nivel de satisfacción original después de que haya ocurrido el cambio en los precios.</p>
+</div>
+</section>
+<section id="efectos-9" class="slide level2">
+<h2>Efectos</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>Una baja en el precio de <span class="math inline">\((X)\)</span></p>
+</div><div class="column" style="width:70%;">
+<p><img data-src="imagenese/c1ve1.png"></p>
+</div>
+</div>
+</section>
+<section id="efectos-10" class="slide level2">
+<h2>Efectos</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>Modifica el bienestar a una nueva función de utlidad de <span class="math inline">\(U(2)\)</span></p>
+</div><div class="column" style="width:70%;">
+<p><img data-src="imagenese/c1ve2.png"></p>
+</div>
+</div>
+</section>
+<section id="efectos-11" class="slide level2">
+<h2>Efectos</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>Es una equivalencia de mantenerlo en su posición final <span class="math inline">\(U(2)\)</span></p>
+</div><div class="column" style="width:70%;">
+<p><img data-src="imagenese/c1ve3.png"></p>
+</div>
+</div>
+</section>
+<section id="efectos-12" class="slide level2">
+<h2>Efectos</h2>
+<div class="fragment">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Variación Equivalente</strong></p>
+</div>
+<div class="callout-content">
+<p>¿Cuánto tendrías que darle al consumidor antes del cambio de precios para que se quede igual de satisfecho después del cambio?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Se calcula considerando la utilidad inicial, es decir, se mide con respecto a cómo el consumidor <strong>valora</strong> el cambio antes de que ocurra.</p>
+</div>
+</section></section>
+<section>
+<section id="excedente-del-consumidor" class="title-slide slide level1 center" data-background-color="#006dae">
+<h1>Excedente del consumidor</h1>
+
+</section>
+<section id="excedente-del-consumidor-1" class="slide level2">
+<h2>Excedente del consumidor</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>El <span class="alert">área</span> bajo la curva de demanda, es una zona de bienestar</p>
+</div><div class="column" style="width:70%;">
+<p><img data-src="imagenese/c1exc1.png"></p>
+</div>
+</div>
+</section>
+<section id="excedente-del-consumidor-2" class="slide level2">
+<h2>Excedente del consumidor</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>Cuando baja el precio podemos calcular esa variación. Si el <span class="alert">área</span> se hace mas grande, mayor bienestar tiene el individuo</p>
+</div><div class="column" style="width:70%;">
+<p><img data-src="imagenese/c1exc2.png"></p>
+</div>
+</div>
+</section>
+<section id="excedente-del-consumidor-3" class="slide level2">
+<h2>Excedente del consumidor</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>Algunas veces puede no ser lineal</p>
+</div><div class="column" style="width:70%;">
+<p><img data-src="imagenese/c1exc3.png"> <span class="small">Se puede hacer con integrales</span></p>
+</div>
+</div>
+</section>
+<section id="section-4" class="slide level2" data-background-image="imagenese/leaf.jpg">
+<h2></h2>
+<h3 class="r-fit-text" id="elasticidad">Elasticidad</h3>
+</section>
+<section id="elasticidad-1" class="slide level2">
+<h2>Elasticidad</h2>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Elasticidad</strong></p>
+</div>
+<div class="callout-content">
+<p>Mide como una <strong>variable</strong> responde a los <em>cambios</em> de otra <span class="alert">variable</span> de interés. Para facilidad, esta puede ser expresada como el cambio porcentual de una variable por el <em>cambio porcentual</em> de la otra.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\epsilon^{d}=\dfrac{\% \triangle Q_{d}}{\% \triangle P} = \dfrac{\dfrac{\triangle Q}{Q}}{\dfrac{\triangle P}{P}}\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="blut"><em>Debe saber que</em></span> <span class="math inline">\(\triangle Q= Q_2-Q_1\)</span>, donde <span class="math inline">\(Q_2\)</span> <em>es el presente de la variable o tiempo actual y</em> <span class="math inline">\(Q_1\)</span> <em>viene siendo el pasado</em>.</p>
+</div>
+</section>
+<section id="elasticidad-3" class="slide level2">
+<h2>Elasticidad</h2>
+<div class="fragment">
+<blockquote>
+<p><span class="alert">Variación Porcentual (%)</span>: Mide los cambios <strong>porcentuales</strong> de una <strong>variable característica</strong>. Esta puede ser <em>positiva</em> o <em>negativa</em>.</p>
+</blockquote>
+</div>
+<div class="fragment">
+<p><span class="math display">\[Var\;\%=\frac{\left ( X_{Presente}-X_{Pasado} \right )}{X_{Pasado}}*100\]</span></p>
+</div>
+<div class="fragment">
+<p><svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></svg> Tenga en consideración que si los precios por decir un ejemplo eran de <span class="alert"><code>$</code>13000</span> y pasaron a ser de <span class="alert"><code>$</code>14700</span>, entonces la variación porcentual es de:</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[Var\;\%=\frac{\left ( 14700-13000 \right )}{13000}*100= 13\%\]</span></p>
+</div>
+</section>
+<section id="elasticidad-4" class="slide level2">
+<h2>Elasticidad</h2>
+<div class="fragment">
+<p>Digamos ahora que las cantidades de demanda (consumo), pasaron de 20 a 15, al calcular su variación tendremos</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[Var\;\%=\frac{\left ( X_{Presente}-X_{Pasado} \right )}{X_{Pasado}}*100\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[Var\;\%=\frac{\left ( 15-20 \right )}{20}*100= -25\%\]</span></p>
+</div>
+<div class="fragment">
+<p>La elasticidad viene a ser: <span class="math inline">\(e_d=\dfrac{-25\%}{13\%}=1.92\)</span>, que significa que el cambio ha sido elastico</p>
+</div>
+</section>
+<section id="elasticidad-5" class="slide level2">
+<h2>Elasticidad</h2>
+<div class="fragment">
+<p>Algunos ejemplos por consumo de elasticidad tenemos:</p>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center" data-escape="false">
+<div class="cell-output-display">
+<table class="caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Bien/Servicio</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Elasticidad ingreso</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Normal o Inferior?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; color: rgba(39, 40, 34, 255) !important; line-height: 110%; font-style: italic; color: rgba(39, 40, 34, 255) !important;">Automoviles</td>
+<td style="text-align: center; color: rgba(39, 40, 34, 255) !important; line-height: 110%;">3.00</td>
+<td style="text-align: center; color: rgba(39, 40, 34, 255) !important; line-height: 110%;">Normal</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: rgba(39, 40, 34, 255) !important; line-height: 110%; font-style: italic; color: rgba(39, 40, 34, 255) !important;">Restaurantes</td>
+<td style="text-align: center; color: rgba(39, 40, 34, 255) !important; line-height: 110%;">1.40</td>
+<td style="text-align: center; color: rgba(39, 40, 34, 255) !important; line-height: 110%;">Normal</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: rgba(39, 40, 34, 255) !important; line-height: 110%; font-style: italic; color: rgba(39, 40, 34, 255) !important;">Casas</td>
+<td style="text-align: center; color: rgba(39, 40, 34, 255) !important; line-height: 110%;">1.20</td>
+<td style="text-align: center; color: rgba(39, 40, 34, 255) !important; line-height: 110%;">Normal</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: rgba(39, 40, 34, 255) !important; line-height: 110%; font-style: italic; color: rgba(39, 40, 34, 255) !important;">Gasolina</td>
+<td style="text-align: center; color: rgba(39, 40, 34, 255) !important; line-height: 110%;">1.06</td>
+<td style="text-align: center; color: rgba(39, 40, 34, 255) !important; line-height: 110%;">Normal</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: rgba(39, 40, 34, 255) !important; line-height: 110%; font-style: italic; color: rgba(39, 40, 34, 255) !important;">Apartamentos (Arriendo</td>
+<td style="text-align: center; color: rgba(39, 40, 34, 255) !important; line-height: 110%;">1.00</td>
+<td style="text-align: center; color: rgba(39, 40, 34, 255) !important; line-height: 110%;">Normal</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: rgba(39, 40, 34, 255) !important; line-height: 110%; font-style: italic; color: rgba(39, 40, 34, 255) !important;">Café</td>
+<td style="text-align: center; color: rgba(39, 40, 34, 255) !important; line-height: 110%;">0.51</td>
+<td style="text-align: center; color: rgba(39, 40, 34, 255) !important; line-height: 110%;">Normal</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: rgba(39, 40, 34, 255) !important; line-height: 110%; font-style: italic; color: rgba(39, 40, 34, 255) !important;">Cigarrillos</td>
+<td style="text-align: center; color: rgba(39, 40, 34, 255) !important; line-height: 110%;">0.42</td>
+<td style="text-align: center; color: rgba(39, 40, 34, 255) !important; line-height: 110%;">Normal</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: rgba(39, 40, 34, 255) !important; line-height: 110%; font-style: italic; color: rgba(39, 40, 34, 255) !important;">Cuidado Médico</td>
+<td style="text-align: center; color: rgba(39, 40, 34, 255) !important; line-height: 110%;">0.22</td>
+<td style="text-align: center; color: rgba(39, 40, 34, 255) !important; line-height: 110%;">Normal</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: rgba(39, 40, 34, 255) !important; line-height: 110%; font-style: italic; color: rgba(39, 40, 34, 255) !important;">Margarinas</td>
+<td style="text-align: center; color: rgba(39, 40, 34, 255) !important; line-height: 110%;">-0.20</td>
+<td style="text-align: center; color: rgba(39, 40, 34, 255) !important; line-height: 110%;">Inferior</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: rgba(39, 40, 34, 255) !important; line-height: 110%; font-style: italic; color: rgba(39, 40, 34, 255) !important;">Transporte Público</td>
+<td style="text-align: center; color: rgba(39, 40, 34, 255) !important; line-height: 110%;">-0.36</td>
+<td style="text-align: center; color: rgba(39, 40, 34, 255) !important; line-height: 110%;">Inferior</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>```</p>
 </div>
 </section>
 <section id="gracias-por-su-atención" class="slide level2 center">

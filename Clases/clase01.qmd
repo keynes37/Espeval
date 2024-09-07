@@ -451,9 +451,9 @@ Nota: ¡NO es un empate a tres!
 ::: {.column width="50%"}
   - Enfrentamientos:
     - A vs B: A gana (65% vs 35%)
-    - A vs C: A gana (65% vs 35%)
+    - A vs C: C gana (60% vs 40%)
     - B vs C: B gana (75% vs 25%)
-  - **Resultado**: A es el ganador de Condorcet porque vence a B y a C.
+  - **Resultado**: Tendriamos [un empate]{.under}
 
 :::
 ::::
@@ -478,8 +478,8 @@ Nota: ¡NO es un empate a tres!
 
 ::: {.column width="50%"}
   - **Ronda 2**:
-    - Los votos de C se redistribuyen: B gana con el 60% de los votos.
-  - **Resultado**: B es el ganador tras la eliminación de C.
+    - Los votos de C se redistribuyen: A gana con el 75% de los votos.
+  - **Resultado**: A es el ganador tras la eliminación de C.
 
 :::
 
@@ -495,7 +495,7 @@ Nota: ¡NO es un empate a tres!
     - B: 35%
     - C: 25%
   - **Segunda vuelta**:
-    - A vs B: A gana con 55% frente a B (45%).
+    - A vs B: A gana con 65% frente a B (35%).
   - **Resultado**: A gana la elección en la segunda vuelta.
 
 ## Preferencias: Conteo de Borda
@@ -523,7 +523,7 @@ Nota: ¡NO es un empate a tres!
   - **Resultado**:
     - A: 80 + 25 = 105 puntos
     - B: 40 + 70 = 110 puntos
-    - C: 50 + 25 = 75 puntos
+    - C: 50 + 35 = 85 puntos
     - **Ganador**: B es el ganador según el conteo de Borda.
 
 :::
@@ -532,7 +532,7 @@ Nota: ¡NO es un empate a tres!
 ## Preferencias: Ejercicio
 
 ::: fragment
-Imagine que una municipio debe decidir entre cuatro proyectos de [infraestructura pública]{.blut}, y las partes interesadas (ciudadanos, funcionarios, etc.) han votado según sus [preferencias]{.alert}. 
+Imagine que un municipio debe decidir entre cuatro proyectos de [infraestructura pública]{.blut}, y las partes interesadas (ciudadanos, funcionarios, etc.) han votado según sus [preferencias]{.alert}. 
 :::
 
 ::: fragment
@@ -1387,9 +1387,6 @@ $$\text{TMS}=\frac{y}{x}=\frac{P_x}{P_y}$$
 
 - El cambio de poder de compra puede aumentar/disminuir su consumo sin afectar su ingreso
 
-- El [tamaño]{.under} del efecto depende en donde se gasta usted su ingreso (Casa/Carro/Apto)
-
-- Si solo consume bienes como (lapicero/leche/souvenirs) no habrá mucha diferencia.
 :::
 
 ::: {.column width="50%"}
@@ -1438,7 +1435,7 @@ Una baja en el precio de $(X)$
 :::: {.columns}
 
 ::: {.column width="30%"}
-Afecta y genera un nuevo consumo de $(X)$ y tiene mas "poder"
+Afecta y genera un nuevo consumo de $(X)$ y tiene mas "poder" de compra.
 :::
 
 ::: {.column width="70%"}
@@ -1461,8 +1458,200 @@ Se busca regresarlo a su utilidad inicial
 
 ::::
 
+## Efectos
 
+::: fragment
 
+::: callout-note
+## Variacion Compensada
+¿Cuánto tendría que darle o quitarle al consumidor *después* del cambio de precios para que vuelva al nivel de satisfacción que tenía *antes* del cambio?
+:::
+:::
+
+::: fragment
+Se calcula con respecto a la [utilidad final]{.alert}, es decir, se mide en términos de cuánto se necesitaría para devolver al consumidor a su nivel de satisfacción original después de que haya ocurrido el cambio en los precios.
+:::
+
+## Efectos
+
+:::: {.columns}
+
+::: {.column width="30%"}
+Una baja en el precio de $(X)$
+:::
+
+::: {.column width="70%"}
+![](imagenese/c1ve1.png)
+:::
+
+::::
+
+## Efectos
+
+:::: {.columns}
+
+::: {.column width="30%"}
+Modifica el bienestar a una nueva función de utlidad de $U(2)$
+:::
+
+::: {.column width="70%"}
+![](imagenese/c1ve2.png)
+:::
+
+::::
+
+## Efectos
+
+:::: {.columns}
+
+::: {.column width="30%"}
+Es una equivalencia de mantenerlo en su posición final $U(2)$
+:::
+
+::: {.column width="70%"}
+![](imagenese/c1ve3.png)
+:::
+
+::::
+
+## Efectos
+
+::: fragment
+::: callout-warning
+## Variación Equivalente
+¿Cuánto tendrías que darle al consumidor antes del cambio de precios para que se quede igual de satisfecho después del cambio?
+:::
+:::
+
+::: fragment
+Se calcula considerando la utilidad inicial, es decir, se mide con respecto a cómo el consumidor **valora** el cambio antes de que ocurra.
+:::
+
+# Excedente del consumidor {background-color="#006dae"}
+
+## Excedente del consumidor
+
+:::: {.columns}
+
+::: {.column width="30%"}
+El [área]{.alert} bajo la curva de demanda, es una zona de bienestar
+:::
+
+::: {.column width="70%"}
+![](imagenese/c1exc1.png)
+:::
+
+::::
+
+## Excedente del consumidor
+
+:::: {.columns}
+
+::: {.column width="30%"}
+Cuando baja el precio podemos calcular esa variación. Si el [área]{.alert} se hace mas grande, mayor bienestar tiene el individuo
+:::
+
+::: {.column width="70%"}
+![](imagenese/c1exc2.png)
+:::
+
+::::
+
+## Excedente del consumidor
+
+:::: {.columns}
+
+::: {.column width="30%"}
+Algunas veces puede no ser lineal
+:::
+
+::: {.column width="70%"}
+![](imagenese/c1exc3.png)
+[Se puede hacer con integrales]{.small}
+:::
+::::
+
+##  {background-image="imagenese/leaf.jpg"}
+
+### Elasticidad {.r-fit-text}
+
+## Elasticidad
+
+::: fragment
+::: callout-note
+## Elasticidad
+Mide como una **variable** responde a los *cambios* de otra [variable]{.alert} de interés. Para facilidad, esta puede ser expresada como el cambio porcentual de una variable por el *cambio porcentual* de la otra.
+:::
+:::
+
+::: fragment
+$$\epsilon^{d}=\dfrac{\% \triangle Q_{d}}{\% \triangle P} = \dfrac{\dfrac{\triangle Q}{Q}}{\dfrac{\triangle P}{P}}$$
+:::
+
+::: fragment
+[*Debe saber que*]{.blut} $\triangle Q= Q_2-Q_1$, donde $Q_2$ *es el presente de la variable o tiempo actual y* $Q_1$ *viene siendo el pasado*.
+:::
+
+## Elasticidad
+
+::: fragment
+> [Variación Porcentual (%)]{.alert}: Mide los cambios **porcentuales** de una **variable característica**. Esta puede ser *positiva* o *negativa*.
+:::
+ 
+::: fragment 
+$$Var\;\%=\frac{\left ( X_{Presente}-X_{Pasado} \right )}{X_{Pasado}}*100$$
+:::
+
+::: fragment
+`r fa("info-circle", fill="red")` Tenga en consideración que si los precios por decir un ejemplo eran de [`$`13000]{.alert} y pasaron a ser de [`$`14700]{.alert}, entonces la variación porcentual es de:
+:::
+
+::: fragment
+$$Var\;\%=\frac{\left ( 14700-13000 \right )}{13000}*100= 13\%$$
+:::
+
+## Elasticidad
+
+::: fragment
+Digamos ahora que las cantidades de demanda (consumo), pasaron de 20 a 15, al calcular su variación tendremos
+:::
+ 
+::: fragment 
+$$Var\;\%=\frac{\left ( X_{Presente}-X_{Pasado} \right )}{X_{Pasado}}*100$$
+:::
+
+::: fragment
+$$Var\;\%=\frac{\left ( 15-20 \right )}{20}*100= -25\%$$
+:::
+
+::: fragment
+La elasticidad viene a ser: $e_d=\dfrac{-25\%}{13\%}=1.92$, que significa que el cambio ha sido elastico
+:::
+
+## Elasticidad
+
+::: fragment
+Algunos ejemplos por consumo de elasticidad tenemos:
+:::
+
+:::fragment
+```{R, echo = F, escape = F}
+data.frame(
+  v1 = c("Automoviles", "Restaurantes", "Casas", "Gasolina", "Apartamentos (Arriendo", "Café", "Cigarrillos", "Cuidado Médico", "Margarinas", "Transporte Público"),
+  v2 = c(3.00, 1.40, 1.2, 1.06, 1.00, 0.51, 0.42, 0.22, -0.20, -0.36),
+  v3 = c(rep("Normal", 8), rep("Inferior", 2))
+) %>% kable(
+  escape = F,
+  col.names = c("Bien/Servicio", "Elasticidad ingreso", "Normal o Inferior?"),
+  align = c("l", "c", "c")
+) %>%
+row_spec(1:10, color = met_slate) %>%
+row_spec(1:10, extra_css = "line-height: 110%;") %>% 
+column_spec(1, italic = T, color = met_slate)
+```
+```
+
+:::
 ## Gracias! por su atención {.center}
 
 #### Alguna pregunta adicional?
