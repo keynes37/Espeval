@@ -1607,7 +1607,7 @@ $$Var\;\%=\frac{\left ( X_{Presente}-X_{Pasado} \right )}{X_{Pasado}}*100$$
 :::
 
 ::: fragment
-$$Var\;\%=\frac{\left ( 14700-13000 \right )}{13000}*100= 13\%$$
+$$Var \; \%=\frac{( 14700-13000 )}{13000}*100= 13\%$$
 :::
 
 ## Elasticidad
@@ -1617,7 +1617,7 @@ Digamos ahora que las cantidades de demanda (consumo), pasaron de 20 a 15, al ca
 :::
  
 ::: fragment 
-$$Var\;\%=\frac{\left ( X_{Presente}-X_{Pasado} \right )}{X_{Pasado}}*100$$
+$$Var \; \% =\frac{\left ( X_{Presente}-X_{Pasado} \right )}{X_{Pasado}}*100$$
 :::
 
 ::: fragment
