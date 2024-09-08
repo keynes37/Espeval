@@ -1585,7 +1585,7 @@ Mide como una **variable** responde a los *cambios* de otra [variable]{.alert} d
 :::
 
 ::: fragment
-$$\epsilon^{d}=\dfrac{\% \triangle Q_{d}}{\% \triangle P} = \dfrac{\dfrac{\triangle Q}{Q}}{\dfrac{\triangle P}{P}}$$
+$$\epsilon^{d}=\dfrac{\text{%} \triangle Q_{d}}{\text{%} \triangle P} = \dfrac{\dfrac{\triangle Q}{Q}}{\dfrac{\triangle P}{P}}$$
 :::
 
 ::: fragment
@@ -1595,7 +1595,7 @@ $$\epsilon^{d}=\dfrac{\% \triangle Q_{d}}{\% \triangle P} = \dfrac{\dfrac{\trian
 ## Elasticidad
 
 ::: fragment
-> [Variación Porcentual (%)]{.alert}: Mide los cambios **porcentuales** de una **variable característica**. Esta puede ser *positiva* o *negativa*.
+> [Variación Porcentual]{.alert}: Mide los cambios **porcentuales** de una **variable característica**. Esta puede ser *positiva* o *negativa*.
 :::
  
 ::: fragment 
