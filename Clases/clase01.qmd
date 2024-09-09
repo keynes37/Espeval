@@ -1607,7 +1607,7 @@ $$Var=\frac{\left ( X_{Presente}-X_{Pasado} \right )}{X_{Pasado}}*100$$
 :::
 
 ::: fragment
-$$Var \; =\frac{( 14700-13000 )}{13000}*100=13 \text{%}$$
+$$Var \; =\frac{( 14700-13000 )}{13000}*100=13$$
 :::
 
 ## Elasticidad
@@ -1621,7 +1621,7 @@ $$Var \;  =\frac{\left ( X_{Presente}-X_{Pasado} \right )}{X_{Pasado}}*100$$
 :::
 
 ::: fragment
-$$Var\;=\frac{\left ( 15-20 \right )}{20}*100= -25\text{%}$$
+$$Var\;=\frac{\left ( 15-20 \right )}{20}*100= -25$$
 :::
 
 ::: fragment
