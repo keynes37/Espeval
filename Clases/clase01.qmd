@@ -1585,7 +1585,7 @@ Mide como una **variable** responde a los *cambios* de otra [variable]{.alert} d
 :::
 
 ::: fragment
-$$\epsilon^{d}=\dfrac{\text{%} \triangle Q_{d}}{\text{%} \triangle P} = \dfrac{\dfrac{\triangle Q}{Q}}{\dfrac{\triangle P}{P}}$$
+$$\epsilon^{d}=\dfrac{\triangle Q_{d}}{ \triangle P} = \dfrac{\dfrac{\triangle Q}{Q}}{\dfrac{\triangle P}{P}}$$
 :::
 
 ::: fragment
@@ -1625,7 +1625,7 @@ $$Var\;=\frac{\left ( 15-20 \right )}{20}*100= -25\text{%}$$
 :::
 
 ::: fragment
-La elasticidad viene a ser: $e_d=\dfrac{-25\text{%}}{13\text{%}}=-1.92$, que significa que el cambio ha sido elástico.
+La elasticidad viene a ser: $e_d=\dfrac{-25}{13}=-1.92$, que significa que el cambio ha sido elástico.
 :::
 
 ## Elasticidad
