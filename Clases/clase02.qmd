@@ -1,0 +1,2133 @@
+---
+title: "Fundamentos de Teoría Economica ️🙂"
+subtitle: "Diseño y Evaluación de Proyectos"
+author:
+  - name: Carlos Andrés Yanes
+    orcid: 0000-0003-0683-3727
+    email: cayanes@uninorte.edu.co
+    affiliations: Universidad del Norte
+format: 
+  revealjs:
+    multiplex: true
+    footer: "[Universidad del Norte](https://www.uninorte.edu.co/)"
+    theme: ["options.scss"]
+    slide-number: c/t
+    incremental: true
+    title-slide-attributes:
+      data-background-image: imagenese/ocoen.jpg
+      data-background-size: cover  
+editor: visual
+---
+
+```{r setup}
+#| include: false
+options(htmltools.dir.version = FALSE)
+library(pacman)
+p_load(broom, latex2exp, ggplot2, ggthemes, ggforce, viridis, dplyr, magrittr, knitr, parallel, extrafont)
+
+library(tidyverse)
+library(babynames)
+library(fontawesome) # from github: https://github.com/rstudio/fontawesome
+library(DiagrammeR)
+library(hrbrthemes)
+library(econocharts)
+library(plotly)
+library(kableExtra)
+# Define colors
+red_pink <- "#e64173"
+met_slate <- "#272822" # metropolis font color 
+purple <- "#9370DB"
+green <- "#007935"
+light_green <- "#7DBA97"
+orange <- "#FD5F00"
+turquoise <- "#44C1C4"
+red <- "#b92e34"
+
+# Knitr options
+opts_chunk$set(
+  comment = "#>",
+  fig.align = "center",
+  fig.height = 7,
+  fig.width = 10.5,
+  #dpi = 300,
+  #cache = T,
+  warning = F,
+  message = F
+)  
+theme_simple <- theme_bw() + theme(
+  axis.line = element_line(color = met_slate),
+  panel.grid = element_blank(),
+  rect = element_blank(),
+  strip.text = element_blank(),
+  text = element_text(family = "Fira Sans", color = met_slate, size = 17),
+  axis.text.x = element_text(size = 12),
+  axis.text.y = element_text(size = 12),
+  axis.ticks = element_blank()
+)
+theme_market <- theme_bw() + theme(
+  axis.line = element_line(color = met_slate),
+  panel.grid = element_blank(),
+  rect = element_blank(),
+  strip.text = element_blank(),
+  text = element_text(family = "Fira Sans", color = met_slate, size = 17),
+  axis.title.x = element_text(hjust = 1, size = 17),
+  axis.title.y = element_text(hjust = 1, angle = 0, size = 17),
+  # axis.text.x = element_text(size = 12),
+  # axis.text.y = element_text(size = 12),
+  axis.ticks = element_blank()
+)
+theme_gif <- theme_bw() + theme(
+  axis.line = element_line(color = met_slate),
+  panel.grid = element_blank(),
+  rect = element_blank(),
+  text = element_text(family = "Fira Sans", color = met_slate, size = 17),
+  axis.text.x = element_text(size = 12),
+  axis.text.y = element_text(size = 12),
+  axis.ticks = element_blank()
+)
+wrapper <- function(x, ...) paste(strwrap(x, ...), collapse = "\n")
+# functions
+demand <- function(x) 10 - x
+demand_2 <- function(x) 9 - x
+demand_3 <- function(x) 8 - x
+demand_inc <- function(x) 11 - x
+demand_dec <- function(x) 5 - x
+supply <- function(x) 1 + (4/5)*x
+step_demand <- data.frame(x = c(0, 1, 2, 3, 4, 5, 6, 7, 8), mv = c(8, 7, 6, 5, 4, 3, 2, 1, 0))
+
+### tag
+library(mosaic)
+update_geom_defaults("label", list(family = "Fira Sans Condensed"))
+update_geom_defaults("text", list(family = "Fira Sans Condensed"))
+
+```
+
+##  {background-color="black" background-image="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDZtdjU1dTd4MmV5N3MxbTJzeHBycmdwM2U0anI2dGswODkzdzM2NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mW05nwEyXLP0Y/giphy.gif"}
+
+# Preguntas de la sesión anterior?
+
+## Para hoy... intentamos aprender
+
+1. Saber de riesgo
+
+1. Modelar el riesgo
+
+1. Los seguros y su importancia
+
+
+## Que entiende usted por Riesgo?
+
+::: fragment
+::: callout-note
+## Riesgo
+Todos los individuos toman decisiones todos los días. Sin embargo, no siempre es claro para nadie qué resultados pueden derivarse de estas decisiones. Cuando eso sucede, podemos decir que estamos tomando decisiones en situaciones bajo **riesgo** o **incertidumbre**
+:::
+:::
+
+- [Riesgo]{.alert}: Los individuos desconocen los diferentes resultados, pero pueden asignarles probabilidad de ocurrencia.</ru-blockquote>
+
+- [Incertidumbre]{.blut}: Los individuos no pueden asignar probabilidad a cada resultado que le pudiera ocurrir aún si pudieran escoger. La naturaleza todo el tiempo le brinda a los individuos estado o estatus de incertidumbre.
+
+## Riesgo
+
+- La presencia de la [incertidumbre]{.oranger} supone que las consecuencias que se derivan de cada alternativa disponible no se conocen con antelación, sino por el contrario, dependen de la ocurrencia de sucesos aleatorios fuera del control de los consumidores y/o agentes económicos.
+
+::: fragment
+`r fa("angle-double-right", fill="blue")` Cuando formula un proyecto
+
+`r fa("angle-double-right", fill="blue")` Cuando elige su carrera profesional.
+
+`r fa("angle-double-right", fill="blue")` Cuando va a comprar una casa.
+
+`r fa("angle-double-right", fill="blue")` Si compra un seguro (vida, vehículo, etc.).
+
+`r fa("angle-double-right", fill="blue")` Cuando elige un presidente.
+
+:::
+
+## Riesgo
+
+::: fragment
+`r fa("mug-hot", fill="red")` Algunos conceptos claves de esta parte que hay que tener presente
+:::
+
+::: fragment
+`r fa("home", fill="red")` Valor Esperado
+
+`r fa("home", fill="red")` Utilidad Esperada
+
+`r fa("home", fill="red")` Utilidad del Valor Esperado
+:::
+
+## Riesgo
+
+#### Valor esperado
+
+::: fragment
+> El valor esperado es la media de los valores conocidos "certeza", que un individuo sabe que puede ocurrir un evento. Ejemplo: los resultados del lanzamiento de un dado.
+:::
+
+::: fragment
+$$\mathbb{E} [x]= \sum\limits_{i=1}^{n} p_{i} X_{i}$$
+:::
+
+::: fragment
+$$\mathbb{E} [x]= \frac{1}{6}*1+\frac{1}{6}*2+\frac{1}{6}*3+\cdots+\frac{1}{6}*6=3.5$$
+:::
+
+::: fragment 
+Que es lo mismo si calculara un promedio normal de:
+
+$$\frac{1+2+3+4+5+6}{6}=3.5$$
+:::
+
+## Riesgo
+
+::: fragment
+`r fa("atom", fill="blue")` Suponga que a usted le han propuesto jugar las siguientes loterías, solo debe escoger una de ellas. Cuál prefiere jugar o cuál elegiría: 
+:::
+
+::: fragment
+1. Si se lanza una moneda al aire y sale **cara** gana `$100.000` y si sale *sello* usted pierde `$50.000`.
+:::
+
+::: fragment
+2. Si se lanza una moneda al aire y sale **cara** gana `$200.000` y si sale *sello* usted pierde `$100.000`.
+:::
+
+::: fragment
+3. Si se lanza una moneda al aire y sale **cara** gana `$20.000.000` y si sale *sello* usted pierde `$10.000.000`.
+:::
+
+::: fragment
+> Cuál elige?
+:::
+
+
+## Riesgo
+
+::: fragment
+`r fa("box-open", fill="blue")` Miremos las opciones con el [Valor Esperado]{.alert}
+:::
+
+::: fragment
+Para la lotería 1:
+
+$$\mathbb{E}[x]=100.000\times0.50+\color{#d62013}{-50.000}\times 0.50= 25.000$$
+:::
+
+::: fragment
+Para lotería 2:
+
+$$\mathbb{E}[x]=200.000\times0.50+\color{#d62013}{-100.000}\times 0.50= 50.000$$
+:::
+
+::: fragment
+Finalmente, la lotería 3:
+
+$$\mathbb{E}[x]=20.000.000\times0.50+\color{#d62013}{-10.000.000}\times 0.50= 5.000.000$$
+
++ La tercera lotería por este criterio, debería ser elegida.
+:::
+
+## Riesgo
+
+::: fragment
+Las loterías ayudan a mirar lo que finalmente puede desear una persona. Tome a consideración la siguiente oferta:
+:::
+
+::: fragment
+A. Una lotería que le ofrece `$120.000` con probabilidad de 50% o nada con igual probabilidad.
+:::
+
+::: fragment
+B. Ganarse con certeza `$50.000`
+:::
+
+::: fragment
+> Cuál elige?
+:::
+
+## Riesgo
+
+::: fragment
+La lotería que mayor [Valor esperado]{.alert} tiene es la elegida.
+:::
+
+::: fragment
+Para la primera lotería (A):
+:::
+
+::: fragment
+$$\mathbb{E}[x]=0\times 0.50+\color{#44C1C4}{120000}\times 0.50= 60.000$$
+:::
+
+::: fragment
+Para la segunda
+:::
+
+::: fragment
+$$\mathbb{E}[x]=\color{#44C1C4}{50.000}\times 1= 50.000$$
+:::
+
+::: fragment
+> Hay que ver que tipo de riesgo toma una persona para mirar que loteria acepta. Para este parte vamos hacer otras adiciones.
+:::
+
+
+# Utilidad esperada {background-color="#006dae"}
+
+
+## Utilidad esperada
+
+::: fragment
+`r fa("balance-scale-left", fill="red")` Cada resultado posible puede cuantificarse en términos de [útiles]{.alert}, y representarse a través de la función de utilidad de un consumidor. Ej: La **función de utilidad**  es $F(X)=\sqrt{x}$,
+:::
+
+::: fragment
+$$U\mathbb{E}[x]=\sqrt{0}\times 0.50+\sqrt{\color{#44C1C4}{120000}}\times 0.50= 173,20$$
+:::
+
+::: fragment
+$$U\mathbb{E}[x]=\sqrt{50.000}= 223,60$$
+:::
+
+::: fragment
+Si la [Utilidad esperada]{.oranger} de una lotería es mayor a la otra se elegirá esa por dar mayor "bienestar" a la persona
+:::
+
+## Utilidad esperada
+
+::: fragment
+| Tipo             | Función f(x)                    |
+|------------------|---------------------------------|
+| No riesgos       | $\sqrt{x}$                      |
+| Neutrales        | $ax+b$                          |
+| Gusto al riesgo  | $e^x$                           |
+:::
+
+::: {.fragment .fade-in}
+::: {.fragment .highlight-red}
+Estas funciones de utilidad son construidos por **Matemáticos** que han encontrado esto de forma estructural.
+:::
+:::
+
+::: fragment
+De acuerdo a como maneja sus perfil, las funciones podrán tratar de simular su comportamiento
+:::
+
+## Utilidad esperada
+
+::: fragment
+### Actitudes hacia el Riesgo
+:::
+
+::: fragment
+Existen tres actitudes principales hacia el riesgo que se reflejan en las funciones de utilidad:
+:::
+
+::: fragment
+- **Amante del riesgo** (risk-loving)
+- **Averso al riesgo** (risk-averse)
+- **Neutral al riesgo** (risk-neutral)
+:::
+
+::: fragment
+Cada una de estas actitudes tiene una función de utilidad característica.
+:::
+
+## Utilidad esperada
+
+::: fragment
+### Función para Amante del Riesgo
+:::
+
+::: fragment
+- **Función**: $F(x) = x^2$
+- **Características**:
+  - Función convexa: $F''(x) > 0$
+  - Prefiere situaciones con mayor incertidumbre.
+  - Valora más las ganancias potenciales en situaciones de alto riesgo.
+:::
+
+::: fragment
+$$F(x) = x^2$$
+:::
+
+## Utilidad esperada
+
+::: fragment
+### Función para Averso al Riesgo
+:::
+
+::: fragment
+- **Averso al Riesgo**:
+  - **Función**: $F(x) = \sqrt{x}$
+  - **Características**:
+    - Función cóncava: $F''(x) < 0$
+    - Prefiere la certeza y evita la incertidumbre.
+:::
+
+::: fragment
+$$F(x) = \sqrt{x}$$
+:::
+
+## Utilidad esperada
+
+::: fragment
+### Función para neutral al riesgo
+:::
+
+::: fragment
+- **Neutral al Riesgo**:
+  - **Función**: $F(x) = x$
+  - **Características**:
+    - Función lineal: $F''(x) = 0$
+    - Indiferente entre la certeza y la incertidumbre.
+:::
+
+::: fragment
+$$F(x) = x$$
+:::
+
+## Utilidad esperada
+
+::: fragment
+`r fa("atom", fill="blue")` Regresemos al ejemplo original con las loterías de las monedas. Vamos añadir información adicional. Suponga que Mateo tiene una riqueza inicial de 10 millones y él se considera averso al riesgo.
+:::
+
+::: fragment
+$$U\mathbb{E}[x_a]=\sqrt{10.100.000}\times0.50+\sqrt{9.950.000}\times 0.50= 3166,20$$
+:::
+
+::: fragment
+$$U\mathbb{E}[x_b]=\sqrt{10.200.000}\times0.50+\sqrt{9.900.000}\times 0.50= 3170,08$$
+:::
+
+::: fragment
+$$U\mathbb{E}[x_c]=\sqrt{30.000.000}\times0.50+\sqrt{0}\times 0.50= 1596,18$$
+:::
+
+::: fragment
+> Note que por ser averso al riesgo no va a tomar la tercera lotería que le ofrece un mayor premio.
+:::
+
+# Utilidad del Valor Esperado {background-color="#006dae"}
+
+## Utilidad del Valor Esperado
+
+::: fragment
+> La utilidad expresada en la esperanza de los valores de los individuos dada la forma de su función de utilidad.
+:::
+
+::: fragment
+Nuevamente, tomemos la información de la lotería de la moneda y hallemos de acuerdo a los valores esperados su [Utilidad del Valor Esperado]{.blut}
+:::
+
+::: fragment
+$$U (V.E_a)= \sqrt{25.000}= 158,11\; \textrm{útiles}$$
+:::
+
+::: fragment
+$$U (V.E_b)= \sqrt{50.000}= 223,60\; \textrm{útiles}$$
+:::
+
+::: fragment
+$$U (V.E_c)= \sqrt{5.000.000}= 2236,06\; \textrm{útiles}$$
+:::
+
+## Utilidad del Valor Esperado
+
+::: fragment
+Si la [Utilidad del Valor Esperado]{.blut} $U(V.E)$ es > $U(\mathbb{E})$ y el individuo la elige, es porque en realidad es [averso al riesgo]{.oranger}
+:::
+
+::: fragment
+#### Comparaciones
+
+| Tipo             | Función f(x)                    |
+|------------------|---------------------------------|
+| Aversión         | $U(V.E)>U.E$                    |
+| Indiferente      | $U(V.E)=U.E$                    |
+| Gusto al riesgo  | $U(V.E)<U.E$                    |
+:::
+
+## Utilidad del Valor Esperado
+
+```{r, faceout01, echo = F, fig.height = 5, fig.width = 9, dev = "svg"}
+# Cargar las librerías necesarias
+library(ggplot2)
+library(gridExtra)
+
+# Crear secuencia de valores para x
+x <- seq(0, 10, length.out = 100)
+
+# Función para amante del riesgo (convexa)
+amante_riesgo <- data.frame(x = x, y = x^2)
+g1 <- ggplot(amante_riesgo, aes(x, y)) +
+  geom_line(color = "blue", size = 1.5) +
+  labs(title = "Amante del riesgo", y = "F(x) = x^2") +
+  theme_simple
+
+# Función para averso al riesgo (cóncava)
+averso_riesgo <- data.frame(x = x, y = sqrt(x))
+g2 <- ggplot(averso_riesgo, aes(x, y)) +
+  geom_line(color = "red", size = 1.5) +
+  labs(title = "Averso al riesgo", y = "F(x) = sqrt(x)") +
+  theme_simple
+
+# Función para neutral al riesgo (lineal)
+neutral_riesgo <- data.frame(x = x, y = x)
+g3 <- ggplot(neutral_riesgo, aes(x, y)) +
+  geom_line(color = "black", size = 1.5) +
+  labs(title = "Neutral al riesgo", y = "F(x) = x") +
+  theme_simple
+
+# Organizar los tres gráficos en una fila
+grid.arrange(g1, g2, g3, nrow = 1)
+
+```
+
+
+## Utilidad del Valor Esperado
+
+::: fragment
+Depende mucho de los perfiles de los individuos.
+:::
+
+::: fragment
+```{R, echo = F, escape = F}
+data.frame(
+  v1 = c(1:3),
+  v2 = c("158,11", "223,60", "2236,06"),
+  v3 = c(rep("es menor a",2), rep("es mayor que",1)),
+  v4 = c("3166,20", "3170,08", "1596,87"),
+  v5 = c(rep("Elegir",2), rep("Aversión",1))
+) %>% kable(
+  escape = F,
+  col.names = c("Lotería", "Utilidad Valor esperado", "Signo", "Utilidad esperada", "Decisión?"),
+  align = c("l", "l", "c", "c", "c")
+) %>%
+row_spec(1:3, color = met_slate) %>%
+row_spec(1:3, extra_css = "line-height: 110%;") %>% 
+column_spec(1, italic = T, color = met_slate)
+```
+:::
+
+# Prima de Riesgo {background-color="#006dae"}
+
+## Prima de Riesgo
+::: fragment
+`r fa("biohazard", fill="blue")` Para el concepto de [Prima]{.alert}, piense en el monto (valor) que debe pagar un individuo para evitar un riesgo.
+:::
+
+::: fragment
+`r fa("biohazard", fill="blue")` Las personas que suelen ser [aversas]{.alert} al riesgo suelen tener primas de riesgo [positivas]{.blut}. Mientras que los [amantes]{.alert} al riesgo suelen tener primas [negativas]{.under}.
+:::
+
+::: fragment
+`r fa("biohazard", fill="blue")` En cuanto a los [neutrales]{.alert} al riesgo sus primas de riesgo simplemente son cero (0).
+:::
+
+::: fragment
++ La prima de riesgo viene a ser:
+:::
+
+::: fragment
+$$\mathbb{P}.\mathbb{R}= Valor\;Esperado - Equivalente \; Certeza$$
+:::
+
+## Prima de Riesgo
+
+::: fragment
+> El equivalente de certeza es la plata o valor que hay que darle al individuo para que tenga el mismo nivel de bienestar si enfrenta un riesgo.
+:::
+
+::: fragment
+La [Prima]{.alert} es lo que esta dispuesto a pagar un individuo para no incurrir en un riesgo.
+:::
+
+::: fragment
+Hallemos la prima de riesgo para la lotería (3) en caso tal el individuo no desee enfrentarse a esa situación.
+:::
+
+::: fragment
+`r fa("apple", fill="blue")` Cuanto [dinero]{.fg style="--col: #007935"} habría que darle a una persona para que no tome una decisión. 
+$$\boxed{ \mathbb{E}.\mathbb{C}= \mathbb{E}(u(x)) }$$
+:::
+
+## Prima de Riesgo
+
+::: fragment
+`r fa("apple", fill="blue")` Con esto podemos conocer el grado de [compensación]{.blut} que habría que darle a un individuo para que no incurra en riesgos.
+:::
+
+::: fragment
+Paso(1): Debemos igualar el (E.C) con el valor de la utilidad esperada.
+
+$$\mathbb{E}.\mathbb{C}= 1596,87 \quad \textrm{Para la lotería (3)}$$
+:::
+
+::: fragment
+Paso(2):Después de esto aplicar la función de utilidad sobre este
+
+$$ \sqrt{\mathbb{EC}}  = 1596,87$$
+:::
+
+## Equivalente de certeza
+::: fragment
+Paso(3): Despejar(linealizar) el Equivalente de Certeza
+
+$$ \left(\sqrt{\mathbb{EC}}\right)^2  = \left(1596,87\right)^2$$
+:::
+
+::: fragment
+Esto nos da apenas el equivalente de certeza: 
+$$\mathbb{EC}  = 2.549.994$$
+:::
+
+::: fragment
+Paso(4): Calcular la prima de riesgo]
+
+$$\mathbb{P}.\mathbb{R}= Valor\;Esperado - Equivalente \; Certeza$$
+:::
+
+::: fragment
+$$\mathbb{P}.\mathbb{R}= 15.000.000- 2.549.994 =12.450.006$$
+:::
+
+::: fragment
+Este es el [monto]{.under} de [dinero]{.alert} (prima de riesgo) que debe pagar el individuo a una [aseguradora]{.slater} para no incurrir en ese riesgo o tener que tomar la decisión de elegir eso.
+:::
+
+
+## Equivalente de certeza
+
+::: fragment
+*Recuerde que el valor esperado de él es*:
+
+$$\mathbb{E}[x]=30.000.000\times0.50+\color{#d62013}{0}\times 0.50= 15.000.000$$
+:::
+
+::: fragment
+Desde luego nadie esta obligado a pagar la prima pero en caso de que *Mateo* quisiera hacerlo es lo que le correspondería pagar para no enfrentar esa loteria.
+:::
+
+::: fragment
++ En otros casos opera el valor normal sin incluir riqueza del individuo ni situación inicial y este es:
+$$\mathbb{P}.\mathbb{R}= 5.000.000- 2.549.994 =2.450.006$$
+:::
+
+::: fragment
+La prima o valor para cualquier persona sin importar su riqueza es de `$2.450.006`.
+:::
+
+##  {background-image="imagenese/cactus.jpg"}
+
+### Impuestos {.r-fit-text}
+
+## Impuestos
+
+::: fragment
+Por qué nuestros gobernantes nos implantan [Impuestos]{.alert} y proveen de [subsidios]{.bg style="--col: #00FFFF"}?
+:::
+
+::: fragment
+::::{.columns}
+::: {.column width="50%"}
+### Impuestos 
+
+1. Recaudar ingresos para bienes públicos.
+
+2. Desincentivar los "malos" comportamientos.
+
+3. Redistribuir la renta o la riqueza.
+:::
+
+::: {.column width="50%"}
+### [Subsidios]{.blut}
+
+1. Proporcionar estímulo económico.
+
+2. Fomentar los "buenos" comportamientos.
+
+3. Redistribuir la renta o la riqueza.
+:::
+::::
+
+:::
+
+## Impuestos
+
+::: fragment
++ Impuestos por unidad
+
+  - Impuestos al tabaco, el cannabis y el alcohol.
+  - Impuestos especiales sobre el alojamiento, la gasolina y otros bienes. 
+  - Impuesto sobre las ventanas en el Reino Unido (1696-1851).
+:::
+
+::: fragment
++ Impuestos ad valorem
+
+    - Impuestos sobre las ventas.
+    - Impuestos sobre nóminas e ingresos.
+    - Impuestos sobre la propiedad.
+:::
+
+::: fragment    
++ Impuestos lump-sum.
+
+    - Tasas de registro mercantil.
+    - Sobre tasa gasolina.
+:::
+
+## Impuestos
+
+::: fragment
+Los impuestos pueden ser:
+
+```{r, taxtax, echo=FALSE}
+library(knitr)
+library(kableExtra)
+
+# Crear la tabla de datos
+mi_im <- data.frame(
+  v1 = c(1000, 1500, 3000),
+  v2 = c(190, 285, 570),
+  v3 = c("19%", "19%", "19%"),
+  v4 = c(300, 375, 600),
+  v5 = c("30%", "25%", "20%"),
+  v6 = c(200, 375, 900),
+  v7 = c("20%", "25%", "30%")
+)
+
+mi_im %>% kable(
+  escape = F,
+  col.names = c("Ingreso", "Similar", "%", "Regresivo", "%", "Progresivo", "%"),
+  align = c("l", "c", "c", "c","c", "c", "c")
+) %>%
+row_spec(1:3, color = met_slate) %>%
+row_spec(1:3, extra_css = "line-height: 110%;") %>% 
+column_spec(1, italic = T, color = red_pink)
+
+```
+:::
+
+## Impuestos
+
+:::: {.columns}
+
+::: {.column width="40%"}
+**P:** ¿Cómo afecta un impuesto por unidad a los productores, al precio y la cantidad de equilibrio?
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Mercado",  "P_Cons", "P_Prod"),
+  v2 = c(4.5, "$5.50", "$5.50"),
+  v3 = c("", "", "")
+) %>% kable(
+  escape = F,
+  col.names = c("Impuesto", "$0.00", "$3.00"),
+  align = c("l", "c", "c")
+) %>%
+  kable_styling() %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+demand <- function(x) 10 - x
+supply <- function(x) 1 + x
+tax <- 3
+supply_tax <- function(x) supply(x) + tax
+x <- 0:10
+q <- uniroot(function(x) demand(x) - supply(x), range(x))$root
+q_2 <- uniroot(function(x) demand(x) - supply_tax(x), range(x))$root
+p <- supply(q)
+ps_2 <- supply(q_2)
+pd_2 <- demand(q_2)
+z <- seq(0, q, 0.01)
+base <- ggplot() +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
+  labs(x = "Q", y = "P")+theme_classic()
+
+base +
+  stat_function(fun = supply, color = "purple", size = 1) + # supply function
+  stat_function(fun = demand, color = "pink", size = 1) + # demand function
+  annotate("text", label = expression(D), x = 9, y = 1.6, color = "red", size = 9) +
+  annotate("text", label = expression(S), x = 9, y = 9.5, color = "purple", size = 9) +
+  geom_segment(aes(x = q, y = 0, xend = q, yend = p), linetype  = "dashed", color = "black", size = 1) + # Q*
+  geom_segment(aes(x = 0, y = p, xend = q, yend = p), linetype  = "dashed", color = "black", size = 1) + # P*
+  geom_point(aes(x = q, y = p), color = "purple", size = 2) # equilibrium bundle
+```
+:::
+
+::::
+
+## Impuestos {visibility="uncounted"}
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+**P:** ¿Cómo afecta un impuesto por unidad a los productores, al precio y la cantidad de equilibrio?
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Mercado",  "P_Cons", "P_Prod"),
+  v2 = c(4.5,  "$5.50", "$5.50"),
+  v3 = c(3, "$7.00", "$4.00")
+) %>% kable(
+  escape = F,
+  col.names = c("Impuesto", "$0.00", "$3.00"),
+  align = c("l", "c", "c")
+) %>%
+  kable_styling() %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+base +
+  stat_function(fun = supply, color = "purple", size = 1) + # supply function
+  stat_function(fun = supply_tax, color = "purple", size = 1) + # supply function (tax)
+  stat_function(fun = demand, color = "pink", size = 1) + # demand function
+  annotate("text", label = expression(D), x = 9, y = 1.6, color = "pink", size = 9) +
+  annotate("text", label = expression(S), x = 9, y = 9.5, color = "purple", size = 9) +
+  annotate("text", label = expression(S[Imp]), x = 9 - tax + 0.55, y = 9.5, color = "purple", size = 9) +
+  geom_segment(aes(x = q, y = 0, xend = q, yend = p), linetype  = "dashed", color = "black", size = 1, alpha = 0.5) + # Q*
+  geom_segment(aes(x = 0, y = p, xend = q, yend = p), linetype  = "dashed", color = "black", size = 1, alpha = 0.5) + # P*
+  geom_point(aes(x = q, y = p), color = met_slate, size = 2, alpha = 0.5) +
+  
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = "black", size = 1) + 
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = "black", size = 1) + 
+  geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
+  
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = "black", size = 1) + 
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = "black", size = 1) + 
+  geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2)
+```
+:::
+
+::::
+
+## Impuestos {visibility="uncounted"}
+
+:::: {.columns}
+
+::: {.column width="40%"}
+**P:** ¿Cómo afecta un impuesto por unidad a los productores, al precio y la cantidad de equilibrio?
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Mercado",  "P_Cons", "P_Prod"),
+  v2 = c(4.5, "$5.50", "$5.50"),
+  v3 = c(3, "$7.00", "$4.00")
+) %>% kable(
+  escape = F,
+  col.names = c("Impuesto", "$0.00", "$3.00"),
+  align = c("l", "c", "c")
+) %>%
+  kable_styling() %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;") %>%
+  column_spec(3, italic = F, color = red_pink)
+tab 
+```
+
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+base +
+  stat_function(fun = supply, color = "purple", size = 1) + # supply function
+  stat_function(fun = supply_tax, color = "purple", size = 1) + # supply function (tax)
+  stat_function(fun = demand, color = "pink", size = 1) + # demand function
+  annotate("text", label = expression(D), x = 9, y = 1.6, color = "pink", size = 9) +
+  annotate("text", label = expression(S), x = 9, y = 9.5, color = "purple", size = 9) +
+  annotate("text", label = expression(S[Imp]), x = 9 - tax + 0.55, y = 9.5, color = "purple", size = 9) +
+  # geom_segment(aes(x = q, y = 0, xend = q, yend = p), linetype  = "dashed", color = met_slate, size = 1, alpha = 0.5) + # Q*
+  # geom_segment(aes(x = 0, y = p, xend = q, yend = p), linetype  = "dashed", color = met_slate, size = 1, alpha = 0.5) + # P*
+  # geom_point(aes(x = q, y = p), color = met_slate, size = 2, alpha = 0.5) +
+  
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "solid", color = "black", size = 1) + 
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = "black", size = 1) + 
+  geom_point(aes(x = q_2, y = pd_2), color = "black", size = 2) +
+  
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = "black", size = 1) + 
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = "black", size = 1) + 
+  geom_point(aes(x = q_2, y = ps_2), color = "black", size = 2) +
+  annotate("text", label = "Imp", x = q_2 + 0.45, y = p, size = 5, angle = 0, color = "black") 
+```
+:::
+
+::::
+
+## Impuestos
+:::: {.columns}
+
+::: {.column width="40%"}
+**P:** ¿Cómo el impuesto tiene inferencia en el excedente de mercado?
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("EC", "EP", "Gob", "ST"),
+  v2 = c("$10.125", "$10.125", "$0.00", "$20.25"),
+  v3 = c("", "", "", "\\( \\qquad \\, \\ \\ \\)")
+) %>% kable(
+  escape = F,
+  col.names = c("Impuesto", "$0.00", "$3.00"),
+  align = c("l", "c", "c")
+) %>%
+  kable_styling() %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+base +
+  stat_function(fun = supply, color = "purple", size = 1) + # supply function
+  #stat_function(fun = supply_tax, color = "purple", size = 1) + # supply function (tax)
+  stat_function(fun = demand, color = "pink", size = 1) + # demand function
+  annotate("text", label = expression(D), x = 9, y = 1.6, color = "pink", size = 9) +
+  annotate("text", label = expression(S), x = 9, y = 9.5, color = "purple", size = 9) +
+  #annotate("text", label = expression(S[Impuesto]), x = 9 - tax + 0.55, y = 9.5, color = "purple", size = 9) +
+  geom_segment(aes(x = q, y = 0, xend = q, yend = p), linetype  = "dashed", color = "black", size = 1, alpha = 0.5) + # Q*
+  geom_segment(aes(x = 0, y = p, xend = q, yend = p), linetype  = "dashed", color = "black", size = 1, alpha = 0.5) + # P*
+  geom_point(aes(x = q, y = p), color = "black", size = 2, alpha = 1) +
+  geom_ribbon(aes(x = z, ymin = supply(z), ymax = p), fill = purple, alpha = 0.2, linetype = "blank") + # PS
+  annotate("text", label = "EP", x = q/3, y = p - 1.5, color = purple, family = "Fira Sans", size = 6) +
+  geom_ribbon(aes(x = z, ymin = p, ymax = demand(z)), fill = red_pink, alpha = 0.2, linetype = "blank") + # CS
+  annotate("text", label = "EC", x = q/3, y = p + 1.5, color = red_pink, family = "Fira Sans", size = 6) 
+
+```
+:::
+
+::::
+
+## Impuestos {visibility="uncounted"}
+
+:::: {.columns}  
+::: {.column width="40%"}
+**P:** ¿Cómo el impuesto tiene inferencia en el excedente de mercado?
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("EC", "EP", "Gob", "ST"),
+  v2 = c("$10.125", "$10.125", "$0.00", "$20.25"),
+  v3 = c("$4.50", "$4.50", "$9.00", "$18.00")
+) %>% kable(
+  escape = F,
+  col.names = c("Impuesto", "$0.00", "$3.00"),
+  align = c("l", "c", "c")
+) %>%
+  kable_styling() %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+w <- seq(0, q_2, 0.01)
+base +
+  stat_function(fun = supply, color = purple, size = 1) + # supply function
+  stat_function(fun = supply_tax, color = purple, size = 1) + # supply function (tax)
+  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
+  annotate("text", label = expression(D), x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
+  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
+  annotate("text", label = expression(S[Imp]), x = 9 - tax + 0.55, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
+  
+  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple, alpha = 0.2, linetype = "blank") + # PS
+  annotate("text", label = "EP", x = q_2/3, y = ps_2 - 1, color = purple, family = "Fira Sans", size = 6) +
+  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2, linetype = "blank") + # CS
+  annotate("text", label = "EC", x = q_2/3, y = pd_2 + 1, color = red_pink, family = "Fira Sans", size = 6) +
+  geom_ribbon(aes(x = w, ymin = ps_2, ymax = pd_2), fill = green, alpha = 0.2, linetype = "blank") + # GR
+  annotate("text", label = expression(Gob), x = q_2/3, y = p + 0.2, color = green, family = "Fira Sans", size = 6) +
+  
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "solid", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2) 
+
+```
+:::
+::::
+
+## Impuestos
+
+:::: {.columns}  
+::: {.column width="40%"}
+**P:** ¿Qué ocurre con la eficiencia del mercado?
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+w <- seq(0, q_2, 0.01)
+w_2 <- seq(q_2, q, 0.01)
+base +
+  stat_function(fun = supply, color = purple, size = 1) + # supply function
+  stat_function(fun = supply_tax, color = purple, size = 1) + # supply function (tax)
+  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
+  annotate("text", label = expression(D), x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
+  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
+  annotate("text", label = expression(S[Impuesto]), x = 9 - tax + 0.55, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
+  
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "solid", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2) +
+  geom_ribbon(aes(x = w_2, ymin = supply(w_2), ymax = p), fill = orange, alpha = 0.2, linetype = "blank") +
+  geom_ribbon(aes(x = w_2, ymin = p, ymax = demand(w_2)), fill = orange, alpha = 0.2, linetype = "blank") +
+  annotate("text", label = "Ineficiencia", x = (q + q_2)/2 - 0.125, y = p, color = orange, family = "Fira Sans", size = 6)
+```
+:::
+::::
+
+# Y si solo buscaramos afectar al consumidor? 👀
+
+## Impuesto al consumidor
+
+:::: {.columns}  
+::: {.column width="40%"}
+**P:** ¿Cómo afecta un impuesto por unidad a los consumidores, al precio y la cantidad de equilibrio?
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Mercado",  "P_Cons", "P_Prod"),
+  v2 = c(4.5, "$5.50", "$5.50"),
+  v3 = c("","","")
+) %>% kable(
+  escape = F,
+  col.names = c("Impuesto", "$0.00", "$3.00"),
+  align = c("l", "c", "c")
+) %>%
+  kable_styling() %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+ demand <- function(x) 10 - x
+supply <- function(x) 1 + x
+tax <- 3
+demand_tax <- function(x) demand(x) - tax
+x <- 0:10
+q <- uniroot(function(x) demand(x) - supply(x), range(x))$root
+q_2 <- uniroot(function(x) demand_tax(x) - supply(x), range(x))$root
+p <- supply(q)
+ps_2 <- supply(q_2)
+pd_2 <- demand(q_2)
+z <- seq(0, q, 0.01)
+base <- ggplot() +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
+  labs(x = "Q", y = "P") +
+  theme_market
+base +
+  stat_function(fun = supply, color = purple, size = 1) + # supply function
+  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
+  annotate("text", label = expression(D), x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
+  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
+  geom_segment(aes(x = q, y = 0, xend = q, yend = p), linetype  = "dashed", color = met_slate, size = 1) + # Q*
+  geom_segment(aes(x = 0, y = p, xend = q, yend = p), linetype  = "dashed", color = met_slate, size = 1) + # P*
+  geom_point(aes(x = q, y = p), color = met_slate, size = 2) # equilibrium bundle
+```
+:::
+::::
+
+## Impuesto al consumidor {visibility="uncounted"}
+
+:::: {.columns}  
+::: {.column width="40%"}
+**P:** ¿Cómo afecta un impuesto por unidad a los consumidores, al precio y la cantidad de equilibrio?
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Mercado",  "P_Cons", "P_Prod"),
+  v2 = c(4.5, "$5.50", "$5.50"),
+  v3 = c(3, "$7.00", "$4.00")
+) %>% kable(
+  escape = F,
+  col.names = c("Impuesto", "$0.00", "$3.00"),
+  align = c("l", "c", "c")
+) %>%
+  kable_styling() %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+base +
+  stat_function(fun = supply, color = purple, size = 1) + # supply function
+  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
+  stat_function(fun = demand_tax, color = red_pink, size = 1) +
+  annotate("text", label = expression(D), x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
+  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
+  annotate("text", label = expression(D[Imp]), x = 9 - tax + 0.4, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
+  geom_segment(aes(x = q, y = 0, xend = q, yend = p), linetype  = "dashed", color = met_slate, size = 1, alpha = 0.5) + # Q*
+  geom_segment(aes(x = 0, y = p, xend = q, yend = p), linetype  = "dashed", color = met_slate, size = 1, alpha = 0.5) + # P*
+  geom_point(aes(x = q, y = p), color = met_slate, size = 2, alpha = 0.5) +
+  
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) + 
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) + 
+  geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
+  
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) + 
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) + 
+  geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2)
+```
+:::
+::::
+
+## Impuesto al consumidor {visibility="uncounted"}
+
+:::: {.columns}  
+::: {.column width="40%"}
+**P:** ¿Cómo afecta un impuesto por unidad a los consumidores, al precio y la cantidad de equilibrio?
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Mercado",  "P_Cons", "P_Prod"),
+  v2 = c(4.5, "$5.50", "$5.50"),
+  v3 = c(3, "$7.00", "$4.00")
+) %>% kable(
+  escape = F,
+  col.names = c("Impuesto", "$0.00", "$3.00"),
+  align = c("l", "c", "c")
+) %>%
+  kable_styling() %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;") %>%
+  column_spec(3, italic = F, color = red_pink)
+  
+tab 
+```
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+base +
+  stat_function(fun = supply, color = purple, size = 1) + # supply function
+  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
+  stat_function(fun = demand_tax, color = red_pink, size = 1) +
+  annotate("text", label = expression(D), x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
+  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
+  annotate("text", label = expression(D[Imp]), x = 9 - tax + 0.4, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "solid", color = met_slate, size = 1) + 
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) + 
+  geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
+  
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) + 
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) + 
+  geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2) +
+  annotate("text", label = "Imp", x = q_2 + 0.45, y = p, family = "Fira Sans", size = 5, angle = 0, color = met_slate) 
+```
+:::
+::::
+
+
+## Impuesto al consumidor {visibility="uncounted"}
+
+:::: {.columns}  
+::: {.column width="40%"}
+**P:** ¿Cómo afecta un impuesto por unidad a los consumidores, al precio y la cantidad de equilibrio?
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("EC", "EP", "Gob", "ST", "DWL"),
+  v2 = c("$10.125", "$10.125", "$0.00", "$20.25", "$0.00"),
+  v3 = c("", "", "", "\\( \\qquad \\, \\ \\ \\)", "")
+) %>% kable(
+  escape = F,
+  col.names = c("Imp", "$0.00", "$3.00"),
+  align = c("l", "c", "c")
+) %>%
+  kable_styling() %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+base +
+  stat_function(fun = supply, color = purple, size = 1) + # supply function
+  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
+  annotate("text", label = expression(D), x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
+  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
+  # annotate("text", label = expression(S[Tax]), x = 9 - tax + 0.55, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
+  geom_segment(aes(x = q, y = 0, xend = q, yend = p), linetype  = "dashed", color = met_slate, size = 1, alpha = 1) + # Q*
+  geom_segment(aes(x = 0, y = p, xend = q, yend = p), linetype  = "dashed", color = met_slate, size = 1, alpha = 1) + # P*
+  geom_point(aes(x = q, y = p), color = met_slate, size = 2, alpha = 1) +
+  
+  geom_ribbon(aes(x = z, ymin = supply(z), ymax = p), fill = purple, alpha = 0.2, linetype = "blank") + # PS
+  annotate("text", label = "EP", x = q/3, y = p - 1.5, color = purple, family = "Fira Sans", size = 6) +
+  geom_ribbon(aes(x = z, ymin = p, ymax = demand(z)), fill = red_pink, alpha = 0.2, linetype = "blank") + # CS
+  annotate("text", label = "EC", x = q/3, y = p + 1.5, color = red_pink, family = "Fira Sans", size = 6) 
+```
+:::
+::::
+
+## Impuesto al consumidor {visibility="uncounted"}
+
+:::: {.columns}  
+::: {.column width="40%"}
+**P:** ¿Cómo afecta un impuesto por unidad a los consumidores, al precio y la cantidad de equilibrio?
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("EC", "EP", "Gob", "ST", "DWL"),
+  v2 = c("$10.125", "$10.125", "$0.00", "$20.25", "$0.00"),
+  v3 = c("$4.50", "$4.50", "$9.00", "$18.00", "$2.25")
+) %>% kable(
+  escape = F,
+  col.names = c("Imp", "$0.00", "$3.00"),
+  align = c("l", "c", "c")
+) %>%
+  kable_styling() %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+w <- seq(0, q_2, 0.01)
+base +
+  stat_function(fun = supply, color = purple, size = 1) + # supply function
+  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
+  stat_function(fun = demand_tax, color = red_pink, size = 1) +
+  annotate("text", label = expression(D), x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
+  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
+  annotate("text", label = expression(D[Imp]), x = 9 - tax + 0.4, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
+  
+  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple, alpha = 0.2, linetype = "blank") + # PS
+  annotate("text", label = "EP", x = q_2/3, y = ps_2 - 1, color = purple, family = "Fira Sans", size = 6) +
+  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2, linetype = "blank") + # CS
+  annotate("text", label = "EC", x = q_2/3, y = pd_2 + 1, color = red_pink, family = "Fira Sans", size = 6) +
+  geom_ribbon(aes(x = w, ymin = ps_2, ymax = pd_2), fill = green, alpha = 0.2, linetype = "blank") + # GR
+  annotate("text", label = expression(Gob), x = q_2/3, y = p - 0.2, color = green, family = "Fira Sans", size = 6) +
+  
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "solid", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2) +
+  geom_ribbon(aes(x = w_2, ymin = supply(w_2), ymax = p), fill = orange, alpha = 0.2, linetype = "blank") +
+  geom_ribbon(aes(x = w_2, ymin = p, ymax = demand(w_2)), fill = orange, alpha = 0.2, linetype = "blank") +
+  annotate("text", label = "DWL", x = (q + q_2)/2 - 0.125, y = p, color = orange, family = "Fira Sans", size = 6)
+```
+:::
+::::
+
+# En quien impacta mas el impuesto entonces? 🕵🏼
+
+
+## Incidencia
+
+:::: {.columns}  
+::: {.column width="40%"}
+**P** Sobre quien recae el impuesto (carga)?
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Carga Consumidor", "Carga Productor", "Gob"),
+  v2 = c("", "", "$9.00")
+) %>% kable(
+  escape = F,
+  col.names = c("Imp", "$3.00"),
+  align = c("l", "c")
+) %>%
+  kable_styling() %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+demand <- function(x) 10 - x
+supply <- function(x) 1 + x
+tax <- 3
+supply_tax <- function(x) supply(x) + tax
+x <- 0:10
+q <- uniroot(function(x) demand(x) - supply(x), range(x))$root
+q_2 <- uniroot(function(x) demand(x) - supply_tax(x), range(x))$root
+p <- supply(q)
+ps_2 <- supply(q_2)
+pd_2 <- demand(q_2)
+z <- seq(0, q, 0.01)
+w <- seq(0, q_2, 0.01)
+base <- ggplot() +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
+  labs(x = "Q", y = "P") +
+  theme_market
+base +
+  stat_function(fun = supply, color = purple, size = 1) + # supply function
+  stat_function(fun = supply_tax, color = purple, size = 1) + # supply function (tax)
+  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
+  annotate("text", label = expression(D), x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
+  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
+  annotate("text", label = expression(S[Imp]), x = 9 - tax + 0.55, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
+  
+  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple, alpha = 0.2, linetype = "blank") + # PS
+  annotate("text", label = "EP", x = q_2/3, y = ps_2 - 1, color = purple, family = "Fira Sans", size = 6) +
+  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2, linetype = "blank") + # CS
+  annotate("text", label = "EC", x = q_2/3, y = pd_2 + 1, color = red_pink, family = "Fira Sans", size = 6) +
+  geom_ribbon(aes(x = w, ymin = ps_2, ymax = pd_2), fill = green, alpha = 0.2, linetype = "blank") + # GR
+  annotate("text", label = expression(Gob), x = q_2/3, y = p + 0.2, color = green, family = "Fira Sans", size = 6) +
+  
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "solid", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2) +
+  geom_ribbon(aes(x = w_2, ymin = supply(w_2), ymax = p), fill = orange, alpha = 0.2, linetype = "blank") +
+  geom_ribbon(aes(x = w_2, ymin = p, ymax = demand(w_2)), fill = orange, alpha = 0.2, linetype = "blank") +
+  annotate("text", label = "DWL", x = (q + q_2)/2 - 0.125, y = p, color = orange, family = "Fira Sans", size = 6)
+```
+:::
+::::
+
+
+## Incidencia {visibility="uncounted"}
+
+:::: {.columns}  
+::: {.column width="40%"}
+**P** Sobre quien recae el impuesto (carga)?
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Carga Consumidor", "Carga Productor", "Gob"),
+  v2 = c("$4.50", "$4.50", "$9.00")
+) %>% kable(
+  escape = F,
+  col.names = c("Imp", "$3.00"),
+  align = c("l", "c")
+) %>%
+  kable_styling() %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+base +
+  stat_function(fun = supply, color = purple, size = 1) + # supply function
+  stat_function(fun = supply_tax, color = purple, size = 1, alpha = 0.5) + # supply function (tax)
+  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
+  annotate("text", label = expression(D), x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
+  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
+  annotate("text", label = expression(S[Imp]), x = 9 - tax + 0.55, y = 9.5, color = purple, family = "Fira Sans", size = 9, alpha = 0.5) +
+  
+  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple, alpha = 0.2, linetype = "blank") + # PS
+  annotate("text", label = "EP", x = q_2/3, y = ps_2 - 1, color = purple, family = "Fira Sans", size = 6) +
+  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2, linetype = "blank") + # CS
+  annotate("text", label = "EC", x = q_2/3, y = pd_2 + 1, color = red_pink, family = "Fira Sans", size = 6) +
+  
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "solid", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2) +
+  geom_ribbon(aes(x = w_2, ymin = supply(w_2), ymax = p), fill = orange, alpha = 0.2, linetype = "blank") +
+  geom_ribbon(aes(x = w_2, ymin = p, ymax = demand(w_2)), fill = orange, alpha = 0.2, linetype = "blank") +
+  annotate("text", label = "DWL", x = (q + q_2)/2 - 0.125, y = p, color = orange, family = "Fira Sans", size = 6) +
+  
+  geom_segment(aes(x = 0, y = p, xend = q_2, yend = p), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_ribbon(aes(x = w, ymin = ps_2, ymax = p), fill = purple, alpha = 0.1, linetype = "blank") + 
+  annotate("text", label = "Carga (P)", x = q_2/2, y = p - 0.75, color = purple, family = "Fira Sans", size = 4) +
+  
+  geom_ribbon(aes(x = w, ymin = p, ymax = pd_2), fill = red_pink, alpha = 0.1, linetype = "blank") + 
+  annotate("text", label = "Carga (C)", x = q_2/2, y = p + 0.75, color = red_pink, family = "Fira Sans", size = 4)
+```
+:::
+::::
+
+## Incidencia {visibility="uncounted"}
+
+:::: {.columns}  
+::: {.column width="40%"}
+[La incidencia fiscal **NO** depende de si el Gobierno grava a los productores o los consumidores.]{.blut} 
+:::
+
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+base +
+  stat_function(fun = supply, color = purple, size = 1) + # supply function
+  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
+  annotate("text", label = expression(D), x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
+  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
+  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple, alpha = 0.2, linetype = "blank") + # PS
+  annotate("text", label = "EP", x = q_2/3, y = ps_2 - 1, color = purple, family = "Fira Sans", size = 6) +
+  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2, linetype = "blank") + # CS
+  annotate("text", label = "EC", x = q_2/3, y = pd_2 + 1, color = red_pink, family = "Fira Sans", size = 6) +
+  
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "solid", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2) +
+  geom_ribbon(aes(x = w_2, ymin = supply(w_2), ymax = p), fill = orange, alpha = 0.2, linetype = "blank") +
+  geom_ribbon(aes(x = w_2, ymin = p, ymax = demand(w_2)), fill = orange, alpha = 0.2, linetype = "blank") +
+  annotate("text", label = "DWL", x = (q + q_2)/2 - 0.125, y = p, color = orange, family = "Fira Sans", size = 6) +
+  
+  geom_segment(aes(x = 0, y = p, xend = q_2, yend = p), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_ribbon(aes(x = w, ymin = ps_2, ymax = p), fill = purple, alpha = 0.1, linetype = "blank") + 
+  annotate("text", label = "Carga (P)", x = q_2/2, y = p - 0.75, color = purple, family = "Fira Sans", size = 4) +
+  
+  geom_ribbon(aes(x = w, ymin = p, ymax = pd_2), fill = red_pink, alpha = 0.1, linetype = "blank") + 
+  annotate("text", label = "Carga (C)", x = q_2/2, y = p + 0.75, color = red_pink, family = "Fira Sans", size = 4)
+```
+:::
+::::
+
+
+## Incidencia
+
+:::: {.columns}  
+::: {.column width="40%"}
+**P:** Si por estatuto no se puede hacer, que es lo que lo hace?
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Carga Consumidor", "Carga Productor", "Gob"),
+  v2 = c("$2.50", "$12.50", "$15.00")
+) %>% kable(
+  escape = F,
+  col.names = c("Imp", "$3.00"),
+  align = c("l", "c")
+) %>%
+  kable_styling() %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- 0:10
+t <- 3
+demand <- function(x) 10 - (1/5)*x
+supply <- function(x) 1 + x
+supply_tax <- function(x) 1 + t + x
+q <- uniroot(function(x) demand(x) - supply(x), range(x))$root
+q_2 <- uniroot(function(x) demand(x) - supply_tax(x), range(x))$root
+p <- supply(q)
+ps_2 <- supply(q_2)
+pd_2 <- demand(q_2)
+w <- seq(0, q_2, 0.01)
+z <- seq(q_2, q, 0.01)
+base <- ggplot() +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
+  labs(x = "Q", y = "P") +
+  theme_market
+base +
+  stat_function(fun = supply, color = purple, size = 1) + # supply function
+  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
+  annotate("text", label = expression(D), x = 9, y = 8.65, color = red_pink, family = "Fira Sans", size = 9) +
+  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
+  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple, alpha = 0.2, linetype = "blank") + # PS
+  annotate("text", label = "EP", x = 1, y = ps_2 - 1, color = purple, family = "Fira Sans", size = 6) +
+  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2, linetype = "blank") + # CS
+  annotate("text", label = "EC", x = 1, y = pd_2 + 0.5, color = red_pink, family = "Fira Sans", size = 6) +
+  
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "solid", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2) +
+  
+  geom_segment(aes(x = 0, y = p, xend = q_2, yend = p), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_ribbon(aes(x = w, ymin = ps_2, ymax = p), fill = purple, alpha = 0.1, linetype = "blank") + 
+  annotate("text", label = "Carga (P)", x = q_2/2, y = (p + ps_2)/2, color = purple, family = "Fira Sans", size = 4) +
+  
+  geom_ribbon(aes(x = w, ymin = p, ymax = pd_2), fill = red_pink, alpha = 0.1, linetype = "blank") + 
+  annotate("text", label = "Carga (C)", x = q_2/2, y = (p + pd_2)/2, color = red_pink, family = "Fira Sans", size = 4)
+```
+:::
+::::
+
+## Incidencia {visibility="uncounted"}
+
+:::: {.columns}  
+::: {.column width="40%"}
+**P:** Si por estatuto no se puede hacer, que es lo que lo hace?
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Carga Consumidor", "Carga Productor", "Gob"),
+  v2 = c("$4.00", "$2.00", "$6.00")
+) %>% kable(
+  escape = F,
+  col.names = c("Imp", "$3.00"),
+  align = c("l", "c")
+) %>%
+  kable_styling() %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- 0:10
+t <- 3
+demand <- function(x) 10 - 2*x
+supply <- function(x) 1 + x
+supply_tax <- function(x) 1 + t + x
+q <- uniroot(function(x) demand(x) - supply(x), range(x))$root
+q_2 <- uniroot(function(x) demand(x) - supply_tax(x), range(x))$root
+p <- supply(q)
+ps_2 <- supply(q_2)
+pd_2 <- demand(q_2)
+w <- seq(0, q_2, 0.01)
+z <- seq(q_2, q, 0.01)
+base <- ggplot() +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
+  labs(x = "Q", y = "P") +
+  theme_market
+base +
+  stat_function(fun = supply, color = purple, size = 1) + # supply function
+  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
+  annotate("text", label = expression(D), x = 5.1, y = 0.65, color = red_pink, family = "Fira Sans", size = 9) +
+  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
+  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple, alpha = 0.2, linetype = "blank") + # PS
+  annotate("text", label = "EP", x = q_2/3, y = ps_2 - 0.5, color = purple, family = "Fira Sans", size = 6) +
+  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2, linetype = "blank") + # CS
+  annotate("text", label = "EC", x = q_2/3, y = pd_2 + 1, color = red_pink, family = "Fira Sans", size = 6) +
+  
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "solid", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2) +
+  
+  geom_segment(aes(x = 0, y = p, xend = q_2, yend = p), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_ribbon(aes(x = w, ymin = ps_2, ymax = p), fill = purple, alpha = 0.1, linetype = "blank") + 
+  annotate("text", label = "Carga (P)", x = q_2/2, y = (p + ps_2)/2, color = purple, family = "Fira Sans", size = 4) +
+  
+  geom_ribbon(aes(x = w, ymin = p, ymax = pd_2), fill = red_pink, alpha = 0.1, linetype = "blank") + 
+  annotate("text", label = "Carga (C)", x = q_2/2, y = (p + pd_2)/2, color = red_pink, family = "Fira Sans", size = 4)
+```
+:::
+::::
+
+## Incidencia {visibility="uncounted"}
+
+:::: {.columns}  
+::: {.column width="40%"}
+**P:** Si por estatuto no se puede hacer, que es lo que lo hace?
+
+**R:** [La elasticidad de la demanda y oferta!]{.alert}
+<br> --> El lado inelástico del mercado soporta más la carga.
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- 0:10
+t <- 3
+demand <- function(x) 10 - 2*x
+supply <- function(x) 1 + x
+supply_tax <- function(x) 1 + t + x
+q <- uniroot(function(x) demand(x) - supply(x), range(x))$root
+q_2 <- uniroot(function(x) demand(x) - supply_tax(x), range(x))$root
+p <- supply(q)
+ps_2 <- supply(q_2)
+pd_2 <- demand(q_2)
+w <- seq(0, q_2, 0.01)
+z <- seq(q_2, q, 0.01)
+base <- ggplot() +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
+  labs(x = "Q", y = "P") +
+  theme_market
+base +
+  stat_function(fun = supply, color = purple, size = 1) + # supply function
+  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
+  annotate("text", label = expression(D), x = 5.1, y = 0.65, color = red_pink, family = "Fira Sans", size = 9) +
+  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
+  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple, alpha = 0.2, linetype = "blank") + # PS
+  annotate("text", label = "EP", x = q_2/3, y = ps_2 - 0.5, color = purple, family = "Fira Sans", size = 6) +
+  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2, linetype = "blank") + # CS
+  annotate("text", label = "EC", x = q_2/3, y = pd_2 + 1, color = red_pink, family = "Fira Sans", size = 6) +
+  
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "solid", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2) +
+  
+  geom_segment(aes(x = 0, y = p, xend = q_2, yend = p), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_ribbon(aes(x = w, ymin = ps_2, ymax = p), fill = purple, alpha = 0.1, linetype = "blank") + 
+  annotate("text", label = "Carga (P)", x = q_2/2, y = (p + ps_2)/2, color = purple, family = "Fira Sans", size = 4) +
+  
+  geom_ribbon(aes(x = w, ymin = p, ymax = pd_2), fill = red_pink, alpha = 0.1, linetype = "blank") + 
+  annotate("text", label = "Carga (C)", x = q_2/2, y = (p + pd_2)/2, color = red_pink, family = "Fira Sans", size = 4)
+```
+:::
+::::
+
+##  {background-image="imagenese/cactus2point.jpg"}
+
+### Producción {.r-fit-text}
+
+## Teoría del Productor
+
+::: fragment
+`r fa("lightbulb", fill="blue")` Ejemplo:
+:::
+
+::: fragment
++ Necesita 10 millones de pesos para iniciar un negocio. La tasa que se lo prestan es al 5% anual. La tasa de Ahorro es del 2% y posee 4 millones en su cuenta débito.
+:::
+
+::: fragment
+**Costos nivel 1**:<br> 
+Préstamo: 10.000.000 ; Costo explicito: $500.000
+:::
+
+::: fragment
+**Costos nivel 2**:<br> 
+Préstamo: 6.000.000; Costo explicito: $300.000
+Ahorros: 4.000.000;  Costo implícito: $80.000
+:::
+
+::: fragment
+[Total costos]{.alert}: 380.000 en el nivel 2 y de 500.000 para el nivel 1. *La mejor opción quizas sea tomar el nivel 2*
+:::
+
+
+## Teoría del Productor
+
+::: fragment
+#### Diferencia entre costo contable y económico
+:::
+
+::: fragment
+<font size="+3"> Beneficio Contable = Ganancia total - [Costo explicito]{.alert}</font>
+:::
+
+::: fragment
+<br/>
+<font size="+3"> Beneficio Económico= Ganancia total - [Costo explicito]{.alert} + [**Implicito**]{.blut}</font>
+:::
+
+::: fragment
+> Cuál de los siguiente es verdadero?
+:::
+
+::: fragment
+**A.** Beneficio contable > Beneficio económico
+
+**B.** Beneficio contable < Beneficio económico
+:::
+
+## Teoría del Productor {visibility="uncounted"}
+
+
+#### Diferencia entre costo contable y económico
+
+
+
+<font size="+3"> Beneficio Contable = Ganancia total - [Costo explicito]{.alert}</font>
+
+<br/>
+<font size="+3"> Beneficio Económico= Ganancia total - [Costo explicito]{.alert} + [**Implicito**]{.blut}</font>
+
+
+
+> Cuál de los siguiente es verdadero?
+
+
+
+**A.** [Beneficio contable > Beneficio económico]{.alert}
+
+**B.** Beneficio contable < Beneficio económico
+
+
+## Teoría del Productor
+
+::: fragment
+Un beneficio [**contable**]{.blut} positivo no siempre significa que una empresa vaya bien.
+:::
+
+::: fragment
+- [Beneficio económico]{.alert} < 0 ==> La empresa actual es menos rentable que la siguiente mejor opción.
+ 
+- [Beneficio económico]{.oranger}= 0 ==> La empresa actual es tan rentable como la siguiente mejor opción.
+ 
+- [Beneficio económico]{.blut} > 0 ==> La empresa actual es más rentable que la siguiente mejor opción.
+:::
+
+## Producto total {visibility="uncounted"}
+
+:::: {.columns}
+
+::: {.column width="40%"}
+#### Definición
+> Cantidad de un producto dado la cantidad de insumos que se tenga
+
+**Ejemplo:** Trabajadores (L), manteniendo lo demás constante.
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- 0:10
+total_product <- function(x) 3*x - 0.5*x^3 + 4*x^2 
+ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
+  scale_x_continuous(limits = c(0, 7.5), expand=c(0,0), breaks = seq(0,7,1)) +
+  scale_y_continuous(limits = c(0, 65), expand=c(0,0), breaks = seq(0,60,10)) +
+  theme_market +
+  labs(x = "L", y = "Q") +
+  stat_function(fun = total_product, color = purple, size = 1)
+```
+
+:::
+::::
+
+## Producto total {visibility="uncounted"}
+
+:::: {.columns}
+
+::: {.column width="40%"}
+#### Definición
+>Cantidad de un producto dado la cantidad de insumos que se tenga 
+
+**Ejemplo:** Trabajadores (L), manteniendo lo demas constante.
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- 0:10
+z <- seq(0, 2.67, 0.01)
+w <- seq(2.67, 5.68, 0.01)
+u <- seq(5.68, 7.5, 0.01)
+total_product <- function(x) 3*x - 0.5*x^3 + 4*x^2 
+ggplot() +
+  scale_x_continuous(limits = c(0, 7.5), expand=c(0,0), breaks = seq(0,7,1)) +
+  scale_y_continuous(limits = c(0, 65), expand=c(0,0), breaks = seq(0,60,10)) +
+  theme_market +
+  labs(x = "L", y = "Q") +
+  stat_function(fun = total_product, color = purple, size = 1) +
+  geom_vline(xintercept = 2.67, color = met_slate, size = 1, linetype = "dashed") +
+  geom_vline(xintercept = 5.68, color = met_slate, size = 1, linetype = "dashed") +
+  annotate("label", label = wrapper("Incrementos a tasa creciente", 15), x = 2.67/2, y = 58.5, color = purple, family = "Fira Sans", size = 4) +
+  annotate("label", label = wrapper("Incrementos a tasa decreciente", 15), x = (2.67 + 5.68)/2, y = 58.5, color = purple, family = "Fira Sans", size = 4) +
+  annotate("label", label = wrapper("Decreciendo", 15), x = (7.5 + 5.68)/2, y = 58.5, color = purple, family = "Fira Sans", size = 4) +
+  geom_ribbon(aes(x = z, ymin = 0, ymax = 65), fill = purple, alpha = 0.2, linetype = "blank") + # PS
+  geom_ribbon(aes(x = u, ymin = 0, ymax = 65), fill = purple, alpha = 0.2, linetype = "blank")
+```
+:::
+
+::::
+
+## Producto total {visibility="uncounted"}
+
+:::: {.columns}
+
+::: {.column width="40%"}
+Hay un **producto marginal** que ayuda a definir muchos sucesos en la empresa
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- 0:10
+total_product <- function(x) 3*x - 0.5*x^3 + 4*x^2 
+q_1 <- total_product(3)
+q_2 <- total_product(4)
+
+ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
+  scale_x_continuous(limits = c(0, 7.5), expand=c(0,0), breaks = seq(0,7,1)) +
+  scale_y_continuous(limits = c(0, 65), expand=c(0,0), breaks = seq(0,60,10)) +
+  theme_market +
+  labs(x = "L", y = "Q") +
+  stat_function(fun = total_product, color = purple, size = 1) +
+  geom_point(aes(x = 3, y = q_1), color = met_slate, size = 2) +
+  geom_point(aes(x = 4, y = q_2), color = met_slate, size = 2) +
+  geom_segment(aes(x = 3, y = 0, xend = 3, yend = q_1), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 4, y = 0, xend = 4, yend = q_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = q_1, xend = 3, yend = q_1), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = q_2, xend = 4, yend = q_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 3 + 0.1, y = 10, xend = 4 - 0.1, yend = 10), arrow = arrow(angle = 20, length = unit(0.4,"cm"), type = "closed"), color = met_slate, size = 1) +
+  geom_segment(aes(x = 0.5, y = q_1 + 0.75, xend = 0.5, yend = q_2 - 0.75), arrow = arrow(angle = 20, length = unit(0.4,"cm"), type = "closed"), color = met_slate, size = 1) +
+  annotate("text", label = expression(Delta*"Q"=="Producto Marginal "), x = 2, y = (q_1 + q_2)/2, color = met_slate, family = "Fira Sans", size = 4) +
+  annotate("text", label = expression(Delta*"L"==1), x = 3.5, y = 7.5, color = met_slate, family = "Fira Sans", size = 4)
+```
+:::
+
+::::
+
+# Producto Marginal {background-color="#006dae"}
+
+## Producto Marginal
+
+:::: {.columns}
+
+::: {.column width="40%"}
+> Los cambios en el producto desde una unidad adicional de producción o trabajo 
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+
+shift_axis <- function(p, y=0){
+  g <- ggplotGrob(p)
+  dummy <- data.frame(y=y)
+  ax <- g[["grobs"]][g$layout$name == "axis-b"][[1]]
+  p + annotation_custom(grid::grobTree(ax, vp = grid::viewport(y=1, height=sum(ax$height))), 
+                        ymax=y, ymin=y) +
+    geom_hline(aes(yintercept=y), data = dummy, size = 0.5, color = met_slate) +
+    theme(axis.text.x = element_blank(), 
+          axis.ticks.x = element_blank())
+}
+
+
+x <- 0:10
+marginal_product <- function(x) 3 + 8*x - 1.5*x^2
+
+mp1 <- ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
+  scale_x_continuous(limits = c(0, 7.5), expand=c(0,0), breaks = seq(1,7,1)) +
+  scale_y_continuous(limits = c(-6, 16), expand=c(0,0), breaks = seq(-5,15,5)) +
+  theme_market +
+  #geom_hline(yintercept = 0, color = met_slate, size = 0.5) + 
+  labs(x = "L", y = "MP") +
+  stat_function(fun = marginal_product, color = purple, size = 1) +
+  theme(axis.line.x = element_blank(),
+        axis.title.x = element_text(hjust = 1, vjust = 21, size = 17)) 
+
+shift_axis(mp1)
+```
+:::
+
+::::
+
+## Producto Marginal {visibility="uncounted"}
+
+:::: {.columns}
+
+::: {.column width="40%"}
+> Los cambios en el producto desde una unidad adicional de producción o trabajo 
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- 0:10
+z <- seq(0, 2.67, 0.01)
+w <- seq(2.67, 5.68, 0.01)
+u <- seq(5.68, 7.5, 0.01)
+marginal_product <- function(x) 3 + 8*x - 1.5*x^2
+
+mp1 <- ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
+  scale_x_continuous(limits = c(0, 7.5), expand=c(0,0), breaks = seq(1,7,1)) +
+  scale_y_continuous(limits = c(-6, 16), expand=c(0,0), breaks = seq(-5,15,5)) +
+  theme_market +
+  #geom_hline(yintercept = 0, color = met_slate, size = 0.5) + 
+  labs(x = "L", y = "MP") +
+  stat_function(fun = marginal_product, color = purple, size = 1) +
+  theme(axis.line.x = element_blank(),
+        axis.title.x = element_text(hjust = 1, vjust = 21, size = 17)) +
+  geom_vline(xintercept = 2.67, color = met_slate, size = 1, linetype = "dashed") +
+  geom_vline(xintercept = 5.68, color = met_slate, size = 1, linetype = "dashed") +
+  annotate("label", label = wrapper("Incrementos a tasa creciente", 22), x = 2.67/2 - 0.0, y = 14.75, color = purple, family = "Fira Sans", size = 4) +
+  annotate("label", label = wrapper("Incrementos a tasa decreciente", 22), x = (2.67 + 5.68)/2 + 0.0, y = 14.75, color = purple, family = "Fira Sans", size = 4) +
+  annotate("label", label = wrapper("Decreciendo", 22), x = (7.5 + 5.68)/2, y = 14.75, color = purple, family = "Fira Sans", size = 4)
+
+shift_axis(mp1)
+```
+:::
+
+::::
+
+## Producto Marginal {visibility="uncounted"}
+:::: {.columns}
+
+::: {.column width="40%"}
+El [Producto marginal]{.alert} decrece cada vez que uno de los insumos queda fijo por mucho tiempo
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- 0:10
+marginal_product <- function(x) 3 + 8*x - 1.5*x^2
+
+mp1 <- ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
+  scale_x_continuous(limits = c(0, 7.5), expand=c(0,0), breaks = seq(1,7,1)) +
+  scale_y_continuous(limits = c(-6, 16), expand=c(0,0), breaks = seq(-5,15,5)) +
+  theme_market +
+  #geom_hline(yintercept = 0, color = met_slate, size = 0.5) + 
+  labs(x = "L", y = "MP") +
+  stat_function(fun = marginal_product, color = purple, size = 1) +
+  theme(axis.line.x = element_blank(),
+        axis.title.x = element_text(hjust = 1, vjust = 21, size = 17)) +
+  geom_vline(xintercept = 2.67, color = met_slate, size = 1, linetype = "dashed") +
+  annotate("label", label = wrapper("Incrementos del Producto Marginal", 18), x = 2.67/2 - 0.0, y = 14.85, color = purple, family = "Fira Sans", size = 4) +
+  annotate("label", label = wrapper("Decrecimiento del Producto Marginal", 18), x = (2.67 + 7.5)/2 + 0.0, y = 14.85, color = purple, family = "Fira Sans", size = 4)
+
+shift_axis(mp1)
+```
+:::
+
+::::
+
+# Ejemplo 😎 {background-color="#006dae"}
+
+## Ejemplo
+
+Suponga que usted es un/a agricultor/a y produce melones. Si el precio del melon es `$5` y el salario de sus empleados es de `$2000` por mes. Cuantos trabajadores debe contratar?
+
+```{R, echo = F, escape = F}
+data.frame(
+  v1 = c(0, 1, 2, 3, 4, 5),
+  v2 = c(0, 1000, 1800, 2400, 2800, 3000),
+  v3 = c("", "", "", "", "", ""),
+  v4 = c("", "", "", "", "", ""),
+  v5 = c("$2000", "$2000", "$2000", "$2000", "$2000", "$2000")
+) %>% kable(
+  escape = F,
+  col.names = c("Trabajadores (L)", "Melones (Q)", "Producto Marginal", "Prod. Marginal x P", "Salario"),
+  align = c("c", "c", "c", "c", "c")#,
+) %>%
+row_spec(1:6, color = met_slate) %>%
+row_spec(1:6, extra_css = "line-height: 110%;")
+```
+
+## Ejemplo {visibility="uncounted"}
+
+Suponga que usted es un/a agricultor/a y produce melones. Si el precio del melon es `$5` y el salario de sus empleados es de `$2000` por mes. Cuantos trabajadores debe contratar?
+
+```{R, echo = F, escape = F}
+data.frame(
+  v1 = c(0, 1, 2, 3, 4, 5),
+  v2 = c(0, 1000, 1800, 2400, 2800, 3000),
+  v3 = c("", "1000", "800", "600", "400", "200"),
+  v4 = c("", "", "", "", "", ""),
+  v5 = c("$2000", "$2000", "$2000", "$2000", "$2000", "$2000")
+) %>% kable(
+  escape = F,
+  col.names = c("Trabajadores (L)", "Melones (Q)", "Producto Marginal", "Prod. Marginal x P", "Salario"),
+  align = c("c", "c", "c", "c", "c")#,
+) %>%
+row_spec(1:6, color = met_slate) %>%
+row_spec(1:6, extra_css = "line-height: 110%;")
+```
+
+## Ejemplo {visibility="uncounted"}
+
+Suponga que usted es un/a agricultor/a y produce melones. Si el precio del melon es `$5` y el salario de sus empleados es de `$2000` por mes. Cuantos trabajadores debe contratar?
+
+```{R, echo = F, escape = F}
+data.frame(
+  v1 = c(0, 1, 2, 3, 4, 5),
+  v2 = c(0, 1000, 1800, 2400, 2800, 3000),
+  v3 = c("", "1000", "800", "600", "400", "200"),
+  v4 = c("", "5000", "4000", "3000", "2000", "1000"),
+  v5 = c("$2000", "$2000", "$2000", "$2000", "$2000", "$2000")
+) %>% kable(
+  escape = F,
+  col.names = c("Trabajadores (L)", "Melones (Q)", "Producto Marginal", "Prod. Marginal x P", "Salario"),
+  align = c("c", "c", "c", "c", "c")#,
+) %>%
+row_spec(1:6, color = met_slate) %>%
+row_spec(1:6, extra_css = "line-height: 110%;")
+```
+
+- Piense [marginalmente]{.blut}, usted solo contratará si: $\text{Producto Marginal} \times P \geq \color{red}{\text{Salario}}$
+
+# Ejemplo 2 😝 {background-color="#006dae"}
+
+## Ejemplo 2
+
+Por uso de la tierra usted debe pagar un arriendo, digamos que por valor de `$1000`, esto es [capital]{.alert}. Por el insumo de trabajo recuerde que debe pagar el salario de mercado `$2000` por mes.
+
+```{R, echo = F, escape = F}
+data.frame(
+  v1 = c(0, 1, 2, 3, 4, 5),
+  v2 = c(0, 1000, 1800, 2400, 2800, 3000),
+  v3 = c("", "", "", "", "", ""),
+  v4 = c("", "", "", "", "", ""),
+  v5 = c("", "", "", "", "", "")
+) %>% kable(
+  escape = F,
+  col.names = c("Trabajadores (L)", "Melones (Q)", "Costo de la tierra", "Costo del trabajo", "Costo Total"),
+  align = c("c", "c", "c", "c", "c")#,
+) %>%
+row_spec(1:6, color = met_slate) %>%
+row_spec(1:6, extra_css = "line-height: 110%;")
+```
+
+## Ejemplo 2 {visibility="uncounted"}
+
+Por uso de la tierra usted debe pagar un arriendo, digamos que por valor de `$1000`, esto es [capital]{.alert}. Por el insumo de trabajo recuerde que debe pagar el salario de mercado `$2000` por mes.
+
+```{R, echo = F, escape = F}
+data.frame(
+  v1 = c(0, 1, 2, 3, 4, 5),
+  v2 = c(0, 1000, 1800, 2400, 2800, 3000),
+  v3 = c("$1000", "$1000", "$1000", "$1000", "$1000", "$1000"),
+  v4 = c("", "", "", "", "", ""),
+  v5 = c("", "", "", "", "", "")
+) %>% kable(
+  escape = F,
+  col.names = c("Trabajadores (L)", "Melones (Q)", "Costo de la tierra", "Costo del trabajo", "Costo Total"),
+  align = c("c", "c", "c", "c", "c")#,
+) %>%
+row_spec(1:6, color = met_slate) %>%
+row_spec(1:6, extra_css = "line-height: 110%;")
+```
+
+## Ejemplo 2 {visibility="uncounted"}
+
+Por uso de la tierra usted debe pagar un arriendo, digamos que por valor de `$1000`, esto es [capital]{.alert}. Por el insumo de trabajo recuerde que debe pagar el salario de mercado `$2000` por mes.
+
+```{R, echo = F, escape = F}
+data.frame(
+  v1 = c(0, 1, 2, 3, 4, 5),
+  v2 = c(0, 1000, 1800, 2400, 2800, 3000),
+  v3 = c("$1000", "$1000", "$1000", "$1000", "$1000", "$1000"),
+  v4 = c("$0", "$2000", "$4000", "$6000", "$8000", "$10000"),
+  v5 = c("", "", "", "", "", "")
+) %>% kable(
+  escape = F,
+  col.names = c("Trabajadores (L)", "Melones (Q)", "Costo de la tierra", "Costo del trabajo", "Costo Total"),
+  align = c("c", "c", "c", "c", "c")#,
+) %>%
+row_spec(1:6, color = met_slate) %>%
+row_spec(1:6, extra_css = "line-height: 110%;")
+```
+
+## Ejemplo 2 {visibility="uncounted"}
+
+Por uso de la tierra usted debe pagar un arriendo, digamos que por valor de `$1000`, esto es [capital]{.alert}. Por el insumo de trabajo recuerde que debe pagar el salario de mercado `$2000` por mes.
+
+```{R, echo = F, escape = F}
+data.frame(
+  v1 = c(0, 1, 2, 3, 4, 5),
+  v2 = c(0, 1000, 1800, 2400, 2800, 3000),
+  v3 = c("$1000", "$1000", "$1000", "$1000", "$1000", "$1000"),
+  v4 = c("$0", "$2000", "$4000", "$6000", "$8000", "$10000"),
+  v5 = c("$1000", "$3000", "$5000", "$7000", "$9000", "$11000")
+) %>% kable(
+  escape = F,
+  col.names = c("Trabajadores (L)", "Melones (Q)", "Costo de la tierra", "Costo del trabajo", "Costo Total"),
+  align = c("c", "c", "c", "c", "c")#,
+) %>%
+row_spec(1:6, color = met_slate) %>%
+row_spec(1:6, extra_css = "line-height: 110%;")
+```
+
+## Ejemplo 2 
+
+Por uso de la tierra usted debe pagar un arriendo, digamos que por valor de `$1000`, esto es [capital]{.alert}. Por el insumo de trabajo recuerde que debe pagar el salario de mercado `$2000` por mes.
+
+:::: {.columns}
+
+::: {.column width="40%"}
+```{R, echo = F, escape = F}
+cost_data <- data.frame(
+  q = c(0, 1000, 1800, 2400, 2800, 3000),
+  tc = c("$1000", "$3000", "$5000", "$7000", "$9000", "$11000")
+) 
+cost_data %>% 
+  kable(
+  escape = F,
+  col.names = c("Melones (Q)", "Costo Total"),
+  align = c("c", "c")#,
+) %>%
+row_spec(1:6, color = met_slate) %>%
+row_spec(1:6, extra_css = "line-height: 110%;")
+```
+:::
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 3.25, fig.width = 4.25, dev = "svg"}
+cost_data <- data.frame(
+  q = c(0, 1000, 1800, 2400, 2800, 3000),
+  tc = c(1000, 3000, 5000, 7000, 9000, 11000)
+) 
+cost_data %>% 
+  ggplot(aes(x = q, y = tc)) +
+  scale_x_continuous(limits = c(0, 3500)) +
+  scale_y_continuous(limits = c(0, 12000), expand=c(0, 0), breaks = scales::pretty_breaks()) +
+  theme_market +
+  labs(x = "Q", y = "CT") +
+  geom_point(size = 2, color = purple) +
+  geom_line(size = 1, color = purple)
+```
+:::
+
+::::
+
+# Curva de costos
+
+## Costos
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 6, 0.1)
+total_cost <- function(x) 10 + 10*x - 4*x^2 + x^3
+
+ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
+  scale_x_continuous(limits = c(0, 5.5), expand=c(0,0), breaks = scales::pretty_breaks()) +
+  scale_y_continuous(limits = c(0, 65), expand=c(0,0), breaks = scales::pretty_breaks()) +
+  theme_market +
+  labs(x = "Q", y = "TC") +
+  stat_function(fun = total_cost, color = purple, size = 1) 
+```
+:::
+
+::: {.column width="40%"}
+### Historia
+
+La función de producción $+$ los precios de los insumos no da $\rightarrow$ [Curva de costo total]{.alert}
+
+:::
+
+::::
+
+## Gracias! por su atención {.center}
+
+#### Alguna pregunta adicional?
+
+Slides de la clase:
+
+`r fa('link')` [Curso virtual](https://cursos.uninorte.edu.co/d2l/home/109780)
+
+`r fa('github')` [keynes37](https://github.com/keynes37)
+
+## Bibliografía {.center}
+
+`r fa('book')` Mankiw, N. G. (2005). *Principios de microeconomía* /N. Gregory Mankiw (No. 338.5 M55Y.).
+
+`r fa('archive')` Lecture notes Kyle Raze
+
+`r fa('book')` Krugman, P., & Wells, R. (2014). *Microeconomics (for AP)*. New York: Worth Publishers.
+
+`r fa('book')` Mokate, K., & Castro, R. (2018). *Evaluación económica y social de proyectos de inversión*: Segunda edición. Universidad de los Andes.

@@ -94,7 +94,7 @@ update_geom_defaults("text", list(family = "Fira Sans Condensed"))
 
 ```
 
-##  {background-color="black" background-image="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXZhc2thOWFlYmQ4c3V5b2xqcHJjNmM2b29zb2JraXZraWpybmo2eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/EhIY3qMboGGKJVdMNZ/giphy.gif"}
+##  {background-color="black" background-image="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDZtdjU1dTd4MmV5N3MxbTJzeHBycmdwM2U0anI2dGswODkzdzM2NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mW05nwEyXLP0Y/giphy.gif"}
 
 # Preguntas de la sesión anterior?
 
