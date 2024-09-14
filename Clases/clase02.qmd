@@ -587,7 +587,7 @@ $$\mathbb{EC}  = 2.549.994$$
 :::
 
 ::: fragment
-Paso(4): Calcular la prima de riesgo]
+Paso(4): Calcular la prima de riesgo
 
 $$\mathbb{P}.\mathbb{R}= Valor\;Esperado - Equivalente \; Certeza$$
 :::
@@ -2111,6 +2111,372 @@ La función de producción $+$ los precios de los insumos no da $\rightarrow$ [C
 :::
 
 ::::
+
+## Costos
+
+- [P:]{.alert} ¿Cómo decide una empresa cuánta producción debe realizar?
+
+- Para aumentar los beneficios, ¿debe producir más o menos unidades?
+- [R:]{.blut} Piense en el margen.
+
+::: fragment
+> Si el costo de las unidades adicionales es inferior a los ingresos por su venta, los beneficios aumentan a medida que se incrementa la producción.
+:::
+
+::: fragment
+Si el costo de las unidades adicionales es [superior]{.under} a los ingresos por su venta, los beneficios disminuyen al aumentar la producción.
+:::
+
+# Costo Marginal {background-color="#006dae"}
+
+## Costo Marginal
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 6, 0.1)
+total_cost <- function(x) 10 + 10*x - 4*x^2 + x^3
+tc_1 <- total_cost(3)
+tc_2 <- total_cost(4)
+
+ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
+  scale_x_continuous(limits = c(0, 5.5), expand=c(0,0), breaks = scales::pretty_breaks()) +
+  scale_y_continuous(limits = c(0, 65), expand=c(0,0), breaks = scales::pretty_breaks()) +
+  theme_market +
+  labs(x = "Q", y = "CT") +
+  stat_function(fun = total_cost, color = purple, size = 1) +
+  geom_point(aes(x = 3, y = tc_1), color = met_slate, size = 2) +
+  geom_point(aes(x = 4, y = tc_2), color = met_slate, size = 2) +
+  geom_segment(aes(x = 3, y = 0, xend = 3, yend = tc_1), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 4, y = 0, xend = 4, yend = tc_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = tc_1, xend = 3, yend = tc_1), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = tc_2, xend = 4, yend = tc_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 3 + 0.1, y = 10, xend = 4 - 0.1, yend = 10), arrow = arrow(angle = 20, length = unit(0.4,"cm"), type = "closed"), color = met_slate, size = 1) +
+  geom_segment(aes(x = 0.5, y = tc_1 + 0.75, xend = 0.5, yend = tc_2 - 0.75), arrow = arrow(angle = 20, length = unit(0.4,"cm"), type = "closed"), color = met_slate, size = 1) +
+  annotate("text", label = expression(Delta*"CT"=="Costo Marginal"), x = 2 - 0.5, y = (tc_1 + tc_2)/2, color = met_slate, family = "Fira Sans", size = 4) +
+  annotate("text", label = expression(Delta*"Q"==1), x = 3.5, y = 7.5, color = met_slate, family = "Fira Sans", size = 4)
+```
+:::
+
+::: {.column width="40%"}
+### Definición
+
+Variación del costo total derivado de un aumento de la producción de una unidad adicional.
+:::
+
+::::
+
+## Costo Marginal {visibility="uncounted"}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 6, 0.1)
+marginal_cost <- function(x) 10 - 8*x + 3*x^2
+
+ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
+  scale_x_continuous(limits = c(0, 5.5), expand=c(0,0), breaks = scales::pretty_breaks()) +
+  scale_y_continuous(limits = c(0, 65), expand=c(0,0), breaks = scales::pretty_breaks()) +
+  theme_market +
+  labs(x = "Q", y = "CM") +
+  stat_function(fun = marginal_cost, color = purple, size = 1) 
+```
+:::
+
+::: {.column width="40%"}
+### Definición
+
+Variación del costo total derivado de un aumento de la producción de una unidad adicional.
+:::
+
+::::
+
+## Costo Marginal
+
+- Recuerde que $\text{Costo Total}= \text{Costo Fijo}+ \color{red}{\text{Costo Variable}}$
+
+- Los [Costos fijos]{.bg style="--col: #FFFF00"} no contribuyen al costo marginal, ya que no dependen de la producción.
+
+- Los [Costos fijos]{.alert} tienden a absorverse cuando la producción se vende en gran proporción. P.e: Arriendo de 200 millones pero se vende 5000 millones de pesos
+
+- Los [Costos variables]{.oranger} si se asocian con lo producido. P.e: mas producción requiere mas material. Estos contribuyen al costo marginal de la empresa.
+
+
+# Costo Fijo vs Variable {background-color="#006dae"}
+
+## Costo Fijo vs Variable
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 6, 0.1)
+total_cost <- function(x) 10 + 10*x - 4*x^2 + x^3
+vc <- function(x) 10*x - 4*x^2 + x^3
+fc <- function(x) 10
+
+ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
+  scale_x_continuous(limits = c(0, 5.5), expand=c(0,0), breaks = scales::pretty_breaks()) +
+  scale_y_continuous(limits = c(0, 65), expand=c(0,0), breaks = scales::pretty_breaks()) +
+  theme_market +
+  labs(x = "Q", y = "$") +
+  stat_function(fun = fc, color = green, size = 1) +
+  stat_function(fun = total_cost, color = purple, size = 1) +
+  stat_function(fun = vc, color = red_pink, size = 1) +
+  annotate("text", label = "CT", x = 3.6, y = 50, color = purple, family = "Fira Sans", size = 9) +
+  annotate("text", label = "CV", x = 4.75, y = 50, color = red_pink, family = "Fira Sans", size = 9) +
+  annotate("text", label = "CF", x = 4.75, y = 13, color = green, family = "Fira Sans", size = 9)
+
+```
+:::
+
+::: {.column width="40%"}
+Los [Costos fijos]{.alert} no varian con la producción
+</br>
+Los [Costos variables]{.oranger} se afectan cuando la producción varía
+
+:::
+
+::::
+
+## Costo Fijo vs Variable
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 6, 0.1)
+total_cost <- function(x) 10 + 10*x - 4*x^2 + x^3
+afc <- function(x) 10/x
+
+ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
+  scale_x_continuous(limits = c(0, 5.5), expand=c(0,0), breaks = scales::pretty_breaks()) +
+  scale_y_continuous(limits = c(0, 65), expand=c(0,0), breaks = scales::pretty_breaks()) +
+  theme_market +
+  labs(x = "Q", y = "$") +
+  stat_function(fun = afc, color = green, size = 1) +
+  annotate("text", label = "AFC", x = 4.75, y = 5.5, color = green, family = "Fira Sans", size = 9)
+
+```
+:::
+
+::: {.column width="40%"}
+### Costo fijo promedio (AFC)
+Este costo resulta de dividir el costo fijo entre la producción total $CF \div Q$
+:::
+
+::::
+
+## Costo Fijo vs Variable
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 6, 0.1)
+total_cost <- function(x) 10 + 10*x - 4*x^2 + x^3
+avc <- function(x) (10*x - 4*x^2 + x^3)/x
+
+ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
+  scale_x_continuous(limits = c(0, 5.5), expand=c(0,0), breaks = scales::pretty_breaks()) +
+  scale_y_continuous(limits = c(0, 65), expand=c(0,0), breaks = scales::pretty_breaks()) +
+  theme_market +
+  labs(x = "Q", y = "$") +
+  stat_function(fun = avc, color = red_pink, size = 1) +
+  annotate("text", label = "AVC", x = 4.75, y = 18, color = red_pink, family = "Fira Sans", size = 9)
+
+```
+:::
+
+::: {.column width="40%"}
+### Costo variable promedio (AVC)
+El costo resulta de dividir el costo variable entre la producción $CV \div Q$
+:::
+
+::::
+
+## Costo Fijo vs Variable
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 6, 0.1)
+total_cost <- function(x) 10 + 10*x - 4*x^2 + x^3
+atc <- function(x) (10 + 10*x - 4*x^2 + x^3)/x
+
+ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
+  scale_x_continuous(limits = c(0, 5.5), expand=c(0,0), breaks = scales::pretty_breaks()) +
+  scale_y_continuous(limits = c(0, 65), expand=c(0,0), breaks = scales::pretty_breaks()) +
+  theme_market +
+  labs(x = "Q", y = "$") +
+  stat_function(fun = atc, color = purple, size = 1) +
+  annotate("text", label = "ATC", x = 0.7, y = 50, color = purple, family = "Fira Sans", size = 9)
+```
+:::
+
+::: {.column width="40%"}
+### Costo total medio (ATC)
+Es el costo que resulta de dividir el conjunto de costos entre la producción. Tambien sumando $AFC+AVC=\color{red}{ATC}$
+:::
+
+::::
+
+## Costo Fijo vs Variable {visibility="uncounted"}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 6, 0.1)
+total_cost <- function(x) 10 + 10*x - 4*x^2 + x^3
+atc <- function(x) (10 + 10*x - 4*x^2 + x^3)/x
+
+ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
+  scale_x_continuous(limits = c(0, 5.5), expand=c(0,0), breaks = scales::pretty_breaks()) +
+  scale_y_continuous(limits = c(0, 65), expand=c(0,0), breaks = scales::pretty_breaks()) +
+  theme_market +
+  labs(x = "Q", y = "$") +
+  stat_function(fun = atc, color = purple, size = 1) +
+  annotate("text", label = "ATC", x = 0.7, y = 50, color = purple, family = "Fira Sans", size = 9) +
+  geom_vline(xintercept = 2.69, color = met_slate, size = 1, linetype = "dashed") +
+  annotate("label", label = "Escala Eficiente", x = 2.69, y = 60, color = met_slate, family = "Fira Sans", size = 4)
+```
+:::
+
+::: {.column width="40%"}
+### Costo total medio (ATC)
+Es el costo que resulta de dividir el conjunto de costos entre la producción. Tambien sumando $AFC+AVC=\color{red}{ATC}$
+
+> Escala eficiente: en Q que minimiza ATC
+:::
+
+::::
+
+## Costo Fijo vs Variable
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 6, 0.1)
+total_cost <- function(x) 10 + 10*x - 4*x^2 + x^3
+atc <- function(x) (10 + 10*x - 4*x^2 + x^3)/x
+afc <- function(x) 10/x
+avc <- function(x) (10*x - 4*x^2 + x^3)/x
+
+ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
+  scale_x_continuous(limits = c(0, 5.5), expand=c(0,0), breaks = scales::pretty_breaks()) +
+  scale_y_continuous(limits = c(0, 65), expand=c(0,0), breaks = scales::pretty_breaks()) +
+  theme_market +
+  labs(x = "Q", y = "$") +
+  stat_function(fun = atc, color = purple, size = 1) +
+  annotate("text", label = "ATC", x = 0.7, y = 50, color = purple, family = "Fira Sans", size = 9) +
+  geom_vline(xintercept = 2.69, color = met_slate, size = 1, linetype = "dashed") +
+  stat_function(fun = afc, color = green, size = 1) +
+  annotate("text", label = "AFC", x = 4.75, y = 5.5, color = green, family = "Fira Sans", size = 9) +
+  stat_function(fun = avc, color = red_pink, size = 1) +
+  annotate("text", label = "AVC", x = 0.4, y = 5, color = red_pink, family = "Fira Sans", size = 9) +
+  annotate("label", label = "Escala Eficiente", x = 2.69, y = 60, color = met_slate, family = "Fira Sans", size = 4)
+```
+:::
+
+::: {.column width="40%"}
+Escala eficiente [Q que minimiza el ATC]{.blut}.
+
+Q < escala eficiente: La caída del AFC reduce el ATC.
+
+Q > escala eficiente: El aumento del AVC aumenta el ATC.
+:::
+
+::::
+
+## Costo Fijo vs Variable
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 6, 0.1)
+total_cost <- function(x) 10 + 10*x - 4*x^2 + x^3
+atc <- function(x) (10 + 10*x - 4*x^2 + x^3)/x
+marginal_cost <- function(x) 10 - 8*x + 3*x^2
+avc <- function(x) (10*x - 4*x^2 + x^3)/x
+
+ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
+  scale_x_continuous(limits = c(0, 5.5), expand=c(0,0), breaks = scales::pretty_breaks()) +
+  scale_y_continuous(limits = c(0, 65), expand=c(0,0), breaks = scales::pretty_breaks()) +
+  theme_market +
+  labs(x = "Q", y = "$") +
+  stat_function(fun = atc, color = purple, size = 1) +
+  annotate("text", label = "ATC", x = 0.7, y = 50, color = purple, family = "Fira Sans", size = 9) +
+  stat_function(fun = avc, color = red_pink, size = 1, alpha = 0.5) +
+  annotate("text", label = "AVC", x = 4.8, y = 10, color = red_pink, family = "Fira Sans", size = 9, alpha = 0.5) +
+  stat_function(fun = marginal_cost, color = red_pink, size = 1) +
+  annotate("text", label = "CM", x = 4.8, y = 50, color = red_pink, family = "Fira Sans", size = 9)
+```
+:::
+
+::: {.column width="40%"}
+MC < ATC $\longrightarrow$ ATC está bajando.
+
+MC > ATC $\longrightarrow$ ATC [aumenta]{.blut}.
+
+[MC se cruza ATC]{.bg style="--col: #FFFF00"} en el Q que minimiza ATC.
+:::
+
+::::
+
+## Costo Fijo vs Variable {visibility="uncounted"}
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 6, 0.1)
+total_cost <- function(x) 10 + 10*x - 4*x^2 + x^3
+atc <- function(x) (10 + 10*x - 4*x^2 + x^3)/x
+marginal_cost <- function(x) 10 - 8*x + 3*x^2
+avc <- function(x) (10*x - 4*x^2 + x^3)/x
+
+ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
+  scale_x_continuous(limits = c(0, 5.5), expand=c(0,0), breaks = scales::pretty_breaks()) +
+  scale_y_continuous(limits = c(0, 65), expand=c(0,0), breaks = scales::pretty_breaks()) +
+  theme_market +
+  labs(x = "Q", y = "$") +
+  stat_function(fun = atc, color = purple, size = 1) +
+  annotate("text", label = "ATC", x = 0.7, y = 50, color = purple, family = "Fira Sans", size = 9) +
+  stat_function(fun = marginal_cost, color = red_pink, size = 1) +
+  annotate("text", label = "CM", x = 4.8, y = 50, color = red_pink, family = "Fira Sans", size = 9)
+```
+:::
+
+::: {.column width="40%"}
+MC < ATC $\longrightarrow$ ATC está bajando.
+
+MC > ATC $\longrightarrow$ ATC [aumenta]{.blut}.
+
+[MC se cruza ATC]{.bg style="--col: #FFFF00"} en el Q que minimiza ATC.
+:::
+
+::::
+
+## Costo Fijo vs Variable
+
+### Short-Run
+
+Algunos insumos son fijos.
+
+- Por ejemplo, terrenos, fábricas, robots de cadena de montaje, etc.
+
+- Insumos fijos $\longrightarrow$ costo fijo.
+
+
+### Long-Run
+
+Todos los insumos son variables
+
+- Las empresas pueden construir nuevas fábricas o vender las existentes.
+
+- Las empresas utilizan la combinación más eficiente de insumos para cualquier Q (por ejemplo, la fábrica con menor ATC).
+
+
 
 ## Gracias! por su atención {.center}
 
