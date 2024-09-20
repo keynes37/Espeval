@@ -2834,7 +2834,7 @@ Img=& p(q) + \frac{\partial p(q)}{\partial q}q\\
 $$(10-3 \times 2)+ (-3)2= 4-6= -2 \; \text{moneda local}$$
 :::
 
-- El efecto **positivo** es solo ganarse 4, porque ahora vende una unidad adicional. Pero de lo .RUred[negativo] al vender una unidad adicional tiene que hacerlo reduciendo su beneficio en 2 unidades monetarias.
+- El efecto **positivo** es solo ganarse 4, porque ahora vende una unidad adicional. Pero de lo [negativo]{.alert} al vender una unidad adicional tiene que hacerlo reduciendo su beneficio en 2 unidades monetarias.
 
 
 ## Ejercicio
