@@ -1,0 +1,1774 @@
+---
+title: "Fundamentos de Teoría Economica 😆"
+subtitle: "Diseño y Evaluación de Proyectos"
+author:
+  - name: Carlos Andrés Yanes
+    orcid: 0000-0003-0683-3727
+    email: cayanes@uninorte.edu.co
+    affiliations: Universidad del Norte
+format: 
+  revealjs:
+    multiplex: true
+    footer: "[Universidad del Norte](https://www.uninorte.edu.co/)"
+    theme: ["options.scss"]
+    slide-number: c/t
+    incremental: true
+    title-slide-attributes:
+      data-background-image: imagenese/fieldcamp.jpg
+      data-background-size: cover  
+editor: visual
+---
+
+```{r setup}
+#| include: false
+options(htmltools.dir.version = FALSE)
+library(pacman)
+p_load(broom, latex2exp, ggplot2, ggthemes, ggforce, viridis, dplyr, magrittr, knitr, parallel, extrafont)
+
+library(tidyverse)
+library(babynames)
+library(fontawesome) # from github: https://github.com/rstudio/fontawesome
+library(DiagrammeR)
+library(hrbrthemes)
+library(econocharts)
+library(plotly)
+library(kableExtra)
+# Define colors
+red_pink <- "#e64173"
+met_slate <- "#272822" # metropolis font color 
+purple <- "#9370DB"
+green <- "#007935"
+light_green <- "#7DBA97"
+orange <- "#FD5F00"
+turquoise <- "#44C1C4"
+red <- "#b92e34"
+black <-"#000000"
+
+# Knitr options
+opts_chunk$set(
+  comment = "#>",
+  fig.align = "center",
+  fig.height = 7,
+  fig.width = 10.5,
+  #dpi = 300,
+  #cache = T,
+  warning = F,
+  message = F
+)  
+theme_simple <- theme_bw() + theme(
+  axis.line = element_line(color = met_slate),
+  panel.grid = element_blank(),
+  rect = element_blank(),
+  strip.text = element_blank(),
+  text = element_text(family = "Fira Sans", color = met_slate, size = 17),
+  # axis.text.x = element_text(size = 12),
+  # axis.text.y = element_text(size = 12),
+  axis.ticks = element_blank()
+)
+theme_market <- theme_bw() + theme(
+  axis.line = element_line(color = met_slate),
+  panel.grid = element_blank(),
+  rect = element_blank(),
+  strip.text = element_blank(),
+  text = element_text(family = "Fira Sans", color = met_slate, size = 17),
+  axis.title.x = element_text(hjust = 1, size = 17),
+  axis.title.y = element_text(hjust = 1, angle = 0, size = 17),
+  # axis.text.x = element_text(size = 12),
+  # axis.text.y = element_text(size = 12),
+  axis.ticks = element_blank()
+)
+theme_gif <- theme_bw() + theme(
+  axis.line = element_line(color = met_slate),
+  panel.grid = element_blank(),
+  rect = element_blank(),
+  text = element_text(family = "Fira Sans", color = met_slate, size = 17),
+  axis.text.x = element_text(size = 12),
+  axis.text.y = element_text(size = 12),
+  axis.ticks = element_blank()
+)
+theme_goods <- theme_bw() + theme(
+  axis.line = element_line(),
+  panel.grid = element_blank(),
+  rect = element_rect(size = 1),
+  strip.text = element_blank(),
+  text = element_text(size = 17, family = "Fira Sans"), 
+  axis.text.x = element_text(size = 17),
+  axis.text.y = element_text(size = 17, angle = 90, hjust = 0.5),
+  axis.title.x = element_text(color = purple, size = 19),
+  axis.title.y = element_text(color = red_pink, size = 19),
+  axis.ticks = element_blank(),
+  plot.title = element_blank(),
+  legend.position = "none"
+)
+theme_game <- theme_bw() + theme(
+  axis.line = element_line(),
+  panel.grid = element_blank(),
+  rect = element_rect(size = 1),
+  strip.text = element_blank(),
+  text = element_text(size = 20, family = "Fira Sans"), 
+  axis.text.x = element_text(size = 20, color = met_slate),
+  axis.text.y = element_text(size = 20, angle = 90, color = met_slate, hjust = 0.5),
+  axis.title.x = element_text(color = met_slate, size = 20),
+  axis.title.y = element_text(color = met_slate, size = 20),
+  axis.ticks = element_blank(),
+  plot.title = element_blank(),
+  legend.position = "none"
+)
+shift_axis <- function(p, y=0){
+  g <- ggplotGrob(p)
+  dummy <- data.frame(y=y)
+  ax <- g[["grobs"]][g$layout$name == "axis-b"][[1]]
+  p + annotation_custom(grid::grobTree(ax, vp = grid::viewport(y=1, height=sum(ax$height))), 
+                        ymax=y, ymin=y) +
+    geom_hline(aes(yintercept=y), data = dummy, size = 0.5, color = met_slate) +
+    theme(axis.text.x = element_blank(), 
+          axis.ticks.x = element_blank())
+}
+wrapper <- function(x, ...) paste(strwrap(x, ...), collapse = "\n")
+
+### tag
+library(mosaic)
+update_geom_defaults("label", list(family = "Fira Sans Condensed"))
+update_geom_defaults("text", list(family = "Fira Sans Condensed"))
+
+```
+
+##  {background-color="black" background-image="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjIzZzlmZjh4eXR6a3NrdnQycjV2NGwxODlmamtsa29tdG5hbjd1MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WHr94PGmfapQlto776/giphy.gif"}
+
+# Preguntas de la sesión anterior?
+
+## Para hoy... intentamos aprender
+
+1. Saber de donde surge las curvas de ofertas
+
+1. Firmas en mercado competitivo
+
+1. Monopolio y otras estructuras (sábado)
+
+##  {background-image="imagenese/home.jpg"}
+
+### Mercados competitivos {.r-fit-text}
+
+## Mercados competitivos
+
+### Condiciones
+
+- Demasiados compradores y vendedores
+
+- Productos [poco diferenciados]{.alert} (muy homogeneos)
+
+- Libre [entrada]{.under} y [salida]{.under} del mercado
+
+- Cada firma tiene una pequeña parte del mercado
+
+::: fragment
+::: callout-note
+## Poder de mercado
+Este tipo de estructura de mercado no posee interferencia en el [precio]{.alert}. Las empresas son **tomadoras de precios**
+:::
+:::
+
+## [Ejemplos...?]{style="font-size: 80px; font-family: Brusher;"} {.center}
+
+::: incremental
+-   [**Contexto**]{.alert}: Es la bolsa de valores un mercado perfectamente competitivo? [Por qué si]{.blut} o [Por qué no]{.alert}?
+
+-   [R/]{.mono}: [Muchos compradores y vendedores + mucha información simétrica]{.blut}
+
+-   [R/]{.mono}: [Los inversionistas pueden influir sobre los precios]{.alert}
+
+-   **Conclusión**: [*Si es competitivo, pero muy lejos de ser perfecto*]{.alert}
+:::
+
+## [Ejemplos...?]{style="font-size: 80px; font-family: Brusher;"} {.center}
+
+::: incremental
+-   [**Contexto**]{.alert}: Es el mercado de los (campesinos) agricultores perfectamente competitivo [Por qué si]{.blut} o [Por qué no]{.alert}?
+
+-   [R/]{.mono}: [Muchos compradores y vendedores + mucha información  simétrica+ pueden entrar a bajo costo]{.blut}
+
+-   [R/]{.mono}: [Algunas veces hay pocos vendedores [$\rightarrow$]{.mono} habilidad de colocar precios altos]{.alert}
+
+-   **Conclusión**: [*Si es competitivo, pero aún lejos de ser perfecto*]{.alert}
+:::
+
+## [Ejemplos...?]{style="font-size: 80px; font-family: Brusher;"} {.center}
+
+::: incremental
+-   [**Contexto**]{.alert}: Los vendedores de entradas online (p.e: tuboleta.com) son un mercado perfectamente competitivo? [Por qué si]{.blut} o [Por qué no]{.alert}?
+
+-   [R/]{.mono}: [Muchos compradores y vendedores]{.blut}
+
+-   [R/]{.mono}: [Algunas compañias tienen privilegios de comprar o vender antes que otros [$\rightarrow$]{.mono} Barreras a la entrada]{.alert}
+
+-   **Conclusión**: [*No es competitivo, pero casi cerca*]{.alert}
+:::
+
+## [Ejemplos...?]{style="font-size: 80px; font-family: Brusher;"} {.center}
+
+::: incremental
+-   [**Contexto**]{.alert}: Es amazon.com un mercado perfectamente competitivo? [Por qué si]{.blut} o [Por qué no]{.alert}?
+
+-   [R/]{.mono}: [Muchos compradores y vendedores con productos similares]{.blut}
+
+-   [R/]{.mono}: [Se pueden diferenciar algunos productos + información asimetrica [$\rightarrow$]{.mono} Amazon temporalmente lleva a vendedores a salir (expulsarlos) ya que rebaja precios]{.alert}
+
+-   **Conclusión**: [*Probablemente, no.*]{.alert}
+:::
+
+## [Ejemplos...?]{style="font-size: 80px; font-family: Brusher;"} {.center}
+
+::: incremental
+-   [**Contexto**]{.alert}: Es el mercado de café perfectamente competitivo? [Por qué si]{.blut} o [Por qué no]{.alert}?
+
+-   [R/]{.mono}: [Muchos compradores y vendedores + cosechas geneticamente idénticas]{.blut}
+
+-   [R/]{.mono}: [Hay un gremio (se agrupan) + interferencia del gobierno (subsidios) [$\rightarrow$]{.mono} podrian tener privilegios]{.alert}
+
+-   **Conclusión**: [*No perfectamente, pero casi que sí*]{.alert}
+:::
+
+## [Ejemplos...?]{style="font-size: 80px; font-family: Brusher;"} {.center}
+
+::: incremental
+-   [**Contexto**]{.alert}: Es el mercado de semillas perfectamente competitivo? [Por qué si]{.blut} o [Por qué no]{.alert}?
+
+-   [R/]{.mono}: [pocos vendedores (p.e Monsanto, Syngenta) +  barreras a la entrada (p.e patentes)]{.alert}
+
+-   **Conclusión**: [*Por nada del mundo*]{.alert}
+:::
+
+# y entonces 😾??
+
+## Estructura de mercado
+
+- La gran mayoría de ejemplos no constituyen [mercados perfectamente competitivos]{.bg style="--col: #FFFF00"}, por qué tenerlos en cuenta, para que intentar verlo?
+
+- Pues nos ayuda a preguntarnos :[¿podemos hacerlo mejor?]{.bg style="--col: #D3D3D3"}
+
+- Nos brinda bases para modelar [escenarios]{.alert} realistas
+
+- Es sencillo y simple pero no por simple.
+
+## Estructura de mercado
+
+```{r, echo = FALSE, fig.height = 5.5, fig.width = 7.5,  dev = "svg"}
+strategies_p1 <- c("Si", "No")
+strategies_p2 <- c("Uno", "Pocos", "Muchos")
+
+w <- seq(0, 5, 0.01)
+x <- seq(10, 15, 0.01)
+z <- seq(5, 10, 0.01)
+
+ggplot() + 
+  scale_x_continuous(limits = c(0, 15), expand = c(0,0), breaks = c(2.5, 7.5, 12.5), labels = strategies_p2, position = "top")+
+  scale_y_continuous(limits = c(0, 10), expand = c(0,0), breaks = c(2.5, 7.5), labels = strategies_p1) +
+  labs(x = "Número de Productores", y = "Productos diferenciados?") +
+  # Player 1 payoffs
+  annotate("text", label = expression("Monopolio"), x = 2.5, y = 7.5, family = "Fira Sans", size = 7, color = red_pink) +
+  annotate("text", label = expression("Oligopolio"), x = 7.5, y = 5, family = "Fira Sans", size = 7, color = orange) +
+  annotate("text", label = expression("N/A"), x = 2.5, y = 2.5, family = "Fira Sans", size = 7, color = met_slate) +
+  annotate("text", label = wrapper("Competencia Monopolistica", 10), x = 12.5, y = 2.5, family = "Fira Sans", size = 7, color = purple) +
+  annotate("text", label = wrapper("Competencia Perfecta", 10), x = 12.5, y = 7.5, family = "Fira Sans", size = 7, color = green) +
+  # theme stuff
+  theme_game +
+  geom_segment(aes(x = 5, y = 0, xend = 5, yend = 10), linetype  = "solid", size = 1) +
+  geom_segment(aes(x = 10, y = 0, xend = 10, yend = 10), linetype  = "solid", size = 1) +
+  geom_segment(aes(x = 0, y = 5, xend = 5, yend = 5), linetype  = "solid", size = 1) +
+  geom_segment(aes(x = 10, y = 5, xend = 15, yend = 5), linetype  = "solid", size = 1) +
+  geom_ribbon(aes(x = w, ymin = 5, ymax = 10), fill = red_pink, alpha = 0.2, linetype = "blank") +
+  geom_ribbon(aes(x = z, ymin = 0, ymax = 10), fill = orange, alpha = 0.2, linetype = "blank") +
+  geom_ribbon(aes(x = x, ymin = 0, ymax = 5), fill = purple, alpha = 0.2, linetype = "blank") +
+  geom_ribbon(aes(x = x, ymin = 5, ymax = 10), fill = green, alpha = 0.2, linetype = "blank")
+```
+
+## Estructura de mercado
+
+::: fragment
+La [elasticidad de la demanda]{.alert} es muy importante para reconocer las estructuras de mercado
+:::
+
+::: fragment
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r, echo = FALSE, fig.height = 3.75, fig.width = 3.75, dev = "svg"}
+demand <- function(x) 8 - 0.6*x
+inv_demand <- function(x) (5/3)*(8 - x)
+p_1 <- 7
+p_2 <- 6
+q_1 <- inv_demand(p_1) 
+q_2 <- inv_demand(p_2)
+ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = NULL) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = NULL) +
+  theme_market +
+  labs(x = "Q", y = "P") +
+  stat_function(fun = demand, color = red_pink, size = 1) +
+  annotate("text", label = "D", x = 10, y = 2.65, color = red_pink, family = "Fira Sans", size = 9) 
+```
+:::
+
+::: {.column width="50%"}
+```{r, echo = FALSE, fig.height = 3.75, fig.width = 3.75,  dev = "svg"}
+ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = NULL) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = NULL) +
+  theme_market +
+  labs(x = "Q", y = "P") +
+  geom_hline(yintercept = 5, color = red_pink, size = 1) +
+  annotate("text", label = "D", x = 10, y = 5.5, color = red_pink, family = "Fira Sans", size = 9)
+```
+:::
+::::
+:::
+
+## Estructura de mercado
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5,  dev = "svg"}
+ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = NULL) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = NULL) +
+  theme_market +
+  labs(x = "Q", y = "P") +
+  geom_hline(yintercept = 7, color = red_pink, size = 1) +
+  annotate("text", label = "D", x = 10, y = 7.6, color = red_pink, family = "Fira Sans", size = 9) +
+  annotate("text", label = expression(Delta*"GT"=="IM"), x = 4, y = 4, color = green, family = "Fira Sans", size = 4) +
+  annotate("text", label = expression(Delta*"Q"==1), x = 4, y = 1.5, color = met_slate, family = "Fira Sans", size = 4) +
+  geom_point(aes(x = 3, y = 7), color = met_slate, size = 2) +
+  geom_point(aes(x = 5, y = 7), color = met_slate, size = 2) +
+  geom_segment(aes(x = 3, y = 0, xend = 3, yend = 7), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 5, y = 0, xend = 5, yend = 7), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 3 + 0.1, y = 1, xend = 5 - 0.1, yend = 1), arrow = arrow(angle = 20, length = unit(0.4,"cm"), type = "closed"), color = met_slate, size = 1) +
+  geom_rect(aes(xmin = 3, xmax = 5, ymin = 0, ymax = 7), alpha = 0.2, fill = green)
+```
+:::
+
+::: {.column width="40%"}
+Clave: El cambio marginal y Ganancia Total (GT)
+:::
+
+::::
+
+
+## Estructura de mercado {visibility="uncounted"}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5,  dev = "svg"}
+ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = NULL) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = NULL) +
+  theme_market +
+  labs(x = "Q", y = "P") +
+  geom_hline(yintercept = 7, color = green, size = 1) +
+  annotate("text", label = expression(IM==P), x = 8, y = 7.6, color = green, family = "Fira Sans", size = 9)
+```
+:::
+
+::: {.column width="40%"}
+Para una firma en mercado competitivo
+
+IM [<=>]{.mono} D.
+
+IM [=]{.mono} P.
+:::
+::::
+
+## Estructura de mercado
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 8, 0.1)
+atc <- function(x) (18 + 12*x - 2*x^2 + (2/3)*x^3)/x
+marginal_cost <- function(x) 12 - 4*x + 2*x^2
+marginal_revenue <- function(x) 30
+q <- uniroot(function(x) marginal_revenue(x) - marginal_cost(x), range(x))$root
+p <- marginal_revenue(1)
+cost <- atc(q)
+z <- seq(0, q, 0.001)
+
+p_max_1 <- ggplot() +
+  scale_x_continuous(limits = c(0, 7.5), expand=c(0,0), breaks = c(q), labels = c(8)) +
+  scale_y_continuous(limits = c(0, 37.5), expand=c(0,0), breaks = c(cost, p), labels = c(8, 12)) +
+  theme_market +
+  labs(x = "Q", y = "$") +
+  stat_function(fun = atc, color = purple, size = 1) +
+  annotate("text", label = "ATC", x = 6.5, y = 35, color = purple, family = "Fira Sans", size = 9) +
+  stat_function(fun = marginal_cost, color = red_pink, size = 1) +
+  annotate("text", label = "MC", x = 1, y = 8, color = red_pink, family = "Fira Sans", size = 9)
+p_max_1
+```
+:::
+
+::: {.column width="40%"}
+Como entonces:
+
+[MAX]{.mono} el [beneficio]{.alert}
+:::
+::::
+
+## Estructura de mercado {visibility="uncounted"}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+p_max_1
+```
+:::
+
+::: {.column width="40%"}
+Como entonces:
+
+[MAX]{.mono} el [beneficio]{.alert} [R./]{.blut} 
+
+Escoge $Q$, cuando IM [=]{.mono} CM
+:::
+::::
+
+## Estructura de mercado {visibility="uncounted"}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+p_max_1 <- p_max_1 +
+  stat_function(fun = marginal_revenue, color = green, size = 1) +
+  annotate("text", label = "IM", x = 7, y = p - 2, color = green, family = "Fira Sans", size = 9) 
+p_max_1
+```
+:::
+
+::: {.column width="40%"}
+Como entonces:
+
+[MAX]{.mono} el [beneficio]{.alert} [R./]{.blut} 
+
+Escoge $Q$, cuando IM [=]{.mono} CM
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Q", "IT = P x Q", "ATC", "TC = ATC x Q", "Beneficio"),
+  v2 = c("", "", "", "", "")
+) %>% kable(
+  escape = F,
+  col.names = c("Precio (P)", "$12.00"),
+  align = c("l", "c")
+) %>%
+  kable_styling(full_width = T) %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+::::
+
+## Estructura de mercado {visibility="uncounted"}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 8, 0.1)
+atc <- function(x) (18 + 12*x - 2*x^2 + (2/3)*x^3)/x
+marginal_cost <- function(x) 12 - 4*x + 2*x^2
+marginal_revenue <- function(x) 30
+q <- uniroot(function(x) marginal_revenue(x) - marginal_cost(x), range(x))$root
+p <- marginal_revenue(1)
+cost <- atc(q)
+z <- seq(0, q, 0.001)
+
+p_max_1 <- p_max_1 +
+  geom_point(aes(x = q, y = p), color = met_slate, size = 2) +
+  geom_segment(aes(x = q, xend = q, y = 0, yend = p), color = met_slate, linetype = "dashed", size = 1)
+p_max_1
+```
+:::
+
+::: {.column width="40%"}
+Como entonces:
+
+[MAX]{.mono} el [beneficio]{.alert} [R./]{.blut} 
+
+Escoge $Q$, cuando IM [=]{.mono} CM
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Q", "IT = P x Q", "ATC", "TC = ATC x Q", "Beneficio"),
+  v2 = c("8", "$96.00", "", "", "")
+) %>% kable(
+  escape = F,
+  col.names = c("Precio (P)", "$12.00"),
+  align = c("l", "c")
+) %>%
+  kable_styling(full_width = T) %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+::::
+
+## Estructura de mercado {visibility="uncounted"}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+p_max_1 <- p_max_1 +
+  geom_point(aes(x = q, y = cost), color = met_slate, size = 2) +
+  geom_segment(aes(x = 0, xend = q, y = cost, yend = cost), color = met_slate, linetype = "dashed", size = 1) 
+p_max_1
+```
+:::
+
+::: {.column width="40%"}
+Como entonces:
+
+[MAX]{.mono} el [beneficio]{.alert} [R./]{.blut} 
+
+Escoge $Q$, cuando IM [=]{.mono} CM
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Q", "IT = P x Q", "ATC", "TC = ATC x Q", "Beneficio"),
+  v2 = c("8", "$96.00", "$8.00", "$64.00", "")
+) %>% kable(
+  escape = F,
+  col.names = c("Precio (P)", "$12.00"),
+  align = c("l", "c")
+) %>%
+  kable_styling(full_width = T) %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+::::
+
+## Estructura de mercado {visibility="uncounted"}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+p_max_1 <- p_max_1 +
+  geom_ribbon(aes(x = z, ymin = cost, ymax = p), fill = green, alpha = 0.2, linetype = "blank") +
+  annotate("text", label = "Beneficio", x = q/2, y = (p + cost)/2, color = green, family = "Fira Sans", size = 6) 
+p_max_1
+```
+:::
+
+::: {.column width="40%"}
+Como entonces:
+
+[MAX]{.mono} el [beneficio]{.alert} [R./]{.blut} 
+
+Escoge $Q$, cuando IM [=]{.mono} CM
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Q", "IT = P x Q", "ATC", "TC = ATC x Q", "Beneficio"),
+  v2 = c("8", "$96.00", "$8.00", "$64.00", "$32.00")
+) %>% kable(
+  escape = F,
+  col.names = c("Precio (P)", "$12.00"),
+  align = c("l", "c")
+) %>%
+  kable_styling(full_width = T) %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+::::
+
+# Qué ocurre si el precio es otro? {background-color="#006dae"}
+
+## Cambio en el precio
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 8, 0.1)
+atc <- function(x) (18 + 12*x - 2*x^2 + (2/3)*x^3)/x
+marginal_cost <- function(x) 12 - 4*x + 2*x^2
+marginal_revenue <- function(x) 18
+q <- uniroot(function(x) marginal_revenue(x) - marginal_cost(x), range(x))$root
+p <- marginal_revenue(1)
+cost <- atc(q)
+z <- seq(0, q, 0.001)
+
+p_max_2 <- ggplot() +
+  scale_x_continuous(limits = c(0, 7.5), expand=c(0,0), breaks = c(q), labels = c(6)) +
+  scale_y_continuous(limits = c(0, 37.5), expand=c(0,0), breaks = c(cost), labels = c(7)) +
+  theme_market +
+  labs(x = "Q", y = "$") +
+  stat_function(fun = atc, color = purple, size = 1) +
+  annotate("text", label = "ATC", x = 6.5, y = 35, color = purple, family = "Fira Sans", size = 9) +
+  stat_function(fun = marginal_cost, color = red_pink, size = 1) +
+  annotate("text", label = "MC", x = 1, y = 8, color = red_pink, family = "Fira Sans", size = 9) +
+  stat_function(fun = marginal_revenue, color = green, size = 1) +
+  annotate("text", label = "IM", x = 7, y = p - 2, color = green, family = "Fira Sans", size = 9) 
+p_max_2
+```
+:::
+
+::: {.column width="40%"}
+Un precio menor p.e `$7` en el mercado
+:::
+
+::::
+
+## Cambio en el precio {visibility="uncounted"}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 8, 0.1)
+atc <- function(x) (18 + 12*x - 2*x^2 + (2/3)*x^3)/x
+marginal_cost <- function(x) 12 - 4*x + 2*x^2
+marginal_revenue <- function(x) 18
+q <- uniroot(function(x) marginal_revenue(x) - marginal_cost(x), range(x))$root
+p <- marginal_revenue(1)
+cost <- atc(q)
+z <- seq(0, q, 0.001)
+
+p_max_2 <- ggplot() +
+  scale_x_continuous(limits = c(0, 7.5), expand=c(0,0), breaks = c(q), labels = c(6)) +
+  scale_y_continuous(limits = c(0, 37.5), expand=c(0,0), breaks = c(cost), labels = c(7)) +
+  theme_market +
+  labs(x = "Q", y = "$") +
+  stat_function(fun = atc, color = purple, size = 1) +
+  annotate("text", label = "ATC", x = 6.5, y = 35, color = purple, family = "Fira Sans", size = 9) +
+  stat_function(fun = marginal_cost, color = red_pink, size = 1) +
+  annotate("text", label = "MC", x = 1, y = 8, color = red_pink, family = "Fira Sans", size = 9) +
+  stat_function(fun = marginal_revenue, color = green, size = 1) +
+  annotate("text", label = "IM", x = 7, y = p - 2, color = green, family = "Fira Sans", size = 9) 
+p_max_2
+```
+:::
+
+::: {.column width="40%"}
+Un precio menor p.e `$7` en el mercado
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Q", "IT = P x Q", "ATC", "TC = ATC x Q", "Beneficio"),
+  v2 = c("", "", "", "", "")
+) %>% kable(
+  escape = F,
+  col.names = c("Precio (P)", "$7.00"),
+  align = c("l", "c")
+) %>%
+  kable_styling(full_width = T) %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+
+::::
+
+## Cambio en el precio {visibility="uncounted"}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+p_max_2 <- p_max_2 +
+  geom_point(aes(x = q, y = p), color = met_slate, size = 2) +
+  geom_segment(aes(x = q, xend = q, y = 0, yend = p), color = met_slate, linetype = "dashed", size = 1) 
+p_max_2
+```
+:::
+
+::: {.column width="40%"}
+Un precio menor p.e `$7` en el mercado
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Q", "IT = P x Q", "ATC", "TC = ATC x Q", "Beneficio"),
+  v2 = c("6", "$42.00", "", "", "")
+) %>% kable(
+  escape = F,
+  col.names = c("Precio (P)", "$7.00"),
+  align = c("l", "c")
+) %>%
+  kable_styling(full_width = T) %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+
+::::
+
+## Cambio en el precio {visibility="uncounted"}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+p_max_2
+```
+:::
+
+::: {.column width="40%"}
+Un precio menor p.e `$7` en el mercado
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Q", "IT = P x Q", "ATC", "TC = ATC x Q", "Beneficio"),
+  v2 = c("6", "$42.00", "$7.00", "$42.00", "")
+) %>% kable(
+  escape = F,
+  col.names = c("Precio (P)", "$7.00"),
+  align = c("l", "c")
+) %>%
+  kable_styling(full_width = T) %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+
+::::
+
+## Cambio en el precio {visibility="uncounted"}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+p_max_2
+```
+:::
+
+::: {.column width="40%"}
+Un precio menor p.e `$7` en el mercado
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Q", "IT = P x Q", "ATC", "TC = ATC x Q", "Beneficio"),
+  v2 = c("6", "$42.00", "$7.00", "$42.00", "$0.00")
+) %>% kable(
+  escape = F,
+  col.names = c("Precio (P)", "$7.00"),
+  align = c("l", "c")
+) %>%
+  kable_styling(full_width = T) %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+
+::::
+
+## Cambio en el precio 
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 8, 0.1)
+atc <- function(x) (18 + 12*x - 2*x^2 + (2/3)*x^3)/x
+marginal_cost <- function(x) 12 - 4*x + 2*x^2
+marginal_revenue <- function(x) 13
+q <- uniroot(function(x) marginal_revenue(x) - marginal_cost(x), range(x))$root
+p <- marginal_revenue(1)
+cost <- atc(q)
+z <- seq(0, q, 0.001)
+
+p_max_3 <- ggplot() +
+  scale_x_continuous(limits = c(0, 7.5), expand=c(0,0), breaks = c(q), labels = c(4)) +
+  scale_y_continuous(limits = c(0, 37.5), expand=c(0,0), breaks = c(p, cost), labels = c(5, 8)) +
+  theme_market +
+  labs(x = "Q", y = "$") +
+  stat_function(fun = atc, color = purple, size = 1) +
+  annotate("text", label = "ATC", x = 6.5, y = 35, color = purple, family = "Fira Sans", size = 9) +
+  stat_function(fun = marginal_cost, color = red_pink, size = 1) +
+  annotate("text", label = "MC", x = 1, y = 8, color = red_pink, family = "Fira Sans", size = 9) +
+  stat_function(fun = marginal_revenue, color = green, size = 1) +
+  annotate("text", label = "IM", x = 7, y = p - 2, color = green, family = "Fira Sans", size = 9) 
+p_max_3
+```
+:::
+
+::: {.column width="40%"}
+Un precio menor p.e `$5` en el mercado
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Q", "IT = P x Q", "ATC", "TC = ATC x Q", "Beneficio"),
+  v2 = c("", "", "", "", "")
+) %>% kable(
+  escape = F,
+  col.names = c("Precio (P)", "$5.00"),
+  align = c("l", "c")
+) %>%
+  kable_styling(full_width = T) %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+
+::::
+
+## Cambio en el precio {visibility="uncounted"}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+p_max_3 <- p_max_3 +
+  geom_point(aes(x = q, y = p), color = met_slate, size = 2) +
+  geom_segment(aes(x = q, xend = q, y = 0, yend = p), color = met_slate, linetype = "dashed", size = 1)
+p_max_3
+```
+:::
+
+::: {.column width="40%"}
+Un precio menor p.e `$5` en el mercado
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Q", "IT = P x Q", "ATC", "TC = ATC x Q", "Beneficio"),
+  v2 = c("4", "$20.00", "", "", "")
+) %>% kable(
+  escape = F,
+  col.names = c("Precio (P)", "$5.00"),
+  align = c("l", "c")
+) %>%
+  kable_styling(full_width = T) %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+
+::::
+
+## Cambio en el precio {visibility="uncounted"}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+p_max_3 <- p_max_3 +
+  geom_point(aes(x = q, y = cost), color = met_slate, size = 2) +
+  geom_segment(aes(x = 0, xend = q, y = cost, yend = cost), color = met_slate, linetype = "dashed", size = 1) +
+  geom_segment(aes(x = q, xend = q, y = p, yend = cost), color = met_slate, linetype = "dashed", size = 1) 
+p_max_3
+```
+:::
+
+::: {.column width="40%"}
+Un precio menor p.e `$5` en el mercado
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Q", "IT = P x Q", "ATC", "TC = ATC x Q", "Beneficio"),
+  v2 = c("4", "$20.00", "$8.00", "$32:00", "")
+) %>% kable(
+  escape = F,
+  col.names = c("Precio (P)", "$5.00"),
+  align = c("l", "c")
+) %>%
+  kable_styling(full_width = T) %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+
+::::
+
+## Cambio en el precio {visibility="uncounted"}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+p_max_3 <- p_max_3 +
+  geom_ribbon(aes(x = z, ymin = p, ymax = cost), fill = red_pink, alpha = 0.2, linetype = "blank") +
+  annotate("text", label = "Perdida", x = q/2, y = (p + cost)/2, color = red_pink, family = "Fira Sans", size = 6) 
+p_max_3
+```
+:::
+
+::: {.column width="40%"}
+Un precio menor p.e `$5` en el mercado
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Q", "IT = P x Q", "ATC", "TC = ATC x Q", "Beneficio"),
+  v2 = c("4", "$20.00", "$8.00", "$32:00", "$-12.00")
+) %>% kable(
+  escape = F,
+  col.names = c("Precio (P)", "$5.00"),
+  align = c("l", "c")
+) %>%
+  kable_styling(full_width = T) %>% 
+  row_spec(1:3, extra_css = "line-height: 110%;")
+tab 
+```
+:::
+
+::::
+
+# Corto plazo vs Largo plazo {background-color="#006dae"}
+
+## Escenarios en plazo
+
+### Corto plazo
+
+- No puede evitar los costos fijos [-->]{.mono} los ignora al tomar [decisiones]{.alert} de producción.
+
+- Debe pagar alquiler tanto si el negocio está abierto como si no.
+  - Puede evitar pagar los [costos variables]{.alert}.
+
+- Programar turnos más cortos o menos numerosos para los trabajadores, comprar menos materias primas, etc.
+  - Las empresas permanecerán [abiertas]{.under} mientras puedan cubrir sus costos variables.
+
+- Costos variables cubiertos [-->]{.mono} puede operar con pérdidas para sufragar los costes fijos.
+  - Costos variables no cubiertos [-->]{.mono} cerrar para minimizar las pérdidas.
+  
+## Escenarios en plazo
+
+### Largo plazo
+
+- Todo es [variable]{.bg style="--col: #00FFFF"}
+
+- Salida libre [-->]{.mono} las empresas pueden [abandonar]{.under} el sector.
+
+  - Por ejemplo, no renovando el contrato de arrendamiento.
+
+- Entrada libre [-->]{.mono} los empresarios pueden [unirse]{.greener} a la industria.
+
+## Escenarios en plazo
+
+::::{.columns}
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 9, 0.1)
+atc <- function(x) (18 + 12*x - 2*x^2 + (2/3)*x^3)/x
+avc <- function(x) (12*x - 2*x^2 + (2/3)*x^3)/x
+marginal_cost <- function(x) 12 - 4*x + 2*x^2
+atc_min <- 3
+avc_min <- 3/2
+p_shut_down <- avc(avc_min)
+p_zero_profit <- atc(atc_min)
+
+sr_conditions <- ggplot() +
+  scale_x_continuous(limits = c(0, 8.5), expand=c(0,0), breaks = NULL) +
+  scale_y_continuous(limits = c(0, 32.5), expand=c(0,0), breaks = c(p_shut_down, p_zero_profit), labels = c(expression(P["Cierre"]), expression(P["Equilibrio"]))) +
+  theme_market +
+  labs(x = "Q", y = "$") +
+  geom_hline(yintercept = p_shut_down, size = 1, linetype = "dashed", color = met_slate) +
+  geom_hline(yintercept = p_zero_profit, size = 1, linetype = "dashed", color = met_slate) +
+  stat_function(fun = atc, color = purple, size = 1) +
+  annotate("text", label = "ATC", x = 5.75, y = 31, color = purple, family = "Fira Sans", size = 9) +
+  stat_function(fun = avc, color = orange, size = 1) +
+  annotate("text", label = "AVC", x = 7.8, y = 31, color = orange, family = "Fira Sans", size = 9) +
+  stat_function(fun = marginal_cost, color = red_pink, size = 1) +
+  annotate("text", label = "MC", x = 3.5, y = 31, color = red_pink, family = "Fira Sans", size = 9)
+sr_conditions 
+```
+:::
+
+::: {.column width="40%"}
+#### Corto plazo
+Qué debe hacer una empresa para operar? Cuando debe cerrar?
+:::
+::::
+
+## Escenarios en plazo {visibility="uncounted"}
+
+::::{.columns}
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+sr_conditions 
+```
+:::
+
+::: {.column width="40%"}
+#### Corto plazo
+Qué debe hacer una empresa para operar? Cuando debe cerrar?
+
+[Depende del precio]{.alert}
+:::
+::::
+
+## Escenarios en plazo {visibility="uncounted"}
+
+::::{.columns}
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+sr_conditions +
+  annotate("label", label = "Beneficio", x = 8.35, y = p_zero_profit + 3, color = green, family = "Fira Sans", size = 5, hjust = 1) +
+  geom_ribbon(aes(x = x, ymin = p_zero_profit, ymax = 32.5), fill = green, alpha = 0.2, linetype = "blank")
+```
+:::
+
+::: {.column width="40%"}
+#### Corto plazo
+Qué debe hacer una empresa para operar? Cuando debe cerrar?
+
+[Depende del precio]{.alert}
+
+P [>]{.mono} ATC <br> [-->]{.mono} [Beneficio]{.blut}
+:::
+::::
+
+## Escenarios en plazo {visibility="uncounted"}
+
+::::{.columns}
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+sr_conditions +
+  annotate("label", label = "Operando con perdidas", x = 8.35, y = (p_shut_down + p_zero_profit)/2, color = red_pink, family = "Fira Sans", size = 5, hjust = 1) +
+  geom_ribbon(aes(x = x, ymin = p_shut_down, ymax = p_zero_profit), fill = red_pink, alpha = 0.2, linetype = "blank")
+```
+:::
+
+::: {.column width="40%"}
+#### Corto plazo
+Qué debe hacer una empresa para operar? Cuando debe cerrar?
+
+[Depende del precio]{.alert}
+
+P [>]{.mono} ATC <br> [-->]{.mono} [Beneficio]{.blut}
+
+ATC [>]{.mono} P [>]{.mono} AVC <br> [-->]{.mono} [Operando con perdidas]{.alert}
+:::
+::::
+
+## Escenarios en plazo {visibility="uncounted"}
+
+::::{.columns}
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+sr_conditions +
+  annotate("label", label = "Cierre", x = 8.35, y = p_shut_down - 3, color = orange, family = "Fira Sans", size = 5, hjust = 1) +
+  geom_ribbon(aes(x = x, ymin = 0, ymax = p_shut_down), fill = orange, alpha = 0.2, linetype = "blank")
+```
+:::
+
+::: {.column width="40%"}
+#### Corto plazo
+Qué debe hacer una empresa para operar? Cuando debe cerrar?
+
+[Depende del precio]{.alert}
+
+P [>]{.mono} ATC <br> [-->]{.mono} [Beneficio]{.blut}
+
+ATC [>]{.mono} P [>]{.mono} AVC <br> [-->]{.mono} [Operando con perdidas]{.alert}
+
+AVC [>]{.mono} P <br> [-->]{.mono} [Cierre!!!]{.oranger}
+:::
+::::
+
+## Escenarios en plazo {visibility="uncounted"}
+
+::::{.columns}
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+sr_conditions +
+  annotate("label", label = "Cierre", x = 8.35, y = p_shut_down - 3, color = orange, family = "Fira Sans", size = 5, hjust = 1) +
+  geom_ribbon(aes(x = x, ymin = 0, ymax = p_shut_down), fill = orange, alpha = 0.2, linetype = "blank") +
+  annotate("label", label = "Operando con perdidas", x = 8.35, y = (p_shut_down + p_zero_profit)/2, color = red_pink, family = "Fira Sans", size = 5, hjust = 1) +
+  geom_ribbon(aes(x = x, ymin = p_shut_down, ymax = p_zero_profit), fill = red_pink, alpha = 0.2, linetype = "blank") +
+  annotate("label", label = "Beneficio", x = 8.35, y = p_zero_profit + 3, color = green, family = "Fira Sans", size = 5, hjust = 1) +
+  geom_ribbon(aes(x = x, ymin = p_zero_profit, ymax = 32.5), fill = green, alpha = 0.2, linetype = "blank")
+```
+:::
+
+::: {.column width="40%"}
+#### Corto plazo
+Qué debe hacer una empresa para operar? Cuando debe cerrar?
+
+[Depende del precio]{.alert}
+
+P [>]{.mono} ATC <br> [-->]{.mono} [Beneficio]{.blut}
+
+ATC [>]{.mono} P [>]{.mono} AVC <br> [-->]{.mono} [Operando con perdidas]{.alert}
+
+AVC [>]{.mono} P <br> [-->]{.mono} [Cierre!!!]{.oranger}
+:::
+::::
+
+## Escenarios en plazo {visibility="uncounted"}
+
+::::{.columns}
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 9, 0.1)
+atc <- function(x) (18 + 12*x - 2*x^2 + (2/3)*x^3)/x
+avc <- function(x) (12*x - 2*x^2 + (2/3)*x^3)/x
+marginal_cost <- function(x) 12 - 4*x + 2*x^2
+atc_min <- 3
+avc_min <- 3/2
+p_shut_down <- avc(avc_min)
+p_zero_profit <- atc(atc_min)
+
+ggplot() +
+  scale_x_continuous(limits = c(0, 8.5), expand=c(0,0), breaks = NULL) +
+  scale_y_continuous(limits = c(0, 32.5), expand=c(0,0), breaks = c(p_shut_down, p_zero_profit), labels = c(expression(P["Cierre"]), expression(P["Equilibrio"]))) +
+  theme_market +
+  labs(x = "Q", y = "$") +
+  geom_hline(yintercept = p_shut_down, size = 1, linetype = "dashed", color = met_slate) +
+  geom_hline(yintercept = p_zero_profit, size = 1, linetype = "dashed", color = met_slate) +
+  stat_function(fun = atc, color = purple, size = 1, alpha = 0.5) +
+  annotate("text", label = "ATC", x = 5.75, y = 31, color = purple, family = "Fira Sans", size = 9, alpha = 0.5) +
+  stat_function(fun = avc, color = orange, size = 1, alpha = 0.5) +
+  annotate("text", label = "AVC", x = 7.8, y = 31, color = orange, family = "Fira Sans", size = 9, alpha = 0.5) +
+  stat_function(fun = marginal_cost, color = red_pink, size = 1, alpha = 0.5) +
+  annotate("text", label = "MC", x = 3.5, y = 31, color = red_pink, family = "Fira Sans", size = 9, alpha = 0.5) +
+  stat_function(xlim = c(avc_min, 8.5), fun = marginal_cost, color = purple, size = 1.5, linetype = "longdash") +
+  geom_segment(aes(x = 0.05, xend = 0.05, y = 0, yend = p_shut_down), color = purple, linetype = "longdash", size = 1.5) +
+  annotate("text", label = "S", x = 3.5, y = 28, color = purple, family = "Fira Sans", size = 9)
+```
+:::
+
+::: {.column width="40%"}
+#### Curva de oferta
+
+P [>]{.mono} P[cierre]{.sub} [-->]{.mono} curva de oferta de corto plazo [=]{.mono} curva de costo marginal.
+
+P [<]{.mono} P[cierre]{.sub} [-->]{.mono} curva de oferta de corto plazo [=]{.mono}  línea vertical en 0.
+:::
+::::
+
+## Escenarios en plazo {visibility="uncounted"}
+
+::::{.columns}
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 9, 0.1)
+atc <- function(x) (18 + 12*x - 2*x^2 + (2/3)*x^3)/x
+avc <- function(x) (12*x - 2*x^2 + (2/3)*x^3)/x
+marginal_cost <- function(x) 12 - 4*x + 2*x^2
+atc_min <- 3
+avc_min <- 3/2
+p_shut_down <- avc(avc_min)
+p_zero_profit <- atc(atc_min)
+
+ggplot() +
+  scale_x_continuous(limits = c(0, 8.5), expand=c(0,0), breaks = NULL) +
+  scale_y_continuous(limits = c(0, 32.5), expand=c(0,0), breaks = c(p_shut_down, p_zero_profit), labels = c(expression(P["Cierre"]), expression(P["Equilibrio"]))) +
+  theme_market +
+  labs(x = "Q", y = "$") +
+  geom_hline(yintercept = p_shut_down, size = 1, linetype = "dashed", color = met_slate) +
+  geom_hline(yintercept = p_zero_profit, size = 1, linetype = "dashed", color = met_slate) +
+  stat_function(xlim = c(avc_min, 8.5), fun = marginal_cost, color = purple, size = 1.5, linetype = "solid") +
+  geom_segment(aes(x = 0.05, xend = 0.05, y = 0, yend = p_shut_down), color = purple, linetype = "solid", size = 1.5) +
+  annotate("text", label = "S", x = 3.5, y = 28, color = purple, family = "Fira Sans", size = 9)
+```
+:::
+
+::: {.column width="40%"}
+#### Curva de oferta
+
+P [>]{.mono} P[cierre]{.sub} [-->]{.mono} curva de oferta de corto plazo [=]{.mono} curva de costo marginal.
+
+P [<]{.mono} P[cierre]{.sub} [-->]{.mono} curva de oferta de corto plazo [=]{.mono}  línea vertical en 0.
+:::
+::::
+
+## Escenarios en plazo
+
+::: fragment
+::: callout-tip
+## Definición
+Sunk cost: Costos irrecuperables derivados de decisiones anteriores.
+:::
+:::
+
+::: fragment
+Ejemplos: Costos fijos a corto plazo, clases que ya has terminado, el tiempo que llevas en la misma empresa, etc.
+:::
+
+::: fragment
+**Conclusión**: No hay que tener en cuenta los costos irrecuperables a la hora de tomar decisiones.
+:::
+
+::: fragment
+P: [¿Por qué?]{.alert}
+
+R: ¡Debes pagarlos independientemente de tu elección!
+
+:::
+
+## Escenarios en plazo
+
+### Largo plazo
+
+::: incremental
+**P:** ¿Debería una empresa salir o entrar en el mercado a largo plazo?
+
+- Beneficio de salir del mercado [=]{.mono} ahorro de costos [=]{.mono} CT.
+
+- Coste de salir del mercado [=]{.mono} pérdida de ingresos [=]{.mono} IT.
+:::    
+
+::: fragment
+**R:** Salir si CT [>]{.mono} IT, entrar si CT [<]{.mono} IT.
+:::
+
+## Escenarios en plazo
+
+::::{.columns}
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 9, 0.1)
+atc <- function(x) (18 + 12*x - 2*x^2 + (2/3)*x^3)/x
+marginal_cost <- function(x) 12 - 4*x + 2*x^2
+atc_min <- 3
+p_zero_profit <- atc(atc_min)
+
+lr_conditions <- ggplot() +
+  scale_x_continuous(limits = c(0, 8.5), expand=c(0,0), breaks = NULL) +
+  scale_y_continuous(limits = c(0, 32.5), expand=c(0,0), breaks = c(p_zero_profit), labels = c(expression(P["Equilibrio"]))) +
+  theme_market +
+  labs(x = "Q", y = "$") +
+  geom_hline(yintercept = p_zero_profit, size = 1, linetype = "dashed", color = met_slate) +
+  stat_function(fun = atc, color = purple, size = 1) +
+  annotate("text", label = "ATCLP", x = 6.9, y = 25, color = purple, family = "Fira Sans", size = 9) +
+  stat_function(fun = marginal_cost, color = red_pink, size = 1) +
+  annotate("text", label = "MC", x = 3.5, y = 31, color = red_pink, family = "Fira Sans", size = 9)
+lr_conditions 
+```
+:::
+
+::: {.column width="40%"}
+#### Largo Plazo
+¿Como opera la firma? ¿cuando debe cerrar?
+:::
+::::
+
+## Escenarios en plazo {visibility="uncounted"}
+
+::::{.columns}
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+lr_conditions 
+```
+:::
+
+::: {.column width="40%"}
+#### Largo Plazo
+¿Como opera la firma? ¿cuando debe cerrar?
+
+[Depende del precio]{.alert}
+:::
+::::
+
+## Escenarios en plazo {visibility="uncounted"}
+
+::::{.columns}
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+lr_conditions +
+  annotate("label", label = "Beneficio", x = 8.35, y = p_zero_profit + 3, color = green, family = "Fira Sans", size = 5, hjust = 1) +
+  geom_ribbon(aes(x = x, ymin = p_zero_profit, ymax = 32.5), fill = green, alpha = 0.2, linetype = "blank")
+```
+:::
+
+::: {.column width="40%"}
+#### Largo Plazo
+¿Como opera la firma? ¿cuando debe cerrar?
+
+[Depende del precio]{.alert}
+
+P [>]{.mono} ATC <br> [-->]{.mono} [Beneficio]{.greener}
+:::
+::::
+
+## Escenarios en plazo {visibility="uncounted"}
+
+::::{.columns}
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+lr_conditions +
+  annotate("label", label = "Salida", x = 8.35, y = p_zero_profit - 3, color = orange, family = "Fira Sans", size = 5, hjust = 1) +
+  geom_ribbon(aes(x = x, ymin = 0, ymax = p_zero_profit), fill = orange, alpha = 0.2, linetype = "blank")
+```
+:::
+
+::: {.column width="40%"}
+#### Largo Plazo
+¿Como opera la firma? ¿cuando debe cerrar?
+
+[Depende del precio]{.alert}
+
+P [>]{.mono} ATC <br> [-->]{.mono} [Beneficio]{.greener}
+
+P [<]{.mono} ATC <br> [-->]{.mono} [Salida]{.alert}
+:::
+::::
+
+## Escenarios en plazo {visibility="uncounted"}
+
+::::{.columns}
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+lr_conditions +
+  annotate("label", label = "Salida", x = 8.35, y = p_zero_profit - 3, color = orange, family = "Fira Sans", size = 5, hjust = 1) +
+  geom_ribbon(aes(x = x, ymin = 0, ymax = p_zero_profit), fill = orange, alpha = 0.2, linetype = "blank") +
+  annotate("label", label = "Beneficio", x = 8.35, y = p_zero_profit + 3, color = green, family = "Fira Sans", size = 5, hjust = 1) +
+  geom_ribbon(aes(x = x, ymin = p_zero_profit, ymax = 32.5), fill = green, alpha = 0.2, linetype = "blank")
+```
+:::
+
+::: {.column width="40%"}
+#### Largo Plazo
+¿Como opera la firma? ¿cuando debe cerrar?
+
+[Depende del precio]{.alert}
+
+P [>]{.mono} ATC <br> [-->]{.mono} [Beneficio]{.greener}
+
+P [<]{.mono} ATC <br> [-->]{.mono} [Salida]{.alert}
+:::
+::::
+
+# Decisiones 🥹 {background-color="#006dae"}
+
+## Curva de oferta en LA
+
+::::{.columns}
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 9, 0.1)
+atc <- function(x) (18 + 12*x - 2*x^2 + (2/3)*x^3)/x
+marginal_cost <- function(x) 12 - 4*x + 2*x^2
+atc_min <- 3
+p_zero_profit <- atc(atc_min)
+
+ggplot() +
+  scale_x_continuous(limits = c(0, 8.5), expand=c(0,0), breaks = NULL) +
+  scale_y_continuous(limits = c(0, 32.5), expand=c(0,0), breaks = c(p_zero_profit), labels = c(expression(P["Equilibrio"]))) +
+  theme_market +
+  labs(x = "Q", y = "$") +
+  geom_hline(yintercept = p_zero_profit, size = 1, linetype = "dashed", color = met_slate) +
+  stat_function(fun = atc, color = purple, size = 1, alpha = 0.5) +
+  annotate("text", label = "ATCLP", x = 6.9, y = 25, color = purple, family = "Fira Sans", size = 9) +
+  stat_function(fun = marginal_cost, color = red_pink, size = 1, alpha = 0.5) +
+  annotate("text", label = "MC", x = 3.5, y = 31, color = red_pink, family = "Fira Sans", size = 9, alpha = 0.5) +
+  stat_function(xlim = c(atc_min, 8.5), fun = marginal_cost, color = purple, size = 1.5, linetype = "longdash") +
+  geom_segment(aes(x = 0.05, xend = 0.05, y = 0, yend = p_zero_profit), color = purple, linetype = "longdash", size = 1.5) +
+  annotate("text", label = "S", x = 3.5, y = 28, color = purple, family = "Fira Sans", size = 9)
+```
+:::
+
+::: {.column width="40%"}
+P [>]{.mono} P[cierre]{.sub} [-->]{.mono} [Curva de oferta de largo plazo]{.morader} <br> [=]{.mono} curva de costo marginal.
+
+P [<]{.mono} P[cierre]{.sub} [-->]{.mono} [Curva de oferta de largo plazo]{.morader} <br> [=]{.mono} línea vertical en cero.
+
+:::
+::::
+
+## Curva de oferta en LA {visibility="uncounted"}
+
+::::{.columns}
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 9, 0.1)
+atc <- function(x) (18 + 12*x - 2*x^2 + (2/3)*x^3)/x
+marginal_cost <- function(x) 12 - 4*x + 2*x^2
+atc_min <- 3
+p_zero_profit <- atc(atc_min)
+
+ggplot() +
+  scale_x_continuous(limits = c(0, 8.5), expand=c(0,0), breaks = NULL) +
+  scale_y_continuous(limits = c(0, 32.5), expand=c(0,0), breaks = c(p_zero_profit), labels = c(expression(P["Equilibrio"]))) +
+  theme_market +
+  labs(x = "Q", y = "$") +
+  geom_hline(yintercept = p_zero_profit, size = 1, linetype = "dashed", color = met_slate) +
+  stat_function(xlim = c(atc_min, 8.5), fun = marginal_cost, color = purple, size = 1.5, linetype = "solid") +
+  geom_segment(aes(x = 0.05, xend = 0.05, y = 0, yend = p_zero_profit), color = purple, linetype = "solid", size = 1.5) +
+  annotate("text", label = "S", x = 3.5, y = 28, color = purple, family = "Fira Sans", size = 9)
+```
+:::
+
+::: {.column width="40%"}
+P [>]{.mono} P[cierre]{.sub} [-->]{.mono} [Curva de oferta de largo plazo]{.morader} <br> [=]{.mono} curva de costo marginal.
+
+P [<]{.mono} P[cierre]{.sub} [-->]{.mono} [Curva de oferta de largo plazo]{.morader} <br> [=]{.mono} línea vertical en cero.
+
+:::
+::::
+
+# Practiquemos
+
+## Práctica
+
+::::{.columns}
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+x <- seq(0, 8, 0.1)
+atc <- function(x) (18 + 12*x - 2*x^2 + (2/3)*x^3)/x
+marginal_cost <- function(x) 12 - 4*x + 2*x^2
+marginal_revenue <- function(x) 14
+q <- uniroot(function(x) marginal_revenue(x) - marginal_cost(x), range(x))$root
+p <- marginal_revenue(1)
+cost <- atc(q)
+z <- seq(0, q, 0.001)
+
+p_max_4 <- ggplot() +
+  scale_x_continuous(limits = c(0, 7.5), expand=c(0,0), breaks = c(q), labels = c(30)) +
+  scale_y_continuous(limits = c(0, 37.5), expand=c(0,0), breaks = c(p, cost), labels = c(3, 5)) +
+  theme_market +
+  labs(x = "Q", y = "$") +
+  stat_function(fun = atc, color = purple, size = 1) +
+  annotate("text", label = "ATC", x = 6.5, y = 35, color = purple, family = "Fira Sans", size = 9) +
+  stat_function(fun = marginal_cost, color = red_pink, size = 1) +
+  annotate("text", label = "MC", x = 1, y = 8, color = red_pink, family = "Fira Sans", size = 9) +
+  stat_function(fun = marginal_revenue, color = green, size = 1) +
+  annotate("text", label = "IM", x = 7, y = p - 2, color = green, family = "Fira Sans", size = 9) +
+  geom_point(aes(x = q, y = cost), color = met_slate, size = 2) +
+  geom_segment(aes(x = 0, xend = q, y = cost, yend = cost), color = met_slate, linetype = "dashed", size = 1) +
+  geom_segment(aes(x = q, xend = q, y = p, yend = cost), color = met_slate, linetype = "dashed", size = 1) +
+  geom_point(aes(x = q, y = p), color = met_slate, size = 2) +
+  geom_segment(aes(x = q, xend = q, y = 0, yend = p), color = met_slate, linetype = "dashed", size = 1)
+p_max_4
+```
+:::
+
+::: {.column width="40%"}
+> Esta firma tiene beneficios u opera en perdidas si el precio del mercado fuera de `$3`?
+:::
+::::
+
+## Práctica {visibility="uncounted"}
+
+::::{.columns}
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+p_max_4 <- p_max_4 +
+  geom_ribbon(aes(x = z, ymin = p, ymax = cost), fill = red_pink, alpha = 0.2, linetype = "blank") +
+  annotate("text", label = "Perdida", x = q/2, y = (p + cost)/2, color = red_pink, family = "Fira Sans", size = 6) 
+p_max_4
+```
+:::
+  
+::: {.column width="40%"}
+> Esta firma tiene beneficios u opera en perdidas si el precio del mercado fuera de `$3`?
+
+[Opera con perdidas]{.blut}
+:::
+::::
+  
+## Práctica {visibility="uncounted"}
+
+::::{.columns}
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+p_max_4 <- p_max_4 +
+  geom_ribbon(aes(x = z, ymin = p, ymax = cost), fill = red_pink, alpha = 0.2, linetype = "blank") +
+  annotate("text", label = "Perdida", x = q/2, y = (p + cost)/2, color = red_pink, family = "Fira Sans", size = 6) 
+p_max_4
+```
+:::
+  
+::: {.column width="40%"}
+> Qué hará en el largo plazo?
+
+[Sadría]{.oranger}
+:::
+::::
+    
+## Práctica {visibility="uncounted"}
+
+::::{.columns}
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+p_max_4 <- p_max_4 +
+  geom_ribbon(aes(x = z, ymin = p, ymax = cost), fill = red_pink, alpha = 0.2, linetype = "blank") +
+  annotate("text", label = "Perdida", x = q/2, y = (p + cost)/2, color = red_pink, family = "Fira Sans", size = 6) 
+p_max_4
+```
+:::
+  
+::: {.column width="40%"}
+> Cuanto dinero está perdiendo?
+
+[`$60`]{.alert}
+:::
+::::
+    
+    
+## Práctica {visibility="uncounted"}
+
+::::{.columns}
+::: {.column width="60%"}
+```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+p_max_4 <- p_max_4 +
+  geom_ribbon(aes(x = z, ymin = p, ymax = cost), fill = red_pink, alpha = 0.2, linetype = "blank") +
+  annotate("text", label = "Perdida", x = q/2, y = (p + cost)/2, color = red_pink, family = "Fira Sans", size = 6) 
+p_max_4
+```
+:::
+  
+::: {.column width="40%"}
+> Cuanto dinero está perdiendo?
+
+[`$60`]{.alert}
+
+[Perdidas [=]{.mono} (ATC-P) [x]{.mono} Q]{.alert}
+:::
+::::
+
+# Mercado competitivo {background-color="#006dae"}
+
+## Mercado competitivo
+
+- Muchos compradores y vendedores.
+
+- Productos idénticos y muy poco diferenciados.
+
+- [Entrada y salida]{.under} libres.
+  - Por ejemplo, todas las empresas disponen de la misma tecnología.
+Cada empresa es pequeña en relación con el mercado.
+
+- Los [precios]{.alert} de los insumos para la industria no cambian a medida que se amplía el mercado.
+
+::: fragment
+**P:** ¿Cómo entender las consecuencias de las decisiones de muchas empresas sobre los resultados del mercado?
+
+**R:** Construir una curva de oferta de mercado.
+
+- [Oferta de mercado]{.morader} [=]{.mono} [suma]{.alert} de [curvas de oferta]{.bg style="--col: #FFFF00"} individuales.
+:::
+
+## Mercado competitivo
+
+::::{.columns}
+::: {.column width="50%"}
+[Empresa]{.center}
+```{r, echo = FALSE, fig.height = 3.5, fig.width = 3.75, dev = "svg"}
+x <- seq(0, 8, 0.1)
+atc <- function(x) (18 + 12*x - 2*x^2 + (2/3)*x^3)/x
+marginal_cost <- function(x) 12 - 4*x + 2*x^2
+marginal_revenue <- function(x) 18
+q <- uniroot(function(x) marginal_revenue(x) - marginal_cost(x), range(x))$root
+p <- marginal_revenue(1)
+cost <- atc(q)
+z <- seq(0, q, 0.001)
+
+ggplot() +
+  scale_x_continuous(limits = c(0, 7.5), expand=c(0,0), breaks = c(q), labels = c(expression(Q[Firma]))) +
+  scale_y_continuous(limits = c(0, 37.5), expand=c(0,0), breaks = c(cost), labels = c(expression(P[LP]))) +
+  theme_market +
+  labs(x = "Q", y = "$") +
+  stat_function(fun = atc, color = purple, size = 1) +
+  annotate("text", label = "ATC", x = 6.5, y = 35, color = purple, family = "Fira Sans", size = 6) +
+  stat_function(fun = marginal_cost, color = red_pink, size = 1) +
+  annotate("text", label = "MC", x = 1, y = 8, color = red_pink, family = "Fira Sans", size = 6) +
+  stat_function(fun = marginal_revenue, color = green, size = 1) +
+  annotate("text", label = "IM", x = 7, y = p - 2, color = green, family = "Fira Sans", size = 6) +
+  geom_point(aes(x = q, y = p), color = met_slate, size = 2) +
+  geom_segment(aes(x = q, xend = q, y = 0, yend = p), color = met_slate, linetype = "dashed", size = 1) 
+```
+
+:::
+  
+::: {.column width="50%"}
+[Industria]{.center}
+```{r, echo = FALSE, fig.height = 3.5, fig.width = 3.75, dev = "svg"}
+x <- seq(0, 7, 0.1)
+demand <- function(x) 36 - 6*x
+supply <- function(x) 6 + 4*x
+lr_supply <- function(x) 18
+q <- uniroot(function(x) demand(x) - supply(x), range(x))$root
+p <- supply(q)
+
+ggplot() +
+  scale_x_continuous(limits = c(0, 6.5), expand=c(0,0), breaks = c(q), labels = c(expression(Q[Mercado]))) +
+  scale_y_continuous(limits = c(0, 37.5), expand=c(0,0), breaks = c(lr_supply(q)), labels = c(expression(P[LP]))) +
+  theme_market +
+  labs(x = "Q", y = "P") +
+  stat_function(fun = supply, color = purple, size = 1) +
+  annotate("text", label = "S", x = 6, y = 32, color = purple, family = "Fira Sans", size = 6) +
+  stat_function(fun = lr_supply, color = purple, size = 1) +
+  annotate("text", label = expression(S[LP]), x = 6, y = lr_supply(q) - 2, color = purple, family = "Fira Sans", size = 6) +
+  stat_function(fun = demand, color = red_pink, size = 1) +
+  annotate("text", label = "D", x = 6, y = 3, color = red_pink, family = "Fira Sans", size = 6) +
+  geom_point(aes(x = q, y = lr_supply(q)), color = met_slate, size = 2) +
+  geom_segment(aes(x = q, xend = q, y = 0, yend = lr_supply(q)), color = met_slate, linetype = "dashed", size = 1) 
+```
+:::
+::::
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("Mínimo ATC"),
+  v2 = c("Q que minimiza a ATC"),
+  v3 = c("Q firmas x N firmas"),
+  v4 = c("Q Mercado ÷ Firmas")
+) %>% kable(
+  escape = F,
+  col.names = c("PLP", "Q Firma", "Q Mercado", "N Firmas"),
+  align = c("c", "c", "c", "c")
+) %>%
+  kable_styling(full_width = T) 
+tab 
+```
+  
+  
+  
+## Mercado competitivo {visibility="uncounted"}
+
+::::{.columns}
+::: {.column width="50%"}
+[Empresa]{.center}
+```{r, echo = FALSE, fig.height = 3.5, fig.width = 3.75, dev = "svg"}
+x <- seq(0, 8, 0.1)
+atc <- function(x) (18 + 12*x - 2*x^2 + (2/3)*x^3)/x
+marginal_cost <- function(x) 12 - 4*x + 2*x^2
+marginal_revenue <- function(x) 18
+q <- uniroot(function(x) marginal_revenue(x) - marginal_cost(x), range(x))$root
+p <- marginal_revenue(1)
+cost <- atc(q)
+z <- seq(0, q, 0.001)
+
+firm_1 <- ggplot() +
+  scale_x_continuous(limits = c(0, 7.5), expand=c(0,0), breaks = c(q), labels = c(4)) +
+  scale_y_continuous(limits = c(0, 37.5), expand=c(0,0), breaks = c(cost), labels = c(5)) +
+  theme_market +
+  labs(x = "Q", y = "$") +
+  stat_function(fun = atc, color = purple, size = 1) +
+  annotate("text", label = "ATC", x = 6.5, y = 35, color = purple, family = "Fira Sans", size = 6) +
+  stat_function(fun = marginal_cost, color = red_pink, size = 1) +
+  annotate("text", label = "MC", x = 1, y = 8, color = red_pink, family = "Fira Sans", size = 6) +
+  stat_function(fun = marginal_revenue, color = green, size = 1) +
+  annotate("text", label = "IM", x = 7, y = p - 2, color = green, family = "Fira Sans", size = 6) +
+  geom_point(aes(x = q, y = p), color = met_slate, size = 2) +
+  geom_segment(aes(x = q, xend = q, y = 0, yend = p), color = met_slate, linetype = "dashed", size = 1) 
+firm_1
+```
+:::
+  
+::: {.column width="50%"}
+[Industria]{.center}
+```{r, echo = FALSE, fig.height = 3.5, fig.width = 3.75, dev = "svg"}
+x <- seq(0, 7, 0.1)
+demand <- function(x) 36 - 6*x
+supply <- function(x) 6 + 4*x
+lr_supply <- function(x) 18
+q <- uniroot(function(x) demand(x) - supply(x), range(x))$root
+p <- supply(q)
+
+market_1 <- ggplot() +
+  scale_x_continuous(limits = c(0, 6.5), expand=c(0,0), breaks = c(q), labels = c(3000)) +
+  scale_y_continuous(limits = c(0, 37.5), expand=c(0,0), breaks = c(lr_supply(q)), labels = c(5)) +
+  theme_market +
+  labs(x = "Q", y = "P") +
+  stat_function(fun = supply, color = purple, size = 1) +
+  annotate("text", label = "S", x = 6, y = 32, color = purple, family = "Fira Sans", size = 6) +
+  stat_function(fun = lr_supply, color = purple, size = 1) +
+  annotate("text", label = expression(S[LP]), x = 6, y = lr_supply(q) - 2, color = purple, family = "Fira Sans", size = 6) +
+  stat_function(fun = demand, color = red_pink, size = 1) +
+  annotate("text", label = "D", x = 6, y = 3, color = red_pink, family = "Fira Sans", size = 6) +
+  geom_point(aes(x = q, y = lr_supply(q)), color = met_slate, size = 2) +
+  geom_segment(aes(x = q, xend = q, y = 0, yend = lr_supply(q)), color = met_slate, linetype = "dashed", size = 1) 
+market_1
+```
+:::
+::::
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("$5.00"),
+  v2 = c(4),
+  v3 = c(3000),
+  v4 = c("")
+) %>% kable(
+  escape = F,
+  col.names = c("PLP", "Q Firma", "Q Mercado", "N Firmas"),
+  align = c("c", "c", "c", "c")
+) %>%
+  kable_styling(full_width = T) 
+tab 
+```
+    
+
+## Mercado competitivo {visibility="uncounted"}
+
+::::{.columns}
+::: {.column width="50%"}
+[Empresa]{.center}
+```{r, echo = FALSE, fig.height = 3.5, fig.width = 3.75, dev = "svg"}
+x <- seq(0, 8, 0.1)
+atc <- function(x) (18 + 12*x - 2*x^2 + (2/3)*x^3)/x
+marginal_cost <- function(x) 12 - 4*x + 2*x^2
+marginal_revenue <- function(x) 18
+q <- uniroot(function(x) marginal_revenue(x) - marginal_cost(x), range(x))$root
+p <- marginal_revenue(1)
+cost <- atc(q)
+z <- seq(0, q, 0.001)
+
+firm_1 <- ggplot() +
+  scale_x_continuous(limits = c(0, 7.5), expand=c(0,0), breaks = c(q), labels = c(4)) +
+  scale_y_continuous(limits = c(0, 37.5), expand=c(0,0), breaks = c(cost), labels = c(5)) +
+  theme_market +
+  labs(x = "Q", y = "$") +
+  stat_function(fun = atc, color = purple, size = 1) +
+  annotate("text", label = "ATC", x = 6.5, y = 35, color = purple, family = "Fira Sans", size = 6) +
+  stat_function(fun = marginal_cost, color = red_pink, size = 1) +
+  annotate("text", label = "MC", x = 1, y = 8, color = red_pink, family = "Fira Sans", size = 6) +
+  stat_function(fun = marginal_revenue, color = green, size = 1) +
+  annotate("text", label = "IM", x = 7, y = p - 2, color = green, family = "Fira Sans", size = 6) +
+  geom_point(aes(x = q, y = p), color = met_slate, size = 2) +
+  geom_segment(aes(x = q, xend = q, y = 0, yend = p), color = met_slate, linetype = "dashed", size = 1) 
+firm_1
+```
+:::
+  
+::: {.column width="50%"}
+[Industria]{.center}
+```{r, echo = FALSE, fig.height = 3.5, fig.width = 3.75, dev = "svg"}
+x <- seq(0, 7, 0.1)
+demand <- function(x) 36 - 6*x
+supply <- function(x) 6 + 4*x
+lr_supply <- function(x) 18
+q <- uniroot(function(x) demand(x) - supply(x), range(x))$root
+p <- supply(q)
+
+market_1 <- ggplot() +
+  scale_x_continuous(limits = c(0, 6.5), expand=c(0,0), breaks = c(q), labels = c(3000)) +
+  scale_y_continuous(limits = c(0, 37.5), expand=c(0,0), breaks = c(lr_supply(q)), labels = c(5)) +
+  theme_market +
+  labs(x = "Q", y = "P") +
+  stat_function(fun = supply, color = purple, size = 1) +
+  annotate("text", label = "S", x = 6, y = 32, color = purple, family = "Fira Sans", size = 6) +
+  stat_function(fun = lr_supply, color = purple, size = 1) +
+  annotate("text", label = expression(S[LP]), x = 6, y = lr_supply(q) - 2, color = purple, family = "Fira Sans", size = 6) +
+  stat_function(fun = demand, color = red_pink, size = 1) +
+  annotate("text", label = "D", x = 6, y = 3, color = red_pink, family = "Fira Sans", size = 6) +
+  geom_point(aes(x = q, y = lr_supply(q)), color = met_slate, size = 2) +
+  geom_segment(aes(x = q, xend = q, y = 0, yend = lr_supply(q)), color = met_slate, linetype = "dashed", size = 1) 
+market_1
+```
+:::
+::::
+
+```{R, echo = F, escape = F}
+tab <- data.frame(
+  v1 = c("$5.00"),
+  v2 = c(4),
+  v3 = c(3000),
+  v4 = c("750")
+) %>% kable(
+  escape = F,
+  col.names = c("PLP", "Q Firma", "Q Mercado", "N Firmas"),
+  align = c("c", "c", "c", "c")
+) %>%
+  kable_styling(full_width = T) 
+tab 
+```
+        

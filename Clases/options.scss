@@ -76,6 +76,8 @@ $pink: #e64173;
 $blue: #4285F4;
 $orange:#ffa500;
 $slate: #314f4f;
+$green: #002D04;
+$purple: #A020F0;
 
 .alert {
   color: $pink;
@@ -91,6 +93,14 @@ $slate: #314f4f;
 
 .slater {
  color: $slate; 
+}
+
+.greener {
+  color: $green;
+}
+
+.morader{
+  color: $purple;
 }
 
 .fg {
@@ -129,4 +139,32 @@ $slate: #314f4f;
       color: #006791; /* Color del texto */
       text-align: center; /* Centrar el texto horizontalmente */
       font-size: 36px;
+}
+
+/* Mono-spaced font */
+.mono {
+  font-family: 'Fira Code';
+}
+
+.mjx-chtml{
+  font-size: 103% !important;
+}
+
+/* Mono-spaced font, smaller */
+.mono-small {
+  font-family: 'Fira Code';
+  font-size: 20px;
+}
+.mono-small .mjx-chtml {
+  font-size: 103% !important;
+}
+
+.pseudocode, .pseudocode-small {
+  font-family: 'Fira Code';
+  background: #f8f8f8;
+  border-radius: 3px;
+  padding: 10px;
+}
+.pseudocode-small {
+  font-size: 20px;
 }
