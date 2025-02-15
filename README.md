@@ -12,4 +12,3 @@ This is a course on economic theory for project evaluation.
 
 [Clase 3](https://keynes37.github.io/Espeval/Clases/clase03.html)
 
-[Medico](https://keynes37.github.io/Medical/Clases/Class03.html#1)
