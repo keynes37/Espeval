@@ -100,21 +100,17 @@ update_geom_defaults("text", list(family = "Fira Sans Condensed"))
 
 ## Preferencias
 
-:::: {.columns}
-
-::: {.column width="30%"}
-- Cuál de las siguientes cestas **prefiere** sobre cualquier otra?
-- Ejemplo de dos cestas $(x,y):$
+::::::: columns
+:::: {.column width="30%"}
+-   Cuál de las siguientes cestas **prefiere** sobre cualquier otra?
+-   Ejemplo de dos cestas $(x,y):$
 
 ::: fragment
-
 $$a=(2,5) \quad \text{o} \quad b=(6,4)$$
 :::
+::::
 
-:::
-
-::: {.column width="70%"}
-
+:::: {.column width="70%"}
 ::: fragment
 ```{r}
 #| echo: false
@@ -145,26 +141,26 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 
 ```
 :::
-:::
 ::::
-
+:::::::
 
 ## Preferencias
 
-:::fragment
+::: fragment
 Tenemos tres posibles respuestas:
 :::
 
-1. $a \succ b: \text{(estrictamente) se prefiere a sobre b}$
-1. $a \prec b: \text{(estrictamente) se prefiere b sobre a}$
-1. $a \sim b: \text{indiferencia entre a y b}$
+1.  $a \succ b: \text{(estrictamente) se prefiere a sobre b}$
+2.  $a \prec b: \text{(estrictamente) se prefiere b sobre a}$
+3.  $a \sim b: \text{indiferencia entre a y b}$
 
-::: fragment
+:::: fragment
 ::: callout-note
-## El análisis de las preferencias: 
+## El análisis de las preferencias:
+
 se realiza a través de las elecciones realizadas por los consumidores mediante el planteamiento de un conjunto de axiomas (describen el comportamiento racional).
 :::
-:::
+::::
 
 ::: fragment
 > Los axiomas son **supuestos** utilizados para comparar y ordenar las [cestas demandadas]{.alert} de bienes y servicios dadas las [preferencias]{.blut} del consumidor.
@@ -184,22 +180,18 @@ flowchart LR
     C --> G(No Saturación)
 
 ```
-
 :::
-
-
 
 ## Preferencias
 
-:::: {.columns}
-
+:::::: columns
 ::: {.column width="30%"}
-- Siempre (+) es mejor
-- No podemos interceptar $U(x)$
-- Son densas
+-   Siempre (+) es mejor
+-   No podemos interceptar $U(x)$
+-   Son densas
 :::
 
-::: {.column width="70%"}
+:::: {.column width="70%"}
 ::: fragment
 ```{r}
 #| echo: false
@@ -241,10 +233,8 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 
 ```
 :::
-
-:::
-
 ::::
+::::::
 
 ## Preferencias
 
@@ -304,11 +294,11 @@ Carlos Yanes es un *gerente de proyectos* en una empresa de construcción. Recie
 
 **Tabla 1:** Evaluación de Proyectos de Construcción
 
-|                       | Proyecto A | Proyecto B | Proyecto C |
-|-----------------------|------------|------------|------------|
-| **Costo**             | Bajo       | Alto       | Medio      |
-| **Tiempo de Ejecución** | Largo      | Corto      | Medio      |
-| **Calidad de Construcción** | Alta   | Media      | Alta       |
+|                             | Proyecto A | Proyecto B | Proyecto C |
+|-----------------------------|------------|------------|------------|
+| **Costo**                   | Bajo       | Alto       | Medio      |
+| **Tiempo de Ejecución**     | Largo      | Corto      | Medio      |
+| **Calidad de Construcción** | Alta       | Media      | Alta       |
 
 ## Preferencias
 
@@ -324,41 +314,39 @@ Carlos Yanes prefiere un proyecto $P \succ Q$ si el proyecto $P$ es mejor que el
 
 ### Mecanismos agregados de Preferencias {.r-fit-text}
 
-
 ## Preferencias agregadas
 
-- Los [mercados]{.blut} son un proceso de descubrimiento que utiliza [los precios]{.alert} para agregar conocimientos dispersos sobre la *escasez*, las *preferencias* y las oportunidades en relación con los recursos.
+-   Los [mercados]{.blut} son un proceso de descubrimiento que utiliza [los precios]{.alert} para agregar conocimientos dispersos sobre la *escasez*, las *preferencias* y las oportunidades en relación con los recursos.
 
-- Las [decisiones individuales]{.bg style="--col: #FFFF00"} maximizan las preferencias individuales dentro de unos límites.
+-   Las [decisiones individuales]{.bg style="--col: #FFFF00"} maximizan las preferencias individuales dentro de unos límites.
 
-- La [política]{.oranger} puede considerarse un proceso de descubrimiento que utiliza [los votos]{.alert} para agregar conocimientos dispersos sobre las [preferencias individuales]{.bg style="--col: #FFFF00"} en una única elección de grupo.
+-   La [política]{.oranger} puede considerarse un proceso de descubrimiento que utiliza [los votos]{.alert} para agregar conocimientos dispersos sobre las [preferencias individuales]{.bg style="--col: #FFFF00"} en una única elección de grupo.
 
-::: fragment
+:::: fragment
 ::: callout-tip
 ## Teoría de la elección social
+
 estudia cómo agregar las preferencias individuales en una preferencia grupal coherente para alcanzar una decisión colectiva para un grupo.
-:::
-:::
-
-## Preferencias agregadas
-
-:::: {.columns}
-
-::: {.column width="50%"}
-![](imagenese/votes.png)
-:::
-
-::: {.column width="50%"}
-- La [elección colectiva]{.alert} pretende maximizar las *preferencias del grupo* dentro de unas limitaciones
-
-- En la práctica: análisis de reglas de votación alternativas
 :::
 ::::
 
 ## Preferencias agregadas
 
-:::: {.columns}
+::::: columns
+::: {.column width="50%"}
+![](imagenese/votes.png)
+:::
 
+::: {.column width="50%"}
+-   La [elección colectiva]{.alert} pretende maximizar las *preferencias del grupo* dentro de unas limitaciones
+
+-   En la práctica: análisis de reglas de votación alternativas
+:::
+:::::
+
+## Preferencias agregadas
+
+::::: columns
 ::: {.column width="50%"}
 ![](imagenese/votes.png)
 :::
@@ -384,182 +372,160 @@ C \\
 B
 \end{bmatrix}$$
 :::
-::::
+:::::
 
 ## Preferencias agregadas
 
-:::: {.columns}
-
+:::::::: columns
 ::: {.column width="50%"}
 ![](imagenese/votes.png)
 :::
 
-::: {.column width="50%"}
+:::::: {.column width="50%"}
 ::: fragment
 `r fa("long-arrow-alt-right", fill="red")` Votar de alguna forma es habitual:
 :::
 
 ::: fragment
-`r fa("chess-bishop", fill="blue")` Ciudadanos que eligen a un funcionario.
-`r fa("chess-bishop", fill="blue")` Legisladores que presentan, modifican y aprueban proyectos de ley en comisiones o en sesiones plenarias.
-`r fa("chess-bishop", fill="blue")` Reguladores que elaboran una nueva norma.
-`r fa("chess-bishop", fill="blue")` Jurados en litigios penales.
-`r fa("chess-bishop", fill="blue")` Jueces de tribunales de apelación.
+`r fa("chess-bishop", fill="blue")` Ciudadanos que eligen a un funcionario. `r fa("chess-bishop", fill="blue")` Legisladores que presentan, modifican y aprueban proyectos de ley en comisiones o en sesiones plenarias. `r fa("chess-bishop", fill="blue")` Reguladores que elaboran una nueva norma. `r fa("chess-bishop", fill="blue")` Jurados en litigios penales. `r fa("chess-bishop", fill="blue")` Jueces de tribunales de apelación.
 :::
 
 ::: fragment
 `r fa("chess-queen", fill="red")` Diferentes procedimientos (votaciones por parejas, secuenciación, etc.), y requieren diferentes niveles de acuerdo (mayoría, supermayoría, etc.)
 :::
-
-:::
-::::
+::::::
+::::::::
 
 ## Preferencias agregadas
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
-- Una votación con:
-1. Mas de 3 electores
-1. Mas de 3 elecciones
-1. Desacuerdo
-1. Conduce a un *ciclo de votación*: una mayoría se opone a cada resultado
-1. Cada [opción]{.alert} perderá frente a otra alternativa
-Nota: ¡NO es un empate a tres!
+-   Una votación con:
+
+1.  Mas de 3 electores
+2.  Mas de 3 elecciones
+3.  Desacuerdo
+4.  Conduce a un *ciclo de votación*: una mayoría se opone a cada resultado
+5.  Cada [opción]{.alert} perderá frente a otra alternativa Nota: ¡NO es un empate a tres!
 :::
 
 ::: {.column width="50%"}
 ![](imagenese/scisors.png)
 :::
+:::::
 
-::::
+## Preferencias: Condorcet
 
-## Preferencias: Condorcet 
-
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
-- Un candidato es el **ganador de Condorcet** si gana en enfrentamientos directos contra todos los otros candidatos.
-- **Ejemplo**:
-  - Tres candidatos: A, B, C
-  - Preferencias de los votantes:
-    - 40%: A > B > C
-    - 35%: B > C > A
-    - 25%: C > A > B
+-   Un candidato es el **ganador de Condorcet** si gana en enfrentamientos directos contra todos los otros candidatos.
+-   **Ejemplo**:
+    -   Tres candidatos: A, B, C
+    -   Preferencias de los votantes:
+        -   40%: A \> B \> C
+        -   35%: B \> C \> A
+        -   25%: C \> A \> B
 :::
 
 ::: {.column width="50%"}
-  - Enfrentamientos:
-    - A vs B: A gana (65% vs 35%)
-    - A vs C: C gana (60% vs 40%)
-    - B vs C: B gana (75% vs 25%)
-  - **Resultado**: Tendriamos [un empate]{.under}
-
+-   Enfrentamientos:
+    -   A vs B: A gana (65% vs 35%)
+    -   A vs C: C gana (60% vs 40%)
+    -   B vs C: B gana (75% vs 25%)
+-   **Resultado**: Tendriamos [un empate]{.under}
 :::
-::::
+:::::
 
 ## Preferencias: Eliminación Secuencial
 
-- En cada ronda, se elimina al candidato con el menor número de votos hasta que quede uno solo.
+-   En cada ronda, se elimina al candidato con el menor número de votos hasta que quede uno solo.
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
-
-- **Ejemplo**:
-  - Tres candidatos: A, B, C
-  - Preferencias de los votantes:
-    - 40%: A > B > C
-    - 35%: B > C > A
-    - 25%: C > A > B
-  - **Ronda 1**:
-    - C tiene menos votos, es eliminado.
+-   **Ejemplo**:
+    -   Tres candidatos: A, B, C
+    -   Preferencias de los votantes:
+        -   40%: A \> B \> C
+        -   35%: B \> C \> A
+        -   25%: C \> A \> B
+    -   **Ronda 1**:
+        -   C tiene menos votos, es eliminado.
 :::
 
 ::: {.column width="50%"}
-  - **Ronda 2**:
-    - Los votos de C se redistribuyen: A gana con el 75% de los votos.
-  - **Resultado**: A es el ganador tras la eliminación de C.
-
+-   **Ronda 2**:
+    -   Los votos de C se redistribuyen: A gana con el 75% de los votos.
+-   **Resultado**: A es el ganador tras la eliminación de C.
 :::
-
-::::
+:::::
 
 ## Preferencias: Segunda Vuelta
 
-- Si ningún candidato obtiene la mayoría absoluta en la primera vuelta, se realiza una segunda vuelta entre los dos más votados.
-- **Ejemplo**:
-  - Tres candidatos: A, B, C
-  - Primera vuelta:
-    - A: 40%
-    - B: 35%
-    - C: 25%
-  - **Segunda vuelta**:
-    - A vs B: A gana con 65% frente a B (35%).
-  - **Resultado**: A gana la elección en la segunda vuelta.
+-   Si ningún candidato obtiene la mayoría absoluta en la primera vuelta, se realiza una segunda vuelta entre los dos más votados.
+-   **Ejemplo**:
+    -   Tres candidatos: A, B, C
+    -   Primera vuelta:
+        -   A: 40%
+        -   B: 35%
+        -   C: 25%
+    -   **Segunda vuelta**:
+        -   A vs B: A gana con 65% frente a B (35%).
+    -   **Resultado**: A gana la elección en la segunda vuelta.
 
 ## Preferencias: Conteo de Borda
 
-- Los votantes clasifican a los candidatos, y se asignan puntos según la posición en la que son clasificados.
+-   Los votantes clasifican a los candidatos, y se asignan puntos según la posición en la que son clasificados.
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
-- **Ejemplo**:
-  - Tres candidatos: A, B, C
-  - Asignación de puntos:
-    - 1er lugar: 2 puntos
-    - 2do lugar: 1 punto
-    - 3er lugar: 0 puntos
-  - Preferencias de los votantes:
-    - 40%: A > B > C  $(\text{A}:2 \times 40\%, B: 1 \times 40\%)$
-
+-   **Ejemplo**:
+    -   Tres candidatos: A, B, C
+    -   Asignación de puntos:
+        -   1er lugar: 2 puntos
+        -   2do lugar: 1 punto
+        -   3er lugar: 0 puntos
+    -   Preferencias de los votantes:
+        -   40%: A \> B \> C $(\text{A}:2 \times 40\%, B: 1 \times 40\%)$
 :::
 
 ::: {.column width="50%"}
-  - Preferencias de los votantes:
-    - 35%: B > C > A  $(\text{B}:2 \times 35\%, C: 1 \times 35\%)$
-    - 25%: C > A > B  $(\text{C}:2 \times 25\%, A: 1 \times 25\%)$
-  - **Resultado**:
-    - A: 80 + 25 = 105 puntos
-    - B: 40 + 70 = 110 puntos
-    - C: 50 + 35 = 85 puntos
-    - **Ganador**: B es el ganador según el conteo de Borda.
-
+-   Preferencias de los votantes:
+    -   35%: B \> C \> A $(\text{B}:2 \times 35\%, C: 1 \times 35\%)$
+    -   25%: C \> A \> B $(\text{C}:2 \times 25\%, A: 1 \times 25\%)$
+-   **Resultado**:
+    -   A: 80 + 25 = 105 puntos
+    -   B: 40 + 70 = 110 puntos
+    -   C: 50 + 35 = 85 puntos
+    -   **Ganador**: B es el ganador según el conteo de Borda.
 :::
-::::
+:::::
 
 ## Preferencias: Ejercicio
 
 ::: fragment
-Imagine que un municipio debe decidir entre cuatro proyectos de [infraestructura pública]{.blut}, y las partes interesadas (ciudadanos, funcionarios, etc.) han votado según sus [preferencias]{.alert}. 
+Imagine que un municipio debe decidir entre cuatro proyectos de [infraestructura pública]{.blut}, y las partes interesadas (ciudadanos, funcionarios, etc.) han votado según sus [preferencias]{.alert}.
 :::
 
 ::: fragment
-Los proyectos son:
-Proyecto A: [Construcción de un parque comunitario]{.alert}.
-Proyecto B: [Expansión de la red de transporte público]{.oranger}.
-Proyecto C: [Renovación de la infraestructura escolar]{.slater}.
-Proyecto D: [Desarrollo de un centro de salud]{.oranger}.
+Los proyectos son: Proyecto A: [Construcción de un parque comunitario]{.alert}. Proyecto B: [Expansión de la red de transporte público]{.oranger}. Proyecto C: [Renovación de la infraestructura escolar]{.slater}. Proyecto D: [Desarrollo de un centro de salud]{.oranger}.
 :::
 
 ::: fragment
 Preferencias de los Votantes
 
 | **Votantes** | **Preferencia 1** | **Preferencia 2** | **Preferencia 3** | **Preferencia 4** |
-|--------------|-------------------|-------------------|-------------------|-------------------|
-| 40%          | A                 | B                 | C                 | D                 |
-| 30%          | C                 | B                 | D                 | A                 |
-| 20%          | B                 | C                 | A                 | D                 |
-| 10%          | D                 | C                 | B                 | A                 |
-
+|---------------|---------------|---------------|---------------|---------------|
+| 40% | A | B | C | D |
+| 30% | C | B | D | A |
+| 20% | B | C | A | D |
+| 10% | D | C | B | A |
 :::
 
 ## Preferencias: Ejercicio
 
-- [*Qué proyecto gana en cada una de las elecciones?*]{.bg style="--col: #D3D3D3"}
+-   [*Qué proyecto gana en cada una de las elecciones?*]{.bg style="--col: #D3D3D3"}
 
-- *Si pudieramos modificar una de las elecciones que sistema se debe elegir?*
+-   *Si pudieramos modificar una de las elecciones que sistema se debe elegir?*
 
 ##  {background-image="imagenese/leaf.jpg"}
 
@@ -567,7 +533,7 @@ Preferencias de los Votantes
 
 ## Demanda y oferta
 
-::::{.columns}
+:::::: columns
 ::: {.column width="70%"}
 ```{r demanda, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
@@ -578,21 +544,22 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
   stat_function(fun = demand, color = red_pink, size = 1) +
   annotate("text", label = "D", x = 10, y = 0.65, color = red_pink, family = "Fira Sans", size = 9)
 ```
+
 [Gráfico de Kyle Raze]{.small}
 :::
 
-::: {.column width="30%"}
-:::{.fragment}
+:::: {.column width="30%"}
+::: fragment
 `r fa("bell", fill="red")` La [Demanda]{.alert} dice de la [disposición a pagar]{.blut}
 
-`r fa("bell", fill="red")` $\Downarrow P \rightarrow Q_d \Uparrow$ 
-:::
+`r fa("bell", fill="red")` $\Downarrow P \rightarrow Q_d \Uparrow$
 :::
 ::::
+::::::
 
 ## Demanda y oferta
 
-::::{.columns}
+::::: columns
 ::: {.column width="70%"}
 ```{r oferta, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
@@ -603,19 +570,20 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
   stat_function(fun = supply, color = purple, size = 1) + 
   annotate("text", label = "O", x = 10, y = 9.5, color = purple, family = "Fira Sans", size = 9)
 ```
+
 [Gráfico de Kyle Raze]{.small}
 :::
 
 ::: {.column width="30%"}
 `r fa("bell", fill="red")` La [Oferta]{.blur} dice de la [disposición a ofrecer]{.alert}
 
-`r fa("bell", fill="red")` $\Uparrow P \rightarrow Q_s \Uparrow$ 
+`r fa("bell", fill="red")` $\Uparrow P \rightarrow Q_s \Uparrow$
 :::
-::::
+:::::
 
 ## Demanda y oferta
 
-::::{.columns}
+::::: columns
 ::: {.column width="70%"}
 ```{r equilibrio_mark, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 market <- ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
@@ -629,6 +597,7 @@ market <- ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
   annotate("text", label = "D", x = 10, y = 0.65, color = red_pink, family = "Fira Sans", size = 9)
 market
 ```
+
 [Gráfico de Kyle Raze]{.small}
 :::
 
@@ -639,11 +608,11 @@ market
 
 `r fa("bell", fill="blue")`Por otro lado tendremos [desequilibrio]{.oranger}
 :::
-::::
+:::::
 
 ## Demanda y oferta
 
-::::{.columns}
+::::: columns
 ::: {.column width="70%"}
 ```{r equilibrio2, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 market + 
@@ -651,6 +620,7 @@ market +
   geom_segment(aes(x = 5, y = 0, xend = 5, yend = 5), linetype  = "dashed", color = met_slate, size = 1) + 
   geom_segment(aes(x = 0, y = 5, xend = 5, yend = 5), linetype  = "dashed", color = met_slate, size = 1)
 ```
+
 [Gráfico de Kyle Raze]{.small}
 :::
 
@@ -661,16 +631,15 @@ market +
 
 `r fa("bell", fill="red")` Note que [5]{.oranger} son las unidades requeridas
 :::
-::::
+:::::
 
 ## Demanda y oferta
 
-::::{.columns}
+::::: columns
 ::: {.column width="70%"}
 ```{r frade1, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 market + geom_hline(yintercept = 3, linetype  = "dashed", color = met_slate, size = 1) 
 ```
-
 :::
 
 ::: {.column width="30%"}
@@ -679,15 +648,16 @@ market + geom_hline(yintercept = 3, linetype  = "dashed", color = met_slate, siz
 `r fa("bell", fill="red")` La $Q_d \neq Q_s$
 
 `r fa("bell", fill="blue")` Ocurre algo como:
+
 ```{r, fig.retina = 4, echo = FALSE}
 include_graphics("imagenese/escaso.png")
 ```
 :::
-::::
+:::::
 
 ## Demanda y oferta
 
-::::{.columns}
+::::: columns
 ::: {.column width="70%"}
 ```{r frade2, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 market + geom_hline(yintercept = 3, linetype  = "dashed", color = met_slate, size = 1) +
@@ -696,7 +666,6 @@ market + geom_hline(yintercept = 3, linetype  = "dashed", color = met_slate, siz
   geom_segment(aes(x = 2.5, y = 0, xend = 2.5, yend = 3), linetype  = "dashed", color = met_slate, size = 1) + 
   geom_point(aes(x = 2.5, y = 3), color = met_slate, size = 2)
 ```
-
 :::
 
 ::: {.column width="30%"}
@@ -705,20 +674,20 @@ market + geom_hline(yintercept = 3, linetype  = "dashed", color = met_slate, siz
 `r fa("bell", fill="red")` Precios $\Uparrow P$
 
 `r fa("bell", fill="red")` Se ofrecen [3]{.oranger} unidades
+
 ```{r, fig.retina = 4, echo = FALSE}
 include_graphics("imagenese/escaso.png")
 ```
 :::
-::::
+:::::
 
 ## Demanda y oferta
 
-::::{.columns}
+::::: columns
 ::: {.column width="70%"}
 ```{r supera1, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 market + geom_hline(yintercept = 7, linetype  = "dashed", color = met_slate, size = 1) 
 ```
-
 :::
 
 ::: {.column width="30%"}
@@ -727,15 +696,16 @@ market + geom_hline(yintercept = 7, linetype  = "dashed", color = met_slate, siz
 `r fa("bell", fill="red")` Precios $\Downarrow P$
 
 `r fa("bell", fill="red")` Hay exceso de oferta
+
 ```{r, fig.retina = 4, echo = FALSE}
 include_graphics("imagenese/allon.png")
 ```
 :::
-::::
+:::::
 
 ## Demanda y oferta
 
-::::{.columns}
+::::: columns
 ::: {.column width="70%"}
 ```{r supera2, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 market + geom_hline(yintercept = 7, linetype  = "dashed", color = met_slate, size = 1) +
@@ -744,7 +714,6 @@ market + geom_hline(yintercept = 7, linetype  = "dashed", color = met_slate, siz
   geom_segment(aes(x = 7.5, y = 0, xend = 7.5, yend = 7), linetype  = "dashed", color = met_slate, size = 1) + 
   geom_point(aes(x = 7.5, y = 7), color = met_slate, size = 2) 
 ```
-
 :::
 
 ::: {.column width="30%"}
@@ -753,26 +722,27 @@ market + geom_hline(yintercept = 7, linetype  = "dashed", color = met_slate, siz
 `r fa("bell", fill="red")` Precios $\Downarrow P$
 
 `r fa("bell", fill="red")` Se ofrecen [7]{.oranger} unidades
+
 ```{r, fig.retina = 4, echo = FALSE}
 include_graphics("imagenese/allon.png")
 ```
 :::
-::::
+:::::
 
 # Disposición a pagar {background-color="#006dae"}
 
-## Elementos 
+## Elementos
 
-:::{.incremental}
-- Los mercados pueden ajustarse a si mismos.
-- Muchas veces son [intervenidos]{.reder} por el mismo estado
-- El precio sigue siendo la [señal]{.bg style="--col: #00FFFF"} del mercado.
-- Las incidencias tambien tienen que ver con [incentivos]{.oranger}
+::: incremental
+-   Los mercados pueden ajustarse a si mismos.
+-   Muchas veces son [intervenidos]{.reder} por el mismo estado
+-   El precio sigue siendo la [señal]{.bg style="--col: #00FFFF"} del mercado.
+-   Las incidencias tambien tienen que ver con [incentivos]{.oranger}
 :::
 
 ## Valoración Marginal
 
-::::{.columns}
+::::: columns
 ::: {.column width="70%"}
 ```{r marginal1, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 ggplot(data = step_demand, mapping = aes(x = x, y = mv)) +
@@ -782,19 +752,18 @@ ggplot(data = step_demand, mapping = aes(x = x, y = mv)) +
   scale_y_continuous(limits = c(0, 9.5), expand = c(0, 0), breaks = seq(0, 9, 1)) +
   theme_market
 ```
-
 :::
 
 ::: {.column width="30%"}
-- El valor marginal [VM]{.alert}
-- Si $\uparrow Q\rightarrow VM\downarrow$
-- Buscamos que $Q=VM$
+-   El valor marginal [VM]{.alert}
+-   Si $\uparrow Q\rightarrow VM\downarrow$
+-   Buscamos que $Q=VM$
 :::
-::::
+:::::
 
 ## Valoración Marginal
 
-::::{.columns}
+::::: columns
 ::: {.column width="70%"}
 ```{r gityu, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 ggplot(data = step_demand, mapping = aes(x = x, y = mv)) +
@@ -805,20 +774,18 @@ ggplot(data = step_demand, mapping = aes(x = x, y = mv)) +
   theme_market + 
   geom_hline(yintercept = 4.5, linetype  = "dashed", color = met_slate, size = 1) 
 ```
-
 :::
 
 ::: {.column width="30%"}
 `r fa("bell", fill="red")` Cuantas unidades debe consumir a $P=4.5$?
 
-`r fa("bell", fill="green")` **R./** 
+`r fa("bell", fill="green")` **R./**
 :::
-::::
-
+:::::
 
 ## Valoración Marginal
 
-::::{.columns}
+::::: columns
 ::: {.column width="70%"}
 ```{r marginal2, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 ggplot(data = step_demand, mapping = aes(x = x, y = mv)) +
@@ -831,7 +798,6 @@ ggplot(data = step_demand, mapping = aes(x = x, y = mv)) +
   geom_segment(aes(x = 4, y = 0, xend = 4, yend = 4.5), linetype  = "dashed", color = met_slate, size = 1) + 
   geom_point(aes(x = 4, y = 4.5), color = met_slate, size = 2)
 ```
-
 :::
 
 ::: {.column width="30%"}
@@ -839,11 +805,11 @@ ggplot(data = step_demand, mapping = aes(x = x, y = mv)) +
 
 `r fa("bell", fill="green")` **R./** [4]{.alert}
 :::
-::::
+:::::
 
 ## Valoración Marginal
 
-::::{.columns}
+::::: columns
 ::: {.column width="70%"}
 ```{r marginal3, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 ggplot(data = step_demand, mapping = aes(x = x, y = mv)) +
@@ -854,19 +820,18 @@ ggplot(data = step_demand, mapping = aes(x = x, y = mv)) +
   theme_market + 
   geom_hline(yintercept = 3, linetype  = "dashed", color = met_slate, size = 1) 
 ```
-
 :::
 
 ::: {.column width="30%"}
 `r fa("bell", fill="red")` Cuantas unidades debe consumir a $P=3$?
 
-`r fa("bell", fill="green")` **R./** 
+`r fa("bell", fill="green")` **R./**
 :::
-::::
+:::::
 
 ## Valoración Marginal
 
-::::{.columns}
+::::: columns
 ::: {.column width="70%"}
 ```{r mwithpri, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 ggplot(data = step_demand, mapping = aes(x = x, y = mv)) +
@@ -879,7 +844,6 @@ ggplot(data = step_demand, mapping = aes(x = x, y = mv)) +
   geom_segment(aes(x = 6, y = 0, xend = 6, yend = 3), linetype  = "dashed", color = met_slate, size = 1) + 
   geom_point(aes(x = 6, y = 3), color = met_slate, size = 2)
 ```
-
 :::
 
 ::: {.column width="30%"}
@@ -887,11 +851,11 @@ ggplot(data = step_demand, mapping = aes(x = x, y = mv)) +
 
 `r fa("bell", fill="green")` **R./** [6]{.alert}
 :::
-::::
+:::::
 
 ## Valoración Marginal
 
-::::{.columns}
+::::: columns
 ::: {.column width="70%"}
 ```{r anh167ytr, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 ggplot(data = step_demand, mapping = aes(x = x, y = mv)) +
@@ -902,19 +866,18 @@ ggplot(data = step_demand, mapping = aes(x = x, y = mv)) +
   theme_market + 
   geom_hline(yintercept = 9, linetype  = "dashed", color = met_slate, size = 1) 
 ```
-
 :::
 
 ::: {.column width="30%"}
 `r fa("bell", fill="red")` Cuantas unidades debe consumir a $P=9$?
 
-`r fa("bell", fill="green")` **R./** 
+`r fa("bell", fill="green")` **R./**
 :::
-::::
+:::::
 
 ## Valoración Marginal
 
-::::{.columns}
+::::: columns
 ::: {.column width="70%"}
 ```{r anh167ytr2, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 ggplot(data = step_demand, mapping = aes(x = x, y = mv)) +
@@ -925,7 +888,6 @@ ggplot(data = step_demand, mapping = aes(x = x, y = mv)) +
   theme_market + 
   geom_hline(yintercept = 9, linetype  = "dashed", color = met_slate, size = 1)
 ```
-
 :::
 
 ::: {.column width="30%"}
@@ -933,22 +895,23 @@ ggplot(data = step_demand, mapping = aes(x = x, y = mv)) +
 
 `r fa("bell", fill="green")` **R./** [0]{.alert}
 :::
-::::
+:::::
 
 ## Valoración Marginal
 
-:::{.fragment}
+::: fragment
 Las decisiones de compra. Mentalmente se asocian a la [valoración marginal]{.alert}
 :::
 
-:::{.fragment}
-:::{.callout-note}
+:::: fragment
+::: callout-note
 ## Reglas:
-- Detenga sus compras si $VM>P$. Ya usted ha [comprado]{.under} [muy poco]{.bg style="--col: #FFFF00"}
-- Detenga sus compras si $VM<P$. Ya usted ha [comprado]{.under} [demasiado]{.bg style="--col: #FFFF00"}
-- Haga sus compras si $VM=P$. Usted ha [comprado]{.under} [lo optimo]{.bg style="--col: #f6870f"}
+
+-   Detenga sus compras si $VM>P$. Ya usted ha [comprado]{.under} [muy poco]{.bg style="--col: #FFFF00"}
+-   Detenga sus compras si $VM<P$. Ya usted ha [comprado]{.under} [demasiado]{.bg style="--col: #FFFF00"}
+-   Haga sus compras si $VM=P$. Usted ha [comprado]{.under} [lo optimo]{.bg style="--col: #f6870f"}
 :::
-:::
+::::
 
 ##  {background-image="imagenese/leaf.jpg"}
 
@@ -956,79 +919,68 @@ Las decisiones de compra. Mentalmente se asocian a la [valoración marginal]{.al
 
 ## Maximización de utilidad
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="30%"}
 ![](imagenese/c1restri.png)
 :::
 
 ::: {.column width="70%"}
-- Modelamos la mayoría de las situaciones como un problema de [optimización]{.alert} con restricciones:
+-   Modelamos la mayoría de las situaciones como un problema de [optimización]{.alert} con restricciones:
 
-  - Las personas optimizan: hacen concesiones para alcanzar su *objetivo* lo mejor posible.
+    -   Las personas optimizan: hacen concesiones para alcanzar su *objetivo* lo mejor posible.
 
-  - Sujeto a restricciones: [recursos limitados]{.blut} (ingresos, tiempo, atención, etc.).
+    -   Sujeto a restricciones: [recursos limitados]{.blut} (ingresos, tiempo, atención, etc.).
 :::
-
-::::
+:::::
 
 ## Maximización de utilidad
 
-:::: {.columns}
-
+:::::: columns
 ::: {.column width="30%"}
 ![](imagenese/c1restri.png)
 :::
 
-::: {.column width="70%"}
-- Uno de los [modelos matemáticos]{.alert} de mayor utilidad general
+:::: {.column width="70%"}
+-   Uno de los [modelos matemáticos]{.alert} de mayor utilidad general
 
-- Infinitas aplicaciones: cómo [modelamos]{.alert} a casi todos los individuos?
+-   Infinitas aplicaciones: cómo [modelamos]{.alert} a casi todos los individuos?
 
-- Consumidor, empresa, político, juez, burócrata, votante, dictador, pirata, cártel de la droga, drogadicto, padre, hijo, etc.
+-   Consumidor, empresa, político, juez, burócrata, votante, dictador, pirata, cártel de la droga, drogadicto, padre, hijo, etc.
 
 ::: fragment
 > Habilidad económica clave: reconocer cómo aplicar el modelo a una situación
 :::
-:::
-
 ::::
+::::::
 
 ## Maximización de utilidad
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="30%"}
 ![](imagenese/c1mod.png)
 :::
 
 ::: {.column width="70%"}
-- Todos los modelos de optimización con restricciones tienen tres partes móviles:
+-   Todos los modelos de optimización con restricciones tienen tres partes móviles:
 
-  - Elegir: < [alguna alternativa]{.blut} >
+    -   Elegir: \< [alguna alternativa]{.blut} \>
 
-  - Con el fin de maximizar: < [algún objetivo]{.alert} >
+    -   Con el fin de maximizar: \< [algún objetivo]{.alert} \>
 
-  - Sujeto a: < **algunas restricciones** >
+    -   Sujeto a: \< **algunas restricciones** \>
 :::
-
-::::
+:::::
 
 # Gráficas {background-color="#006dae"}
 
 ## Utilidad: Bienestar
 
-:::: {.columns}
-
+:::::: columns
 ::: {.column width="40%"}
-- Optimizamos de acuerdo a decisiones
-      - Partamos de un *ejemplo*
-      - Prefiero un apto grande 
-      - o a mis amigos mas cercanos?
-      - Pero debo vivir en un piso mas pequeño
+-   Optimizamos de acuerdo a decisiones - Partamos de un *ejemplo* - Prefiero un apto grande - o a mis amigos mas cercanos? - Pero debo vivir en un piso mas pequeño
 :::
 
-::: {.column width="60%"}
+:::: {.column width="60%"}
 ::: fragment
 ```{r}
 # Función para la curva de IC
@@ -1058,22 +1010,20 @@ ggplot(data.frame(x = c(0, 10)), aes(x = x)) +
 
 ```
 :::
-:::
-
 ::::
+::::::
 
 ## Utilidad: Bienestar
 
-:::: {.columns}
-
+:::::: columns
 ::: {.column width="40%"}
-- Siempre preferimos mas a menos
-- Por ello $A \sim B \sim C$
-- Pero $A \succ E$
-- Deseable pero imposible $D \succ A$
+-   Siempre preferimos mas a menos
+-   Por ello $A \sim B \sim C$
+-   Pero $A \succ E$
+-   Deseable pero imposible $D \succ A$
 :::
 
-::: {.column width="60%"}
+:::: {.column width="60%"}
 ::: fragment
 ```{r}
 # Datos de los puntos
@@ -1119,26 +1069,21 @@ ggplot(data.frame(x = c(0, 10)), aes(x = x)) +
 
 ```
 :::
-:::
-
 ::::
+::::::
 
 ## Utilidad: Bienestar
 
-:::: {.columns}
-
+:::::: columns
 ::: {.column width="40%"}
-`r fa("fighter-jet", fill="blue")` Vamos a tener:
-$$\max_{x,y \geq0}\; u(x,y)$$
+`r fa("fighter-jet", fill="blue")` Vamos a tener: $$\max_{x,y \geq0}\; u(x,y)$$
 
 Sujeto a: $P_xX+p_yY=M$
 
 [Esto requiere cálculo, pero vamos hacerlo gráficamente]{.small}
-
 :::
 
-::: {.column width="60%"}
-
+:::: {.column width="60%"}
 ::: fragment
 ```{r}
 # Librerías necesarias
@@ -1179,21 +1124,17 @@ opt33 <- ggplot(data.frame(x = c(0, 20)), aes(x = x)) +
 opt33
 
 ```
-
 :::
-
-:::
-
 ::::
+::::::
 
 ## Utilidad: Bienestar
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
 `r fa("info-circle", fill="blue")` [Solución Gráfica]{.alert}: la curva de indiferencia (*mas alta*) y que es tangente a la restricción presupuestaria
 
-- Los puntos B o C gastamos el presupuesto, pero hay mejores combinaciones
+-   Los puntos B o C gastamos el presupuesto, pero hay mejores combinaciones
 :::
 
 ::: {.column width="60%"}
@@ -1201,25 +1142,22 @@ opt33
 opt33
 ```
 :::
-
-::::
+:::::
 
 ## Utilidad: Bienestar
 
-:::: {.columns}
-
+:::::: columns
 ::: {.column width="40%"}
 `r fa("info-circle", fill="red")` En ocasiones queremos pensar que una opción como B es deseable.
 
-- Pero ocurre que: $\color{#20A387FF}{\text{Curva de Indiferencia}}>\color{red}{\text{M}}$
+-   Pero ocurre que: $\color{#20A387FF}{\text{Curva de Indiferencia}}>\color{red}{\text{M}}$
 
-- El [consumidor]{.fg style="--col: #20A387FF"} tiene $\frac{UM_x}{UM_y}>\frac{p_x}{p_y}$
+-   El [consumidor]{.fg style="--col: #20A387FF"} tiene $\frac{UM_x}{UM_y}>\frac{p_x}{p_y}$
 
-- Esto es $\color{#20A387FF}{2}>\color{red}{0.5}$
-
+-   Esto es $\color{#20A387FF}{2}>\color{red}{0.5}$
 :::
 
-::: {.column width="60%"}
+:::: {.column width="60%"}
 ::: fragment
 ```{r}
 library(ggplot2)
@@ -1252,19 +1190,16 @@ ggplot(data.frame(x = c(0, 10)), aes(x = x)) +
 
 ```
 :::
-
-:::
-
 ::::
+::::::
 
 ## Utilidad: Bienestar
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
-- Estando en C, la elección se vuelve en querer mas de Y
+-   Estando en C, la elección se vuelve en querer mas de Y
 
-- La relación se vuelve $0.5Y=1X$
+-   La relación se vuelve $0.5Y=1X$
 :::
 
 ::: {.column width="60%"}
@@ -1287,13 +1222,10 @@ ggplot(data.frame(x=c(0,10)), aes(x=x)) +
 
 
 ```
-
 :::
-
-::::
+:::::
 
 ## Utilidad: Bienestar
-
 
 ::: fragment
 > La tasa por la cual se **sacrifica** un bien por otro manteniendo *constante* el nivel de utilidad se denomina **tasa marginal de sustitución**.
@@ -1319,8 +1251,7 @@ $$U=U(X,Y)$$
 
 La derivada [total]{.blut} de $U$ viene a ser:
 
-$$U= \frac{\partial U}{\partial x}dx+\frac{\partial U}{\partial y}dy$$
-A lo largo de cualquier curva de [indiferencia]{.alert}, la utilidad es **constante**.
+$$U= \frac{\partial U}{\partial x}dx+\frac{\partial U}{\partial y}dy$$ A lo largo de cualquier curva de [indiferencia]{.alert}, la utilidad es **constante**.
 
 $$dU=0$$
 
@@ -1336,7 +1267,7 @@ La TMS es la tasa o relación entre utilidades **marginales** de $X$ y $Y$.
 $$U(X,Y)=XY$$
 :::
 
-:::fragment
+::: fragment
 Derivamos y tendremos
 :::
 
@@ -1352,74 +1283,67 @@ $$\text{TMS}=\frac{y}{x}=\frac{P_x}{P_y}$$
 
 ## Efectos
 
-- La demanda/ consumo de un individuo depende del [ingreso]{.blut} y los [precios]{.alert}
+-   La demanda/ consumo de un individuo depende del [ingreso]{.blut} y los [precios]{.alert}
 
-- Esto formalmente es: $D=D(M, P_x, P_y)$
+-   Esto formalmente es: $D=D(M, P_x, P_y)$
 
-- ¿Cómo es el consumo/demanda cuando $(x)$ cambia?
+-   ¿Cómo es el consumo/demanda cuando $(x)$ cambia?
 
-- [Efecto Ingreso]{.blut}: Como cambia el $Consumo$ cuando cambia el $M$ ingreso?
+-   [Efecto Ingreso]{.blut}: Como cambia el $Consumo$ cuando cambia el $M$ ingreso?
 
-- [Efecto Precio (propio)]{.alert}: Como cambia el $Consumo$ cuando cambia el $P_x$ precio?
+-   [Efecto Precio (propio)]{.alert}: Como cambia el $Consumo$ cuando cambia el $P_x$ precio?
 
-- [Efecto Precio]{.oranger}: Como cambia el $Consumo$ cuando cambia el $P_y$ precio de otro bien?
-
-## Efectos
-
-- El [efecto de precios]{.bg style="--col: #FFFF00"} (ley de demanda) es actualmente el resultado de [dos efectos]{.under}
-
-1. [Efecto real del ingreso]{.blut}: Cambio del consumo debido a cambio en el poder de compra.
-
-1. [Efecto Sustitución]{.alert}: Cambio en el consumo debido a un cambio relativo en los precios
-
-- Esto es lo que se conoce $\color{red}{\text{Efecto precio}}=\color{#315e26}{\text{Efecto Ingreso}} + \color{orange}{\text{Efecto Sustitución}}$
+-   [Efecto Precio]{.oranger}: Como cambia el $Consumo$ cuando cambia el $P_y$ precio de otro bien?
 
 ## Efectos
 
-:::: {.columns}
+-   El [efecto de precios]{.bg style="--col: #FFFF00"} (ley de demanda) es actualmente el resultado de [dos efectos]{.under}
 
+1.  [Efecto real del ingreso]{.blut}: Cambio del consumo debido a cambio en el poder de compra.
+
+2.  [Efecto Sustitución]{.alert}: Cambio en el consumo debido a un cambio relativo en los precios
+
+-   Esto es lo que se conoce $\color{red}{\text{Efecto precio}}=\color{#315e26}{\text{Efecto Ingreso}} + \color{orange}{\text{Efecto Sustitución}}$
+
+## Efectos
+
+::::: columns
 ::: {.column width="50%"}
-- Piense que hay solo un bien de consumo y usted tiene `$100` de ingreso y el precio es de `$10`, luego usted puede consumir 10 unidades de $(x)$.
+-   Piense que hay solo un bien de consumo y usted tiene `$100` de ingreso y el precio es de `$10`, luego usted puede consumir 10 unidades de $(x)$.
 
-- Ahora pasa que el precio sube a `$20`. Usted ahora solo podrá consumir 5 unidades de $(x)$.
+-   Ahora pasa que el precio sube a `$20`. Usted ahora solo podrá consumir 5 unidades de $(x)$.
 
-- Eso se denomina [Efecto ingreso]{.under}
+-   Eso se denomina [Efecto ingreso]{.under}
 
-- El cambio de poder de compra puede aumentar/disminuir su consumo sin afectar su ingreso
-
+-   El cambio de poder de compra puede aumentar/disminuir su consumo sin afectar su ingreso
 :::
 
 ::: {.column width="50%"}
 ![](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTA1azRnaHBtMXR4ZWQxY25yNWU3NzdhN3JlNGUyNzBjamY3YnlnaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PjaTjG8ct5cNOtjjZg/giphy.gif)
 :::
-
-::::
+:::::
 
 ## Efectos
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
-- Digamos ahora que tiene dos bienes $(X,Y)$ y tiene un ingreso de `$100`.
+-   Digamos ahora que tiene dos bienes $(X,Y)$ y tiene un ingreso de `$100`.
 
-- Ahora el precio de $(Y)$ baja `$30`. Esto lo/a tienta y consume ahora mas $(Y)$ que $(X)$ 
+-   Ahora el precio de $(Y)$ baja `$30`. Esto lo/a tienta y consume ahora mas $(Y)$ que $(X)$
 
-- Eso se denomina [Efecto sustitución]{.under}
+-   Eso se denomina [Efecto sustitución]{.under}
 
-- El cambio de consumo de un bien por otro en términos relativos afecta totalmente
-
+-   El cambio de consumo de un bien por otro en términos relativos afecta totalmente
 :::
 
 ::: {.column width="50%"}
 ![](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExazBwcHN1NnJ2cGNwODk2MzE4enY0b3hzYnpraWdpOTB4eWJtNzllMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/eA181Vk7S9oK6z78uv/giphy.gif)
 :::
-
-::::
+:::::
 
 ## Efectos
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="30%"}
 Una baja en el precio de $(X)$
 :::
@@ -1427,13 +1351,11 @@ Una baja en el precio de $(X)$
 ::: {.column width="70%"}
 ![](imagenese/c1vc1.png)
 :::
-
-::::
+:::::
 
 ## Efectos
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="30%"}
 Afecta y genera un nuevo consumo de $(X)$ y tiene mas "poder" de compra.
 :::
@@ -1441,13 +1363,11 @@ Afecta y genera un nuevo consumo de $(X)$ y tiene mas "poder" de compra.
 ::: {.column width="70%"}
 ![](imagenese/c1vc2.png)
 :::
-
-::::
+:::::
 
 ## Efectos
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="30%"}
 Se busca regresarlo a su utilidad inicial
 :::
@@ -1455,18 +1375,17 @@ Se busca regresarlo a su utilidad inicial
 ::: {.column width="70%"}
 ![](imagenese/c1vc3.png)
 :::
-
-::::
+:::::
 
 ## Efectos
 
-::: fragment
-
+:::: fragment
 ::: callout-note
 ## Variacion Compensada
+
 ¿Cuánto tendría que darle o quitarle al consumidor *después* del cambio de precios para que vuelva al nivel de satisfacción que tenía *antes* del cambio?
 :::
-:::
+::::
 
 ::: fragment
 Se calcula con respecto a la [utilidad final]{.alert}, es decir, se mide en términos de cuánto se necesitaría para devolver al consumidor a su nivel de satisfacción original después de que haya ocurrido el cambio en los precios.
@@ -1474,8 +1393,7 @@ Se calcula con respecto a la [utilidad final]{.alert}, es decir, se mide en tér
 
 ## Efectos
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="30%"}
 Una baja en el precio de $(X)$
 :::
@@ -1483,13 +1401,11 @@ Una baja en el precio de $(X)$
 ::: {.column width="70%"}
 ![](imagenese/c1ve1.png)
 :::
-
-::::
+:::::
 
 ## Efectos
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="30%"}
 Modifica el bienestar a una nueva función de utlidad de $U(2)$
 :::
@@ -1497,13 +1413,11 @@ Modifica el bienestar a una nueva función de utlidad de $U(2)$
 ::: {.column width="70%"}
 ![](imagenese/c1ve2.png)
 :::
-
-::::
+:::::
 
 ## Efectos
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="30%"}
 Es una equivalencia de mantenerlo en su posición final $U(2)$
 :::
@@ -1511,17 +1425,17 @@ Es una equivalencia de mantenerlo en su posición final $U(2)$
 ::: {.column width="70%"}
 ![](imagenese/c1ve3.png)
 :::
-
-::::
+:::::
 
 ## Efectos
 
-::: fragment
+:::: fragment
 ::: callout-warning
 ## Variación Equivalente
+
 ¿Cuánto tendrías que darle al consumidor antes del cambio de precios para que se quede igual de satisfecho después del cambio?
 :::
-:::
+::::
 
 ::: fragment
 Se calcula considerando la utilidad inicial, es decir, se mide con respecto a cómo el consumidor **valora** el cambio antes de que ocurra.
@@ -1531,8 +1445,7 @@ Se calcula considerando la utilidad inicial, es decir, se mide con respecto a c�
 
 ## Excedente del consumidor
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="30%"}
 El [área]{.alert} bajo la curva de demanda, es una zona de bienestar
 :::
@@ -1540,13 +1453,11 @@ El [área]{.alert} bajo la curva de demanda, es una zona de bienestar
 ::: {.column width="70%"}
 ![](imagenese/c1exc1.png)
 :::
-
-::::
+:::::
 
 ## Excedente del consumidor
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="30%"}
 Cuando baja el precio podemos calcular esa variación. Si el [área]{.alert} se hace mas grande, mayor bienestar tiene el individuo
 :::
@@ -1554,22 +1465,19 @@ Cuando baja el precio podemos calcular esa variación. Si el [área]{.alert} se 
 ::: {.column width="70%"}
 ![](imagenese/c1exc2.png)
 :::
-
-::::
+:::::
 
 ## Excedente del consumidor
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="30%"}
 Algunas veces puede no ser lineal
 :::
 
 ::: {.column width="70%"}
-![](imagenese/c1exc3.png)
-[Se puede hacer con integrales]{.small}
+![](imagenese/c1exc3.png) [Se puede hacer con integrales]{.small}
 :::
-::::
+:::::
 
 ##  {background-image="imagenese/leaf.jpg"}
 
@@ -1577,12 +1485,13 @@ Algunas veces puede no ser lineal
 
 ## Elasticidad
 
-::: fragment
+:::: fragment
 ::: callout-note
 ## Elasticidad
+
 Mide como una **variable** responde a los *cambios* de otra [variable]{.alert} de interés. Para facilidad, esta puede ser expresada como el cambio porcentual de una variable por el *cambio porcentual* de la otra.
 :::
-:::
+::::
 
 ::: fragment
 $$\epsilon^{d}=\dfrac{\triangle Q_{d}}{ \triangle P} = \dfrac{\dfrac{\triangle Q}{Q}}{\dfrac{\triangle P}{P}}$$
@@ -1597,8 +1506,8 @@ $$\epsilon^{d}=\dfrac{\triangle Q_{d}}{ \triangle P} = \dfrac{\dfrac{\triangle Q
 ::: fragment
 > [Variación Porcentual]{.alert}: Mide los cambios **porcentuales** de una **variable característica**. Esta puede ser *positiva* o *negativa*.
 :::
- 
-::: fragment 
+
+::: fragment
 $$Var=\frac{\left ( X_{Presente}-X_{Pasado} \right )}{X_{Pasado}}*100$$
 :::
 
@@ -1615,8 +1524,8 @@ $$Var \; =\frac{( 14700-13000 )}{13000}*100=13$$
 ::: fragment
 Digamos ahora que las cantidades de demanda (consumo), pasaron de 20 a 15, al calcular su variación tendremos
 :::
- 
-::: fragment 
+
+::: fragment
 $$Var \;  =\frac{\left ( X_{Presente}-X_{Pasado} \right )}{X_{Pasado}}*100$$
 :::
 
@@ -1638,14 +1547,13 @@ La elasticidad viene a ser: $e_d=\dfrac{-25}{13}=-1.92$, que significa que el ca
 $$\epsilon_d = \dfrac{\text{cambio porcentual en cantidad de demanda}}{\text{cambio porcentual en los precios}} \leq 0$$
 :::
 
-
 ::: fragment
 [Interpretación:]{.alert} Un aumento de un uno por ciento el precio conduce a un aumento de $\epsilon_d$ por ciento en la cantidad demandada».
 :::
 
-- $\epsilon_d < -1$ ==> la demanda es [elastica]{.alert} o [sensible]{.alert} a cambios en el precio.
+-   $\epsilon_d < -1$ ==\> la demanda es [elastica]{.alert} o [sensible]{.alert} a cambios en el precio.
 
-- $-1 <\epsilon_d \leq 0$ ==> la demanda es [inelastica]{.blut} o [insensible]{.blut} a cambios en el precio.
+-   $-1 <\epsilon_d \leq 0$ ==\> la demanda es [inelastica]{.blut} o [insensible]{.blut} a cambios en el precio.
 
 ## Elasticidad
 
@@ -1676,7 +1584,7 @@ column_spec(1, italic = T, color = met_slate)
 Algunos ejemplos por consumo de elasticidad-ingreso tenemos:
 :::
 
-:::fragment
+::: fragment
 ```{R, echo = F, escape = F}
 data.frame(
   v1 = c("Automoviles", "Restaurantes", "Casas", "Gasolina", "Apartamentos (Arriendo", "Café", "Cigarrillos", "Cuidado Médico", "Margarinas", "Transporte Público"),
@@ -1691,8 +1599,8 @@ row_spec(1:10, color = met_slate) %>%
 row_spec(1:10, extra_css = "line-height: 110%;") %>% 
 column_spec(1, italic = T, color = met_slate)
 ```
-
 :::
+
 ## Gracias! por su atención {.center}
 
 #### Alguna pregunta adicional?
@@ -1712,6 +1620,3 @@ Slides de la clase:
 `r fa('book')` Krugman, P., & Wells, R. (2014). *Microeconomics (for AP)*. New York: Worth Publishers.
 
 `r fa('book')` Mokate, K., & Castro, R. (2018). *Evaluación económica y social de proyectos de inversión*: Segunda edición. Universidad de los Andes.
-
-
-
