@@ -21,6 +21,8 @@ editor: visual
 
 ```{r setup}
 #| include: false
+#| message: false
+#| warning: false
 options(htmltools.dir.version = FALSE)
 library(pacman)
 p_load(tidyverse, scales, gapminder, ggiraph, patchwork, kableExtra, TSstudio,
@@ -57,7 +59,7 @@ theme_market <- theme_bw() + theme(
   axis.ticks = element_blank()
 )
 
-theme_set(theme_ipsum_rc())
+#theme_set(theme_ipsum_rc())
 ```
 
 ##  {background-color="black" background-image="https://media.giphy.com/media/8FVcs24aSuQBpHPg4n/giphy.gif" background-size="1000px"}
@@ -85,13 +87,13 @@ theme_set(theme_ipsum_rc())
 ::: fragment
 Un cuadro que requiere de [atención]{.fg style="--col: #FF0000"} 🧐
 
-| Requerimientos  | Fechas                | Ponderador         |
-|-----------------|-----------------------|--------------------|
-| Participación   | Durante todo el curso | 10%                |
-| Entregables (3) | A solicitud           | 20% (cada entrega) |
-| Test            | entre semanas         | 30%                |
+| Requerimientos              | Fechas                | Ponderador         |
+|-----------------------------|-----------------------|--------------------|
+| Participación y discusión   | Durante todo el curso | 20%                |
+| Taller y estudios de caso   | A solicitud           | 30%                |
+| Proyecto aplicado           | Parte final           | 30%                |
 
-♠ Las [notas]{.fg style="--col: #FF8000"} de los test son individuales. Los entregables si pueden ser en grupo
+♠ Las [notas]{.fg style="--col: #FF8000"} de participación son individuales. Los talleres y Proyecto si pueden ser en grupo de pocos integrantes.
 :::
 
 ## Esquema del Curso
@@ -115,11 +117,11 @@ Un cuadro que requiere de [atención]{.fg style="--col: #FF0000"} 🧐
 -   Una buena guía de abordaje del tema de economia esta en : [libros de Openstax](https://openstax.org/subjects/social-sciences)
 -   No se puede olvidar la [definición de economía]{.fg style="--col: #e64173"}
 
-::: fragment
+:::: fragment
 ::: callout-warning
 La economía analiza las decisiones de la sociedad y cómo esas decisiones del presente y del pasado se reflejan en los resultados del futuro.
 :::
-:::
+::::
 
 -   Independientemente de la definición que usted elija, lo más importante es que estudiar **Economía** proporciona un conjunto de herramientas para analizar *críticamente* los [problemas sociales]{.fg style="--col: #FF8000"} en sus aspectos económicos cuantitativos y cualitativos.
 
@@ -127,13 +129,13 @@ La economía analiza las decisiones de la sociedad y cómo esas decisiones del p
 
 -   Tenga en cuenta el siguiente ejercicio:
 
-::: fragment
+:::: fragment
 ::: callout-important
 ## Ejercicio
 
 Hace unos 30 años, una cesta de bienes tales como (huevos, leche, pollo y mantequilla) costaban unos \$500. Hoy, esa misma cesta puede costar unos 290.000 mil pesos COP.
 :::
-:::
+::::
 
 ::: fragment
 [¿Qué ha **cambiado** desde entonces?]{.bg style="--col: #dcdcdc"}
@@ -147,13 +149,15 @@ Hace unos 30 años, una cesta de bienes tales como (huevos, leche, pollo y mante
 #| echo: false
 # Crear un conjunto de datos de ejemplo
 inflacion <- data.frame(
-  Pais = c("Colombia", "Colombia", "Brasil", "Brasil", "Perú", "Perú",
-           "Chile", "Chile", "Argentina", "Argentina", "Ecuador", "Ecuador", "Bolivia", "Bolivia",
-           "Mexico", "Mexico"),
-  periodo <- rep(c(2022, 2023), each = 1,8),
-  Valor = c(10.18,10.85, 9.28,5.03, 7.87, 5.69, 11.65, 7.88, 72.43, 98.59,
-            3.47,2.47, 1.75, 3.98, 7.9, 6.7)  # Datos actualizados
-)
+  Pais = c("Colombia", "Brasil", "Perú", "Chile", "Argentina", "Ecuador", "Bolivia", "Mexico",
+           "Colombia", "Brasil", "Perú", "Chile", "Argentina", "Ecuador", "Bolivia", "Mexico"),
+  periodo = c(rep(2022, 8), rep(2025, 8)),
+  Valor = c(
+    # 2022
+    10.18, 9.28, 7.87, 11.65, 72.43, 3.47, 1.75, 7.90,
+    # 2025 (agosto, interanual)
+    5.10, 5.13, 1.11, 4.00, 33.60, 0.81, 24.15, 3.57
+  ))
 inflacion$Pais <- factor(inflacion$Pais)
 
 p1 <- ggplot(inflacion[inflacion$periodo == 2022,], 
@@ -166,7 +170,7 @@ p1 <- ggplot(inflacion[inflacion$periodo == 2022,],
   labs(y="", x="2022") + 
   theme_minimal()
 
-p2 <- ggplot(inflacion[inflacion$periodo == 2023,], 
+p2 <- ggplot(inflacion[inflacion$periodo == 2025,], 
              aes(y = reorder(Pais, Valor), 
                  x=Valor,
                  tooltip = Valor,
@@ -177,7 +181,7 @@ p2 <- ggplot(inflacion[inflacion$periodo == 2023,],
   theme_minimal()
 
 p3 <- (p1 | p2) +
-  plot_annotation(title = "Inflación en la región")
+  plot_annotation(title = "Inflación en la región (2022- 2025)")
 girafe(code = print (p3)) 
 ```
 
@@ -203,13 +207,13 @@ girafe(code = print (p3))
 
 # Descripción
 
-::: fragment
+:::: fragment
 ::: callout-note
 ## Descripción del curso
 
 Este curso proporciona los principios de economía para tener presente en la evaluación de proyectos, centrado exclusivamente en los conceptos de la economía en general utilizando elementos básicos de **cálculo diferencial** 😢 y de alguna manera de la [estadística]{.oranger} 😬
 :::
-:::
+::::
 
 ::: fragment
 `r fa("exclamation-triangle")` Se hace énfasis en el lenguaje [matemático]{.alert}.
@@ -225,8 +229,8 @@ Este curso proporciona los principios de economía para tener presente en la eva
 > Estudia el proceso de **producción** y *distribución* de los bienes y servicios elaborados en la sociedad, desde los puntos de vista micro y macroeconómico.
 :::
 
-::: fragment
-::: columns
+:::::: fragment
+::::: columns
 ::: {.column width="50%"}
 -   Desde la [microeconomía]{.blut} se estudia la conducta de los agentes económicos **individuales**, los mercados y sus interrelaciones, a través del análisis de las variables que afectan los [precios “relativos”]{.bg style="--col: #FFFF00"} de los bienes y servicios.
 :::
@@ -234,12 +238,12 @@ Este curso proporciona los principios de economía para tener presente en la eva
 ::: {.column width="50%"}
 Desde la [macroeconomía]{.oranger} se estudia el funcionamiento de la economía con base al [nivel general de precios]{#FF8000 .fg style="\"--col:"}.
 :::
-:::
-:::
+:::::
+::::::
 
 ## Teoría Económica
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 -   ¿Qué es una "economía"?
 -   ¿De dónde surgen los agregados ("PIB", "desempleo" e "inflación")?
@@ -250,7 +254,7 @@ Desde la [macroeconomía]{.oranger} se estudia el funcionamiento de la economía
 ::: {.column width="40%"}
 ![](imagenese/Nube.png)
 :::
-:::
+:::::
 
 ## Teoría Económica
 
@@ -286,20 +290,20 @@ interp1
 
 -   Usar los significados "ordinarios" de estas palabras puede llevar a [conclusiones económicas]{.fg style="--col: #314f4f"} incorrectas!
 
-::: fragment
+:::: fragment
 ::: callout-tip
 ## idea
 
 ¡Necesita "aprender" los significados económicos de estas palabras!
 :::
-:::
+::::
 
 ## Teoría Económica
 
 ### Jerga económica
 
-::: fragment
-::: columns
+:::::: fragment
+::::: columns
 ::: {.column width="50%"}
 > Tasa marginal de sustitución, costo marginal, excedente del consumidor, eficiencia asignativa, externalidad
 :::
@@ -307,8 +311,8 @@ interp1
 ::: {.column width="50%"}
 ![](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdW9tb3lrcWJ4OTl5cTR0azVlMDM4aGhhZmUyY3Y0Z2h5bnd4NnYyaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7kn27lnYSAE9O/giphy.gif)
 :::
-:::
-:::
+:::::
+::::::
 
 ##  {background-image="imagenese/home.jpg"}
 
@@ -324,13 +328,13 @@ interp1
 
 ### Las personas, instituciones, responden a estimulos
 
-::: fragment
+:::: fragment
 ::: callout-note
 ## Incentivo
 
 Es un estímulo o recompensa que se ofrece para **motivar** a una persona o grupo a realizar una acción específica o comportarse de cierta manera. Los incentivos pueden ser [positivos]{.alert}, como bonificaciones o premios, o negativos, como multas o sanciones, y son utilizados para alinear los intereses individuales con los objetivos organizacionales o sociales.
 :::
-:::
+::::
 
 -   La gente responde a los [incentivos]{.under}:
 
@@ -356,8 +360,8 @@ Es un estímulo o recompensa que se ofrece para **motivar** a una persona o grup
 
 ## Incentivos
 
-::: columns
-::: {.column width="50%"}
+::::::: columns
+::::: {.column width="50%"}
 ::: fragment
 ![](imagenese/transit.png)
 :::
@@ -365,7 +369,7 @@ Es un estímulo o recompensa que se ofrece para **motivar** a una persona o grup
 ::: fragment
 [¡Consecuencias no intencionadas!]{.fg style="--col: #FF0000"}
 :::
-:::
+:::::
 
 ::: {.column width="50%"}
 -   La gente responde a (cambios en) los **incentivos**.
@@ -373,23 +377,23 @@ Es un estímulo o recompensa que se ofrece para **motivar** a una persona o grup
 -   Hacer que una [alternativa]{.oranger} sea más costosa no significa que la gente [deje]{.under} de perseguir/conseguir sus metas.
 -   La gente [buscará métodos alternativos]{.blut} (menos preferidos) para alcanzar sus metas.
 :::
-:::
+:::::::
 
 ## Incentivos
 
-::: columns
+:::::: columns
 ::: {.column width="50%"}
 -   La cultura del atajo siempre va estar presente, inclusive en los proyectos que deba designar o realizar.
 -   La/s personas/gente buscaran la manera de bloquear o saltar
 -   Siempre inclusive hay que tratar de resolver con creativos nudges
 :::
 
-::: {.column width="50%"}
+:::: {.column width="50%"}
 ::: fragment
 ![](imagenese/Atajo.png)
 :::
-:::
-:::
+::::
+::::::
 
 ## incentivos
 
@@ -405,7 +409,7 @@ Es un estímulo o recompensa que se ofrece para **motivar** a una persona o grup
 
 ## Equilibrio
 
-::: columns
+::::: columns
 ::: {.column width="65%"}
 ![](imagenese/d1.png)
 :::
@@ -419,11 +423,11 @@ Es un estímulo o recompensa que se ofrece para **motivar** a una persona o grup
 
 `r fa("bell", fill="red")` **Doble calzada** 20 minutos (siempre)
 :::
-:::
+:::::
 
 ## Equilibrio
 
-::: columns
+::::: columns
 ::: {.column width="65%"}
 ![](imagenese/d1.png)
 :::
@@ -439,11 +443,11 @@ Es un estímulo o recompensa que se ofrece para **motivar** a una persona o grup
 
 `r fa("bell", fill="blue")` [Optimización]{.fg style="--col: #e64173"}: Van a *escoger* el camino que minimiza [el tiempo]{.under}
 :::
-:::
+:::::
 
 ## Equilibrio
 
-::: columns
+::::: columns
 ::: {.column width="65%"}
 ![](imagenese/d2.png)
 :::
@@ -459,11 +463,11 @@ Es un estímulo o recompensa que se ofrece para **motivar** a una persona o grup
 
 `r fa("bell", fill="blue")` [Escena 1]{.fg style="--col: #e64173"}: Menos de **30 carros** en carril
 :::
-:::
+:::::
 
 ## Equilibrio
 
-::: columns
+::::: columns
 ::: {.column width="65%"}
 ![](imagenese/d3.png)
 :::
@@ -479,11 +483,11 @@ Es un estímulo o recompensa que se ofrece para **motivar** a una persona o grup
 
 `r fa("bell", fill="blue")` [Escena 2]{.fg style="--col: #e64173"}: Mas de **30 carros** en carril
 :::
-:::
+:::::
 
 ## Equilibrio
 
-::: columns
+::::: columns
 ::: {.column width="65%"}
 ![](imagenese/d4.png)
 :::
@@ -499,16 +503,16 @@ Es un estímulo o recompensa que se ofrece para **motivar** a una persona o grup
 
 `r fa("bell", fill="blue")` [Equilibrio]{.fg style="--col: #e64173"}: Cuantos Carros debe haber en cada vía(?), Por?
 :::
-:::
+:::::
 
 ## Equilibrio
 
-::: columns
+::::::: columns
 ::: {.column width="65%"}
 ![](imagenese/d5.png)
 :::
 
-::: {.column width="35%"}
+::::: {.column width="35%"}
 `r fa("bell", fill="red")` Suponga ahora que el estado interviene y doblega el carril normal
 
 `r fa("bell", fill="red")` Tiempo en *carril compartido* : [15 min + 0.5 min/carro]{.blut}
@@ -522,8 +526,8 @@ Es un estímulo o recompensa que se ofrece para **motivar** a una persona o grup
 ::: fragment
 Si!!, 30 carros antes se gastaban 20 minutos ahora solo 15 min!!
 :::
-:::
-:::
+:::::
+:::::::
 
 ## Equilibrio
 
@@ -542,6 +546,7 @@ Si!!, 30 carros antes se gastaban 20 minutos ahora solo 15 min!!
 ```{=html}
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 ```
+
 ## Equilibrio
 
 ::: fragment
@@ -563,13 +568,13 @@ flowchart LR
 
 -   Si no hay mejores [alternativas]{.blut}, entonces podemos decir que esa persona se encuentra en un [**optimo**]{.fg style="--col: #e64173"}
 
-::: fragment
+:::: fragment
 ::: callout-tip
 ## Pendiente!
 
 Todo estará en un optimo $\Leftrightarrow$ el sistema esta en **equilibrio**
 :::
-:::
+::::
 
 ## [Todo esto es raro...]{style="font-size: 80px; font-family: Brusher;"} {.center}
 
@@ -587,7 +592,7 @@ Todo estará en un optimo $\Leftrightarrow$ el sistema esta en **equilibrio**
 
 ## Repaso Matemático
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 ![](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMW5idnRybXBtbnk5dmM5eG1qaWIybjF3bHVtMWFoMHYyYnI2bHYyYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cgOse52aBT0vs7oL53/giphy.gif)
 :::
@@ -599,7 +604,7 @@ Todo estará en un optimo $\Leftrightarrow$ el sistema esta en **equilibrio**
 
 -   Cosas que son universalmente ciertas, deducibles a partir de axiomas, pueden detectar errores fácilmente a menudo ecuaciones y gráficos esto es lo que más asusta a muchas personas que quieren aprender de economía
 :::
-:::
+:::::
 
 ## Repaso Matemático
 
@@ -659,6 +664,82 @@ $$f(x)=2x^2-3x-y$$
 
 ## Repaso Matemático
 
+::: fragment
+- Imagine que esta evaluando un proyecto productivo (ejemplo: una pequeña planta que fabrica botellas).
+
+- El beneficio neto (ganancia) depende de cuántas botellas produzca. Una función simplificada de beneficios podría ser:
+:::
+
+::: fragment
+$$B(x) = -2x^2 + 40x - 100$$
+:::
+
+::: fragment
+Donde $B$ es el Beneficio y $x$ es el número en miles de botellas que debe producir.
+:::
+
+
+## Repaso Matemático
+
+```{r}
+#| echo: False
+#| message: False
+#| warning: False
+
+
+# Beneficio de un proyecto (en miles de pesos) según producción x (miles de unidades)
+B <- function(x) -2*x^2 + 40*x - 100
+
+# Óptimo vía derivada: B'(x) = -4x + 40 -> -4x + 40 = 0 => x* = 10
+x_opt <- 10
+B_opt <- B(x_opt)
+
+# Secuencia para graficar
+x <- seq(0, 20, by = 0.1)
+y <- B(x)
+
+# Gráfico base
+plot(x, y, type = "l",
+     xlab = "Producción (miles de unidades)",
+     ylab = "Beneficio (miles de pesos)",
+     main = "Curva de beneficio y punto óptimo")
+
+# Punto óptimo y anotación
+points(x_opt, B_opt, pch = 19)
+text(x_opt + 1, B_opt + 20,
+     labels = paste0("Óptimo: x=", x_opt, ", B=", B_opt),
+     adj = c(0, 0))
+abline(v = x_opt, lty = 2)
+abline(h = B_opt, lty = 3)
+
+# Impresión de resultados en consola
+cat("Óptimo de producción (miles de unidades):", x_opt, "\n")
+cat("Beneficio máximo (miles de pesos):", B_opt, "\n")
+```
+
+## Repaso Matemático
+
+::: fragment
+**P**: De donde salió lo anterior?
+:::
+
+::: fragment
+**R./**: Del poder de una [**ecuación**]{.bg style="--col: #00FFFF"}
+:::
+
+::: fragment
+
+$$B(x) = -2x^2 + 40x - 100$$
+*Derivamos e igualamos a cero*
+
+$$B'(x) = \frac{d}{dx}(-2x^2 + 40x - 100) = -4x + 40$$
+
+$$-4x + 40 = 0 \quad ; \quad 40=4x ;\quad x = \frac{40}{4} = 10$$
+
+:::
+
+## Repaso Matemático
+
 -   Piense por un momento en lo siguiente:
 
 ::: fragment
@@ -693,14 +774,14 @@ Solo queda restar y dividir $$13\;\text{horas}\leq\;840000$$
 
 ## Presupuesto
 
-::: columns
+:::::: columns
 ::: {.column width="60%"}
 -   Piense que usted desea dos bienes
 -   Estos son $\{X, Y\}$
 -   Las cantidades son 2 y 3 respectivamente
 :::
 
-::: {.column width="40%"}
+:::: {.column width="40%"}
 ::: fragment
 ```{r, echo=F, message = F, warning = F, fig.height=12.3, fig.align="center"}
 df <- tribble(
@@ -723,12 +804,12 @@ ggplot(df, aes(x = x,
   theme_classic(base_family = "Fira Sans Condensed", base_size=20)
 ```
 :::
-:::
-:::
+::::
+::::::
 
 ## Presupuesto
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 -   Si tiene 100 y desea gastarlo en $\{X,Y\}$, cuantas unidades serian?
 -   Solo aquellos que sean *asequibles*
@@ -738,7 +819,7 @@ ggplot(df, aes(x = x,
 ::: {.column width="50%"}
 ![](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGEyZ2sxdXlzbjJsbHkxb3JhcHhkMGo1YXR6dHl2YTJvMzN3cHJ5cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YpTqcPJyW5Mrb4mJJp/giphy.gif)
 :::
-:::
+:::::
 
 ##  {background-image="imagenese/leaf.jpg"}
 

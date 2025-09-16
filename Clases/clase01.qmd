@@ -514,7 +514,7 @@ Los proyectos son: Proyecto A: [Construcción de un parque comunitario]{.alert}.
 Preferencias de los Votantes
 
 | **Votantes** | **Preferencia 1** | **Preferencia 2** | **Preferencia 3** | **Preferencia 4** |
-|---------------|---------------|---------------|---------------|---------------|
+|----|----|----|----|----|
 | 40% | A | B | C | D |
 | 30% | C | B | D | A |
 | 20% | B | C | A | D |
