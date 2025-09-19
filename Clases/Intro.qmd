@@ -89,9 +89,10 @@ Un cuadro que requiere de [atención]{.fg style="--col: #FF0000"} 🧐
 
 | Requerimientos              | Fechas                | Ponderador         |
 |-----------------------------|-----------------------|--------------------|
-| Participación y discusión   | Durante todo el curso | 20%                |
+| Participación y discusión   | Durante todo el curso | 10%                |
+| Ideas en acción             | Durante todo el curso | 20%                |
 | Taller y estudios de caso   | A solicitud           | 30%                |
-| Proyecto aplicado           | Parte final           | 30%                |
+| Proyecto aplicado           | Parte final           | 40%                |
 
 ♠ Las [notas]{.fg style="--col: #FF8000"} de participación son individuales. Los talleres y Proyecto si pueden ser en grupo de pocos integrantes.
 :::
@@ -139,6 +140,20 @@ Hace unos 30 años, una cesta de bienes tales como (huevos, leche, pollo y mante
 
 ::: fragment
 [¿Qué ha **cambiado** desde entonces?]{.bg style="--col: #dcdcdc"}
+:::
+
+## Conceptos básicos
+
+::: fragment
+Algunas preguntas que nos hacemos siempre en vía de **proyectos** y economía
+:::
+
+::: fragment
+- ¿La inmigración reduce los salarios de los trabajadores nativos/locales?
+- ¿Los impuestos al cigarrillo hacen más felices a los fumadores?
+- ¿Cuánto debería cobrar la universidad a los estudiantes de fuera del país?
+- ¿Deberían las ciudades pagar por estadios de deportes profesionales?
+- ¿Por qué existe inflación?
 :::
 
 ## Conceptos básicos
@@ -314,6 +329,7 @@ interp1
 :::::
 ::::::
 
+
 ##  {background-image="imagenese/home.jpg"}
 
 ### Incentivos {.r-fit-text}
@@ -395,13 +411,17 @@ Es un estímulo o recompensa que se ofrece para **motivar** a una persona o grup
 ::::
 ::::::
 
-## incentivos
+## Incentivos
+
+## Incentivos
 
 ::: fragment
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0i4vQVP_B6U?si=wOhEGZxqslBU0j5C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-
+<iframe width="560" height="315"
+  src="https://www.youtube.com/embed/0i4vQVP_B6U"
+  allowfullscreen>
 </iframe>
 :::
+
 
 ##  {background-image="imagenese/home.jpg"}
 
@@ -820,6 +840,88 @@ ggplot(df, aes(x = x,
 ![](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGEyZ2sxdXlzbjJsbHkxb3JhcHhkMGo1YXR6dHl2YTJvMzN3cHJ5cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YpTqcPJyW5Mrb4mJJp/giphy.gif)
 :::
 :::::
+
+## Presupuesto
+
+:::::: columns
+::: {.column width="60%"}
+-   Una ecuación simple de presupuesto es $m=P_xX+P_yY$
+- Si pensaramos en un momento que $P_x=P_y=20$, vamos a encontrar que se *satisface* el presupuesto.
+- Vamos a tener $20(2) + 20(3) = 40 + 60 = 100$
+:::
+
+:::: {.column width="40%"}
+::: fragment
+```{r, echo=F, message = F, warning = F, fig.height=12.3, fig.align="center"}
+library(tidyverse)
+# Punto de consumo
+df <- tribble(
+  ~x, ~y,
+  2, 3
+)
+
+ggplot(df, aes(x = x, y = y)) +
+  # Punto (2,3)
+  geom_point(size = 3) +
+  geom_text(aes(x = 2, y = 3.5), label = "(2,3)", size = 7) +
+  
+  # Líneas punteadas desde ejes
+  geom_segment(x = 0, xend = 2, y = 3, yend = 3, linetype = "dotted", size = 1) +
+  geom_segment(x = 2, xend = 2, y = 0, yend = 3, linetype = "dotted", size = 1) +
+  
+  # Línea de presupuesto (pasa por el punto)
+  geom_abline(intercept = 5, slope = -1, color = "deeppink", size = 1.2) +
+  
+  # Texto de la recta
+  geom_text(aes(x = 6.5, y = -1), 
+            label = "Línea de presupuesto (m)", 
+            color = "deeppink", size = 6, hjust = 0) +
+  
+  # Escalas y tema
+  scale_x_continuous(breaks = seq(0, 10, 1), limits = c(0, 10), expand = c(0, 0)) +
+  scale_y_continuous(breaks = seq(0, 10, 1), limits = c(0, 10), expand = c(0, 0)) +
+  theme_classic(base_family = "Fira Sans Condensed", base_size = 20)
+```
+:::
+::::
+::::::
+
+## Presupuesto
+
+::: incremental
+- En algunas ocasiones algo podria valer mas que otro. Por ejemplo si se decidiera entre construir $x$ o $y$. Algo podria tener mayor ponderación de valor por otro.
+
+- Mire a continuación:
+
+- Si $(x = 2y)$, reemplazamos:
+  $$p_x (2y) + p_y y = 100 \quad \Rightarrow \quad (2p_x + p_y)y = 100$$
+- Con $(p_x = p_y = 20)$:
+
+- Note que $$(40+20)y = 60y = 100 \quad \Rightarrow \quad y \approx 1.67, \; x \approx 3.33$$
+:::
+
+## Presupuesto
+
+::: fragment
+- El presupuesto se deriva de la **estimación de costos**.  
+- El [costo]{.bg style="--col: #00FFFF"} corresponde al valor monetario de los **insumos necesarios** para realizar una actividad.  
+:::
+
+:::fragment
+- En la **Matriz de Marco Lógico (MML):**  
+  - Los indicadores a nivel de [actividades]{.bg style="--col: #00FFFF"} resumen el **presupuesto**.  
+  - Las actividades producen componentes (**productos**) y requieren **recursos**.  
+:::
+
+## Presupuesto
+
+:::incremental
+- Se asignan **valores unitarios** a los insumos:  
+  - Factores productivos.  
+  - Recursos humanos.  
+  - Materiales.  
+- Los [insumos]{.bg style="--col: #00FFFF"} se transforman en [actividades]{.fg style="--col: #e64173"} que generan productos.  
+:::
 
 ##  {background-image="imagenese/leaf.jpg"}
 
