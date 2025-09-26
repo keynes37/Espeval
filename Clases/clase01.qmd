@@ -158,7 +158,7 @@ Tenemos tres posibles respuestas:
 ::: callout-note
 ## El análisis de las preferencias:
 
-se realiza a través de las elecciones realizadas por los consumidores mediante el planteamiento de un conjunto de axiomas (describen el comportamiento racional).
+Se realiza a través de las elecciones realizadas por los consumidores mediante el planteamiento de un conjunto de axiomas (describen el comportamiento racional).
 :::
 ::::
 
@@ -326,7 +326,7 @@ Carlos Yanes prefiere un proyecto $P \succ Q$ si el proyecto $P$ es mejor que el
 ::: callout-tip
 ## Teoría de la elección social
 
-estudia cómo agregar las preferencias individuales en una preferencia grupal coherente para alcanzar una decisión colectiva para un grupo.
+Estudia cómo agregar las preferencias individuales en una preferencia grupal coherente para alcanzar una decisión colectiva para un grupo.
 :::
 ::::
 
@@ -420,19 +420,23 @@ B
 ::: {.column width="50%"}
 -   Un candidato es el **ganador de Condorcet** si gana en enfrentamientos directos contra todos los otros candidatos.
 -   **Ejemplo**:
-    -   Tres candidatos: A, B, C
+    -   Cuatro candidatos: A, B, C, D
     -   Preferencias de los votantes:
-        -   40%: A \> B \> C
-        -   35%: B \> C \> A
-        -   25%: C \> A \> B
+        -   35%: A > B > C > D
+        -   25%: B > C > D > A
+        -   20%: C > D > A > B
+        -   20%: D > A > B > C
 :::
 
 ::: {.column width="50%"}
 -   Enfrentamientos:
-    -   A vs B: A gana (65% vs 35%)
-    -   A vs C: C gana (60% vs 40%)
-    -   B vs C: B gana (75% vs 25%)
--   **Resultado**: Tendriamos [un empate]{.under}
+    -   A vs B: A gana (55% vs 45%)
+    -   A vs C: A gana (55% vs 45%)
+    -   A vs D: A gana (55% vs 45%)
+    -   B vs C: B gana (60% vs 40%)
+    -   B vs D: D gana (55% vs 45%)
+    -   C vs D: C gana (60% vs 40%)
+-   **Resultado**: El **ganador de Condorcet es A**
 :::
 :::::
 
@@ -443,19 +447,25 @@ B
 ::::: columns
 ::: {.column width="50%"}
 -   **Ejemplo**:
-    -   Tres candidatos: A, B, C
+    -   Cuatro candidatos: A, B, C, D
     -   Preferencias de los votantes:
-        -   40%: A \> B \> C
-        -   35%: B \> C \> A
-        -   25%: C \> A \> B
+        -   30%: A > B > C > D
+        -   25%: B > C > D > A
+        -   25%: C > D > B > A
+        -   20%: D > C > B > A
     -   **Ronda 1**:
-        -   C tiene menos votos, es eliminado.
+        -   D tiene menos votos, es eliminado.
 :::
 
 ::: {.column width="50%"}
 -   **Ronda 2**:
-    -   Los votos de C se redistribuyen: A gana con el 75% de los votos.
--   **Resultado**: A es el ganador tras la eliminación de C.
+    -   Los votos de D se redistribuyen a C (40% en total).
+    -   Totales: A (30%), B (25%), C (45%).
+    -   B tiene menos votos, es eliminado.
+-   **Ronda 3**:
+    -   Los votos de B se redistribuyen a C.
+    -   Totales: A (30%), C (70%).
+-   **Resultado**: C es el ganador tras las eliminaciones.
 :::
 :::::
 
@@ -463,15 +473,16 @@ B
 
 -   Si ningún candidato obtiene la mayoría absoluta en la primera vuelta, se realiza una segunda vuelta entre los dos más votados.
 -   **Ejemplo**:
-    -   Tres candidatos: A, B, C
+    -   Cuatro candidatos: A, B, C, D
     -   Primera vuelta:
-        -   A: 40%
-        -   B: 35%
+        -   A: 32%
+        -   B: 30%
         -   C: 25%
+        -   D: 13%
     -   **Segunda vuelta**:
-        -   A vs B: A gana con 65% frente a B (35%).
-    -   **Resultado**: A gana la elección en la segunda vuelta.
-
+        -   A vs B: B gana con 55% frente a A (45%).
+    -   **Resultado**: B gana la elección en la segunda vuelta.
+    
 ## Preferencias: Conteo de Borda
 
 -   Los votantes clasifican a los candidatos, y se asignan puntos según la posición en la que son clasificados.
@@ -479,26 +490,36 @@ B
 ::::: columns
 ::: {.column width="50%"}
 -   **Ejemplo**:
-    -   Tres candidatos: A, B, C
+    -   Cuatro candidatos: A, B, C, D
     -   Asignación de puntos:
-        -   1er lugar: 2 puntos
-        -   2do lugar: 1 punto
-        -   3er lugar: 0 puntos
+        -   1er lugar: 3 puntos
+        -   2do lugar: 2 puntos
+        -   3er lugar: 1 punto
+        -   4to lugar: 0 puntos
     -   Preferencias de los votantes:
-        -   40%: A \> B \> C $(\text{A}:2 \times 40\%, B: 1 \times 40\%)$
+        -   30%: A > B > C > D  
+          $(A:3 \times 30\%,\; B:2 \times 30\%,\; C:1 \times 30\%)$
 :::
 
 ::: {.column width="50%"}
 -   Preferencias de los votantes:
-    -   35%: B \> C \> A $(\text{B}:2 \times 35\%, C: 1 \times 35\%)$
-    -   25%: C \> A \> B $(\text{C}:2 \times 25\%, A: 1 \times 25\%)$
--   **Resultado**:
-    -   A: 80 + 25 = 105 puntos
-    -   B: 40 + 70 = 110 puntos
-    -   C: 50 + 35 = 85 puntos
-    -   **Ganador**: B es el ganador según el conteo de Borda.
+    -   25%: B > C > D > A  
+      $(B:3 \times 25\%,\; C:2 \times 25\%,\; D:1 \times 25\%)$
+    -   25%: C > D > A > B  
+      $(C:3 \times 25\%,\; D:2 \times 25\%,\; A:1 \times 25\%)$
+    -   20%: D > C > B > A  
+      $(D:3 \times 20\%,\; C:2 \times 20\%,\; B:1 \times 20\%)$
 :::
 :::::
+
+## Preferencias: Conteo de Borda
+
+-   **Resultado**:
+    -   A: 90 + 25 = 115 puntos  
+    -   B: 60 + 75 + 20 = 155 puntos  
+    -   C: 30 + 50 + 75 + 40 = 195 puntos  
+    -   D: 25 + 50 + 60 = 135 puntos  
+    -   **Ganador**: C es el ganador según el conteo de Borda.
 
 ## Preferencias: Ejercicio
 
@@ -514,7 +535,7 @@ Los proyectos son: Proyecto A: [Construcción de un parque comunitario]{.alert}.
 Preferencias de los Votantes
 
 | **Votantes** | **Preferencia 1** | **Preferencia 2** | **Preferencia 3** | **Preferencia 4** |
-|----|----|----|----|----|
+|---------------|---------------|---------------|---------------|---------------|
 | 40% | A | B | C | D |
 | 30% | C | B | D | A |
 | 20% | B | C | A | D |
@@ -1178,16 +1199,21 @@ points <- tribble(
 ggplot(data.frame(x = c(0, 10)), aes(x = x)) +
   stat_function(fun = IC_6, geom = "line", size = 2, color = "#20A387FF") +
   stat_function(fun = BC, geom = "line", size = 2, color = "red") +
-  geom_label(aes(x = 2, y = IC_6(2)), color = "#20A387FF", label = expression(u == sqrt(32)), size = 4) +
-  geom_label(aes(x = 2, y = BC(2)), color = "red", label = "BC", size = 6) +
+  # Etiquetas corregidas con parse = TRUE
+  geom_label(aes(x = 2, y = IC_6(2)), 
+             label = "u == sqrt(32)", parse = TRUE, 
+             color = "#20A387FF", size = 4) +
+  geom_label(aes(x = 2, y = BC(2)), 
+             label = "BC", 
+             color = "red", size = 6) +
   geom_point(data = points, aes(x = x, y = y), size = 3) +
   geom_text_repel(data = points, aes(x = x, y = y, label = letter), size = 6, seed = 2) +
   geom_segment(aes(x = 0, xend = 8, y = 16, yend = 0), linetype = "dashed", size = 1.5) +
   scale_x_continuous(breaks = seq(0, 20, 2), limits = c(0, 20), expand = expansion(mult = c(0, 0.1))) +
   scale_y_continuous(breaks = seq(0, 20, 2), limits = c(0, 20), expand = expansion(mult = c(0, 0.1))) +
-  labs(x = "x", y = "y", caption = expression(paste(u(x, y) == sqrt(xy), ", ", m == "$20", ", ", p[x] == "$1", ", ", p[y] == "$2"))) +
+  labs(x = "x", y = "y", 
+       caption = expression(paste(u(x, y) == sqrt(xy), ", ", m == "$20", ", ", p[x] == "$1", ", ", p[y] == "$2"))) +
   theme_classic(base_size = 20)
-
 ```
 :::
 ::::
@@ -1204,23 +1230,44 @@ ggplot(data.frame(x = c(0, 10)), aes(x = x)) +
 
 ::: {.column width="60%"}
 ```{r}
-ggplot(data.frame(x=c(0,10)), aes(x=x)) +
-  stat_function(fun=IC_6, geom="line", size=2, color = "#20A387FF") +
-  stat_function(fun=IC_7, geom="line", size=2, color = "#3CBB75FF") +
-  stat_function(fun=BC, geom="line", size=2, color = "red") +
-  geom_label(aes(x=2, y=IC_6(2)), color = "#20A387FF", label=expression(u == sqrt(32)), size = 4) +
-  geom_label(aes(x=2, y=BC(2)), color = "red", label="BC", size = 6) +
-  geom_label(aes(x=3.5, y=IC_7(3.5)), color = "#3CBB75FF", label=expression(u == sqrt(50)), size = 4) +
-  annotate("segment", x = 16, xend = 10, y = 2, yend = 5, colour = "purple", size=2, alpha=1, arrow=arrow(length=unit(0.5,"cm"), ends="last", type="closed")) +
-  geom_point(data = subset(points, letter %in% c("A","C")), mapping=aes(x=x, y=y), size = 3) +
-  geom_text_repel(data = subset(points, letter %in% c("A","C")), mapping=aes(x=x, y=y, label = letter), size = 6, seed = 2) +
-  geom_segment(aes(x = 0, xend = 20, y = 4, yend=1.5), linetype="dashed", size=1.5) +
-  scale_x_continuous(breaks=seq(0,20,2), limits=c(0,20), expand=expansion(mult=c(0,0.1))) +
-  scale_y_continuous(breaks=seq(0,20,2), limits=c(0,20), expand=expansion(mult=c(0,0.1))) +
-  labs(x = "x", y = "y", caption = expression(paste(u(x, y) == sqrt(xy), ", ", m, " = $20, ", p[x], " = $1, ", p[y], " = $2", sep=" "))) +
-  theme_classic(base_size=20)
-
-
+ggplot(data.frame(x = c(0, 10)), aes(x = x)) +
+  stat_function(fun = IC_6, geom = "line", size = 2, color = "#20A387FF") +
+  stat_function(fun = IC_7, geom = "line", size = 2, color = "#3CBB75FF") +
+  stat_function(fun = BC, geom = "line", size = 2, color = "red") +
+  # Etiquetas corregidas con parse = TRUE
+  geom_label(aes(x = 2, y = IC_6(2)), 
+             label = "u == sqrt(32)", parse = TRUE, 
+             color = "#20A387FF", size = 4) +
+  geom_label(aes(x = 2, y = BC(2)), 
+             label = "BC", 
+             color = "red", size = 6) +
+  geom_label(aes(x = 3.5, y = IC_7(3.5)), 
+             label = "u == sqrt(50)", parse = TRUE, 
+             color = "#3CBB75FF", size = 4) +
+  # Flecha morada
+  annotate("segment", x = 16, xend = 10, y = 2, yend = 5, 
+           colour = "purple", size = 2, alpha = 1, 
+           arrow = arrow(length = unit(0.5, "cm"), ends = "last", type = "closed")) +
+  # Puntos y etiquetas A y C
+  geom_point(data = subset(points, letter %in% c("A", "C")), 
+             aes(x = x, y = y), size = 3) +
+  geom_text_repel(data = subset(points, letter %in% c("A", "C")), 
+                  aes(x = x, y = y, label = letter), size = 6, seed = 2) +
+  # Línea discontinua
+  geom_segment(aes(x = 0, xend = 20, y = 4, yend = 1.5), 
+               linetype = "dashed", size = 1.5) +
+  # Ejes
+  scale_x_continuous(breaks = seq(0, 20, 2), limits = c(0, 20), 
+                     expand = expansion(mult = c(0, 0.1))) +
+  scale_y_continuous(breaks = seq(0, 20, 2), limits = c(0, 20), 
+                     expand = expansion(mult = c(0, 0.1))) +
+  # Leyenda del gráfico
+  labs(x = "x", y = "y", 
+       caption = expression(paste(u(x, y) == sqrt(xy), ", ", 
+                                  m == "$20", ", ", 
+                                  p[x] == "$1", ", ", 
+                                  p[y] == "$2"))) +
+  theme_classic(base_size = 20)
 ```
 :::
 :::::

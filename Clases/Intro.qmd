@@ -678,7 +678,7 @@ $$f(x)=2x^2-3x-y$$
 
 -   Derive con respecto a (x), es decir halle $f'(x)$
 
--   La respuesta es $f'(x)=4x+3$
+-   La respuesta es $f'(x)=4x-3$
 
 -   Los economistas a veces la igualan a cero (0). Con eso podrá obtener el máximo o el mínimo de una función.
 
@@ -752,7 +752,7 @@ cat("Beneficio máximo (miles de pesos):", B_opt, "\n")
 $$B(x) = -2x^2 + 40x - 100$$
 *Derivamos e igualamos a cero*
 
-$$B'(x) = \frac{d}{dx}(-2x^2 + 40x - 100) = -4x + 40$$
+$$B'(x) = \frac{d}{dx}(-2x^2 + 40x - 100) = 4x - 40$$
 
 $$-4x + 40 = 0 \quad ; \quad 40=4x ;\quad x = \frac{40}{4} = 10$$
 
