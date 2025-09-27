@@ -430,13 +430,13 @@ B
 
 ::: {.column width="50%"}
 -   Enfrentamientos:
-    -   A vs B: A gana (55% vs 45%)
+    -   A vs B: A gana (75% vs 25%)
     -   A vs C: A gana (55% vs 45%)
-    -   A vs D: A gana (55% vs 45%)
-    -   B vs C: B gana (60% vs 40%)
-    -   B vs D: D gana (55% vs 45%)
-    -   C vs D: C gana (60% vs 40%)
--   **Resultado**: El **ganador de Condorcet es A**
+    -   A vs D: D gana (35% vs 65%)
+    -   B vs C: B gana (80% vs 20%)
+    -   B vs D: B gana (60% vs 40%)
+    -   C vs D: C gana (80% vs 20%)
+-   **Resultado**: Tenemos un empate **A y B** Ganan rondas
 :::
 :::::
 
@@ -1311,7 +1311,7 @@ La TMS es la tasa o relación entre utilidades **marginales** de $X$ y $Y$.
 :::
 
 ::: fragment
-$$U(X,Y)=XY$$
+$$U(X,Y)=xy$$
 :::
 
 ::: fragment
