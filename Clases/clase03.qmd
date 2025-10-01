@@ -29,7 +29,7 @@ library(tidyverse)
 library(babynames)
 library(fontawesome) # from github: https://github.com/rstudio/fontawesome
 library(DiagrammeR)
-library(hrbrthemes)
+#library(hrbrthemes)
 library(econocharts)
 library(plotly)
 library(kableExtra)
@@ -159,15 +159,15 @@ update_geom_defaults("text", list(family = "Fira Sans Condensed"))
 
 -   Libre [entrada]{.under} y [salida]{.under} del mercado
 
--   Cada firma tiene una pequeña parte del mercado
+-   Cada firma tiene una pequeña parte del mercado total
 
-::: fragment
+:::: fragment
 ::: callout-note
 ## Poder de mercado
 
 Este tipo de estructura de mercado no posee interferencia en el [precio]{.alert}. Las empresas son **tomadoras de precios**
 :::
-:::
+::::
 
 ## [Ejemplos...?]{style="font-size: 80px; font-family: Brusher;"} {.center}
 
@@ -188,7 +188,7 @@ Este tipo de estructura de mercado no posee interferencia en el [precio]{.alert}
 
 -   [R/]{.mono}: [Muchos compradores y vendedores + mucha información simétrica+ pueden entrar a bajo costo]{.blut}
 
--   [R/]{.mono}: [Algunas veces hay pocos vendedores ]{.alert}[$\rightarrow$]{.mono} habilidad de colocar precios altos
+-   [R/]{.mono}: [Algunas veces hay pocos vendedores]{.alert}[$\rightarrow$]{.mono} habilidad de colocar precios altos
 
 -   **Conclusión**: [*Si es competitivo, pero aún lejos de ser perfecto*]{.alert}
 :::
@@ -200,7 +200,7 @@ Este tipo de estructura de mercado no posee interferencia en el [precio]{.alert}
 
 -   [R/]{.mono}: [Muchos compradores y vendedores]{.blut}
 
--   [R/]{.mono}: [Algunas compañias tienen privilegios de comprar o vender antes que otros ]{.alert}[$\rightarrow$]{.mono} Barreras a la entrada
+-   [R/]{.mono}: [Algunas compañias tienen privilegios de comprar o vender antes que otros]{.alert}[$\rightarrow$]{.mono} Barreras a la entrada
 
 -   **Conclusión**: [*No es competitivo, pero casi cerca*]{.alert}
 :::
@@ -212,7 +212,7 @@ Este tipo de estructura de mercado no posee interferencia en el [precio]{.alert}
 
 -   [R/]{.mono}: [Muchos compradores y vendedores con productos similares]{.blut}
 
--   [R/]{.mono}: [Se pueden diferenciar algunos productos + información asimetrica ]{.alert}[$\rightarrow$]{.mono} Amazon temporalmente lleva a vendedores a salir (expulsarlos) ya que rebaja precios
+-   [R/]{.mono}: [Se pueden diferenciar algunos productos + información asimetrica]{.alert}[$\rightarrow$]{.mono} Amazon temporalmente lleva a vendedores a salir (expulsarlos) ya que rebaja precios
 
 -   **Conclusión**: [*Probablemente, no.*]{.alert}
 :::
@@ -224,7 +224,7 @@ Este tipo de estructura de mercado no posee interferencia en el [precio]{.alert}
 
 -   [R/]{.mono}: [Muchos compradores y vendedores + cosechas geneticamente idénticas]{.blut}
 
--   [R/]{.mono}: [Hay un gremio (se agrupan) + interferencia del gobierno (subsidios) ]{.alert}[$\rightarrow$]{.mono} podrian tener privilegios
+-   [R/]{.mono}: [Hay un gremio (se agrupan) + interferencia del gobierno (subsidios)]{.alert}[$\rightarrow$]{.mono} podrian tener privilegios
 
 -   **Conclusión**: [*No perfectamente, pero casi que sí*]{.alert}
 :::
@@ -289,8 +289,8 @@ ggplot() +
 La [elasticidad de la demanda]{.alert} es muy importante para reconocer las estructuras de mercado
 :::
 
-::: fragment
-::: columns
+:::::: fragment
+::::: columns
 ::: {.column width="50%"}
 ```{r, echo = FALSE, fig.height = 3.75, fig.width = 3.75, dev = "svg"}
 demand <- function(x) 8 - 0.6*x
@@ -320,12 +320,12 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
   annotate("text", label = "D", x = 10, y = 5.5, color = red_pink, family = "Fira Sans", size = 9)
 ```
 :::
-:::
-:::
+:::::
+::::::
 
 ## Estructura de mercado
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5,  dev = "svg"}
 ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
@@ -349,11 +349,11 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 ::: {.column width="40%"}
 Clave: El cambio marginal y Ganancia Total (GT)
 :::
-:::
+:::::
 
 ## Estructura de mercado {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5,  dev = "svg"}
 ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
@@ -373,11 +373,11 @@ IM [\<=\>]{.mono} D.
 
 IM [=]{.mono} P.
 :::
-:::
+:::::
 
 ## Estructura de mercado
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 8, 0.1)
@@ -407,11 +407,11 @@ Como entonces:
 
 [MAX]{.mono} el [beneficio]{.alert}
 :::
-:::
+:::::
 
 ## Estructura de mercado {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_1
@@ -425,11 +425,11 @@ Como entonces:
 
 Escoge $Q$, cuando IM [=]{.mono} CM
 :::
-:::
+:::::
 
 ## Estructura de mercado {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_1 <- p_max_1 +
@@ -460,11 +460,11 @@ tab <- data.frame(
 tab 
 ```
 :::
-:::
+:::::
 
 ## Estructura de mercado {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 8, 0.1)
@@ -504,11 +504,11 @@ tab <- data.frame(
 tab 
 ```
 :::
-:::
+:::::
 
 ## Estructura de mercado {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_1 <- p_max_1 +
@@ -539,11 +539,11 @@ tab <- data.frame(
 tab 
 ```
 :::
-:::
+:::::
 
 ## Estructura de mercado {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_1 <- p_max_1 +
@@ -574,13 +574,13 @@ tab <- data.frame(
 tab 
 ```
 :::
-:::
+:::::
 
 # Qué ocurre si el precio es otro? {background-color="#006dae"}
 
 ## Cambio en el precio
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 8, 0.1)
@@ -610,11 +610,11 @@ p_max_2
 ::: {.column width="40%"}
 Un precio menor p.e `$7` en el mercado
 :::
-:::
+:::::
 
 ## Cambio en el precio {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 8, 0.1)
@@ -658,11 +658,11 @@ tab <- data.frame(
 tab 
 ```
 :::
-:::
+:::::
 
 ## Cambio en el precio {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_2 <- p_max_2 +
@@ -689,11 +689,11 @@ tab <- data.frame(
 tab 
 ```
 :::
-:::
+:::::
 
 ## Cambio en el precio {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_2
@@ -717,11 +717,11 @@ tab <- data.frame(
 tab 
 ```
 :::
-:::
+:::::
 
 ## Cambio en el precio {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_2
@@ -745,11 +745,11 @@ tab <- data.frame(
 tab 
 ```
 :::
-:::
+:::::
 
 ## Cambio en el precio
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 8, 0.1)
@@ -793,11 +793,11 @@ tab <- data.frame(
 tab 
 ```
 :::
-:::
+:::::
 
 ## Cambio en el precio {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_3 <- p_max_3 +
@@ -824,11 +824,11 @@ tab <- data.frame(
 tab 
 ```
 :::
-:::
+:::::
 
 ## Cambio en el precio {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_3 <- p_max_3 +
@@ -856,11 +856,11 @@ tab <- data.frame(
 tab 
 ```
 :::
-:::
+:::::
 
 ## Cambio en el precio {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_3 <- p_max_3 +
@@ -887,7 +887,7 @@ tab <- data.frame(
 tab 
 ```
 :::
-:::
+:::::
 
 # Corto plazo vs Largo plazo {background-color="#006dae"}
 
@@ -923,7 +923,7 @@ tab
 
 ## Escenarios en plazo
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 9, 0.1)
@@ -957,11 +957,11 @@ sr_conditions
 
 Qué debe hacer una empresa para operar? Cuando debe cerrar?
 :::
-:::
+:::::
 
 ## Escenarios en plazo {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 sr_conditions 
@@ -975,11 +975,11 @@ Qué debe hacer una empresa para operar? Cuando debe cerrar?
 
 [Depende del precio]{.alert}
 :::
-:::
+:::::
 
 ## Escenarios en plazo {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 sr_conditions +
@@ -997,11 +997,11 @@ Qué debe hacer una empresa para operar? Cuando debe cerrar?
 
 P [\>]{.mono} ATC <br> [\>]{.mono} [Beneficio]{.blut}
 :::
-:::
+:::::
 
 ## Escenarios en plazo {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 sr_conditions +
@@ -1021,11 +1021,11 @@ P [\>]{.mono} ATC <br> [\>]{.mono} [Beneficio]{.blut}
 
 ATC [\>]{.mono} P [\>]{.mono} AVC <br> [\>]{.mono} [Operando con perdidas]{.alert}
 :::
-:::
+:::::
 
 ## Escenarios en plazo {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 sr_conditions +
@@ -1047,11 +1047,11 @@ ATC [\>]{.mono} P [\>]{.mono} AVC <br> [\>]{.mono} [Operando con perdidas]{.aler
 
 AVC [\>]{.mono} P <br> [\>]{.mono} [Cierre!!!]{.oranger}
 :::
-:::
+:::::
 
 ## Escenarios en plazo {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 sr_conditions +
@@ -1077,11 +1077,11 @@ ATC [\>]{.mono} P [\>]{.mono} AVC <br> [\>]{.mono} [Operando con perdidas]{.aler
 
 AVC [\>]{.mono} P <br> [\>]{.mono} [Cierre!!!]{.oranger}
 :::
-:::
+:::::
 
 ## Escenarios en plazo {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 9, 0.1)
@@ -1119,11 +1119,11 @@ P [\>]{.mono} P[cierre]{.sub} [\>]{.mono} curva de oferta de corto plazo [=]{.mo
 
 P [\<]{.mono} P[cierre]{.sub} [\>]{.mono} curva de oferta de corto plazo [=]{.mono} línea vertical en 0.
 :::
-:::
+:::::
 
 ## Escenarios en plazo {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 9, 0.1)
@@ -1155,17 +1155,17 @@ P [\>]{.mono} P[cierre]{.sub} [\>]{.mono} curva de oferta de corto plazo [=]{.mo
 
 P [\<]{.mono} P[cierre]{.sub} [\>]{.mono} curva de oferta de corto plazo [=]{.mono} línea vertical en 0.
 :::
-:::
+:::::
 
 ## Escenarios en plazo
 
-::: fragment
+:::: fragment
 ::: callout-tip
 ## Definición
 
 Sunk cost: Costos irrecuperables derivados de decisiones anteriores.
 :::
-:::
+::::
 
 ::: fragment
 Ejemplos: Costos fijos a corto plazo, clases que ya has terminado, el tiempo que llevas en la misma empresa, etc.
@@ -1199,7 +1199,7 @@ R: ¡Debes pagarlos independientemente de tu elección!
 
 ## Escenarios en plazo
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 9, 0.1)
@@ -1227,11 +1227,11 @@ lr_conditions
 
 ¿Como opera la firma? ¿cuando debe cerrar?
 :::
-:::
+:::::
 
 ## Escenarios en plazo {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 lr_conditions 
@@ -1245,11 +1245,11 @@ lr_conditions
 
 [Depende del precio]{.alert}
 :::
-:::
+:::::
 
 ## Escenarios en plazo {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 lr_conditions +
@@ -1267,11 +1267,11 @@ lr_conditions +
 
 P [\>]{.mono} ATC <br> [\>]{.mono} [Beneficio]{.greener}
 :::
-:::
+:::::
 
 ## Escenarios en plazo {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 lr_conditions +
@@ -1291,11 +1291,11 @@ P [\>]{.mono} ATC <br> [\>]{.mono} [Beneficio]{.greener}
 
 P [\<]{.mono} ATC <br> [\>]{.mono} [Salida]{.alert}
 :::
-:::
+:::::
 
 ## Escenarios en plazo {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 lr_conditions +
@@ -1317,13 +1317,13 @@ P [\>]{.mono} ATC <br> [\>]{.mono} [Beneficio]{.greener}
 
 P [\<]{.mono} ATC <br> [\>]{.mono} [Salida]{.alert}
 :::
-:::
+:::::
 
 # Decisiones 🥹 {background-color="#006dae"}
 
 ## Curva de oferta en LA
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 9, 0.1)
@@ -1353,11 +1353,11 @@ P [\>]{.mono} P[cierre]{.sub} [\>]{.mono} [Curva de oferta de largo plazo]{.mora
 
 P [\<]{.mono} P[cierre]{.sub} [\>]{.mono} [Curva de oferta de largo plazo]{.morader} <br> [=]{.mono} línea vertical en cero.
 :::
-:::
+:::::
 
 ## Curva de oferta en LA {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 9, 0.1)
@@ -1383,13 +1383,13 @@ P [\>]{.mono} P[cierre]{.sub} [\>]{.mono} [Curva de oferta de largo plazo]{.mora
 
 P [\<]{.mono} P[cierre]{.sub} [\>]{.mono} [Curva de oferta de largo plazo]{.morader} <br> [=]{.mono} línea vertical en cero.
 :::
-:::
+:::::
 
 # Practiquemos
 
 ## Práctica
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 8, 0.1)
@@ -1424,11 +1424,11 @@ p_max_4
 ::: {.column width="40%"}
 > Esta firma tiene beneficios u opera en perdidas si el precio del mercado fuera de `$3`?
 :::
-:::
+:::::
 
 ## Práctica {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_4 <- p_max_4 +
@@ -1443,11 +1443,11 @@ p_max_4
 
 [Opera con perdidas]{.blut}
 :::
-:::
+:::::
 
 ## Práctica {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_4 <- p_max_4 +
@@ -1462,11 +1462,11 @@ p_max_4
 
 [Sadría]{.oranger}
 :::
-:::
+:::::
 
 ## Práctica {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_4 <- p_max_4 +
@@ -1481,11 +1481,11 @@ p_max_4
 
 [`$60`]{.alert}
 :::
-:::
+:::::
 
 ## Práctica {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_4 <- p_max_4 +
@@ -1500,9 +1500,9 @@ p_max_4
 
 [`$60`]{.alert}
 
-[Perdidas ]{.alert}[=]{.mono} (ATC-P) [x]{.mono} Q
+[Perdidas]{.alert}[=]{.mono} (ATC-P) [x]{.mono} Q
 :::
-:::
+:::::
 
 # Mercado competitivo {background-color="#006dae"}
 
@@ -1528,7 +1528,7 @@ p_max_4
 
 ## Mercado competitivo
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 [Empresa]{.center}
 
@@ -1584,7 +1584,7 @@ ggplot() +
   geom_segment(aes(x = q, xend = q, y = 0, yend = lr_supply(q)), color = met_slate, linetype = "dashed", size = 1) 
 ```
 :::
-:::
+:::::
 
 ```{R, echo = F, escape = F}
 tab <- data.frame(
@@ -1603,7 +1603,7 @@ tab
 
 ## Mercado competitivo {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 [Empresa]{.center}
 
@@ -1661,7 +1661,7 @@ market_1 <- ggplot() +
 market_1
 ```
 :::
-:::
+:::::
 
 ```{R, echo = F, escape = F}
 tab <- data.frame(
@@ -1680,7 +1680,7 @@ tab
 
 ## Mercado competitivo {visibility="uncounted"}
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 [Empresa]{.center}
 
@@ -1738,7 +1738,7 @@ market_1 <- ggplot() +
 market_1
 ```
 :::
-:::
+:::::
 
 ```{R, echo = F, escape = F}
 tab <- data.frame(
@@ -1871,8 +1871,8 @@ $$P=Cmg \quad \Rightarrow P=40 $$
 ### Es Tom Hanks un Monopolio?
 :::
 
-::: fragment
-::: columns
+:::::: fragment
+::::: columns
 ::: {.column width="40%"}
 Pues... NO
 :::
@@ -1880,8 +1880,8 @@ Pues... NO
 ::: {.column width="60%"}
 ![](https://media.giphy.com/media/oOTTyHRHj0HYY/giphy.gif)
 :::
-:::
-:::
+:::::
+::::::
 
 ## Pregunta
 
@@ -1903,7 +1903,7 @@ Pues... NO
 **P:** Es la compañia **Claro (telmex)** un monopolio? [Por qué]{.blut} o [Por qué no]{.alert}?
 :::
 
--   [Único proveedor de Internet en muchas zonas ]{.blut}[+]{.mono} empresa enorme, integrada verticalmente [+]{.mono} grandes barreras de entrada.
+-   [Único proveedor de Internet en muchas zonas]{.blut}[+]{.mono} empresa enorme, integrada verticalmente [+]{.mono} grandes barreras de entrada.
 
 -   [Compite con Tigo, Movistar, y otras firmas.]{.alert}
 
@@ -1935,70 +1935,68 @@ Pues... NO
 `r fa("atom", fill="red")` [Barreras estratégicas]{.morader}: Ocurren cuando unas firmas o empresas que estan en el mercado imponen precios a nuevas que llegan.
 :::
 
-
 # Maximización del beneficio
-
 
 ## Maximización del beneficio
 
-- En un mercado de **Monopolio**:
-  - Una empresa decide la producción $Q=q$.
+-   En un mercado de **Monopolio**:
 
-- Un cambio en $q$ afecta los precios de mercado, es medido por la *función inversa* de la [demanda]{.alert} $P(q)$.
+    -   Una empresa decide la producción $Q=q$.
 
-- Un ejemplo de *función inversa* es:
+-   Un cambio en $q$ afecta los precios de mercado, es medido por la *función inversa* de la [demanda]{.alert} $P(q)$.
+
+-   Un ejemplo de *función inversa* es:
 
 ::: fragment
 $$p=a-bq, \quad \text{donde}\;a,b>0$$
 :::
 
-- Cuando un **monopolista** vende pocas unidades del bien que provee en el mercado, los consumidores están dispuestos a pagar un mayor precio por ese bien escaso.
+-   Cuando un **monopolista** vende pocas unidades del bien que provee en el mercado, los consumidores están dispuestos a pagar un mayor precio por ese bien escaso.
 
-- Cuando la firma ofrece mayores unidades (grandes valores de $q$), los consumidores están dispuestos a pagar un menor valor por ese bien abundante.
-
-
+-   Cuando la firma ofrece mayores unidades (grandes valores de $q$), los consumidores están dispuestos a pagar un menor valor por ese bien abundante.
 
 ## Maximización del beneficio
 
-- La condición de un **monopolista** es distinto a un mercado competitivo. Su beneficio radicado en:
+-   La condición de un **monopolista** es distinto a un mercado competitivo. Su beneficio radicado en:
 
 ::: fragment
 $$\pi= p \times q - CT(q)$$
 :::
 
-- Debe ser diferenciada (usar derivada) para lograr su mayor y mas alto punto de beneficio.
+-   Debe ser diferenciada (usar derivada) para lograr su mayor y mas alto punto de beneficio.
 
-- [Ingreso marginal]{.oranger} no es mas que su ingreso adicional obtenido al producir un nivel mayor de producto.
+-   [Ingreso marginal]{.oranger} no es mas que su ingreso adicional obtenido al producir un nivel mayor de producto.
 
-- [Costo marginal]{.alert} Es el costo adicional que incurre el monopolista si decide aumentar en un nivel superior su producto.
+-   [Costo marginal]{.alert} Es el costo adicional que incurre el monopolista si decide aumentar en un nivel superior su producto.
 
-- [Condición de equilibrio]{.alert} $Img=Cmg$
-
+-   [Condición de equilibrio]{.alert} $Img=Cmg$
 
 ## Mazimización del beneficio
 
-- Si el $Img>Cmg$ el **Monopolista** tendra incentivos a producir mas, porque percibirá un ingreso mucho mayor.
+-   Si el $Img>Cmg$ el **Monopolista** tendra incentivos a producir mas, porque percibirá un ingreso mucho mayor.
 
-- Si por el contrario $Img<Cmg$ el **Monopolista** [reducira]{.under} su producción lo que considere pertinente para operar en ese mercado.
+-   Si por el contrario $Img<Cmg$ el **Monopolista** [reducira]{.under} su producción lo que considere pertinente para operar en ese mercado.
 
 ::: fragment
 `r fa("angle-double-right", fill="blue")` Cuando el **Monopolista** desea incrementar la producción puede tener dos efectos:
 :::
 
-1. Efecto **positivo**, al vender una unidad mas gana la relación $p(q)$, y desde luego su ganancia se incrementa.
+1.  Efecto **positivo**, al vender una unidad mas gana la relación $p(q)$, y desde luego su ganancia se incrementa.
 
-2. Efecto [negativo]{.alert}, cuando [ofrece]{.greener} una unidad mas la firma necesariamente necesita disminuir los precios. Esto es: $\frac{\partial p(q)}{\partial q}<0$
-  - En resumen, el efecto total del **monopolista** finalmente tiene que ver con el comportamiento de sus [costos]{.alert} y de la relación $Img=Cmg$.
+2.  Efecto [negativo]{.alert}, cuando [ofrece]{.greener} una unidad mas la firma necesariamente necesita disminuir los precios. Esto es: $\frac{\partial p(q)}{\partial q}<0$
 
-# Jugando con gráficos 
+-   En resumen, el efecto total del **monopolista** finalmente tiene que ver con el comportamiento de sus [costos]{.alert} y de la relación $Img=Cmg$.
+
+# Jugando con gráficos
 
 ## Gráficos de Monopolio
 
-- En un mercado **monopolístico**, los consumidores de un determinado producto de una empresa tienen [menos alternativas]{.alert} que en un mercado perfectamente competitivo.
+-   En un mercado **monopolístico**, los consumidores de un determinado producto de una empresa tienen [menos alternativas]{.alert} que en un mercado perfectamente competitivo.
 
-::::{.columns}
+::::: columns
 ::: {.column width="50%"}
 [**Monopolio**]{.center}
+
 ```{r, echo = FALSE, fig.height = 3.75, fig.width = 3.75, dev = "svg"}
 demand <- function(x) 8 - 0.6*x
 inv_demand <- function(x) (5/3)*(8 - x)
@@ -2018,6 +2016,7 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 
 ::: {.column width="50%"}
 [**Mercado Perfectamente Competitivo**]{.center}
+
 ```{r, echo = FALSE, fig.height = 3.75, fig.width = 3.75,  dev = "svg"}
 ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
   scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = NULL) +
@@ -2027,13 +2026,12 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
   geom_hline(yintercept = 5, color = red_pink, size = 1) +
   annotate("text", label = "D", x = 10, y = 5.5, color = red_pink, family = "Fira Sans", size = 9)
 ```
-
 :::
-::::
+:::::
 
 ## Gráficos de Monopolio
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 demand <- function(x) 10 - x
@@ -2058,21 +2056,18 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
   geom_segment(x = q_2, xend = q_2, y = 0, yend = p_2, color = met_slate, linetype = "dashed", size = 1) +
   annotate("text", label = "D", x = 10, y = 0.65, color = red_pink, family = "Fira Sans", size = 9) 
 ```
-
 :::
 
 ::: {.column width="40%"}
-
 [**Efecto Precio:**]{.alert} Al bajar el precio, los clientes actuales pagan menos.
 
 [**Efecto Producto:**]{.blut} A medida que disminuye el precio, nuevos clientes adquieren bienes y servicios.
-
 :::
-::::
+:::::
 
 ## Gráficos de Monopolio {visibility="uncounted"}
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 demand <- function(x) 10 - x
@@ -2104,13 +2099,13 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 
 [**Efecto Producto:**]{.blut} A medida que disminuye el precio, nuevos clientes adquieren bienes y servicios.
 
-[**Efecto Producto**]{.oranger} <br> $\quad$ [>]{.mono} [Efecto del Precio]{.alert} [==>]{.mono} <br> se reducen los precios y $\Rightarrow$ se [incrementan los beneficios]{.blut}.
+[**Efecto Producto**]{.oranger} <br> $\quad$ [\>]{.mono} [Efecto del Precio]{.alert} [==\>]{.mono} <br> se reducen los precios y $\Rightarrow$ se [incrementan los beneficios]{.blut}.
 :::
-::::
+:::::
 
 ## Gráficos de Monopolio {visibility="uncounted"}
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 demand <- function(x) 10 - x
@@ -2142,14 +2137,13 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 
 [**Efecto Producto:**]{.blut} A medida que disminuye el precio, nuevos clientes adquieren bienes y servicios.
 
-[**Efecto Producto**]{.oranger} <br> $\quad$ [>]{.mono} [Efecto del Precio]{.alert} [==>]{.mono} <br> se reducen los precios y $\Rightarrow$ se [incrementan los beneficios]{.blut}.
-
+[**Efecto Producto**]{.oranger} <br> $\quad$ [\>]{.mono} [Efecto del Precio]{.alert} [==\>]{.mono} <br> se reducen los precios y $\Rightarrow$ se [incrementan los beneficios]{.blut}.
 :::
-::::
+:::::
 
 ## Gráficos del Monopolio
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 demand <- function(x) 10 - x
@@ -2181,11 +2175,11 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 
 [**Efecto Producto:**]{.blut} A medida que disminuye el precio, nuevos clientes adquieren bienes y servicios.
 :::
-::::
+:::::
 
 ## Gráficos del Monopolio {visibility="uncounted"}
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 demand <- function(x) 10 - x
@@ -2217,14 +2211,13 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 
 [**Efecto Producto:**]{.blut} A medida que disminuye el precio, nuevos clientes adquieren bienes y servicios.
 
-[**Efecto Producto**]{.oranger} <br> $\quad$ [=]{.mono} [Efecto del Precio]{.alert} [==>]{.mono} <br> se reducen los precios y $\Rightarrow$ [no cambian los beneficios]{.greener}.
-
+[**Efecto Producto**]{.oranger} <br> $\quad$ [=]{.mono} [Efecto del Precio]{.alert} [==\>]{.mono} <br> se reducen los precios y $\Rightarrow$ [no cambian los beneficios]{.greener}.
 :::
-::::
+:::::
 
 ## Gráficos del Monopolio {visibility="uncounted"}
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 demand <- function(x) 10 - x
@@ -2256,14 +2249,13 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 
 [**Efecto Producto:**]{.blut} A medida que disminuye el precio, nuevos clientes adquieren bienes y servicios.
 
-[**Efecto Producto**]{.oranger} <br> $\quad$ [=]{.mono} [Efecto del Precio]{.alert} [==>]{.mono} <br> se reducen los precios y $\Rightarrow$ [no cambian los beneficios]{.greener}.
-
+[**Efecto Producto**]{.oranger} <br> $\quad$ [=]{.mono} [Efecto del Precio]{.alert} [==\>]{.mono} <br> se reducen los precios y $\Rightarrow$ [no cambian los beneficios]{.greener}.
 :::
-::::
+:::::
 
-## Gráficos del Monopolio 
+## Gráficos del Monopolio
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 demand <- function(x) 10 - x
@@ -2295,11 +2287,11 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 
 [**Efecto Producto:**]{.blut} A medida que disminuye el precio, nuevos clientes adquieren bienes y servicios.
 :::
-::::
+:::::
 
 ## Gráficos del Monopolio {visibility="uncounted"}
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 demand <- function(x) 10 - x
@@ -2331,14 +2323,13 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 
 [**Efecto Producto:**]{.blut} A medida que disminuye el precio, nuevos clientes adquieren bienes y servicios.
 
-[**Efecto Producto**]{.oranger} <br> $\quad$ [<]{.mono} [Efecto del Precio]{.alert} [==>]{.mono} <br> se reducen los precios y $\Rightarrow$ [los beneficios disminuyen]{.greener}.
-
+[**Efecto Producto**]{.oranger} <br> $\quad$ [\<]{.mono} [Efecto del Precio]{.alert} [==\>]{.mono} <br> se reducen los precios y $\Rightarrow$ [los beneficios disminuyen]{.greener}.
 :::
-::::
+:::::
 
 ## Gráficos del Monopolio {visibility="uncounted"}
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 demand <- function(x) 10 - x
@@ -2370,16 +2361,15 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 
 [**Efecto Producto:**]{.blut} A medida que disminuye el precio, nuevos clientes adquieren bienes y servicios.
 
-[**Efecto Producto**]{.oranger} <br> $\quad$ [<]{.mono} [Efecto del Precio]{.alert} [==>]{.mono} <br> se reducen los precios y $\Rightarrow$ [los beneficios disminuyen]{.greener}.
-
+[**Efecto Producto**]{.oranger} <br> $\quad$ [\<]{.mono} [Efecto del Precio]{.alert} [==\>]{.mono} <br> se reducen los precios y $\Rightarrow$ [los beneficios disminuyen]{.greener}.
 :::
-::::
+:::::
 
 # Del Ingreso Marginal del Consumidor
 
 ## Ingreso Marginal
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 demand <- function(x) 10 - x
@@ -2402,13 +2392,12 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 #### Definición Ingreso Marginal (IM)
 
 > Variación de los ingresos totales derivada de un aumento de la producción de una unidad.
-
 :::
-::::
+:::::
 
 ## Ingreso Marginal
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 demand <- function(x) 10 - x
@@ -2430,18 +2419,17 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 ::: {.column width="40%"}
 Un monopolista se enfrenta a una curva de IM descendente/decreciente.
 
-- IM [>]{.mono} `$0` [>]{.mono} el Beneficio se incrementa.
+-   IM [\>]{.mono} `$0` [\>]{.mono} el Beneficio se incrementa.
 
-- IM [=]{.mono} `$0` [>]{.mono} punto máximo de beneficio.
+-   IM [=]{.mono} `$0` [\>]{.mono} punto máximo de beneficio.
 
-- IM [<]{.mono} `$0` [>]{.mono} el beneficio se reduce.
-
+-   IM [\<]{.mono} `$0` [\>]{.mono} el beneficio se reduce.
 :::
-::::
+:::::
 
 ## Ingreso Marginal
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 8, 0.1)
@@ -2471,11 +2459,11 @@ p_max_1
 ::: {.column width="40%"}
 **P:** Un monopolio como maximiza su beneficio?
 :::
-::::
+:::::
 
 ## Ingreso Marginal {visibility="uncounted"}
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_1
@@ -2487,14 +2475,13 @@ p_max_1
 
 **R:** dos pasos!
 
-**Paso 1:** [decide cuanto producir, establece a Q donde IM [=]{.mono} CM.]{.alert}
-
+**Paso 1:** [decide cuanto producir, establece a Q donde IM ]{.alert}[=]{.mono} CM.
 :::
-::::
+:::::
 
 ## Ingreso Marginal {visibility="uncounted"}
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_1 <- p_max_1 +
@@ -2511,13 +2498,13 @@ p_max_1
 
 **R:** dos pasos!
 
-**Paso 1:** [decide cuanto producir, establece a Q donde IM [=]{.mono} CM.]{.alert}
+**Paso 1:** [decide cuanto producir, establece a Q donde IM ]{.alert}[=]{.mono} CM.
 :::
-::::
+:::::
 
 ## Ingreso Marginal {visibility="uncounted"}
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_1 <- p_max_1 +
@@ -2532,13 +2519,13 @@ p_max_1
 
 **R:** dos pasos!
 
-**Paso 1:** [decide cuanto producir, establece a Q donde IM [=]{.mono} CM.]{.alert}
+**Paso 1:** [decide cuanto producir, establece a Q donde IM ]{.alert}[=]{.mono} CM.
 :::
-::::
+:::::
 
 ## Ingreso Marginal {visibility="uncounted"}
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_1
@@ -2550,15 +2537,15 @@ p_max_1
 
 **R:** dos pasos!
 
-**Paso 1:** [decide cuanto producir, establece a Q donde IM [=]{.mono} CM.]{.alert}
+**Paso 1:** [decide cuanto producir, establece a Q donde IM ]{.alert}[=]{.mono} CM.
 
 **Paso 2:** [Coloca P en la curva de demanda.]{.morader}
 :::
-::::
+:::::
 
 ## Ingreso Marginal {visibility="uncounted"}
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_1 <- p_max_1 +
@@ -2573,16 +2560,15 @@ p_max_1
 
 **R:** dos pasos!
 
-**Paso 1:** [decide cuanto producir, establece a Q donde IM [=]{.mono} CM.]{.alert}
+**Paso 1:** [decide cuanto producir, establece a Q donde IM ]{.alert}[=]{.mono} CM.
 
 **Paso 2:** [Coloca P en la curva de demanda.]{.morader}
-
 :::
-::::
+:::::
 
 ## Ingreso Marginal {visibility="uncounted"}
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_1 <- p_max_1 +
@@ -2596,16 +2582,15 @@ p_max_1
 
 **R:** dos pasos!
 
-**Paso 1:** [decide cuanto producir, establece a Q donde IM [=]{.mono} CM.]{.alert}
+**Paso 1:** [decide cuanto producir, establece a Q donde IM ]{.alert}[=]{.mono} CM.
 
 **Paso 2:** [Coloca P en la curva de demanda.]{.morader}
-
 :::
-::::
+:::::
 
 ## Ingreso Marginal {visibility="uncounted"}
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_1
@@ -2617,17 +2602,17 @@ p_max_1
 
 **R:** dos pasos!
 
-**Paso 1:** [decide cuanto producir, establece a Q donde IM [=]{.mono} CM.]{.alert}
+**Paso 1:** [decide cuanto producir, establece a Q donde IM ]{.alert}[=]{.mono} CM.
 
 **Paso 2:** [Coloca P en la curva de demanda.]{.morader}
 
 El beneficio [=]{.mono} (P [-]{.mono} CTM) x Q[M]{.sub}
 :::
-::::
+:::::
 
 ## Ingreso Marginal
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_1 <- p_max_1 +
@@ -2642,18 +2627,17 @@ p_max_1
 
 **R:** dos pasos!
 
-**Paso 1:** [decide cuanto producir, establece a Q donde IM [=]{.mono} CM.]{.alert}
+**Paso 1:** [decide cuanto producir, establece a Q donde IM ]{.alert}[=]{.mono} CM.
 
 **Paso 2:** [Coloca P en la curva de demanda.]{.morader}
 
 El beneficio [=]{.mono} (P [-]{.mono} CTM) x Q[M]{.sub}<br> $\quad$ [=]{.mono} (16 [-]{.mono}10) [x]{.mono} 4
-
 :::
-::::
+:::::
 
 ## Ingreso Marginal {visibility="uncounted"}
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 p_max_1 <- p_max_1 +
@@ -2668,20 +2652,20 @@ p_max_1
 
 **R:** dos pasos!
 
-**Paso 1:** [decide cuanto producir, establece a Q donde IM [=]{.mono} CM.]{.alert}
+**Paso 1:** [decide cuanto producir, establece a Q donde IM ]{.alert}[=]{.mono} CM.
 
 **Paso 2:** [Coloca P en la curva de demanda.]{.morader}
 
 El beneficio [=]{.mono} (P [-]{.mono} CTM) x Q[M]{.sub}<br> $\quad$ [=]{.mono} (16 [-]{.mono}10) [x]{.mono} 4 [=]{.mono} `$24`
 :::
-::::
-
+:::::
 
 ## Ingreso Marginal
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 [**Mercado competitivo**]{.center}
+
 ```{r, echo = FALSE, fig.height = 4.75, fig.width = 3.75,  dev = "svg"}
 x <- 0:10
 demand <- function(x) 10 - x
@@ -2703,19 +2687,18 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
   annotate("text", label = "D", x = 10.1, y = 0.65, color = red_pink, family = "Fira Sans", size = 9) +
   annotate("text", label = "S", x = 9.3, y = 9.65, color = purple, family = "Fira Sans", size = 9)
 ```
-
 :::
 
 ::: {.column width="40%"}
-
 :::
-::::
+:::::
 
 ## Ingreso Marginal {visibility="uncounted"}
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 [**Mercado competitivo**]{.center}
+
 ```{r, echo = FALSE, fig.height = 4.75, fig.width = 3.75,  dev = "svg"}
 x <- 0:10
 demand <- function(x) 10 - x
@@ -2738,11 +2721,11 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
   annotate("text", label = "D", x = 10.1, y = 0.65, color = red_pink, family = "Fira Sans", size = 9) +
   annotate("text", label = "S", x = 9.3, y = 9.65, color = purple, family = "Fira Sans", size = 9)
 ```
-
 :::
 
 ::: {.column width="40%"}
 [**Monopolio**]{.center}
+
 ```{r, echo = FALSE, fig.height = 4.75, fig.width = 3.75, dev = "svg"}
 x <- 0:10
 marginal_cost <- function(x) 1 + x
@@ -2774,47 +2757,43 @@ ggplot() +
   geom_segment(aes(x = 0, xend = q, y = p, yend = p), color = met_slate, linetype = "dashed", size = 1)
 ```
 :::
-::::
-
+:::::
 
 # Diferencias entre mercados
 
 ## Diferencias entre mercados
 
-::::{.columns}
+::::: columns
 ::: {.column width="50%"}
-
 #### Mercado competitivo
 
-1. [Muchas]{.blut} firmas.
+1.  [Muchas]{.blut} firmas.
 
-2. [Ninguna]{.alert} firma puede ganar [beneficios en el largo plazo]{.blut}.
+2.  [Ninguna]{.alert} firma puede ganar [beneficios en el largo plazo]{.blut}.
 
-3. Cada firma es un [**tomador de precios**]{.alert} <br> [>]{.mono} no hay poder de mercado!
+3.  Cada firma es un [**tomador de precios**]{.alert} <br> [\>]{.mono} no hay poder de mercado!
 
-4. Cada firma produce a un nivel [eficiente]{.alert} <br> [>]{.mono} *p.e.,* donde P [=]{.mono} CM.
+4.  Cada firma produce a un nivel [eficiente]{.alert} <br> [\>]{.mono} *p.e.,* donde P [=]{.mono} CM.
 :::
 
 ::: {.column width="50%"}
-
 #### Monopolio
 
-1. [Una]{.blut} firma.
+1.  [Una]{.blut} firma.
 
-2. Un Monopolista puede ganar [Beneficios a largo plazo]{.morader}.
+2.  Un Monopolista puede ganar [Beneficios a largo plazo]{.morader}.
 
-3. Un Monopolista es un [**hacedor de precios**]{.alert} <br> [>]{.mono} demasiado poder de mercado!
+3.  Un Monopolista es un [**hacedor de precios**]{.alert} <br> [\>]{.mono} demasiado poder de mercado!
 
-4. Un Monopolista produces a un nivel de producción [ineficientes]{.alert}  <br> [>]{.mono} *p.e.,* donde P [>]{.mono} CM.
-
+4.  Un Monopolista produces a un nivel de producción [ineficientes]{.alert} <br> [\>]{.mono} *p.e.,* donde P [\>]{.mono} CM.
 :::
-::::
+:::::
 
 # Ejemplo
 
 ## Ejercicio
 
-- [*Ejemplo 1*]{.blut}: Considere que $p(q)=10-3q$. Si la empresa requiere incrementar su producto, entonces:
+-   [*Ejemplo 1*]{.blut}: Considere que $p(q)=10-3q$. Si la empresa requiere incrementar su producto, entonces:
 
 ::: fragment
 $$\begin{aligned}
@@ -2824,31 +2803,27 @@ Img=& p(q) + \frac{\partial p(q)}{\partial q}q\\
 \end{aligned}$$
 :::
 
-- Si la firma vende dos unidades,$\pi= (10-3 \times 2)2= 8$
+-   Si la firma vende dos unidades,$\pi= (10-3 \times 2)2= 8$
 
 ## Ejercicio
 
-- Ahora evaluemos su $Img(q)=2$ con las unidades obtenidas.
+-   Ahora evaluemos su $Img(q)=2$ con las unidades obtenidas.
 
 ::: fragment
 $$(10-3 \times 2)+ (-3)2= 4-6= -2 \; \text{moneda local}$$
 :::
 
-- El efecto **positivo** es solo ganarse 4, porque ahora vende una unidad adicional. Pero de lo [negativo]{.alert} al vender una unidad adicional tiene que hacerlo reduciendo su beneficio en 2 unidades monetarias.
-
-
-## Ejercicio
-
-<center>
-<img src="imagenese/c1.png" width="980" />
-</center>
-
+-   El efecto **positivo** es solo ganarse 4, porque ahora vende una unidad adicional. Pero de lo [negativo]{.alert} al vender una unidad adicional tiene que hacerlo reduciendo su beneficio en 2 unidades monetarias.
 
 ## Ejercicio
 
-- Regularmente el **monopolista** siempre intenta tomarse el maximo del beneficio de todo el mercado.
+<center><img src="imagenese/c1.png" width="980"/></center>
 
-- [*Ejemplo 2*]{.blut}: Suponga que el [Costo Total]{.alert} de un mercado es de $CT(q)=2q$. Qué precio -con una demanda lineal de $p(q)=10-3q$- cobra un monopolista?. Cuanto cobra una empresa, si se tratara de un mercado competitivo? 
+## Ejercicio
+
+-   Regularmente el **monopolista** siempre intenta tomarse el maximo del beneficio de todo el mercado.
+
+-   [*Ejemplo 2*]{.blut}: Suponga que el [Costo Total]{.alert} de un mercado es de $CT(q)=2q$. Qué precio -con una demanda lineal de $p(q)=10-3q$- cobra un monopolista?. Cuanto cobra una empresa, si se tratara de un mercado competitivo?
 
 ::: fragment
 $$\begin{aligned}
@@ -2859,11 +2834,11 @@ Img=& Cmg\\
 \end{aligned}$$
 :::
 
-- Por ende el monopolista cobrará $P=6$, *esto se obtiene reemplazando las unidades en la demanda original del mercado*. 
+-   Por ende el monopolista cobrará $P=6$, *esto se obtiene reemplazando las unidades en la demanda original del mercado*.
 
 ## Ejercicio
 
-- Miremos el mercado competitivo
+-   Miremos el mercado competitivo
 
 ::: fragment
 $$\begin{aligned}
@@ -2874,20 +2849,17 @@ P=& Cmg\\
 \end{aligned}$$
 :::
 
-- El mercado competitivo cobra un precio de $P=2$. Note que produce mas unidades pero debe hacerlo con un precio inferior.
+-   El mercado competitivo cobra un precio de $P=2$. Note que produce mas unidades pero debe hacerlo con un precio inferior.
 
 ## Ejercicio
 
-<center>
-<img src="imagenese/c3.png" width="980" />
-</center>
-
+<center><img src="imagenese/c3.png" width="980"/></center>
 
 # Consecuencias sociales
 
 ## Consecuencias sociales
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- 0:10
@@ -2936,15 +2908,13 @@ ggplot() +
 
 Los monopolios no consiguen maximizar el excedente total.
 
-Q[M]{.sub} [<]{.mono} Q[C]{.sub} [==>]{.mono} <br> [perdida de la eficiencia]{.oranger}.
-
+Q[M]{.sub} [\<]{.mono} Q[C]{.sub} [==\>]{.mono} <br> [perdida de la eficiencia]{.oranger}.
 :::
-::::
-
+:::::
 
 ## Consecuencias sociales {visibility="uncounted"}
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- 0:10
@@ -2989,37 +2959,37 @@ ggplot() +
 
 Los monopolios no consiguen maximizar el excedente total.
 
-Q[M]{.sub} [<]{.mono} Q[C]{.sub} [==>]{.mono} <br> [perdida de la eficiencia]{.oranger}.
+Q[M]{.sub} [\<]{.mono} Q[C]{.sub} [==\>]{.mono} <br> [perdida de la eficiencia]{.oranger}.
 
 Monopolios [reduce]{.alert} excedente del consumidor.
 :::
-::::
+:::::
 
 ## Consecuencias sociales
 
-- Los monopolistas tienen pocos incentivos para competir por los clientes.
-  - **Resultado:** Menos líneas de productos [+]{.mono} menor calidad.
+-   Los monopolistas tienen pocos incentivos para competir por los clientes.
 
-- **Ejemplo:** empresas de cable y servicios combinados.
+    -   **Resultado:** Menos líneas de productos [+]{.mono} menor calidad.
 
-- Los monopolistas pueden utilizar los procesos políticos para impedir la competencia o asegurarse nuevos monopolios.
+-   **Ejemplo:** empresas de cable y servicios combinados.
 
-- Una forma de competencia, pero no de la buena.
+-   Los monopolistas pueden utilizar los procesos políticos para impedir la competencia o asegurarse nuevos monopolios.
 
-- **Ejemplo:** Presionar al Congreso para que proteja el comercio.
+-   Una forma de competencia, pero no de la buena.
 
+-   **Ejemplo:** Presionar al Congreso para que proteja el comercio.
 
 ## Consecuencias sociales
 
 #### Al fin que soluciones?
 
-1. Ley anti-monopolio. *p.e,.* acabar con los monopolios, bloquear las fusiones, *etc*.
+1.  Ley anti-monopolio. *p.e,.* acabar con los monopolios, bloquear las fusiones, *etc*.
 
-2. Regulación. *p.e.,* control de precios.
+2.  Regulación. *p.e.,* control de precios.
 
-3. En caso de monopsonios, sindicatos?
+3.  En caso de monopsonios, sindicatos?
 
-4. Esperar a las perturbaciones tecnológicas. *P.e.,* El auge de los dispositivos móviles redujo la cuota de mercado de Microsoft.
+4.  Esperar a las perturbaciones tecnológicas. *P.e.,* El auge de los dispositivos móviles redujo la cuota de mercado de Microsoft.
 
 # Extracción de rentas
 
@@ -3027,47 +2997,45 @@ Monopolios [reduce]{.alert} excedente del consumidor.
 
 Los **Monopolistas** en esencia buscan de alguna manera obtener el máximo beneficio posible de un mercado. Tratarán de que el excedente del [Consumidor]{.greener} sea lo mas pequeño posible.
 
-<center>
-<img src="imagenese/c2.png" width="980" />
-</center>
+<center><img src="imagenese/c2.png" width="980"/></center>
 
 ## Extracción de rentas
 
-| Tipo                            | Precios ($) |
-|---------------------------------|-------------|
-| Cappuccino para el derrochador(a) | 8700        |
-| Cappuccino para el Ahorrativo(a)  | 2300        |
-| **Fuente:** Tim Harford. Undercover Economist | |
+| Tipo                                          | Precios (\$) |
+|-----------------------------------------------|--------------|
+| Cappuccino para el derrochador(a)             | 8700         |
+| Cappuccino para el Ahorrativo(a)              | 2300         |
+| **Fuente:** Tim Harford. Undercover Economist |              |
 
 ## Extracción de rentas
 
-| Tipo                               | Precios ($) |
-|------------------------------------|-------------|
-| Cappuccino con consciencia social  | 8700        |
-| Cappuccino sin consciencia social  | 8400        |
-| **Fuente:** Tim Harford. Undercover Economist | |
+| Tipo                                          | Precios (\$) |
+|-----------------------------------------------|--------------|
+| Cappuccino con consciencia social             | 8700         |
+| Cappuccino sin consciencia social             | 8400         |
+| **Fuente:** Tim Harford. Undercover Economist |              |
 
 ## Extracción de rentas
 
-| Tipo                            | Precios ($) |
-|---------------------------------|-------------|
-| Chocolate                       | 5500        |
-| Cappuccino                      | 6300        |
-| Café Mocca                      | 6800        |
-| Mocca con Chocolate Blanco       | 6950        |
-| Cappuccino de 20 onzas           | 7200        |
-| **Fuente:** Tim Harford. Undercover Economist | |
+| Tipo                                          | Precios (\$) |
+|-----------------------------------------------|--------------|
+| Chocolate                                     | 5500         |
+| Cappuccino                                    | 6300         |
+| Café Mocca                                    | 6800         |
+| Mocca con Chocolate Blanco                    | 6950         |
+| Cappuccino de 20 onzas                        | 7200         |
+| **Fuente:** Tim Harford. Undercover Economist |              |
 
 ## Extracción de rentas
 
-| Tipo                                                       | Precios ($) |
-|------------------------------------------------------------|-------------|
-| Chocolate sin ingredientes adicionales                     | 5500        |
-| Cappuccino sin ingredientes adicionales                    | 6300        |
-| Los dos anteriores combinados (me siento especial)          | 6800        |
-| Utiliza un ingrediente diferente (me siento muy especial)   | 6950        |
-| Que sea bien grande (me siento voraz)                      | 7200        |
-| **Fuente:** Tim Harford. Undercover Economist               |             |
+| Tipo                                                      | Precios (\$) |
+|-----------------------------------------------------------|--------------|
+| Chocolate sin ingredientes adicionales                    | 5500         |
+| Cappuccino sin ingredientes adicionales                   | 6300         |
+| Los dos anteriores combinados (me siento especial)        | 6800         |
+| Utiliza un ingrediente diferente (me siento muy especial) | 6950         |
+| Que sea bien grande (me siento voraz)                     | 7200         |
+| **Fuente:** Tim Harford. Undercover Economist             |              |
 
 ## Gracias! por su atención {.center}
 
@@ -3088,4 +3056,3 @@ Slides de la clase:
 `r fa('book')` Krugman, P., & Wells, R. (2014). *Microeconomics (for AP)*. New York: Worth Publishers.
 
 `r fa('book')` Mokate, K., & Castro, R. (2018). *Evaluación económica y social de proyectos de inversión*: Segunda edición. Universidad de los Andes.
-

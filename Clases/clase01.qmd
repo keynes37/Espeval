@@ -422,10 +422,10 @@ B
 -   **Ejemplo**:
     -   Cuatro candidatos: A, B, C, D
     -   Preferencias de los votantes:
-        -   35%: A > B > C > D
-        -   25%: B > C > D > A
-        -   20%: C > D > A > B
-        -   20%: D > A > B > C
+        -   35%: A \> B \> C \> D
+        -   25%: B \> C \> D \> A
+        -   20%: C \> D \> A \> B
+        -   20%: D \> A \> B \> C
 :::
 
 ::: {.column width="50%"}
@@ -449,10 +449,10 @@ B
 -   **Ejemplo**:
     -   Cuatro candidatos: A, B, C, D
     -   Preferencias de los votantes:
-        -   30%: A > B > C > D
-        -   25%: B > C > D > A
-        -   25%: C > D > B > A
-        -   20%: D > C > B > A
+        -   30%: A \> B \> C \> D
+        -   25%: B \> C \> D \> A
+        -   25%: C \> D \> B \> A
+        -   20%: D \> C \> B \> A
     -   **Ronda 1**:
         -   D tiene menos votos, es eliminado.
 :::
@@ -482,7 +482,7 @@ B
     -   **Segunda vuelta**:
         -   A vs B: B gana con 55% frente a A (45%).
     -   **Resultado**: B gana la elección en la segunda vuelta.
-    
+
 ## Preferencias: Conteo de Borda
 
 -   Los votantes clasifican a los candidatos, y se asignan puntos según la posición en la que son clasificados.
@@ -497,28 +497,28 @@ B
         -   3er lugar: 1 punto
         -   4to lugar: 0 puntos
     -   Preferencias de los votantes:
-        -   30%: A > B > C > D  
-          $(A:3 \times 30\%,\; B:2 \times 30\%,\; C:1 \times 30\%)$
+        -   30%: A \> B \> C \> D\
+            $(A:3 \times 30\%,\; B:2 \times 30\%,\; C:1 \times 30\%)$
 :::
 
 ::: {.column width="50%"}
 -   Preferencias de los votantes:
-    -   25%: B > C > D > A  
-      $(B:3 \times 25\%,\; C:2 \times 25\%,\; D:1 \times 25\%)$
-    -   25%: C > D > A > B  
-      $(C:3 \times 25\%,\; D:2 \times 25\%,\; A:1 \times 25\%)$
-    -   20%: D > C > B > A  
-      $(D:3 \times 20\%,\; C:2 \times 20\%,\; B:1 \times 20\%)$
+    -   25%: B \> C \> D \> A\
+        $(B:3 \times 25\%,\; C:2 \times 25\%,\; D:1 \times 25\%)$
+    -   25%: C \> D \> A \> B\
+        $(C:3 \times 25\%,\; D:2 \times 25\%,\; A:1 \times 25\%)$
+    -   20%: D \> C \> B \> A\
+        $(D:3 \times 20\%,\; C:2 \times 20\%,\; B:1 \times 20\%)$
 :::
 :::::
 
 ## Preferencias: Conteo de Borda
 
 -   **Resultado**:
-    -   A: 90 + 25 = 115 puntos  
-    -   B: 60 + 75 + 20 = 155 puntos  
-    -   C: 30 + 50 + 75 + 40 = 195 puntos  
-    -   D: 25 + 50 + 60 = 135 puntos  
+    -   A: 90 + 25 = 115 puntos\
+    -   B: 60 + 75 + 20 = 155 puntos\
+    -   C: 30 + 50 + 75 + 40 = 195 puntos\
+    -   D: 25 + 50 + 60 = 135 puntos\
     -   **Ganador**: C es el ganador según el conteo de Borda.
 
 ## Preferencias: Ejercicio
