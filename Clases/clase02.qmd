@@ -108,29 +108,29 @@ update_geom_defaults("text", list(family = "Fira Sans Condensed"))
 
 ## Para hoy... intentamos aprender
 
-1. Saber de riesgo
+1.  Saber de riesgo
 
-1. Modelar el riesgo
+2.  Modelar el riesgo
 
-1. Los seguros y su importancia
-
+3.  Los seguros y su importancia
 
 ## Que entiende usted por Riesgo?
 
-::: fragment
+:::: fragment
 ::: callout-note
 ## Riesgo
+
 Todos los individuos toman decisiones todos los días. Sin embargo, no siempre es claro para nadie qué resultados pueden derivarse de estas decisiones. Cuando eso sucede, podemos decir que estamos tomando decisiones en situaciones bajo **riesgo** o **incertidumbre**
 :::
-:::
+::::
 
-- [Riesgo]{.alert}: Los individuos desconocen los diferentes resultados, pero pueden asignarles probabilidad de ocurrencia.</ru-blockquote>
+-   [Riesgo]{.alert}: Los individuos desconocen los diferentes resultados, pero pueden asignarles probabilidad de ocurrencia.</ru-blockquote>
 
-- [Incertidumbre]{.blut}: Los individuos no pueden asignar probabilidad a cada resultado que le pudiera ocurrir aún si pudieran escoger. La naturaleza todo el tiempo le brinda a los individuos estado o estatus de incertidumbre.
+-   [Incertidumbre]{.blut}: Los individuos no pueden asignar probabilidad a cada resultado que le pudiera ocurrir aún si pudieran escoger. La naturaleza todo el tiempo le brinda a los individuos estado o estatus de incertidumbre.
 
 ## Riesgo
 
-- La presencia de la [incertidumbre]{.oranger} supone que las consecuencias que se derivan de cada alternativa disponible no se conocen con antelación, sino por el contrario, dependen de la ocurrencia de sucesos aleatorios fuera del control de los consumidores y/o agentes económicos.
+-   La presencia de la [incertidumbre]{.oranger} supone que las consecuencias que se derivan de cada alternativa disponible no se conocen con antelación, sino por el contrario, dependen de la ocurrencia de sucesos aleatorios fuera del control de los consumidores y/o agentes económicos.
 
 ::: fragment
 `r fa("angle-double-right", fill="blue")` Cuando formula un proyecto
@@ -142,7 +142,6 @@ Todos los individuos toman decisiones todos los días. Sin embargo, no siempre e
 `r fa("angle-double-right", fill="blue")` Si compra un seguro (vida, vehículo, etc.).
 
 `r fa("angle-double-right", fill="blue")` Cuando elige un presidente.
-
 :::
 
 ## Riesgo
@@ -175,7 +174,7 @@ $$\mathbb{E} [x]= \sum\limits_{i=1}^{n} p_{i} X_{i}$$
 $$\mathbb{E} [x]= \frac{1}{6}*1+\frac{1}{6}*2+\frac{1}{6}*3+\cdots+\frac{1}{6}*6=3.5$$
 :::
 
-::: fragment 
+::: fragment
 Que es lo mismo si calculara un promedio normal de:
 
 $$\frac{1+2+3+4+5+6}{6}=3.5$$
@@ -184,25 +183,24 @@ $$\frac{1+2+3+4+5+6}{6}=3.5$$
 ## Riesgo
 
 ::: fragment
-`r fa("atom", fill="blue")` Suponga que a usted le han propuesto jugar las siguientes loterías, solo debe escoger una de ellas. Cuál prefiere jugar o cuál elegiría: 
+`r fa("atom", fill="blue")` Suponga que a usted le han propuesto jugar las siguientes loterías, solo debe escoger una de ellas. Cuál prefiere jugar o cuál elegiría:
 :::
 
 ::: fragment
-1. Si se lanza una moneda al aire y sale **cara** gana `$100.000` y si sale *sello* usted pierde `$50.000`.
+1.  Si se lanza una moneda al aire y sale **cara** gana `$100.000` y si sale *sello* usted pierde `$50.000`.
 :::
 
 ::: fragment
-2. Si se lanza una moneda al aire y sale **cara** gana `$200.000` y si sale *sello* usted pierde `$100.000`.
+2.  Si se lanza una moneda al aire y sale **cara** gana `$200.000` y si sale *sello* usted pierde `$100.000`.
 :::
 
 ::: fragment
-3. Si se lanza una moneda al aire y sale **cara** gana `$20.000.000` y si sale *sello* usted pierde `$10.000.000`.
+3.  Si se lanza una moneda al aire y sale **cara** gana `$20.000.000` y si sale *sello* usted pierde `$10.000.000`.
 :::
 
 ::: fragment
 > Cuál elige?
 :::
-
 
 ## Riesgo
 
@@ -227,7 +225,7 @@ Finalmente, la lotería 3:
 
 $$\mathbb{E}[x]=20.000.000\times0.50+\color{#d62013}{-10.000.000}\times 0.50= 5.000.000$$
 
-+ La tercera lotería por este criterio, debería ser elegida.
+-   La tercera lotería por este criterio, debería ser elegida.
 :::
 
 ## Riesgo
@@ -274,14 +272,12 @@ $$\mathbb{E}[x]=\color{#44C1C4}{50.000}\times 1= 50.000$$
 > Hay que ver que tipo de riesgo toma una persona para mirar que loteria acepta. Para este parte vamos hacer otras adiciones.
 :::
 
-
 # Utilidad esperada {background-color="#006dae"}
-
 
 ## Utilidad esperada
 
 ::: fragment
-`r fa("balance-scale-left", fill="red")` Cada resultado posible puede cuantificarse en términos de [útiles]{.alert}, y representarse a través de la función de utilidad de un consumidor. Ej: La **función de utilidad**  es $F(X)=\sqrt{x}$,
+`r fa("balance-scale-left", fill="red")` Cada resultado posible puede cuantificarse en términos de [útiles]{.alert}, y representarse a través de la función de utilidad de un consumidor. Ej: La **función de utilidad** es $F(X)=\sqrt{x}$,
 :::
 
 ::: fragment
@@ -299,18 +295,18 @@ Si la [Utilidad esperada]{.oranger} de una lotería es mayor a la otra se elegir
 ## Utilidad esperada
 
 ::: fragment
-| Tipo             | Función f(x)                    |
-|------------------|---------------------------------|
-| No riesgos       | $\sqrt{x}$                      |
-| Neutrales        | $ax+b$                          |
-| Gusto al riesgo  | $e^x$                           |
+| Tipo            | Función f(x) |
+|-----------------|--------------|
+| No riesgos      | $\sqrt{x}$   |
+| Neutrales       | $ax+b$       |
+| Gusto al riesgo | $e^x$        |
 :::
 
-::: {.fragment .fade-in}
+:::: {.fragment .fade-in}
 ::: {.fragment .highlight-red}
 Estas funciones de utilidad son construidos por **Matemáticos** que han encontrado esto de forma estructural.
 :::
-:::
+::::
 
 ::: fragment
 De acuerdo a como maneja sus perfil, las funciones podrán tratar de simular su comportamiento
@@ -327,9 +323,9 @@ Existen tres actitudes principales hacia el riesgo que se reflejan en las funcio
 :::
 
 ::: fragment
-- **Amante del riesgo** (risk-loving)
-- **Averso al riesgo** (risk-averse)
-- **Neutral al riesgo** (risk-neutral)
+-   **Amante del riesgo** (risk-loving)
+-   **Averso al riesgo** (risk-averse)
+-   **Neutral al riesgo** (risk-neutral)
 :::
 
 ::: fragment
@@ -343,11 +339,11 @@ Cada una de estas actitudes tiene una función de utilidad característica.
 :::
 
 ::: fragment
-- **Función**: $F(x) = x^2$
-- **Características**:
-  - Función convexa: $F''(x) > 0$
-  - Prefiere situaciones con mayor incertidumbre.
-  - Valora más las ganancias potenciales en situaciones de alto riesgo.
+-   **Función**: $F(x) = x^2$
+-   **Características**:
+    -   Función convexa: $F''(x) > 0$
+    -   Prefiere situaciones con mayor incertidumbre.
+    -   Valora más las ganancias potenciales en situaciones de alto riesgo.
 :::
 
 ::: fragment
@@ -361,11 +357,11 @@ $$F(x) = x^2$$
 :::
 
 ::: fragment
-- **Averso al Riesgo**:
-  - **Función**: $F(x) = \sqrt{x}$
-  - **Características**:
-    - Función cóncava: $F''(x) < 0$
-    - Prefiere la certeza y evita la incertidumbre.
+-   **Averso al Riesgo**:
+    -   **Función**: $F(x) = \sqrt{x}$
+    -   **Características**:
+        -   Función cóncava: $F''(x) < 0$
+        -   Prefiere la certeza y evita la incertidumbre.
 :::
 
 ::: fragment
@@ -379,11 +375,11 @@ $$F(x) = \sqrt{x}$$
 :::
 
 ::: fragment
-- **Neutral al Riesgo**:
-  - **Función**: $F(x) = x$
-  - **Características**:
-    - Función lineal: $F''(x) = 0$
-    - Indiferente entre la certeza y la incertidumbre.
+-   **Neutral al Riesgo**:
+    -   **Función**: $F(x) = x$
+    -   **Características**:
+        -   Función lineal: $F''(x) = 0$
+        -   Indiferente entre la certeza y la incertidumbre.
 :::
 
 ::: fragment
@@ -439,17 +435,17 @@ $$U (V.E_c)= \sqrt{5.000.000}= 2236,06\; \textrm{útiles}$$
 ## Utilidad del Valor Esperado
 
 ::: fragment
-Si la [Utilidad del Valor Esperado]{.blut} $U(V.E)$ es > $U(\mathbb{E})$ y el individuo la elige, es porque en realidad es [averso al riesgo]{.oranger}
+Si la [Utilidad del Valor Esperado]{.blut} $U(V.E)$ es \> $U(\mathbb{E})$ y el individuo la elige, es porque en realidad es [averso al riesgo]{.oranger}
 :::
 
 ::: fragment
 #### Comparaciones
 
-| Tipo             | Función f(x)                    |
-|------------------|---------------------------------|
-| Aversión         | $U(V.E)>U.E$                    |
-| Indiferente      | $U(V.E)=U.E$                    |
-| Gusto al riesgo  | $U(V.E)<U.E$                    |
+| Tipo            | Función f(x) |
+|-----------------|--------------|
+| Aversión        | $U(V.E)>U.E$ |
+| Indiferente     | $U(V.E)=U.E$ |
+| Gusto al riesgo | $U(V.E)<U.E$ |
 :::
 
 ## Utilidad del Valor Esperado
@@ -488,7 +484,6 @@ grid.arrange(g1, g2, g3, nrow = 1)
 
 ```
 
-
 ## Utilidad del Valor Esperado
 
 ::: fragment
@@ -517,6 +512,7 @@ column_spec(1, italic = T, color = met_slate)
 # Prima de Riesgo {background-color="#006dae"}
 
 ## Prima de Riesgo
+
 ::: fragment
 `r fa("biohazard", fill="blue")` Para el concepto de [Prima]{.alert}, piense en el monto (valor) que debe pagar un individuo para evitar un riesgo.
 :::
@@ -530,7 +526,7 @@ column_spec(1, italic = T, color = met_slate)
 :::
 
 ::: fragment
-+ La prima de riesgo viene a ser:
+-   La prima de riesgo viene a ser:
 :::
 
 ::: fragment
@@ -552,8 +548,7 @@ Hallemos la prima de riesgo para la lotería (3) en caso tal el individuo no des
 :::
 
 ::: fragment
-`r fa("apple", fill="blue")` Cuanto [dinero]{.fg style="--col: #007935"} habría que darle a una persona para que no tome una decisión. 
-$$\boxed{ \mathbb{E}.\mathbb{C}= \mathbb{E}(u(x)) }$$
+`r fa("apple", fill="blue")` Cuanto [dinero]{.fg style="--col: #007935"} habría que darle a una persona para que no tome una decisión. $$\boxed{ \mathbb{E}.\mathbb{C}= \mathbb{E}(u(x)) }$$
 :::
 
 ## Prima de Riesgo
@@ -575,6 +570,7 @@ $$ \sqrt{\mathbb{EC}}  = 1596,87$$
 :::
 
 ## Equivalente de certeza
+
 ::: fragment
 Paso(3): Despejar(linealizar) el Equivalente de Certeza
 
@@ -582,8 +578,7 @@ $$ \left(\sqrt{\mathbb{EC}}\right)^2  = \left(1596,87\right)^2$$
 :::
 
 ::: fragment
-Esto nos da apenas el equivalente de certeza: 
-$$\mathbb{EC}  = 2.549.994$$
+Esto nos da apenas el equivalente de certeza: $$\mathbb{EC}  = 2.549.994$$
 :::
 
 ::: fragment
@@ -600,7 +595,6 @@ $$\mathbb{P}.\mathbb{R}= 15.000.000- 2.549.994 =12.450.006$$
 Este es el [monto]{.under} de [dinero]{.alert} (prima de riesgo) que debe pagar el individuo a una [aseguradora]{.slater} para no incurrir en ese riesgo o tener que tomar la decisión de elegir eso.
 :::
 
-
 ## Equivalente de certeza
 
 ::: fragment
@@ -614,8 +608,7 @@ Desde luego nadie esta obligado a pagar la prima pero en caso de que *Mateo* qui
 :::
 
 ::: fragment
-+ En otros casos opera el valor normal sin incluir riqueza del individuo ni situación inicial y este es:
-$$\mathbb{P}.\mathbb{R}= 5.000.000- 2.549.994 =2.450.006$$
+-   En otros casos opera el valor normal sin incluir riqueza del individuo ni situación inicial y este es: $$\mathbb{P}.\mathbb{R}= 5.000.000- 2.549.994 =2.450.006$$
 :::
 
 ::: fragment
@@ -632,54 +625,53 @@ La prima o valor para cualquier persona sin importar su riqueza es de `$2.450.00
 Por qué nuestros gobernantes nos implantan [Impuestos]{.alert} y proveen de [subsidios]{.bg style="--col: #00FFFF"}?
 :::
 
-::: fragment
-::::{.columns}
+:::::: fragment
+::::: columns
 ::: {.column width="50%"}
-### Impuestos 
+### Impuestos
 
-1. Recaudar ingresos para bienes públicos.
+1.  Recaudar ingresos para bienes públicos.
 
-2. Desincentivar los "malos" comportamientos.
+2.  Desincentivar los "malos" comportamientos.
 
-3. Redistribuir la renta o la riqueza.
+3.  Redistribuir la renta o la riqueza.
 :::
 
 ::: {.column width="50%"}
 ### [Subsidios]{.blut}
 
-1. Proporcionar estímulo económico.
+1.  Proporcionar estímulo económico.
 
-2. Fomentar los "buenos" comportamientos.
+2.  Fomentar los "buenos" comportamientos.
 
-3. Redistribuir la renta o la riqueza.
+3.  Redistribuir la renta o la riqueza.
 :::
-::::
-
-:::
+:::::
+::::::
 
 ## Impuestos
 
 ::: fragment
-+ Impuestos por unidad
+-   Impuestos por unidad
 
-  - Impuestos al tabaco, el cannabis y el alcohol.
-  - Impuestos especiales sobre el alojamiento, la gasolina y otros bienes. 
-  - Impuesto sobre las ventanas en el Reino Unido (1696-1851).
+    -   Impuestos al tabaco, el cannabis y el alcohol.
+    -   Impuestos especiales sobre el alojamiento, la gasolina y otros bienes.
+    -   Impuesto sobre las ventanas en el Reino Unido (1696-1851).
 :::
 
 ::: fragment
-+ Impuestos ad valorem
+-   Impuestos ad valorem
 
-    - Impuestos sobre las ventas.
-    - Impuestos sobre nóminas e ingresos.
-    - Impuestos sobre la propiedad.
+    -   Impuestos sobre las ventas.
+    -   Impuestos sobre nóminas e ingresos.
+    -   Impuestos sobre la propiedad.
 :::
 
-::: fragment    
-+ Impuestos lump-sum.
+::: fragment
+-   Impuestos lump-sum.
 
-    - Tasas de registro mercantil.
-    - Sobre tasa gasolina.
+    -   Tasas de registro mercantil.
+    -   Sobre tasa gasolina.
 :::
 
 ## Impuestos
@@ -716,8 +708,7 @@ column_spec(1, italic = T, color = red_pink)
 
 ## Impuestos
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
 **P:** ¿Cómo afecta un impuesto por unidad a los productores, al precio y la cantidad de equilibrio?
 
@@ -739,41 +730,45 @@ tab
 
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+library(ggplot2)
+
 demand <- function(x) 10 - x
 supply <- function(x) 1 + x
 tax <- 3
 supply_tax <- function(x) supply(x) + tax
+
 x <- 0:10
 q <- uniroot(function(x) demand(x) - supply(x), range(x))$root
 q_2 <- uniroot(function(x) demand(x) - supply_tax(x), range(x))$root
 p <- supply(q)
 ps_2 <- supply(q_2)
 pd_2 <- demand(q_2)
-z <- seq(0, q, 0.01)
+
 base <- ggplot() +
   scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
   scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
-  labs(x = "Q", y = "P")+theme_classic()
+  labs(x = "Q", y = "P") +
+  theme_classic()
 
 base +
-  stat_function(fun = supply, color = "purple", size = 1) + # supply function
-  stat_function(fun = demand, color = "pink", size = 1) + # demand function
-  annotate("text", label = expression(D), x = 9, y = 1.6, color = "red", size = 9) +
-  annotate("text", label = expression(S), x = 9, y = 9.5, color = "purple", size = 9) +
-  geom_segment(aes(x = q, y = 0, xend = q, yend = p), linetype  = "dashed", color = "black", size = 1) + # Q*
-  geom_segment(aes(x = 0, y = p, xend = q, yend = p), linetype  = "dashed", color = "black", size = 1) + # P*
-  geom_point(aes(x = q, y = p), color = "purple", size = 2) # equilibrium bundle
+  stat_function(fun = supply, color = "purple", size = 1) + # curva de oferta
+  stat_function(fun = demand, color = "pink", size = 1) +   # curva de demanda
+  annotate("text", label = "D", x = 9, y = 1.6, color = "red", size = 9, parse = FALSE) +
+  annotate("text", label = "S", x = 9, y = 9.5, color = "purple", size = 9, parse = FALSE) +
+  geom_segment(aes(x = q, y = 0, xend = q, yend = p),
+               linetype = "dashed", color = "black", size = 1) + # Q*
+  geom_segment(aes(x = 0, y = p, xend = q, yend = p),
+               linetype = "dashed", color = "black", size = 1) + # P*
+  geom_point(aes(x = q, y = p), color = "purple", size = 2)      # equilibrio
 ```
 :::
-
-::::
+:::::
+  
 
 ## Impuestos {visibility="uncounted"}
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
-
 **P:** ¿Cómo afecta un impuesto por unidad a los productores, al precio y la cantidad de equilibrio?
 
 ```{R, echo = F, escape = F}
@@ -793,34 +788,86 @@ tab
 :::
 
 ::: {.column width="60%"}
-```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+```{r, echo=FALSE, fig.height=5, fig.width=5, dev="svg"}
+library(ggplot2)
+
+# --- Funciones ---
+demand <- function(x) 10 - x
+supply <- function(x) 1 + x
+tax <- 3
+supply_tax <- function(x) supply(x) + tax
+
+# --- Solución de equilibrio ---
+q   <- uniroot(function(x) demand(x) - supply(x), c(0, 10))$root
+q_2 <- uniroot(function(x) demand(x) - supply_tax(x), c(0, 10))$root
+p    <- supply(q)
+ps_2 <- supply(q_2)
+pd_2 <- demand(q_2)
+
+# --- Color personalizado (puedes cambiarlo) ---
+met_slate <- "#475569"
+
+# --- Base del gráfico ---
+base <- ggplot() +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = 0:10) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = 0:10) +
+  labs(x = "Q", y = "P") +
+  theme_classic()
+
+# --- Construcción del gráfico completo ---
 base +
-  stat_function(fun = supply, color = "purple", size = 1) + # supply function
-  stat_function(fun = supply_tax, color = "purple", size = 1) + # supply function (tax)
-  stat_function(fun = demand, color = "pink", size = 1) + # demand function
-  annotate("text", label = expression(D), x = 9, y = 1.6, color = "pink", size = 9) +
-  annotate("text", label = expression(S), x = 9, y = 9.5, color = "purple", size = 9) +
-  annotate("text", label = expression(S[Imp]), x = 9 - tax + 0.55, y = 9.5, color = "purple", size = 9) +
-  geom_segment(aes(x = q, y = 0, xend = q, yend = p), linetype  = "dashed", color = "black", size = 1, alpha = 0.5) + # Q*
-  geom_segment(aes(x = 0, y = p, xend = q, yend = p), linetype  = "dashed", color = "black", size = 1, alpha = 0.5) + # P*
-  geom_point(aes(x = q, y = p), color = met_slate, size = 2, alpha = 0.5) +
+  # Curvas
+  stat_function(fun = supply,      color = "purple", size = 1) +
+  stat_function(fun = supply_tax,  color = "purple", size = 1, linetype = "dotted") +
+  stat_function(fun = demand,      color = "pink",   size = 1) +
   
-  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = "black", size = 1) + 
-  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = "black", size = 1) + 
+  # ÁREA DEL IMPUESTO (rectángulo entre Ps y Pd)
+  geom_rect(aes(xmin = 0, xmax = q_2, ymin = ps_2, ymax = pd_2),
+            fill = "purple", alpha = 0.2) +
+  
+  # DWL (triángulo entre curvas)
+  geom_polygon(aes(
+    x = c(q_2, q, q_2),
+    y = c(pd_2, p, ps_2)
+  ), fill = "red", alpha = 0.2) +
+  
+  # Etiquetas de curvas
+  annotate("text", label = "D",        x = 9,              y = 1.6, color = "pink",   size = 6, parse = TRUE) +
+  annotate("text", label = "S",        x = 9,              y = 9.5, color = "purple", size = 6, parse = TRUE) +
+  annotate("text", label = "S[Imp]",   x = 9 - tax + 0.55, y = 9.5, color = "purple", size = 6, parse = TRUE) +
+  
+  # Líneas y puntos del equilibrio inicial
+  geom_segment(aes(x = q, y = 0, xend = q, yend = p),
+               linetype = "dashed", color = "black", size = 1, alpha = 0.5) +
+  geom_segment(aes(x = 0, y = p, xend = q, yend = p),
+               linetype = "dashed", color = "black", size = 1, alpha = 0.5) +
+  geom_point(aes(x = q, y = p), color = met_slate, size = 2, alpha = 0.8) +
+  
+  # Líneas y puntos del equilibrio con impuesto
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2),
+               linetype = "dashed", color = "black", size = 1) +
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2),
+               linetype = "dashed", color = "black", size = 1) +
   geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
   
-  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = "black", size = 1) + 
-  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = "black", size = 1) + 
-  geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2)
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2),
+               linetype = "dashed", color = "black", size = 1) +
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2),
+               linetype = "dashed", color = "black", size = 1) +
+  geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2) +
+  
+  # Etiquetas de áreas
+  annotate("text", label = "Recaudo", x = q_2 / 2, y = (ps_2 + pd_2)/2,
+           color = "purple", size = 4, fontface = "bold") +
+  annotate("text", label = "DWL", x = (q + q_2)/2, y = (p + ps_2)/2,
+           color = "red", size = 4, fontface = "bold")
 ```
 :::
-
-::::
+:::::
 
 ## Impuestos {visibility="uncounted"}
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
 **P:** ¿Cómo afecta un impuesto por unidad a los productores, al precio y la cantidad de equilibrio?
 
@@ -839,38 +886,65 @@ tab <- data.frame(
   column_spec(3, italic = F, color = red_pink)
 tab 
 ```
-
 :::
 
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+library(ggplot2)
+
+# --- Definición de funciones y parámetros ---
+demand <- function(x) 10 - x
+supply <- function(x) 1 + x
+tax <- 3
+supply_tax <- function(x) supply(x) + tax
+
+# --- Solución de equilibrio ---
+q   <- uniroot(function(x) demand(x) - supply(x), c(0, 10))$root
+q_2 <- uniroot(function(x) demand(x) - supply_tax(x), c(0, 10))$root
+p    <- supply(q)
+ps_2 <- supply(q_2)
+pd_2 <- demand(q_2)
+
+# --- Base del gráfico ---
+base <- ggplot() +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = 0:10) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = 0:10) +
+  labs(x = "Q", y = "P") +
+  theme_classic()
+
+# --- Gráfico corregido ---
 base +
-  stat_function(fun = supply, color = "purple", size = 1) + # supply function
-  stat_function(fun = supply_tax, color = "purple", size = 1) + # supply function (tax)
-  stat_function(fun = demand, color = "pink", size = 1) + # demand function
-  annotate("text", label = expression(D), x = 9, y = 1.6, color = "pink", size = 9) +
-  annotate("text", label = expression(S), x = 9, y = 9.5, color = "purple", size = 9) +
-  annotate("text", label = expression(S[Imp]), x = 9 - tax + 0.55, y = 9.5, color = "purple", size = 9) +
-  # geom_segment(aes(x = q, y = 0, xend = q, yend = p), linetype  = "dashed", color = met_slate, size = 1, alpha = 0.5) + # Q*
-  # geom_segment(aes(x = 0, y = p, xend = q, yend = p), linetype  = "dashed", color = met_slate, size = 1, alpha = 0.5) + # P*
-  # geom_point(aes(x = q, y = p), color = met_slate, size = 2, alpha = 0.5) +
+  stat_function(fun = supply, color = "purple", size = 1) +           # Oferta
+  stat_function(fun = supply_tax, color = "purple", size = 1) +      # Oferta con impuesto
+  stat_function(fun = demand, color = "pink", size = 1) +            # Demanda
   
-  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "solid", color = "black", size = 1) + 
-  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = "black", size = 1) + 
+  # Etiquetas corregidas (usa parse=TRUE)
+  annotate("text", label = "D",       x = 9, y = 1.6,  color = "pink",   size = 9, parse = TRUE) +
+  annotate("text", label = "S",       x = 9, y = 9.5,  color = "purple", size = 9, parse = TRUE) +
+  annotate("text", label = "S[Imp]",  x = 9 - tax + 0.55, y = 9.5, color = "purple", size = 9, parse = TRUE) +
+  
+  # Segmentos y puntos del nuevo equilibrio con impuesto
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2),
+               linetype = "solid", color = "black", size = 1) +
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2),
+               linetype = "dashed", color = "black", size = 1) +
   geom_point(aes(x = q_2, y = pd_2), color = "black", size = 2) +
   
-  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = "black", size = 1) + 
-  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = "black", size = 1) + 
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2),
+               linetype = "dashed", color = "black", size = 1) +
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2),
+               linetype = "dashed", color = "black", size = 1) +
   geom_point(aes(x = q_2, y = ps_2), color = "black", size = 2) +
-  annotate("text", label = "Imp", x = q_2 + 0.45, y = p, size = 5, angle = 0, color = "black") 
+  
+  # Etiqueta del impuesto
+  annotate("text", label = "Imp", x = q_2 + 0.45, y = p, size = 5, angle = 0, color = "black")
 ```
 :::
-
-::::
+:::::
 
 ## Impuestos
-:::: {.columns}
 
+::::: columns
 ::: {.column width="40%"}
 **P:** ¿Cómo el impuesto tiene inferencia en el excedente de mercado?
 
@@ -892,29 +966,64 @@ tab
 
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
-base +
-  stat_function(fun = supply, color = "purple", size = 1) + # supply function
-  #stat_function(fun = supply_tax, color = "purple", size = 1) + # supply function (tax)
-  stat_function(fun = demand, color = "pink", size = 1) + # demand function
-  annotate("text", label = expression(D), x = 9, y = 1.6, color = "pink", size = 9) +
-  annotate("text", label = expression(S), x = 9, y = 9.5, color = "purple", size = 9) +
-  #annotate("text", label = expression(S[Impuesto]), x = 9 - tax + 0.55, y = 9.5, color = "purple", size = 9) +
-  geom_segment(aes(x = q, y = 0, xend = q, yend = p), linetype  = "dashed", color = "black", size = 1, alpha = 0.5) + # Q*
-  geom_segment(aes(x = 0, y = p, xend = q, yend = p), linetype  = "dashed", color = "black", size = 1, alpha = 0.5) + # P*
-  geom_point(aes(x = q, y = p), color = "black", size = 2, alpha = 1) +
-  geom_ribbon(aes(x = z, ymin = supply(z), ymax = p), fill = purple, alpha = 0.2, linetype = "blank") + # PS
-  annotate("text", label = "EP", x = q/3, y = p - 1.5, color = purple, family = "Fira Sans", size = 6) +
-  geom_ribbon(aes(x = z, ymin = p, ymax = demand(z)), fill = red_pink, alpha = 0.2, linetype = "blank") + # CS
-  annotate("text", label = "EC", x = q/3, y = p + 1.5, color = red_pink, family = "Fira Sans", size = 6) 
+library(ggplot2)
 
+# --- Funciones y parámetros ---
+demand <- function(x) 10 - x
+supply <- function(x) 1 + x
+tax <- 3
+supply_tax <- function(x) supply(x) + tax
+
+x <- 0:10
+q <- uniroot(function(x) demand(x) - supply(x), range(x))$root
+p <- supply(q)
+z <- seq(0, q, 0.01)
+
+# --- Colores definidos ---
+purple <- "#6A0DAD"    # púrpura
+red_pink <- "#FF5A77"  # rosado rojizo
+
+# --- Base del gráfico ---
+base <- ggplot() +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
+  labs(x = "Q", y = "P") +
+  theme_classic()
+
+# --- Gráfico corregido ---
+base +
+  stat_function(fun = supply, color = "purple", size = 1) +       # Oferta
+  stat_function(fun = demand, color = "pink", size = 1) +         # Demanda
+  
+  # Etiquetas corregidas
+  annotate("text", label = "D", x = 9, y = 1.6, color = "pink", size = 9, parse = TRUE) +
+  annotate("text", label = "S", x = 9, y = 9.5, color = "purple", size = 9, parse = TRUE) +
+  
+  # Segmentos y punto de equilibrio
+  geom_segment(aes(x = q, y = 0, xend = q, yend = p),
+               linetype = "dashed", color = "black", size = 1, alpha = 0.5) +
+  geom_segment(aes(x = 0, y = p, xend = q, yend = p),
+               linetype = "dashed", color = "black", size = 1, alpha = 0.5) +
+  geom_point(aes(x = q, y = p), color = "black", size = 2, alpha = 1) +
+  
+  # Área de excedente del productor (PS)
+  geom_ribbon(aes(x = z, ymin = supply(z), ymax = p),
+              fill = purple, alpha = 0.2, linetype = "blank") +
+  annotate("text", label = "EP", x = q/3, y = p - 1.5,
+           color = purple, family = "Fira Sans", size = 6) +
+  
+  # Área de excedente del consumidor (CS)
+  geom_ribbon(aes(x = z, ymin = p, ymax = demand(z)),
+              fill = red_pink, alpha = 0.2, linetype = "blank") +
+  annotate("text", label = "EC", x = q/3, y = p + 1.5,
+           color = red_pink, family = "Fira Sans", size = 6)
 ```
 :::
-
-::::
+:::::
 
 ## Impuestos {visibility="uncounted"}
 
-:::: {.columns}  
+::::: columns
 ::: {.column width="40%"}
 **P:** ¿Cómo el impuesto tiene inferencia en el excedente de mercado?
 
@@ -936,70 +1045,159 @@ tab
 
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
-w <- seq(0, q_2, 0.01)
-base +
-  stat_function(fun = supply, color = purple, size = 1) + # supply function
-  stat_function(fun = supply_tax, color = purple, size = 1) + # supply function (tax)
-  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
-  annotate("text", label = expression(D), x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
-  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
-  annotate("text", label = expression(S[Imp]), x = 9 - tax + 0.55, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
-  
-  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple, alpha = 0.2, linetype = "blank") + # PS
-  annotate("text", label = "EP", x = q_2/3, y = ps_2 - 1, color = purple, family = "Fira Sans", size = 6) +
-  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2, linetype = "blank") + # CS
-  annotate("text", label = "EC", x = q_2/3, y = pd_2 + 1, color = red_pink, family = "Fira Sans", size = 6) +
-  geom_ribbon(aes(x = w, ymin = ps_2, ymax = pd_2), fill = green, alpha = 0.2, linetype = "blank") + # GR
-  annotate("text", label = expression(Gob), x = q_2/3, y = p + 0.2, color = green, family = "Fira Sans", size = 6) +
-  
-  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "solid", color = met_slate, size = 1) +
-  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
-  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2) 
+library(ggplot2)
 
+# --- Funciones y parámetros ---
+demand <- function(x) 10 - x
+supply <- function(x) 1 + x
+tax <- 3
+supply_tax <- function(x) supply(x) + tax
+
+# Equilibrios
+q   <- uniroot(function(x) demand(x) - supply(x), c(0, 10))$root
+q_2 <- uniroot(function(x) demand(x) - supply_tax(x), c(0, 10))$root
+p    <- supply(q)
+ps_2 <- supply(q_2)
+pd_2 <- demand(q_2)
+w <- seq(0, q_2, 0.01)
+
+# --- Colores definidos ---
+purple    <- "#6A0DAD"
+red_pink  <- "#FF5A77"
+green     <- "#2ECC71"
+met_slate <- "#475569"
+
+# --- Base del gráfico ---
+base <- ggplot() +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = 0:10) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = 0:10) +
+  labs(x = "Q", y = "P") +
+  theme_classic()
+
+# --- Gráfico corregido ---
+base +
+  stat_function(fun = supply, color = purple, size = 1) +
+  stat_function(fun = supply_tax, color = purple, size = 1, linetype = "dotted") +
+  stat_function(fun = demand, color = red_pink, size = 1) +
+  
+  # Etiquetas corregidas (parse = TRUE)
+  annotate("text", label = "D",      x = 9, y = 1.6, color = red_pink, size = 9, parse = TRUE) +
+  annotate("text", label = "S",      x = 9, y = 9.5, color = purple,   size = 9, parse = TRUE) +
+  annotate("text", label = "S[Imp]", x = 9 - tax + 0.55, y = 9.5, color = purple, size = 9, parse = TRUE) +
+  
+  # Excedente del productor
+  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2),
+              fill = purple, alpha = 0.2, linetype = "blank") +
+  annotate("text", label = "EP", x = q_2/3, y = ps_2 - 1,
+           color = purple, family = "Fira Sans", size = 6) +
+  
+  # Excedente del consumidor
+  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)),
+              fill = red_pink, alpha = 0.2, linetype = "blank") +
+  annotate("text", label = "EC", x = q_2/3, y = pd_2 + 1,
+           color = red_pink, family = "Fira Sans", size = 6) +
+  
+  # Recaudo del gobierno
+  geom_ribbon(aes(x = w, ymin = ps_2, ymax = pd_2),
+              fill = green, alpha = 0.2, linetype = "blank") +
+  annotate("text", label = "Gob", x = q_2/3, y = p + 0.2,
+           color = green, family = "Fira Sans", size = 6) +
+  
+  # Líneas y puntos del equilibrio con impuesto
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2),
+               linetype = "solid", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2),
+               linetype = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2),
+               linetype = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2),
+               linetype = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2)
 ```
 :::
-::::
+:::::
 
 ## Impuestos
 
-:::: {.columns}  
+::::: columns
 ::: {.column width="40%"}
 **P:** ¿Qué ocurre con la eficiencia del mercado?
 :::
 
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
-w <- seq(0, q_2, 0.01)
+library(ggplot2)
+
+# --- Funciones y parámetros ---
+demand <- function(x) 10 - x
+supply <- function(x) 1 + x
+tax <- 3
+supply_tax <- function(x) supply(x) + tax
+
+# Equilibrios
+q   <- uniroot(function(x) demand(x) - supply(x), c(0, 10))$root
+q_2 <- uniroot(function(x) demand(x) - supply_tax(x), c(0, 10))$root
+p    <- supply(q)
+ps_2 <- supply(q_2)
+pd_2 <- demand(q_2)
+
+w   <- seq(0, q_2, 0.01)
 w_2 <- seq(q_2, q, 0.01)
+
+# --- Colores definidos ---
+purple    <- "#6A0DAD"
+red_pink  <- "#FF5A77"
+met_slate <- "#475569"
+orange    <- "#FFA500"  # tono anaranjado estándar
+
+# --- Base del gráfico ---
+base <- ggplot() +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = 0:10) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = 0:10) +
+  labs(x = "Q", y = "P") +
+  theme_classic()
+
+# --- Gráfico corregido ---
 base +
-  stat_function(fun = supply, color = purple, size = 1) + # supply function
-  stat_function(fun = supply_tax, color = purple, size = 1) + # supply function (tax)
-  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
-  annotate("text", label = expression(D), x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
-  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
-  annotate("text", label = expression(S[Impuesto]), x = 9 - tax + 0.55, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
+  stat_function(fun = supply, color = purple, size = 1) +
+  stat_function(fun = supply_tax, color = purple, size = 1, linetype = "dotted") +
+  stat_function(fun = demand, color = red_pink, size = 1) +
   
-  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "solid", color = met_slate, size = 1) +
-  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) +
+  # Etiquetas corregidas (usa parse = TRUE)
+  annotate("text", label = "D",            x = 9, y = 1.6,  color = red_pink, family = "Fira Sans", size = 9, parse = TRUE) +
+  annotate("text", label = "S",            x = 9, y = 9.5,  color = purple,   family = "Fira Sans", size = 9, parse = TRUE) +
+  annotate("text", label = "S[Imp]",       x = 9 - tax + 0.55, y = 9.5, color = purple, family = "Fira Sans", size = 9, parse = TRUE) +
+  
+  # Segmentos y puntos del equilibrio con impuesto
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2),
+               linetype = "solid", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2),
+               linetype = "dashed", color = met_slate, size = 1) +
   geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
-  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2),
+               linetype = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2),
+               linetype = "dashed", color = met_slate, size = 1) +
   geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2) +
-  geom_ribbon(aes(x = w_2, ymin = supply(w_2), ymax = p), fill = orange, alpha = 0.2, linetype = "blank") +
-  geom_ribbon(aes(x = w_2, ymin = p, ymax = demand(w_2)), fill = orange, alpha = 0.2, linetype = "blank") +
-  annotate("text", label = "Ineficiencia", x = (q + q_2)/2 - 0.125, y = p, color = orange, family = "Fira Sans", size = 6)
+  
+  # Pérdida de eficiencia (DWL)
+  geom_ribbon(aes(x = w_2, ymin = supply(w_2), ymax = p),
+              fill = orange, alpha = 0.25, linetype = "blank") +
+  geom_ribbon(aes(x = w_2, ymin = p, ymax = demand(w_2)),
+              fill = orange, alpha = 0.25, linetype = "blank") +
+  annotate("text", label = "Ineficiencia", 
+           x = (q + q_2)/2 - 0.125, y = p, 
+           color = orange, family = "Fira Sans", size = 6)
 ```
 :::
-::::
+:::::
 
 # Y si solo buscaramos afectar al consumidor? 👀
 
 ## Impuesto al consumidor
 
-:::: {.columns}  
+::::: columns
 ::: {.column width="40%"}
 **P:** ¿Cómo afecta un impuesto por unidad a los consumidores, al precio y la cantidad de equilibrio?
 
@@ -1021,37 +1219,59 @@ tab
 
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
- demand <- function(x) 10 - x
+library(ggplot2)
+
+# --- Funciones y parámetros ---
+demand <- function(x) 10 - x
 supply <- function(x) 1 + x
 tax <- 3
 demand_tax <- function(x) demand(x) - tax
+
 x <- 0:10
-q <- uniroot(function(x) demand(x) - supply(x), range(x))$root
+q   <- uniroot(function(x) demand(x) - supply(x), range(x))$root
 q_2 <- uniroot(function(x) demand_tax(x) - supply(x), range(x))$root
-p <- supply(q)
+p    <- supply(q)
 ps_2 <- supply(q_2)
 pd_2 <- demand(q_2)
-z <- seq(0, q, 0.01)
+z    <- seq(0, q, 0.01)
+
+# --- Colores definidos ---
+purple    <- "#6A0DAD"
+red_pink  <- "#FF5A77"
+met_slate <- "#475569"
+
+# --- Base del gráfico ---
 base <- ggplot() +
   scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
   scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
   labs(x = "Q", y = "P") +
-  theme_market
+  theme_classic()  # <-- corregido
+
+# --- Gráfico corregido ---
 base +
-  stat_function(fun = supply, color = purple, size = 1) + # supply function
-  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
-  annotate("text", label = expression(D), x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
-  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
-  geom_segment(aes(x = q, y = 0, xend = q, yend = p), linetype  = "dashed", color = met_slate, size = 1) + # Q*
-  geom_segment(aes(x = 0, y = p, xend = q, yend = p), linetype  = "dashed", color = met_slate, size = 1) + # P*
-  geom_point(aes(x = q, y = p), color = met_slate, size = 2) # equilibrium bundle
+  stat_function(fun = supply, color = purple, size = 1) +    # Curva de oferta
+  stat_function(fun = demand, color = red_pink, size = 1) +  # Curva de demanda
+  
+  # Etiquetas (corregidas con parse = TRUE)
+  annotate("text", label = "D", x = 9, y = 1.6,
+           color = red_pink, family = "Fira Sans", size = 9, parse = TRUE) +
+  annotate("text", label = "S", x = 9, y = 9.5,
+           color = purple, family = "Fira Sans", size = 9, parse = TRUE) +
+  
+  # Segmentos y punto de equilibrio
+  geom_segment(aes(x = q, y = 0, xend = q, yend = p),
+               linetype = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = p, xend = q, yend = p),
+               linetype = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q, y = p),
+             color = met_slate, size = 2)
 ```
 :::
-::::
+:::::
 
 ## Impuesto al consumidor {visibility="uncounted"}
 
-:::: {.columns}  
+::::: columns
 ::: {.column width="40%"}
 **P:** ¿Cómo afecta un impuesto por unidad a los consumidores, al precio y la cantidad de equilibrio?
 
@@ -1073,31 +1293,70 @@ tab
 
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+library(ggplot2)
+
+# --- Funciones y parámetros ---
+demand <- function(x) 10 - x
+supply <- function(x) 1 + x
+tax <- 3
+demand_tax <- function(x) demand(x) - tax
+
+x <- 0:10
+q   <- uniroot(function(x) demand(x) - supply(x), range(x))$root
+q_2 <- uniroot(function(x) demand_tax(x) - supply(x), range(x))$root
+p    <- supply(q)
+ps_2 <- supply(q_2)
+pd_2 <- demand(q_2)
+
+# --- Colores definidos ---
+purple    <- "#6A0DAD"
+red_pink  <- "#FF5A77"
+met_slate <- "#475569"
+
+# --- Base del gráfico ---
+base <- ggplot() +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = 0:10) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = 0:10) +
+  labs(x = "Q", y = "P") +
+  theme_classic()
+
+# --- Gráfico corregido ---
 base +
-  stat_function(fun = supply, color = purple, size = 1) + # supply function
-  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
-  stat_function(fun = demand_tax, color = red_pink, size = 1) +
-  annotate("text", label = expression(D), x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
-  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
-  annotate("text", label = expression(D[Imp]), x = 9 - tax + 0.4, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
-  geom_segment(aes(x = q, y = 0, xend = q, yend = p), linetype  = "dashed", color = met_slate, size = 1, alpha = 0.5) + # Q*
-  geom_segment(aes(x = 0, y = p, xend = q, yend = p), linetype  = "dashed", color = met_slate, size = 1, alpha = 0.5) + # P*
+  stat_function(fun = supply, color = purple, size = 1) +        # Oferta
+  stat_function(fun = demand, color = red_pink, size = 1) +      # Demanda original
+  stat_function(fun = demand_tax, color = red_pink, size = 1, linetype = "dotted") + # Demanda con impuesto
+  
+  # Etiquetas corregidas (usa parse = TRUE)
+  annotate("text", label = "D",       x = 9, y = 1.6,  color = red_pink, family = "Fira Sans", size = 9, parse = TRUE) +
+  annotate("text", label = "S",       x = 9, y = 9.5,  color = purple,   family = "Fira Sans", size = 9, parse = TRUE) +
+  annotate("text", label = "D[Imp]",  x = 9 - tax + 0.4, y = 1.6, color = red_pink, family = "Fira Sans", size = 9, parse = TRUE) +
+  
+  # Equilibrio inicial
+  geom_segment(aes(x = q, y = 0, xend = q, yend = p),
+               linetype = "dashed", color = met_slate, size = 1, alpha = 0.5) +
+  geom_segment(aes(x = 0, y = p, xend = q, yend = p),
+               linetype = "dashed", color = met_slate, size = 1, alpha = 0.5) +
   geom_point(aes(x = q, y = p), color = met_slate, size = 2, alpha = 0.5) +
   
-  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) + 
-  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) + 
+  # Equilibrio con impuesto
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2),
+               linetype = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2),
+               linetype = "dashed", color = met_slate, size = 1) +
   geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
   
-  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) + 
-  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) + 
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2),
+               linetype = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2),
+               linetype = "dashed", color = met_slate, size = 1) +
   geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2)
 ```
 :::
-::::
+:::::
 
 ## Impuesto al consumidor {visibility="uncounted"}
 
-:::: {.columns}  
+::::: columns
 ::: {.column width="40%"}
 **P:** ¿Cómo afecta un impuesto por unidad a los consumidores, al precio y la cantidad de equilibrio?
 
@@ -1121,29 +1380,67 @@ tab
 
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+library(ggplot2)
+
+# --- Funciones y parámetros ---
+demand <- function(x) 10 - x
+supply <- function(x) 1 + x
+tax <- 3
+demand_tax <- function(x) demand(x) - tax
+
+x <- 0:10
+q   <- uniroot(function(x) demand(x) - supply(x), range(x))$root
+q_2 <- uniroot(function(x) demand_tax(x) - supply(x), range(x))$root
+p    <- supply(q)
+ps_2 <- supply(q_2)
+pd_2 <- demand(q_2)
+
+# --- Colores definidos ---
+purple    <- "#6A0DAD"
+red_pink  <- "#FF5A77"
+met_slate <- "#475569"
+
+# --- Base del gráfico ---
+base <- ggplot() +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = 0:10) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = 0:10) +
+  labs(x = "Q", y = "P") +
+  theme_classic()
+
+# --- Gráfico corregido ---
 base +
-  stat_function(fun = supply, color = purple, size = 1) + # supply function
-  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
-  stat_function(fun = demand_tax, color = red_pink, size = 1) +
-  annotate("text", label = expression(D), x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
-  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
-  annotate("text", label = expression(D[Imp]), x = 9 - tax + 0.4, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
-  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "solid", color = met_slate, size = 1) + 
-  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) + 
-  geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
+  stat_function(fun = supply, color = purple, size = 1) +         # Oferta
+  stat_function(fun = demand, color = red_pink, size = 1) +       # Demanda original
+  stat_function(fun = demand_tax, color = red_pink, size = 1, linetype = "dotted") +  # Demanda con impuesto
   
-  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) + 
-  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) + 
+  # Etiquetas corregidas con parse = TRUE
+  annotate("text", label = "D",       x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9, parse = TRUE) +
+  annotate("text", label = "S",       x = 9, y = 9.5, color = purple,   family = "Fira Sans", size = 9, parse = TRUE) +
+  annotate("text", label = "D[Imp]",  x = 9 - tax + 0.4, y = 1.6, color = red_pink, family = "Fira Sans", size = 9, parse = TRUE) +
+  
+  # Equilibrio con impuesto
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2),
+               linetype = "solid", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2),
+               linetype = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2),
+               linetype = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2),
+               linetype = "dashed", color = met_slate, size = 1) +
   geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2) +
-  annotate("text", label = "Imp", x = q_2 + 0.45, y = p, family = "Fira Sans", size = 5, angle = 0, color = met_slate) 
+  
+  # Etiqueta del impuesto
+  annotate("text", label = "Imp", 
+           x = q_2 + 0.45, y = p, 
+           family = "Fira Sans", size = 5, color = met_slate)
 ```
 :::
-::::
-
+:::::
 
 ## Impuesto al consumidor {visibility="uncounted"}
 
-:::: {.columns}  
+::::: columns
 ::: {.column width="40%"}
 **P:** ¿Cómo afecta un impuesto por unidad a los consumidores, al precio y la cantidad de equilibrio?
 
@@ -1165,27 +1462,61 @@ tab
 
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+library(ggplot2)
+
+# --- Funciones y parámetros ---
+demand <- function(x) 10 - x
+supply <- function(x) 1 + x
+x <- 0:10
+q <- uniroot(function(x) demand(x) - supply(x), range(x))$root
+p <- supply(q)
+z <- seq(0, q, 0.01)
+
+# --- Colores definidos ---
+purple    <- "#6A0DAD"
+red_pink  <- "#FF5A77"
+met_slate <- "#475569"
+
+# --- Base del gráfico ---
+base <- ggplot() +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
+  labs(x = "Q", y = "P") +
+  theme_classic()
+
+# --- Gráfico corregido ---
 base +
-  stat_function(fun = supply, color = purple, size = 1) + # supply function
-  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
-  annotate("text", label = expression(D), x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
-  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
-  # annotate("text", label = expression(S[Tax]), x = 9 - tax + 0.55, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
-  geom_segment(aes(x = q, y = 0, xend = q, yend = p), linetype  = "dashed", color = met_slate, size = 1, alpha = 1) + # Q*
-  geom_segment(aes(x = 0, y = p, xend = q, yend = p), linetype  = "dashed", color = met_slate, size = 1, alpha = 1) + # P*
+  stat_function(fun = supply, color = purple, size = 1) + # Oferta
+  stat_function(fun = demand, color = red_pink, size = 1) + # Demanda
+  
+  # Etiquetas corregidas (parse = TRUE)
+  annotate("text", label = "D", x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9, parse = TRUE) +
+  annotate("text", label = "S", x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9, parse = TRUE) +
+  
+  # Equilibrio
+  geom_segment(aes(x = q, y = 0, xend = q, yend = p),
+               linetype = "dashed", color = met_slate, size = 1, alpha = 1) +
+  geom_segment(aes(x = 0, y = p, xend = q, yend = p),
+               linetype = "dashed", color = met_slate, size = 1, alpha = 1) +
   geom_point(aes(x = q, y = p), color = met_slate, size = 2, alpha = 1) +
   
-  geom_ribbon(aes(x = z, ymin = supply(z), ymax = p), fill = purple, alpha = 0.2, linetype = "blank") + # PS
-  annotate("text", label = "EP", x = q/3, y = p - 1.5, color = purple, family = "Fira Sans", size = 6) +
-  geom_ribbon(aes(x = z, ymin = p, ymax = demand(z)), fill = red_pink, alpha = 0.2, linetype = "blank") + # CS
-  annotate("text", label = "EC", x = q/3, y = p + 1.5, color = red_pink, family = "Fira Sans", size = 6) 
+  # Áreas de excedente
+  geom_ribbon(aes(x = z, ymin = supply(z), ymax = p),
+              fill = purple, alpha = 0.2, linetype = "blank") + # EP
+  annotate("text", label = "EP", x = q/3, y = p - 1.5,
+           color = purple, family = "Fira Sans", size = 6) +
+  
+  geom_ribbon(aes(x = z, ymin = p, ymax = demand(z)),
+              fill = red_pink, alpha = 0.2, linetype = "blank") + # EC
+  annotate("text", label = "EC", x = q/3, y = p + 1.5,
+           color = red_pink, family = "Fira Sans", size = 6)
 ```
 :::
-::::
+:::::
 
 ## Impuesto al consumidor {visibility="uncounted"}
 
-:::: {.columns}  
+::::: columns
 ::: {.column width="40%"}
 **P:** ¿Cómo afecta un impuesto por unidad a los consumidores, al precio y la cantidad de equilibrio?
 
@@ -1207,43 +1538,85 @@ tab
 
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
-w <- seq(0, q_2, 0.01)
+library(ggplot2)
+
+# --- Funciones y parámetros ---
+demand <- function(x) 10 - x
+supply <- function(x) 1 + x
+tax <- 3
+demand_tax <- function(x) demand(x) - tax
+supply_tax <- function(x) supply(x) + tax  # por claridad futura
+
+x <- 0:10
+q   <- uniroot(function(x) demand(x) - supply(x), range(x))$root
+q_2 <- uniroot(function(x) demand_tax(x) - supply(x), range(x))$root
+p    <- supply(q)
+ps_2 <- supply(q_2)
+pd_2 <- demand(q_2)
+
+# Secuencias para sombrear áreas
+w   <- seq(0, q_2, 0.01)
+w_2 <- seq(q_2, q, 0.01)
+
+# --- Colores definidos ---
+purple    <- "#6A0DAD"
+red_pink  <- "#FF5A77"
+green     <- "#2ECC71"
+orange    <- "#FFA500"
+met_slate <- "#475569"
+
+# --- Base del gráfico ---
+base <- ggplot() +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = 0:10) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = 0:10) +
+  labs(x = "Q", y = "P") +
+  theme_classic()
+
+# --- Gráfico final corregido ---
 base +
-  stat_function(fun = supply, color = purple, size = 1) + # supply function
-  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
-  stat_function(fun = demand_tax, color = red_pink, size = 1) +
-  annotate("text", label = expression(D), x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
-  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
-  annotate("text", label = expression(D[Imp]), x = 9 - tax + 0.4, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
-  
-  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple, alpha = 0.2, linetype = "blank") + # PS
+  # Curvas
+  stat_function(fun = supply, color = purple, size = 1) +
+  stat_function(fun = demand, color = red_pink, size = 1) +
+  stat_function(fun = demand_tax, color = red_pink, size = 1, linetype = "dotted") +
+
+  # Etiquetas de curvas
+  annotate("text", label = "D",        x = 9,              y = 1.6, color = red_pink, family = "Fira Sans", size = 9, parse = TRUE) +
+  annotate("text", label = "S",        x = 9,              y = 9.5, color = purple,   family = "Fira Sans", size = 9, parse = TRUE) +
+  annotate("text", label = "D[Imp]",   x = 9 - tax + 0.4,  y = 1.6, color = red_pink, family = "Fira Sans", size = 9, parse = TRUE) +
+
+  # Áreas: Excedentes, Recaudo, DWL
+  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple, alpha = 0.2) +   # Excedente productor
   annotate("text", label = "EP", x = q_2/3, y = ps_2 - 1, color = purple, family = "Fira Sans", size = 6) +
-  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2, linetype = "blank") + # CS
+
+  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2) +  # Excedente consumidor
   annotate("text", label = "EC", x = q_2/3, y = pd_2 + 1, color = red_pink, family = "Fira Sans", size = 6) +
-  geom_ribbon(aes(x = w, ymin = ps_2, ymax = pd_2), fill = green, alpha = 0.2, linetype = "blank") + # GR
-  annotate("text", label = expression(Gob), x = q_2/3, y = p - 0.2, color = green, family = "Fira Sans", size = 6) +
-  
-  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "solid", color = met_slate, size = 1) +
-  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) +
+
+  geom_ribbon(aes(x = w, ymin = ps_2, ymax = pd_2), fill = green, alpha = 0.25) +         # Recaudo gobierno
+  annotate("text", label = "Gob", x = q_2/3, y = p - 0.2, color = green, family = "Fira Sans", size = 6, parse = FALSE) +
+
+  geom_ribbon(aes(x = w_2, ymin = supply(w_2), ymax = p), fill = orange, alpha = 0.25) +  # DWL inferior
+  geom_ribbon(aes(x = w_2, ymin = p, ymax = demand(w_2)), fill = orange, alpha = 0.25) +  # DWL superior
+  annotate("text", label = "DWL", x = (q + q_2)/2 - 0.125, y = p, color = orange, family = "Fira Sans", size = 6) +
+
+  # Segmentos de equilibrio
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype = "solid",  color = met_slate, size = 1) +
+  geom_segment(aes(x = 0,   y = pd_2, xend = q_2, yend = pd_2), linetype = "dashed", color = met_slate, size = 1) +
   geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
-  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2) +
-  geom_ribbon(aes(x = w_2, ymin = supply(w_2), ymax = p), fill = orange, alpha = 0.2, linetype = "blank") +
-  geom_ribbon(aes(x = w_2, ymin = p, ymax = demand(w_2)), fill = orange, alpha = 0.2, linetype = "blank") +
-  annotate("text", label = "DWL", x = (q + q_2)/2 - 0.125, y = p, color = orange, family = "Fira Sans", size = 6)
+  geom_segment(aes(x = q_2, y = 0,   xend = q_2, yend = ps_2), linetype = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0,   y = ps_2, xend = q_2, yend = ps_2), linetype = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2)
 ```
 :::
-::::
+:::::
 
 # En quien impacta mas el impuesto entonces? 🕵🏼
 
-
 ## Incidencia
 
-:::: {.columns}  
+::::: columns
 ::: {.column width="40%"}
 **P** Sobre quien recae el impuesto (carga)?
+
 ```{R, echo = F, escape = F}
 tab <- data.frame(
   v1 = c("Carga Consumidor", "Carga Productor", "Gob"),
@@ -1261,57 +1634,84 @@ tab
 
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+library(ggplot2)
+
+# --- Funciones y parámetros ---
 demand <- function(x) 10 - x
 supply <- function(x) 1 + x
 tax <- 3
 supply_tax <- function(x) supply(x) + tax
+
+# --- Equilibrios ---
 x <- 0:10
-q <- uniroot(function(x) demand(x) - supply(x), range(x))$root
+q   <- uniroot(function(x) demand(x) - supply(x), range(x))$root
 q_2 <- uniroot(function(x) demand(x) - supply_tax(x), range(x))$root
-p <- supply(q)
+p    <- supply(q)
 ps_2 <- supply(q_2)
 pd_2 <- demand(q_2)
-z <- seq(0, q, 0.01)
-w <- seq(0, q_2, 0.01)
+
+# --- Secuencias para áreas ---
+z   <- seq(0, q, 0.01)
+w   <- seq(0, q_2, 0.01)
+w_2 <- seq(q_2, q, 0.01)
+
+# --- Colores definidos ---
+purple    <- "#6A0DAD"
+red_pink  <- "#FF5A77"
+green     <- "#2ECC71"
+orange    <- "#FFA500"
+met_slate <- "#475569"
+
+# --- Base del gráfico ---
 base <- ggplot() +
-  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
-  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = 0:10) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = 0:10) +
   labs(x = "Q", y = "P") +
-  theme_market
+  theme_classic()
+
+# --- Gráfico final ---
 base +
-  stat_function(fun = supply, color = purple, size = 1) + # supply function
-  stat_function(fun = supply_tax, color = purple, size = 1) + # supply function (tax)
-  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
-  annotate("text", label = expression(D), x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
-  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
-  annotate("text", label = expression(S[Imp]), x = 9 - tax + 0.55, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
+  stat_function(fun = supply,      color = purple,   size = 1) +  # Oferta
+  stat_function(fun = supply_tax,  color = purple,   size = 1, linetype = "dotted") +  # Oferta con impuesto
+  stat_function(fun = demand,      color = red_pink, size = 1) +  # Demanda
   
-  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple, alpha = 0.2, linetype = "blank") + # PS
-  annotate("text", label = "EP", x = q_2/3, y = ps_2 - 1, color = purple, family = "Fira Sans", size = 6) +
-  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2, linetype = "blank") + # CS
-  annotate("text", label = "EC", x = q_2/3, y = pd_2 + 1, color = red_pink, family = "Fira Sans", size = 6) +
-  geom_ribbon(aes(x = w, ymin = ps_2, ymax = pd_2), fill = green, alpha = 0.2, linetype = "blank") + # GR
-  annotate("text", label = expression(Gob), x = q_2/3, y = p + 0.2, color = green, family = "Fira Sans", size = 6) +
+  # Etiquetas corregidas
+  annotate("text", label = "D",        x = 9,              y = 1.6, color = red_pink, family = "Fira Sans", size = 9, parse = TRUE) +
+  annotate("text", label = "S",        x = 9,              y = 9.5, color = purple,   family = "Fira Sans", size = 9, parse = TRUE) +
+  annotate("text", label = "S[Imp]",   x = 9 - tax + 0.55, y = 9.5, color = purple,   family = "Fira Sans", size = 9, parse = TRUE) +
   
-  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "solid", color = met_slate, size = 1) +
-  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) +
+  # Áreas de excedente y recaudación
+  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple,   alpha = 0.2) +
+  annotate("text", label = "EP",  x = q_2/3, y = ps_2 - 1, color = purple,   family = "Fira Sans", size = 6) +
+  
+  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2) +
+  annotate("text", label = "EC",  x = q_2/3, y = pd_2 + 1, color = red_pink, family = "Fira Sans", size = 6) +
+  
+  geom_ribbon(aes(x = w, ymin = ps_2, ymax = pd_2), fill = green, alpha = 0.25) +
+  annotate("text", label = "Gob", x = q_2/3, y = p + 0.2, color = green, family = "Fira Sans", size = 6, parse = FALSE) +
+  
+  # Pérdida irrecuperable (DWL)
+  geom_ribbon(aes(x = w_2, ymin = supply(w_2), ymax = p), fill = orange, alpha = 0.25) +
+  geom_ribbon(aes(x = w_2, ymin = p, ymax = demand(w_2)), fill = orange, alpha = 0.25) +
+  annotate("text", label = "DWL", x = (q + q_2)/2 - 0.125, y = p, color = orange, family = "Fira Sans", size = 6) +
+  
+  # Segmentos de equilibrio con impuesto
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype = "solid",  color = met_slate, size = 1) +
+  geom_segment(aes(x = 0,   y = pd_2, xend = q_2, yend = pd_2), linetype = "dashed", color = met_slate, size = 1) +
   geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
-  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2) +
-  geom_ribbon(aes(x = w_2, ymin = supply(w_2), ymax = p), fill = orange, alpha = 0.2, linetype = "blank") +
-  geom_ribbon(aes(x = w_2, ymin = p, ymax = demand(w_2)), fill = orange, alpha = 0.2, linetype = "blank") +
-  annotate("text", label = "DWL", x = (q + q_2)/2 - 0.125, y = p, color = orange, family = "Fira Sans", size = 6)
+  geom_segment(aes(x = q_2, y = 0,   xend = q_2, yend = ps_2), linetype = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0,   y = ps_2, xend = q_2, yend = ps_2), linetype = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2)
 ```
 :::
-::::
-
+:::::
 
 ## Incidencia {visibility="uncounted"}
 
-:::: {.columns}  
+::::: columns
 ::: {.column width="40%"}
 **P** Sobre quien recae el impuesto (carga)?
+
 ```{R, echo = F, escape = F}
 tab <- data.frame(
   v1 = c("Carga Consumidor", "Carga Productor", "Gob"),
@@ -1329,83 +1729,184 @@ tab
 
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+library(ggplot2)
+
+# --- Funciones y parámetros ---
+demand <- function(x) 10 - x
+supply <- function(x) 1 + x
+tax <- 3
+supply_tax <- function(x) supply(x) + tax
+
+# --- Equilibrios ---
+x <- 0:10
+q   <- uniroot(function(x) demand(x) - supply(x), range(x))$root
+q_2 <- uniroot(function(x) demand(x) - supply_tax(x), range(x))$root
+p    <- supply(q)
+ps_2 <- supply(q_2)
+pd_2 <- demand(q_2)
+
+# --- Secuencias para sombrear áreas ---
+w   <- seq(0, q_2, 0.01)
+w_2 <- seq(q_2, q, 0.01)
+
+# --- Colores definidos ---
+purple    <- "#6A0DAD"
+red_pink  <- "#FF5A77"
+orange    <- "#FFA500"
+met_slate <- "#475569"
+
+# --- Base del gráfico ---
+base <- ggplot() +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = 0:10) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = 0:10) +
+  labs(x = "Q", y = "P") +
+  theme_classic()
+
+# --- Gráfico corregido ---
 base +
-  stat_function(fun = supply, color = purple, size = 1) + # supply function
-  stat_function(fun = supply_tax, color = purple, size = 1, alpha = 0.5) + # supply function (tax)
-  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
-  annotate("text", label = expression(D), x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
-  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
-  annotate("text", label = expression(S[Imp]), x = 9 - tax + 0.55, y = 9.5, color = purple, family = "Fira Sans", size = 9, alpha = 0.5) +
+  stat_function(fun = supply,      color = purple,   size = 1) + # Oferta
+  stat_function(fun = supply_tax,  color = purple,   size = 1, alpha = 0.5, linetype = "dotted") + # Oferta con impuesto
+  stat_function(fun = demand,      color = red_pink, size = 1) + # Demanda
   
-  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple, alpha = 0.2, linetype = "blank") + # PS
+  # Etiquetas de curvas
+  annotate("text", label = "D",       x = 9,              y = 1.6, color = red_pink, family = "Fira Sans", size = 9, parse = TRUE) +
+  annotate("text", label = "S",       x = 9,              y = 9.5, color = purple,   family = "Fira Sans", size = 9, parse = TRUE) +
+  annotate("text", label = "S[Imp]",  x = 9 - tax + 0.55, y = 9.5, color = purple,   family = "Fira Sans", size = 9, parse = TRUE) +
+  
+  # Excedentes con impuesto
+  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple, alpha = 0.2) +
   annotate("text", label = "EP", x = q_2/3, y = ps_2 - 1, color = purple, family = "Fira Sans", size = 6) +
-  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2, linetype = "blank") + # CS
+  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2) +
   annotate("text", label = "EC", x = q_2/3, y = pd_2 + 1, color = red_pink, family = "Fira Sans", size = 6) +
-  
-  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "solid", color = met_slate, size = 1) +
-  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) +
+
+  # Líneas del nuevo equilibrio
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2),
+               linetype = "solid", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2),
+               linetype = "dashed", color = met_slate, size = 1) +
   geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
-  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2),
+               linetype = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2),
+               linetype = "dashed", color = met_slate, size = 1) +
   geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2) +
-  geom_ribbon(aes(x = w_2, ymin = supply(w_2), ymax = p), fill = orange, alpha = 0.2, linetype = "blank") +
-  geom_ribbon(aes(x = w_2, ymin = p, ymax = demand(w_2)), fill = orange, alpha = 0.2, linetype = "blank") +
+
+  # Pérdida irrecuperable (DWL)
+  geom_ribbon(aes(x = w_2, ymin = supply(w_2), ymax = p), fill = orange, alpha = 0.2) +
+  geom_ribbon(aes(x = w_2, ymin = p, ymax = demand(w_2)), fill = orange, alpha = 0.2) +
   annotate("text", label = "DWL", x = (q + q_2)/2 - 0.125, y = p, color = orange, family = "Fira Sans", size = 6) +
-  
-  geom_segment(aes(x = 0, y = p, xend = q_2, yend = p), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_ribbon(aes(x = w, ymin = ps_2, ymax = p), fill = purple, alpha = 0.1, linetype = "blank") + 
-  annotate("text", label = "Carga (P)", x = q_2/2, y = p - 0.75, color = purple, family = "Fira Sans", size = 4) +
-  
-  geom_ribbon(aes(x = w, ymin = p, ymax = pd_2), fill = red_pink, alpha = 0.1, linetype = "blank") + 
-  annotate("text", label = "Carga (C)", x = q_2/2, y = p + 0.75, color = red_pink, family = "Fira Sans", size = 4)
+
+  # Carga del productor
+  geom_segment(aes(x = 0, y = p, xend = q_2, yend = p),
+               linetype = "dashed", color = met_slate, size = 1) +
+  geom_ribbon(aes(x = w, ymin = ps_2, ymax = p),
+              fill = purple, alpha = 0.1) +
+  annotate("text", label = "Carga (P)", x = q_2/2, y = p - 0.75,
+           color = purple, family = "Fira Sans", size = 4) +
+
+  # Carga del consumidor
+  geom_ribbon(aes(x = w, ymin = p, ymax = pd_2),
+              fill = red_pink, alpha = 0.1) +
+  annotate("text", label = "Carga (C)", x = q_2/2, y = p + 0.75,
+           color = red_pink, family = "Fira Sans", size = 4)
 ```
 :::
-::::
+:::::
 
 ## Incidencia {visibility="uncounted"}
 
-:::: {.columns}  
+::::: columns
 ::: {.column width="40%"}
-[La incidencia fiscal **NO** depende de si el Gobierno grava a los productores o los consumidores.]{.blut} 
+[La incidencia fiscal **NO** depende de si el Gobierno grava a los productores o los consumidores.]{.blut}
 :::
-
 
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+library(ggplot2)
+
+# --- Funciones de oferta y demanda ---
+demand <- function(x) 10 - x
+supply <- function(x) 1 + x
+tax <- 3
+supply_tax <- function(x) supply(x) + tax
+
+# --- Cálculo de equilibrios ---
+x <- 0:10
+q   <- uniroot(function(x) demand(x) - supply(x), range(x))$root
+q_2 <- uniroot(function(x) demand(x) - supply_tax(x), range(x))$root
+p    <- supply(q)
+ps_2 <- supply(q_2)
+pd_2 <- demand(q_2)
+
+# --- Secuencias para sombrear áreas ---
+z   <- seq(0, q, 0.01)
+w   <- seq(0, q_2, 0.01)
+w_2 <- seq(q_2, q, 0.01)
+
+# --- Colores definidos ---
+purple    <- "#6A0DAD"
+red_pink  <- "#FF5A77"
+orange    <- "#FFA500"
+met_slate <- "#475569"
+
+# --- Base del gráfico ---
+base <- ggplot() +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = 0:10) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = 0:10) +
+  labs(x = "Q", y = "P") +
+  theme_classic()
+
+# --- Gráfico corregido ---
 base +
-  stat_function(fun = supply, color = purple, size = 1) + # supply function
-  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
-  annotate("text", label = expression(D), x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9) +
-  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
-  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple, alpha = 0.2, linetype = "blank") + # PS
+  # Curvas de oferta y demanda
+  stat_function(fun = supply, color = purple, size = 1) +
+  stat_function(fun = demand, color = red_pink, size = 1) +
+
+  # Etiquetas de curvas
+  annotate("text", label = "D", x = 9, y = 1.6, color = red_pink, family = "Fira Sans", size = 9, parse = TRUE) +
+  annotate("text", label = "S", x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9, parse = TRUE) +
+
+  # Excedente del productor y consumidor
+  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple, alpha = 0.2) +
   annotate("text", label = "EP", x = q_2/3, y = ps_2 - 1, color = purple, family = "Fira Sans", size = 6) +
-  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2, linetype = "blank") + # CS
+  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2) +
   annotate("text", label = "EC", x = q_2/3, y = pd_2 + 1, color = red_pink, family = "Fira Sans", size = 6) +
-  
-  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "solid", color = met_slate, size = 1) +
-  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) +
+
+  # Segmentos y puntos del equilibrio con impuesto
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2),
+               linetype = "solid", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2),
+               linetype = "dashed", color = met_slate, size = 1) +
   geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
-  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2),
+               linetype = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2),
+               linetype = "dashed", color = met_slate, size = 1) +
   geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2) +
-  geom_ribbon(aes(x = w_2, ymin = supply(w_2), ymax = p), fill = orange, alpha = 0.2, linetype = "blank") +
-  geom_ribbon(aes(x = w_2, ymin = p, ymax = demand(w_2)), fill = orange, alpha = 0.2, linetype = "blank") +
+
+  # Área de pérdida de eficiencia (DWL)
+  geom_ribbon(aes(x = w_2, ymin = supply(w_2), ymax = p), fill = orange, alpha = 0.2) +
+  geom_ribbon(aes(x = w_2, ymin = p, ymax = demand(w_2)), fill = orange, alpha = 0.2) +
   annotate("text", label = "DWL", x = (q + q_2)/2 - 0.125, y = p, color = orange, family = "Fira Sans", size = 6) +
-  
-  geom_segment(aes(x = 0, y = p, xend = q_2, yend = p), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_ribbon(aes(x = w, ymin = ps_2, ymax = p), fill = purple, alpha = 0.1, linetype = "blank") + 
+
+  # Línea de referencia del precio original
+  geom_segment(aes(x = 0, y = p, xend = q_2, yend = p),
+               linetype = "dashed", color = met_slate, size = 1) +
+
+  # Carga impositiva del productor
+  geom_ribbon(aes(x = w, ymin = ps_2, ymax = p), fill = purple, alpha = 0.1) +
   annotate("text", label = "Carga (P)", x = q_2/2, y = p - 0.75, color = purple, family = "Fira Sans", size = 4) +
-  
-  geom_ribbon(aes(x = w, ymin = p, ymax = pd_2), fill = red_pink, alpha = 0.1, linetype = "blank") + 
+
+  # Carga impositiva del consumidor
+  geom_ribbon(aes(x = w, ymin = p, ymax = pd_2), fill = red_pink, alpha = 0.1) +
   annotate("text", label = "Carga (C)", x = q_2/2, y = p + 0.75, color = red_pink, family = "Fira Sans", size = 4)
 ```
 :::
-::::
-
+:::::
 
 ## Incidencia
 
-:::: {.columns}  
+::::: columns
 ::: {.column width="40%"}
 **P:** Si por estatuto no se puede hacer, que es lo que lo hace?
 
@@ -1426,53 +1927,86 @@ tab
 
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+library(ggplot2)
+
+# --- Parámetros y funciones ---
 x <- 0:10
 t <- 3
 demand <- function(x) 10 - (1/5)*x
 supply <- function(x) 1 + x
 supply_tax <- function(x) 1 + t + x
-q <- uniroot(function(x) demand(x) - supply(x), range(x))$root
+
+# --- Equilibrios ---
+q   <- uniroot(function(x) demand(x) - supply(x), range(x))$root
 q_2 <- uniroot(function(x) demand(x) - supply_tax(x), range(x))$root
-p <- supply(q)
+p    <- supply(q)
 ps_2 <- supply(q_2)
 pd_2 <- demand(q_2)
+
+# --- Secuencias para sombrear áreas ---
 w <- seq(0, q_2, 0.01)
 z <- seq(q_2, q, 0.01)
+
+# --- Colores definidos ---
+purple    <- "#6A0DAD"
+red_pink  <- "#FF5A77"
+met_slate <- "#475569"
+
+# --- Base del gráfico ---
 base <- ggplot() +
   scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
   scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
   labs(x = "Q", y = "P") +
-  theme_market
+  theme_classic()
+
+# --- Gráfico final corregido ---
 base +
-  stat_function(fun = supply, color = purple, size = 1) + # supply function
-  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
-  annotate("text", label = expression(D), x = 9, y = 8.65, color = red_pink, family = "Fira Sans", size = 9) +
-  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
-  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple, alpha = 0.2, linetype = "blank") + # PS
+  # Curvas
+  stat_function(fun = supply,      color = purple,   size = 1) + 
+  stat_function(fun = demand,      color = red_pink, size = 1) +
+
+  # Etiquetas de curvas
+  annotate("text", label = "D", x = 9, y = 8.65, color = red_pink, family = "Fira Sans", size = 9, parse = TRUE) +
+  annotate("text", label = "S", x = 9, y = 9.5,  color = purple,   family = "Fira Sans", size = 9, parse = TRUE) +
+
+  # Excedentes
+  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple,   alpha = 0.2) +
   annotate("text", label = "EP", x = 1, y = ps_2 - 1, color = purple, family = "Fira Sans", size = 6) +
-  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2, linetype = "blank") + # CS
+  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2) +
   annotate("text", label = "EC", x = 1, y = pd_2 + 0.5, color = red_pink, family = "Fira Sans", size = 6) +
-  
-  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "solid", color = met_slate, size = 1) +
-  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) +
+
+  # Líneas y puntos de equilibrio con impuesto
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2),
+               linetype = "solid", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2),
+               linetype = "dashed", color = met_slate, size = 1) +
   geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
-  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2),
+               linetype = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2),
+               linetype = "dashed", color = met_slate, size = 1) +
   geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2) +
-  
-  geom_segment(aes(x = 0, y = p, xend = q_2, yend = p), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_ribbon(aes(x = w, ymin = ps_2, ymax = p), fill = purple, alpha = 0.1, linetype = "blank") + 
-  annotate("text", label = "Carga (P)", x = q_2/2, y = (p + ps_2)/2, color = purple, family = "Fira Sans", size = 4) +
-  
-  geom_ribbon(aes(x = w, ymin = p, ymax = pd_2), fill = red_pink, alpha = 0.1, linetype = "blank") + 
-  annotate("text", label = "Carga (C)", x = q_2/2, y = (p + pd_2)/2, color = red_pink, family = "Fira Sans", size = 4)
+
+  # Precio antes del impuesto
+  geom_segment(aes(x = 0, y = p, xend = q_2, yend = p),
+               linetype = "dashed", color = met_slate, size = 1) +
+
+  # Carga del productor
+  geom_ribbon(aes(x = w, ymin = ps_2, ymax = p), fill = purple, alpha = 0.1) + 
+  annotate("text", label = "Carga (P)", x = q_2/2, y = (p + ps_2)/2,
+           color = purple, family = "Fira Sans", size = 4) +
+
+  # Carga del consumidor
+  geom_ribbon(aes(x = w, ymin = p, ymax = pd_2), fill = red_pink, alpha = 0.1) + 
+  annotate("text", label = "Carga (C)", x = q_2/2, y = (p + pd_2)/2,
+           color = red_pink, family = "Fira Sans", size = 4)
 ```
 :::
-::::
+:::::
 
 ## Incidencia {visibility="uncounted"}
 
-:::: {.columns}  
+::::: columns
 ::: {.column width="40%"}
 **P:** Si por estatuto no se puede hacer, que es lo que lo hace?
 
@@ -1493,105 +2027,170 @@ tab
 
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+library(ggplot2)
+
+# --- Parámetros y funciones ---
 x <- 0:10
 t <- 3
 demand <- function(x) 10 - 2*x
 supply <- function(x) 1 + x
 supply_tax <- function(x) 1 + t + x
-q <- uniroot(function(x) demand(x) - supply(x), range(x))$root
+
+# --- Equilibrios ---
+q   <- uniroot(function(x) demand(x) - supply(x), range(x))$root
 q_2 <- uniroot(function(x) demand(x) - supply_tax(x), range(x))$root
-p <- supply(q)
+p    <- supply(q)
 ps_2 <- supply(q_2)
 pd_2 <- demand(q_2)
+
+# --- Secuencias para sombrear áreas ---
 w <- seq(0, q_2, 0.01)
 z <- seq(q_2, q, 0.01)
+
+# --- Colores definidos ---
+purple    <- "#6A0DAD"
+red_pink  <- "#FF5A77"
+met_slate <- "#475569"
+
+# --- Base del gráfico ---
 base <- ggplot() +
   scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
   scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
   labs(x = "Q", y = "P") +
-  theme_market
+  theme_classic()
+
+# --- Gráfico final ---
 base +
-  stat_function(fun = supply, color = purple, size = 1) + # supply function
-  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
-  annotate("text", label = expression(D), x = 5.1, y = 0.65, color = red_pink, family = "Fira Sans", size = 9) +
-  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
-  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple, alpha = 0.2, linetype = "blank") + # PS
+  # Curvas
+  stat_function(fun = supply, color = purple, size = 1) +
+  stat_function(fun = demand, color = red_pink, size = 1) +
+  
+  # Etiquetas de curvas
+  annotate("text", label = "D", x = 5.1, y = 0.65, color = red_pink, family = "Fira Sans", size = 9, parse = TRUE) +
+  annotate("text", label = "S", x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9, parse = TRUE) +
+  
+  # Excedentes
+  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple, alpha = 0.2) +
   annotate("text", label = "EP", x = q_2/3, y = ps_2 - 0.5, color = purple, family = "Fira Sans", size = 6) +
-  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2, linetype = "blank") + # CS
+  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2) +
   annotate("text", label = "EC", x = q_2/3, y = pd_2 + 1, color = red_pink, family = "Fira Sans", size = 6) +
-  
-  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "solid", color = met_slate, size = 1) +
-  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) +
+
+  # Líneas y puntos de equilibrio con impuesto
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2),
+               linetype = "solid", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2),
+               linetype = "dashed", color = met_slate, size = 1) +
   geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
-  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2),
+               linetype = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2),
+               linetype = "dashed", color = met_slate, size = 1) +
   geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2) +
-  
-  geom_segment(aes(x = 0, y = p, xend = q_2, yend = p), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_ribbon(aes(x = w, ymin = ps_2, ymax = p), fill = purple, alpha = 0.1, linetype = "blank") + 
-  annotate("text", label = "Carga (P)", x = q_2/2, y = (p + ps_2)/2, color = purple, family = "Fira Sans", size = 4) +
-  
-  geom_ribbon(aes(x = w, ymin = p, ymax = pd_2), fill = red_pink, alpha = 0.1, linetype = "blank") + 
-  annotate("text", label = "Carga (C)", x = q_2/2, y = (p + pd_2)/2, color = red_pink, family = "Fira Sans", size = 4)
+
+  # Precio antes del impuesto
+  geom_segment(aes(x = 0, y = p, xend = q_2, yend = p),
+               linetype = "dashed", color = met_slate, size = 1) +
+
+  # Carga del productor
+  geom_ribbon(aes(x = w, ymin = ps_2, ymax = p), fill = purple, alpha = 0.1) + 
+  annotate("text", label = "Carga (P)", x = q_2/2, y = (p + ps_2)/2,
+           color = purple, family = "Fira Sans", size = 4) +
+
+  # Carga del consumidor
+  geom_ribbon(aes(x = w, ymin = p, ymax = pd_2), fill = red_pink, alpha = 0.1) + 
+  annotate("text", label = "Carga (C)", x = q_2/2, y = (p + pd_2)/2,
+           color = red_pink, family = "Fira Sans", size = 4)
 ```
 :::
-::::
+:::::
 
 ## Incidencia {visibility="uncounted"}
 
-:::: {.columns}  
+::::: columns
 ::: {.column width="40%"}
 **P:** Si por estatuto no se puede hacer, que es lo que lo hace?
 
-**R:** [La elasticidad de la demanda y oferta!]{.alert}
-<br> --> El lado inelástico del mercado soporta más la carga.
+**R:** [La elasticidad de la demanda y oferta!]{.alert} <br> --\> El lado inelástico del mercado soporta más la carga.
 :::
 
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
+library(ggplot2)
+
+# --- Funciones y parámetros ---
 x <- 0:10
 t <- 3
 demand <- function(x) 10 - 2*x
 supply <- function(x) 1 + x
 supply_tax <- function(x) 1 + t + x
-q <- uniroot(function(x) demand(x) - supply(x), range(x))$root
+
+# --- Equilibrios ---
+q   <- uniroot(function(x) demand(x) - supply(x), range(x))$root
 q_2 <- uniroot(function(x) demand(x) - supply_tax(x), range(x))$root
-p <- supply(q)
+p    <- supply(q)
 ps_2 <- supply(q_2)
 pd_2 <- demand(q_2)
+
+# --- Secuencias para sombrear ---
 w <- seq(0, q_2, 0.01)
 z <- seq(q_2, q, 0.01)
+
+# --- Colores definidos ---
+purple    <- "#6A0DAD"
+red_pink  <- "#FF5A77"
+met_slate <- "#475569"
+
+# --- Base del gráfico ---
 base <- ggplot() +
-  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
-  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = seq(0, 10, 1)) +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = 0:10) +
+  scale_y_continuous(limits = c(0, 10.5), expand = c(0, 0), breaks = 0:10) +
   labs(x = "Q", y = "P") +
-  theme_market
+  theme_classic()
+
+# --- Gráfico corregido ---
 base +
-  stat_function(fun = supply, color = purple, size = 1) + # supply function
-  stat_function(fun = demand, color = red_pink, size = 1) + # demand function
-  annotate("text", label = expression(D), x = 5.1, y = 0.65, color = red_pink, family = "Fira Sans", size = 9) +
-  annotate("text", label = expression(S), x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9) +
-  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple, alpha = 0.2, linetype = "blank") + # PS
+  # Curvas de oferta y demanda
+  stat_function(fun = supply, color = purple, size = 1) +
+  stat_function(fun = demand, color = red_pink, size = 1) +
+
+  # Etiquetas de curvas (corregidas)
+  annotate("text", label = "D", x = 5.1, y = 0.65, color = red_pink, family = "Fira Sans", size = 9, parse = TRUE) +
+  annotate("text", label = "S", x = 9, y = 9.5, color = purple, family = "Fira Sans", size = 9, parse = TRUE) +
+
+  # Excedentes
+  geom_ribbon(aes(x = w, ymin = supply(w), ymax = ps_2), fill = purple, alpha = 0.2) +
   annotate("text", label = "EP", x = q_2/3, y = ps_2 - 0.5, color = purple, family = "Fira Sans", size = 6) +
-  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2, linetype = "blank") + # CS
+  geom_ribbon(aes(x = w, ymin = pd_2, ymax = demand(w)), fill = red_pink, alpha = 0.2) +
   annotate("text", label = "EC", x = q_2/3, y = pd_2 + 1, color = red_pink, family = "Fira Sans", size = 6) +
-  
-  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2), linetype  = "solid", color = met_slate, size = 1) +
-  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2), linetype  = "dashed", color = met_slate, size = 1) +
+
+  # Líneas y puntos de equilibrio con impuesto
+  geom_segment(aes(x = q_2, y = ps_2, xend = q_2, yend = pd_2),
+               linetype = "solid", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = pd_2, xend = q_2, yend = pd_2),
+               linetype = "dashed", color = met_slate, size = 1) +
   geom_point(aes(x = q_2, y = pd_2), color = met_slate, size = 2) +
-  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2), linetype  = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = q_2, y = 0, xend = q_2, yend = ps_2),
+               linetype = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = ps_2, xend = q_2, yend = ps_2),
+               linetype = "dashed", color = met_slate, size = 1) +
   geom_point(aes(x = q_2, y = ps_2), color = met_slate, size = 2) +
-  
-  geom_segment(aes(x = 0, y = p, xend = q_2, yend = p), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_ribbon(aes(x = w, ymin = ps_2, ymax = p), fill = purple, alpha = 0.1, linetype = "blank") + 
-  annotate("text", label = "Carga (P)", x = q_2/2, y = (p + ps_2)/2, color = purple, family = "Fira Sans", size = 4) +
-  
-  geom_ribbon(aes(x = w, ymin = p, ymax = pd_2), fill = red_pink, alpha = 0.1, linetype = "blank") + 
-  annotate("text", label = "Carga (C)", x = q_2/2, y = (p + pd_2)/2, color = red_pink, family = "Fira Sans", size = 4)
+
+  # Precio antes del impuesto
+  geom_segment(aes(x = 0, y = p, xend = q_2, yend = p),
+               linetype = "dashed", color = met_slate, size = 1) +
+
+  # Carga del productor (zona inferior)
+  geom_ribbon(aes(x = w, ymin = ps_2, ymax = p), fill = purple, alpha = 0.1) + 
+  annotate("text", label = "Carga (P)", x = q_2/2, y = (p + ps_2)/2,
+           color = purple, family = "Fira Sans", size = 4) +
+
+  # Carga del consumidor (zona superior)
+  geom_ribbon(aes(x = w, ymin = p, ymax = pd_2), fill = red_pink, alpha = 0.1) + 
+  annotate("text", label = "Carga (C)", x = q_2/2, y = (p + pd_2)/2,
+           color = red_pink, family = "Fira Sans", size = 4)
 ```
 :::
-::::
+:::::
 
 ##  {background-image="imagenese/cactus2point.jpg"}
 
@@ -1604,24 +2203,20 @@ base +
 :::
 
 ::: fragment
-+ Necesita 10 millones de pesos para iniciar un negocio. La tasa que se lo prestan es al 5% anual. La tasa de Ahorro es del 2% y posee 4 millones en su cuenta débito.
+-   Necesita 10 millones de pesos para iniciar un negocio. La tasa que se lo prestan es al 5% anual. La tasa de Ahorro es del 2% y posee 4 millones en su cuenta débito.
 :::
 
 ::: fragment
-**Costos nivel 1**:<br> 
-Préstamo: 10.000.000 ; Costo explicito: $500.000
+**Costos nivel 1**:<br> Préstamo: 10.000.000 ; Costo explicito: \$500.000
 :::
 
 ::: fragment
-**Costos nivel 2**:<br> 
-Préstamo: 6.000.000; Costo explicito: $300.000
-Ahorros: 4.000.000;  Costo implícito: $80.000
+**Costos nivel 2**:<br> Préstamo: 6.000.000; Costo explicito: \$300.000 Ahorros: 4.000.000; Costo implícito: \$80.000
 :::
 
 ::: fragment
 [Total costos]{.alert}: 380.000 en el nivel 2 y de 500.000 para el nivel 1. *La mejor opción quizas sea tomar el nivel 2*
 :::
-
 
 ## Teoría del Productor
 
@@ -1634,8 +2229,7 @@ Ahorros: 4.000.000;  Costo implícito: $80.000
 :::
 
 ::: fragment
-<br/>
-<font size="+3"> Beneficio Económico= Ganancia total - [Costo explicito]{.alert} + [**Implicito**]{.blut}</font>
+<br/> <font size="+3"> Beneficio Económico= Ganancia total - [Costo explicito]{.alert} + [**Implicito**]{.blut}</font>
 :::
 
 ::: fragment
@@ -1643,33 +2237,24 @@ Ahorros: 4.000.000;  Costo implícito: $80.000
 :::
 
 ::: fragment
-**A.** Beneficio contable > Beneficio económico
+**A.** Beneficio contable \> Beneficio económico
 
-**B.** Beneficio contable < Beneficio económico
+**B.** Beneficio contable \< Beneficio económico
 :::
 
 ## Teoría del Productor {visibility="uncounted"}
 
-
 #### Diferencia entre costo contable y económico
-
-
 
 <font size="+3"> Beneficio Contable = Ganancia total - [Costo explicito]{.alert}</font>
 
-<br/>
-<font size="+3"> Beneficio Económico= Ganancia total - [Costo explicito]{.alert} + [**Implicito**]{.blut}</font>
-
-
+<br/> <font size="+3"> Beneficio Económico= Ganancia total - ([Costo explicito]{.alert} + [**Implicito**]{.blut})</font>
 
 > Cuál de los siguiente es verdadero?
 
+**A.** [Beneficio contable \> Beneficio económico]{.alert}
 
-
-**A.** [Beneficio contable > Beneficio económico]{.alert}
-
-**B.** Beneficio contable < Beneficio económico
-
+**B.** Beneficio contable \< Beneficio económico
 
 ## Teoría del Productor
 
@@ -1678,19 +2263,19 @@ Un beneficio [**contable**]{.blut} positivo no siempre significa que una empresa
 :::
 
 ::: fragment
-- [Beneficio económico]{.alert} < 0 ==> La empresa actual es menos rentable que la siguiente mejor opción.
- 
-- [Beneficio económico]{.oranger}= 0 ==> La empresa actual es tan rentable como la siguiente mejor opción.
- 
-- [Beneficio económico]{.blut} > 0 ==> La empresa actual es más rentable que la siguiente mejor opción.
+-   [Beneficio económico]{.alert} \< 0 ==\> La empresa actual es menos rentable que la siguiente mejor opción.
+
+-   [Beneficio económico]{.oranger}= 0 ==\> La empresa actual es tan rentable como la siguiente mejor opción.
+
+-   [Beneficio económico]{.blut} \> 0 ==\> La empresa actual es más rentable que la siguiente mejor opción.
 :::
 
 ## Producto total {visibility="uncounted"}
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
 #### Definición
+
 > Cantidad de un producto dado la cantidad de insumos que se tenga
 
 **Ejemplo:** Trabajadores (L), manteniendo lo demás constante.
@@ -1707,17 +2292,16 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
   labs(x = "L", y = "Q") +
   stat_function(fun = total_product, color = purple, size = 1)
 ```
-
 :::
-::::
+:::::
 
 ## Producto total {visibility="uncounted"}
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
 #### Definición
->Cantidad de un producto dado la cantidad de insumos que se tenga 
+
+> Cantidad de un producto dado la cantidad de insumos que se tenga
 
 **Ejemplo:** Trabajadores (L), manteniendo lo demas constante.
 :::
@@ -1744,53 +2328,82 @@ ggplot() +
   geom_ribbon(aes(x = u, ymin = 0, ymax = 65), fill = purple, alpha = 0.2, linetype = "blank")
 ```
 :::
-
-::::
+:::::
 
 ## Producto total {visibility="uncounted"}
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
 Hay un **producto marginal** que ayuda a definir muchos sucesos en la empresa
 :::
 
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
-x <- 0:10
+library(ggplot2)
+library(grid)
+
+# --- Función de producción total ---
 total_product <- function(x) 3*x - 0.5*x^3 + 4*x^2 
+
+# --- Puntos clave ---
 q_1 <- total_product(3)
 q_2 <- total_product(4)
 
-ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
-  scale_x_continuous(limits = c(0, 7.5), expand=c(0,0), breaks = seq(0,7,1)) +
-  scale_y_continuous(limits = c(0, 65), expand=c(0,0), breaks = seq(0,60,10)) +
-  theme_market +
+# --- Colores y tema base ---
+purple <- "#6A0DAD"
+met_slate <- "#475569"
+
+theme_market <- theme_classic() +
+  theme(
+    axis.title = element_text(family = "sans", size = 13),
+    axis.text  = element_text(family = "sans", size = 11),
+    plot.title = element_text(face = "bold", size = 14, hjust = 0.5)
+  )
+
+# --- Gráfico ---
+ggplot(data = data.frame(x = 0), aes(x = x)) +
+  scale_x_continuous(limits = c(0, 6.5), expand = c(0, 0), breaks = seq(0, 6, 1)) +
+  scale_y_continuous(limits = c(0, 70), expand = c(0, 0), breaks = seq(0, 70, 10)) +
   labs(x = "L", y = "Q") +
+  theme_market +
+  
+  # Curva del producto total
   stat_function(fun = total_product, color = purple, size = 1) +
+  
+  # Puntos de referencia
   geom_point(aes(x = 3, y = q_1), color = met_slate, size = 2) +
   geom_point(aes(x = 4, y = q_2), color = met_slate, size = 2) +
-  geom_segment(aes(x = 3, y = 0, xend = 3, yend = q_1), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_segment(aes(x = 4, y = 0, xend = 4, yend = q_2), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_segment(aes(x = 0, y = q_1, xend = 3, yend = q_1), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_segment(aes(x = 0, y = q_2, xend = 4, yend = q_2), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_segment(aes(x = 3 + 0.1, y = 10, xend = 4 - 0.1, yend = 10), arrow = arrow(angle = 20, length = unit(0.4,"cm"), type = "closed"), color = met_slate, size = 1) +
-  geom_segment(aes(x = 0.5, y = q_1 + 0.75, xend = 0.5, yend = q_2 - 0.75), arrow = arrow(angle = 20, length = unit(0.4,"cm"), type = "closed"), color = met_slate, size = 1) +
-  annotate("text", label = expression(Delta*"Q"=="Producto Marginal "), x = 2, y = (q_1 + q_2)/2, color = met_slate, family = "Fira Sans", size = 4) +
-  annotate("text", label = expression(Delta*"L"==1), x = 3.5, y = 7.5, color = met_slate, family = "Fira Sans", size = 4)
+  
+  # Líneas auxiliares
+  geom_segment(aes(x = 3, y = 0, xend = 3, yend = q_1), linetype = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 4, y = 0, xend = 4, yend = q_2), linetype = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = q_1, xend = 3, yend = q_1), linetype = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = q_2, xend = 4, yend = q_2), linetype = "dashed", color = met_slate, size = 1) +
+  
+  # Flechas
+  geom_segment(aes(x = 3 + 0.1, y = 10, xend = 4 - 0.1, yend = 10),
+               arrow = arrow(angle = 20, length = unit(0.4, "cm"), type = "closed"),
+               color = met_slate, size = 1) +
+  geom_segment(aes(x = 0.5, y = q_1 + 0.75, xend = 0.5, yend = q_2 - 0.75),
+               arrow = arrow(angle = 20, length = unit(0.4, "cm"), type = "closed"),
+               color = met_slate, size = 1) +
+  
+  # Etiquetas matemáticas corregidas
+  geom_text(aes(x = 2, y = (q_1 + q_2)/2, label = "Delta*Q==Producto~marginal"),
+            parse = TRUE, color = met_slate, family = "sans", size = 4) +
+  geom_text(aes(x = 3.5, y = 7.5, label = "Delta*L==1"),
+            parse = TRUE, color = met_slate, family = "sans", size = 4)
 ```
 :::
-
-::::
+:::::
 
 # Producto Marginal {background-color="#006dae"}
 
 ## Producto Marginal
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
-> Los cambios en el producto desde una unidad adicional de producción o trabajo 
+> Los cambios en el producto desde una unidad adicional de producción o trabajo
 :::
 
 ::: {.column width="60%"}
@@ -1824,15 +2437,13 @@ mp1 <- ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 shift_axis(mp1)
 ```
 :::
-
-::::
+:::::
 
 ## Producto Marginal {visibility="uncounted"}
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
-> Los cambios en el producto desde una unidad adicional de producción o trabajo 
+> Los cambios en el producto desde una unidad adicional de producción o trabajo
 :::
 
 ::: {.column width="60%"}
@@ -1861,12 +2472,11 @@ mp1 <- ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 shift_axis(mp1)
 ```
 :::
-
-::::
+:::::
 
 ## Producto Marginal {visibility="uncounted"}
-:::: {.columns}
 
+::::: columns
 ::: {.column width="40%"}
 El [Producto marginal]{.alert} decrece cada vez que uno de los insumos queda fijo por mucho tiempo
 :::
@@ -1892,8 +2502,7 @@ mp1 <- ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 shift_axis(mp1)
 ```
 :::
-
-::::
+:::::
 
 # Ejemplo 😎 {background-color="#006dae"}
 
@@ -1957,7 +2566,7 @@ row_spec(1:6, color = met_slate) %>%
 row_spec(1:6, extra_css = "line-height: 110%;")
 ```
 
-- Piense [marginalmente]{.blut}, usted solo contratará si: $\text{Producto Marginal} \times P \geq \color{red}{\text{Salario}}$
+-   Piense [marginalmente]{.blut}, usted solo contratará si: $\text{Producto Marginal} \times P \geq \color{red}{\text{Salario}}$
 
 # Ejemplo 2 😝 {background-color="#006dae"}
 
@@ -2041,12 +2650,11 @@ row_spec(1:6, color = met_slate) %>%
 row_spec(1:6, extra_css = "line-height: 110%;")
 ```
 
-## Ejemplo 2 
+## Ejemplo 2
 
 Por uso de la tierra usted debe pagar un arriendo, digamos que por valor de `$1000`, esto es [capital]{.alert}. Por el insumo de trabajo recuerde que debe pagar el salario de mercado `$2000` por mes.
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
 ```{R, echo = F, escape = F}
 cost_data <- data.frame(
@@ -2080,15 +2688,13 @@ cost_data %>%
   geom_line(size = 1, color = purple)
 ```
 :::
-
-::::
+:::::
 
 # Curva de costos
 
 ## Costos
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 6, 0.1)
@@ -2107,17 +2713,16 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 ### Historia
 
 La función de producción $+$ los precios de los insumos no da $\rightarrow$ [Curva de costo total]{.alert}
-
 :::
-
-::::
+:::::
 
 ## Costos
 
-- [P:]{.alert} ¿Cómo decide una empresa cuánta producción debe realizar?
+-   [P:]{.alert} ¿Cómo decide una empresa cuánta producción debe realizar?
 
-- Para aumentar los beneficios, ¿debe producir más o menos unidades?
-- [R:]{.blut} Piense en el margen.
+-   Para aumentar los beneficios, ¿debe producir más o menos unidades?
+
+-   [R:]{.blut} Piense en el margen.
 
 ::: fragment
 > Si el costo de las unidades adicionales es inferior a los ingresos por su venta, los beneficios aumentan a medida que se incrementa la producción.
@@ -2131,31 +2736,65 @@ Si el costo de las unidades adicionales es [superior]{.under} a los ingresos por
 
 ## Costo Marginal
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
-x <- seq(0, 6, 0.1)
+library(ggplot2)
+library(grid)
+
+# --- Función de costo total ---
 total_cost <- function(x) 10 + 10*x - 4*x^2 + x^3
+
+# --- Puntos de referencia ---
 tc_1 <- total_cost(3)
 tc_2 <- total_cost(4)
 
-ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
-  scale_x_continuous(limits = c(0, 5.5), expand=c(0,0), breaks = scales::pretty_breaks()) +
-  scale_y_continuous(limits = c(0, 65), expand=c(0,0), breaks = scales::pretty_breaks()) +
+# --- Colores y tema ---
+purple <- "#6A0DAD"
+met_slate <- "#475569"
+
+theme_market <- theme_classic() +
+  theme(
+    axis.title = element_text(family = "sans", size = 13),
+    axis.text  = element_text(family = "sans", size = 11)
+  )
+
+# --- Gráfico ---
+ggplot(data = data.frame(x = 0), aes(x = x)) +
+  scale_x_continuous(limits = c(0, 5.5), expand = c(0,0), breaks = scales::pretty_breaks()) +
+  scale_y_continuous(limits = c(0, 65), expand = c(0,0), breaks = scales::pretty_breaks()) +
   theme_market +
   labs(x = "Q", y = "CT") +
+
+  # Curva de costo total
   stat_function(fun = total_cost, color = purple, size = 1) +
+
+  # Puntos y líneas de referencia
   geom_point(aes(x = 3, y = tc_1), color = met_slate, size = 2) +
   geom_point(aes(x = 4, y = tc_2), color = met_slate, size = 2) +
-  geom_segment(aes(x = 3, y = 0, xend = 3, yend = tc_1), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_segment(aes(x = 4, y = 0, xend = 4, yend = tc_2), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_segment(aes(x = 0, y = tc_1, xend = 3, yend = tc_1), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_segment(aes(x = 0, y = tc_2, xend = 4, yend = tc_2), linetype  = "dashed", color = met_slate, size = 1) +
-  geom_segment(aes(x = 3 + 0.1, y = 10, xend = 4 - 0.1, yend = 10), arrow = arrow(angle = 20, length = unit(0.4,"cm"), type = "closed"), color = met_slate, size = 1) +
-  geom_segment(aes(x = 0.5, y = tc_1 + 0.75, xend = 0.5, yend = tc_2 - 0.75), arrow = arrow(angle = 20, length = unit(0.4,"cm"), type = "closed"), color = met_slate, size = 1) +
-  annotate("text", label = expression(Delta*"CT"=="Costo Marginal"), x = 2 - 0.5, y = (tc_1 + tc_2)/2, color = met_slate, family = "Fira Sans", size = 4) +
-  annotate("text", label = expression(Delta*"Q"==1), x = 3.5, y = 7.5, color = met_slate, family = "Fira Sans", size = 4)
+  geom_segment(aes(x = 3, y = 0, xend = 3, yend = tc_1),
+               linetype = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 4, y = 0, xend = 4, yend = tc_2),
+               linetype = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = tc_1, xend = 3, yend = tc_1),
+               linetype = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = tc_2, xend = 4, yend = tc_2),
+               linetype = "dashed", color = met_slate, size = 1) +
+
+  # Flechas horizontales y verticales
+  geom_segment(aes(x = 3 + 0.1, y = 10, xend = 4 - 0.1, yend = 10),
+               arrow = arrow(angle = 20, length = unit(0.4, "cm"), type = "closed"),
+               color = met_slate, size = 1) +
+  geom_segment(aes(x = 0.5, y = tc_1 + 0.75, xend = 0.5, yend = tc_2 - 0.75),
+               arrow = arrow(angle = 20, length = unit(0.4, "cm"), type = "closed"),
+               color = met_slate, size = 1) +
+
+  # Etiquetas matemáticas (corregidas)
+  geom_text(aes(x = 2, y = (tc_1 + tc_2)/2,
+                label = "Delta*CT==\"Costo~marginal\""),
+            parse = TRUE, color = met_slate, family = "sans", size = 4) +
+  geom_text(aes(x = 3.5, y = 7.5, label = "Delta*Q==1"),
+            parse = TRUE, color = met_slate, family = "sans", size = 4)
 ```
 :::
 
@@ -2164,13 +2803,11 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 
 Variación del costo total derivado de un aumento de la producción de una unidad adicional.
 :::
-
-::::
+:::::
 
 ## Costo Marginal {visibility="uncounted"}
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 6, 0.1)
@@ -2190,26 +2827,23 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 
 Variación del costo total derivado de un aumento de la producción de una unidad adicional.
 :::
-
-::::
+:::::
 
 ## Costo Marginal
 
-- Recuerde que $\text{Costo Total}= \text{Costo Fijo}+ \color{red}{\text{Costo Variable}}$
+-   Recuerde que $\text{Costo Total}= \text{Costo Fijo}+ \color{red}{\text{Costo Variable}}$
 
-- Los [Costos fijos]{.bg style="--col: #FFFF00"} no contribuyen al costo marginal, ya que no dependen de la producción.
+-   Los [Costos fijos]{.bg style="--col: #FFFF00"} no contribuyen al costo marginal, ya que no dependen de la producción.
 
-- Los [Costos fijos]{.alert} tienden a absorverse cuando la producción se vende en gran proporción. P.e: Arriendo de 200 millones pero se vende 5000 millones de pesos
+-   Los [Costos fijos]{.alert} tienden a absorverse cuando la producción se vende en gran proporción. P.e: Arriendo de 200 millones pero se vende 5000 millones de pesos
 
-- Los [Costos variables]{.oranger} si se asocian con lo producido. P.e: mas producción requiere mas material. Estos contribuyen al costo marginal de la empresa.
-
+-   Los [Costos variables]{.oranger} si se asocian con lo producido. P.e: mas producción requiere mas material. Estos contribuyen al costo marginal de la empresa.
 
 # Costo Fijo vs Variable {background-color="#006dae"}
 
 ## Costo Fijo vs Variable
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 6, 0.1)
@@ -2233,17 +2867,13 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 :::
 
 ::: {.column width="40%"}
-Los [Costos fijos]{.alert} no varian con la producción
-</br>
-Los [Costos variables]{.oranger} se afectan cuando la producción varía
-
+Los [Costos fijos]{.alert} no varian con la producción </br> Los [Costos variables]{.oranger} se afectan cuando la producción varía
 :::
-
-::::
+:::::
 
 ## Costo Fijo vs Variable
-:::: {.columns}
 
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 6, 0.1)
@@ -2263,14 +2893,14 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 
 ::: {.column width="40%"}
 ### Costo fijo promedio (AFC)
+
 Este costo resulta de dividir el costo fijo entre la producción total $CF \div Q$
 :::
-
-::::
+:::::
 
 ## Costo Fijo vs Variable
-:::: {.columns}
 
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 6, 0.1)
@@ -2290,14 +2920,14 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 
 ::: {.column width="40%"}
 ### Costo variable promedio (AVC)
+
 El costo resulta de dividir el costo variable entre la producción $CV \div Q$
 :::
-
-::::
+:::::
 
 ## Costo Fijo vs Variable
-:::: {.columns}
 
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 6, 0.1)
@@ -2316,15 +2946,14 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 
 ::: {.column width="40%"}
 ### Costo total medio (ATC)
+
 Es el costo que resulta de dividir el conjunto de costos entre la producción. Tambien sumando $AFC+AVC=\color{red}{ATC}$
 :::
-
-::::
+:::::
 
 ## Costo Fijo vs Variable {visibility="uncounted"}
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 6, 0.1)
@@ -2345,16 +2974,16 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 
 ::: {.column width="40%"}
 ### Costo total medio (ATC)
+
 Es el costo que resulta de dividir el conjunto de costos entre la producción. Tambien sumando $AFC+AVC=\color{red}{ATC}$
 
 > Escala eficiente: en Q que minimiza ATC
 :::
-
-::::
+:::::
 
 ## Costo Fijo vs Variable
-:::: {.columns}
 
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 6, 0.1)
@@ -2382,16 +3011,15 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 ::: {.column width="40%"}
 Escala eficiente [Q que minimiza el ATC]{.blut}.
 
-Q < escala eficiente: La caída del AFC reduce el ATC.
+Q \< escala eficiente: La caída del AFC reduce el ATC.
 
-Q > escala eficiente: El aumento del AVC aumenta el ATC.
+Q \> escala eficiente: El aumento del AVC aumenta el ATC.
 :::
-
-::::
+:::::
 
 ## Costo Fijo vs Variable
-:::: {.columns}
 
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 6, 0.1)
@@ -2415,18 +3043,17 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 :::
 
 ::: {.column width="40%"}
-MC < ATC $\longrightarrow$ ATC está bajando.
+MC \< ATC $\longrightarrow$ ATC está bajando.
 
-MC > ATC $\longrightarrow$ ATC [aumenta]{.blut}.
+MC \> ATC $\longrightarrow$ ATC [aumenta]{.blut}.
 
 [MC se cruza ATC]{.bg style="--col: #FFFF00"} en el Q que minimiza ATC.
 :::
-
-::::
+:::::
 
 ## Costo Fijo vs Variable {visibility="uncounted"}
-:::: {.columns}
 
+::::: columns
 ::: {.column width="60%"}
 ```{r, echo = FALSE, fig.height = 5, fig.width = 5, dev = "svg"}
 x <- seq(0, 6, 0.1)
@@ -2448,14 +3075,13 @@ ggplot(data = data.frame(x = 0), mapping = aes(x = x)) +
 :::
 
 ::: {.column width="40%"}
-MC < ATC $\longrightarrow$ ATC está bajando.
+MC \< ATC $\longrightarrow$ ATC está bajando.
 
-MC > ATC $\longrightarrow$ ATC [aumenta]{.blut}.
+MC \> ATC $\longrightarrow$ ATC [aumenta]{.blut}.
 
 [MC se cruza ATC]{.bg style="--col: #FFFF00"} en el Q que minimiza ATC.
 :::
-
-::::
+:::::
 
 ## Costo Fijo vs Variable
 
@@ -2463,20 +3089,17 @@ MC > ATC $\longrightarrow$ ATC [aumenta]{.blut}.
 
 Algunos insumos son fijos.
 
-- Por ejemplo, terrenos, fábricas, robots de cadena de montaje, etc.
+-   Por ejemplo, terrenos, fábricas, robots de cadena de montaje, etc.
 
-- Insumos fijos $\longrightarrow$ costo fijo.
-
+-   Insumos fijos $\longrightarrow$ costo fijo.
 
 ### Long-Run
 
 Todos los insumos son variables
 
-- Las empresas pueden construir nuevas fábricas o vender las existentes.
+-   Las empresas pueden construir nuevas fábricas o vender las existentes.
 
-- Las empresas utilizan la combinación más eficiente de insumos para cualquier Q (por ejemplo, la fábrica con menor ATC).
-
-
+-   Las empresas utilizan la combinación más eficiente de insumos para cualquier Q (por ejemplo, la fábrica con menor ATC).
 
 ## Gracias! por su atención {.center}
 
